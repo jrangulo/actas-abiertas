@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Actas Abiertas
 
-## Getting Started
+Aplicación abierta para el conteo y validación colaborativa de las actas que definirán la presidencia de Honduras en 2025. Todo el código es público para permitir auditoría y máxima transparencia; la incorporación de cambios sigue bajo la decisión del equipo central.
 
-First, run the development server:
+## Objetivo del repositorio
+- Garantizar trazabilidad y revisión pública de la lógica que procesa y valida actas.
+- Permitir que observadores independientes auditen cómo se manejan los datos y los resultados.
+- Facilitar herramientas comunitarias (visualización, verificación y control de calidad) alrededor de las actas oficiales.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Stack y componentes clave
+- Next.js 16 (App Router) con React 19 y TypeScript.
+- Tailwind CSS v4 para estilos utilitarios.
+- Clerk para autenticación/gestión de sesiones (en preparación).
+- Tooling base: ESLint 9, PostCSS, configuración en `src/app` y `next.config.ts`.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Datos y fuentes
+- Las imágenes de las actas se descargaron directamente del sitio oficial del Consejo Nacional Electoral (CNE) y se mantienen sin alteraciones.
+- Se usan únicamente con fines de observación ciudadana, verificación y transparencia.
+- Cualquier procesamiento posterior conserva referencias a los archivos originales para que puedan ser auditados.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estado actual
+- Proyecto inicial de Next.js (carpeta `src/app`) listo para personalizar la experiencia de conteo y validación.
+- Estilos globales en `src/app/globals.css`; punto de entrada principal en `src/app/page.tsx`.
+- Próximos pasos incluyen flujo de autenticación con Clerk y carga/visualización de actas.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Desarrollo local
+1) Clona el repositorio y prepara dependencias con `pnpm install` (o `npm install` si prefieres).
+2) Levanta el servidor de desarrollo con `pnpm dev` y abre `http://localhost:3000`.
+3) Otros scripts útiles: `pnpm build` para compilar, `pnpm start` para producción y `pnpm lint` para validar el código.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contribuciones y gobernanza
+- El código es open source para auditarlo; no es un proyecto de contribución abierta.
+- El equipo principal decidirá si y cómo aceptar aportes externos; abre issues para reportar problemas o sugerir mejoras.
+- Cambios significativos deben mantener la trazabilidad de datos y respetar la fuente oficial de las actas (CNE).
