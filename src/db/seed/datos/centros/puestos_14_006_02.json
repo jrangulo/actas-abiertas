@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "BO. SANTA CATALINA - CEB. PROF. EUSEBIO VENTURA QUEZADA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL NARANJO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA ENCARNACION - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS DELICIAS - CEB. SILVIA PETRONA PORTILLO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LAS FLORES - ESC. HUMBERTO R. HERNANDEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN ANTONIO DE LIMONCITO - CENTRO COMUNAL SAN ANTONIO DE LIMONCITO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JOSE DE SESESMILES - ESC. PABLO PORTILLO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SESESMILES - CEB PRESENTACION CENTENO"
+  }
+]

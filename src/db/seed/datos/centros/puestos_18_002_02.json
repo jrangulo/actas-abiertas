@@ -1,0 +1,26 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "ARENAL - ESC. AMELIA ROSALES"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CAMPO EL CAYO - ESC. VICENTE D. ANTONI"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL RETIRO - ESC. ADAN QUEZADA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA CRUZ - ESC. PEDRO NOLASCO DUARTE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "TEGUAJAL - ESC. LUCAS QUEZADA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "TIERRA BLANCA - JESUS MILLA SELVA"
+  }
+]

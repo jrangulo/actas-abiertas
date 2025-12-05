@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CONCEPCION DE SOLUTECA - INST. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL ASTILLERO - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL ENCINAL 1 - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL NARANJO - CEB. JUAN RAMÓN MOLINA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LAS LIMAS - ESC. EL PATRIOTISMO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "MATASANO - CEB JUAN MANUEL SUAZO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "PACHECO - ESC. PRESIDENTE KENNEDY"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "PIEDRA DE MOLER - ESC. RIGOBERTO ACOSTA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN JOSE DEL PLAYON - CEB JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN RAFAEL - ESC. JUAN RAMON MEDINA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "TEPANGUARE - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "TIERRA COLORADA - ESC. 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "TIERRA PRIETA - ESC. REPUBLICA DE CHILE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "YARUMELA - CEB JOSE TRINIDAD REYES"
+  }
+]

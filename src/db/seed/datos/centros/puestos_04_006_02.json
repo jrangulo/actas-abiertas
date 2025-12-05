@@ -1,0 +1,62 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "AJAGUAL - ESC. LA INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "CARTAGUA - ESC. CULTURA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "CASA QUEMADA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CUCUYAGUA - INSTITUTO POLIVALENTE MARCO EFRAIN AGUIRRE LARA "
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL BARBASCO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL NISPERO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL PORTILLO - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL TRANSITO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUALTAYA - CEB. PEDRO NUFIO "
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "OJOS DE AGUA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "PLAN DEL LIMO - ESC. JOSE CECILIO DEL VALLE PROHECO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "PLANES ABAJO - ESC. VICTOR F. ARDON"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "PLANES ARRIBA - ESC. RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN JOSE DE LAS PALMAS - CEB MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "YARUCONTE - CEB HERIBERTO ALCANTARA"
+  }
+]

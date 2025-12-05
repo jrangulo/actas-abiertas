@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "007",
+    "puesto": "AGUA CALIENTE - ESC. MONICO ROMERO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BOCA DEL MONTE - ESC. RAMON ASCENCIO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CORQUIN - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL PLAN DE LOS PLATANOS - ESC. ARMANDO MORENO ALVARADO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUALME - CEB. FEDERICO C. CANALES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "JIMILILE - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LAS CASITAS - ESC. COPAN GALEL"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "PASHAPA - ESC. CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "POTRERILLOS - CEB GRACIAS A DIOS"
+  }
+]

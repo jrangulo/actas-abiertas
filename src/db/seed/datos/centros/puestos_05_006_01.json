@@ -1,0 +1,70 @@
+[
+  {
+    "id_puesto": "022",
+    "puesto": "BO. BUENOS AIRES - CEBG. SAN MARTIN DE PORRES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "BO. CAMPO ROJO - CEB REGINALD H. HOMER"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BO. EL CENTRO - ESC. BENIGNO A. ESTRADA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "BO. EL FARO - ESC. BESSY RIVERA DE LEON"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. EL PORVENIR - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "BO. LA CIENEGUITA - ESC. HERIBERTO CASTILLO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "BO. LA CURVA - CEB REPUBLICA DE CHILE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "BO. LAGUNA DE ALVARADO - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. MEDINA - CEB JOSE MARIA MEDINA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. PUEBLO NUEVO - CEB 11 DE JUNIO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. RIO MAR - CENTRO DE EDUC. MEDIA FRANKLIN D. ROOSVELT"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "BO. SAN MARTIN - CEB REPÚBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "BO. SAN RAMON - CENTRO EDUCATIVO NO GUBERNAMENTAL JUAN PABLO II"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "COL. NUEVE DE DICIEMBRE - JN MARIA ANGELICA OREYLI PORTILLO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "COL. PALERMO - CEB. NUEVA HONDURAS"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "INVASION LA ROCA - CEB. LA ROCA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "NUEVOS HORIZONTES - CEB NUESTRA SRA DE LA MERCED"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "puesto": "EL CARRIZAL - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL DERRUMBE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL PANAL - ESC. ROBERTO SUAZO CORDOVA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA ESPERANZA O EL CACAO - CEB JOSE RODRIGUEZ",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LA UNION - ESCUELA DIONISIO DE HERRERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LA VEGA - ESC. PEDRO PASCUAL AMAYA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LAS LAGUNAS - ESC. MANUEL DE JESUS SUBIRANA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LOS PLANES - ESC. JUAN VICENTE VILLALOBOS",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "MARALE - ESC. LANDA REYES",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "OJO DE AGUA - ESC. ALVARO CONTRERAS",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SIALE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "VALLECITO ARRIBA - ESC. POLICARPO BONILLA",
+    "id_puesto": "007"
+  }
+]

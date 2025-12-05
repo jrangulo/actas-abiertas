@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA - CEB ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "COL. SANTA CRUZ - CEB RAMON VILLEDA MORALES "
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL CAJON - ESC. PROF. MANUEL A. MEJIA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL MATASANO - ESC. EDGARDO PAZ BARNICA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "GUALEN - ESC. RAFAEL LEONARDO CALLEJAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "GUALTAYA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA LOMA O SAN FELIPE - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LAS MESITAS - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO - CEB CRISTOBAL COLON "
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN FRANCISCO DE LOS CONES - CEB JOSE MARIA MEDINA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SENSENTI - CEB FRANCISCO MORAZAN"
+  }
+]

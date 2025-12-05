@@ -1,0 +1,42 @@
+[
+  {
+    "puesto": "EL AZUFRADO - CEB JOSE ANTONIO ARROYOS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL ROSARIO - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA GRANADILLA - CEB. HERLINDO CARDONA/CARLOS HARTLING",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LA LABOR - CEB EL ADELANTO",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "LLANO LARGO - CEB PRUDENCIO ARITA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LOS RANCHOS DE SAN JUAN - CEB DR. LUIS LANDA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "MONTEPEQUE - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "PASHAPA - CEB JOSE TRINIDAD REYES",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SANTA EFIGENIA - ESC. JUAN MIGUEL MEJIA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SANTA LUCIA - CEB DIONISIO DE HERRERA",
+    "id_puesto": "002"
+  }
+]

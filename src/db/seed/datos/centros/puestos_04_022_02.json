@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "004",
+    "puesto": "CERRO AZUL - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL AGUA ZARCA - ESC. JESUS ORLANDO GIMENEZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA CUMBRE - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LEPAERITA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "QUEBRADITAS - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN JUAN DE PLANES - CEB.  JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "TRINIDAD - ESC. URBANA MIXTA CRUZ ALBERTO MADRID"
+  }
+]

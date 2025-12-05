@@ -1,0 +1,102 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CALPULES - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "CONCEPCION DE LA LAGUNA - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "COYOLITOS - ESC. LEÓN ALVARADO"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL COMAL - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL JUNCO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "EL NARANJAL - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL PLAYON - ESC. PABLO ZELAYA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL ZAPOTE - ESC. ALMA RODAS DE FIALLOS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "ESQUIAS - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "HACIENDA VIEJA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "JUTIAPA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "LA CHARAMUSCA - ESC. EBENEZER"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "LA GUAMA - ESC. SEBASTIAN MARTÍNEZ RIVERA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA LAGUNA - ESC. 1ERO. DE MAYO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA MASICA - CEB FRANCISCO MRAZAN"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA MINITA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA UNION - ESC. JOSE ANTONIO RIVAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LOS PLANES - ESC. NICOLAS MONTES"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LOS POCITOS - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "NETAPA - ESC. JOSE ANTONIO VALLEJO"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "NUEVA CEIBITA - ESC. ELISA CRISTINA RUIZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "PELADERITOS - ESC. RAMON MEZA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "PLAN DEL CEDRO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "RANCHO GRANDE - CEB GREGORIO DONAIRE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN NICOLAS - ESC. PRESENTACION CENTENO"
+  }
+]

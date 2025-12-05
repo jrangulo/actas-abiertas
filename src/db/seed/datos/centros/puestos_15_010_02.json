@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPITA - ESC. LEOVIGILDO PINEDA CARDONA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CORRALITOS - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL BOQUERON - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL HIGUERO - ESC. MEDARDO MEJIA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "GUATA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA ENSENADA - ESC. FRANCISCO FLORES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA ESTANCIA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA POTENCIANA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MONTE REDONDO - ESC. RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PUEBLO VIEJO - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "RANCHO QUEMADO - ESC. LUIS ALFREDO BAQUEDANO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "TEZAPA - ESC. ANGEL ZUNIGA HUETE"
+  }
+]

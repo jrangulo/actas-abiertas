@@ -1,0 +1,106 @@
+[
+  {
+    "puesto": "AGUA DE LA PIEDRA - ESC. RAUL ZALDIVAR",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "CALPULES - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL COLIRIO - ESC. NICOLAS RODRIGUEZ",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL SAUCE - ESC. JOSE SANTOS GUARDIOLA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA GOLONDRINA - ESC. ACCION EDUCATIVA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "LA UNION O EL PLAYON - ESC. LEMPIRA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAGUNETAS - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LAGUNITAS - ESC. RENE SABILLON FERNANDEZ",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LAS FLORES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LAS ROSAS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LIMONCILLO - ESC. RAFAEL HELIODORO VALLE",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "NISPERALES - ESC. CIENCIA Y SABER",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "NUEVA YAMALA - ESC. PEDRO NUFIO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "PALMA REAL O EL BANCO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "PALMIRA - ESC. REPUBLICA DE MARRUECOS",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "PIEDRAS AZULES - ESC. RENAN H. PINEDA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "QUEBRADA DE MINA - ESC. FAUSTO RODRIGUEZ",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "QUEBRADA SECA - CEB. REPUBLICA DE CANADÁ",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "SAN FRANCISCO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN ISIDRO - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SAN JUAN - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "SAN LUIS - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SANTA ELENA - ESC. ALFONSO CASTELLANOS",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "TEJUTALES - ESC. RAFAEL BARDALES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "TOTOCA O EL BARRO - ESC. LEMPIRA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "VILLA LUZ - ESC. AUGUSTO C. COELLO",
+    "id_puesto": "018"
+  }
+]

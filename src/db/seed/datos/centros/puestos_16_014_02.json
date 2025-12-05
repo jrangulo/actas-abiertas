@@ -1,0 +1,70 @@
+[
+  {
+    "puesto": "CAMACAL - CEB MARCO AURELIO SOTO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "COPANTILLO - ESC. RAMON ROSA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL NISPERAL - ESC. ALVARO CONTRERAS",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL PERICON - ESC. ESTADOS UNIDOS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL PORTILLO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL ROBLEDAL - ESC. RICARDO MEMBREÑO",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "JUNTAS DEL JAGUA - ESC. 15 DE SEPTIEMBRE",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LAS FLORES - CEB BERNARDO GARCIA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LOS CORRALES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "NARANJITO - ESC. FELIPE BAUTISTA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "POMPOA - ESC. RUBEN ANGEL ROSA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "QUEBRADA DEL RANCHO - ESC. LEMPIRA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN ISIDRO - ESC. DR. MIGUEL PAZ BARAHONA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "SAN JUAN - CEB PERFECTO H. BOBADILLA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SANTA ANA - ESC. EL PROGRESO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "SANTIAGO DE POSTA - CEB JOSE TRINIDAD REYES",
+    "id_puesto": "008"
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. BUENOS AIRES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. ECHEVERRY - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. LARA - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. NUEVA VIDA - INST. GABINO VASQUEZ ARGUETA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. PUEBLO NUEVO - ESC Y JN. RIGOBERTO SANDOVAL COREA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. SUBIRANA - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "COL. GUANCHIAS - ESC. RIGOBERTO SANDOVAL COREA"
+  }
+]

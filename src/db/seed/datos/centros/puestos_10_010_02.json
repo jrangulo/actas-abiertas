@@ -1,0 +1,54 @@
+[
+  {
+    "puesto": "BAÑADEROS - ESC. 15 DE SEPTIEMBRE",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL CAULOTE - ESC. LA DEMOCRACIA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL ROSARIO - ESC. JUAN LINDO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LOS PLANES DE SAN JOSE - ESC. REPUBLICA DE ESPAÑA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "OJOS DE AGUA - ESC. LEMPIRA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "SAN ANTONIO - ESC. DOMINGO VASQUEZ",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SAN BARTOLO - ESC. JUAN MANUEL GALVEZ",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "SAN FRANCISCO - ESC. JUAN AMBROSIO SABIO",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN JACINTO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SAN JOSE - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SAN JUAN - ESC. MANUEL DE JESUS SUBIRANA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN SEBASTIAN - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SANTA TERESA - CEB. JOSE CECILIO DEL VALLE",
+    "id_puesto": "002"
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "id_puesto": "043",
+    "puesto": "AGUAS BUENAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "ALAO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AYAPA - CEB DIONISIO ROMERO"
+  },
+  {
+    "id_puesto": "060",
+    "puesto": "BUENA VISTA - ESC. MANUEL GARAY CORTES"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "BUENOS AIRES No. 2 - ESC. JACOBO SANTOS ALVARADO"
+  },
+  {
+    "id_puesto": "066",
+    "puesto": "CABEZA DE VACA No. 2 - ESC. RUBEN HERRERA B."
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "CALPULES - ESC. ANGEL ZUNIGA HUETE"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "CAMPO NUEVO LOCOMAPA - ESC. RUBÉN BARAHONA"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "CHALMECA - ESC. AURORA CRUZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CHAMUSCADO - ESC. RUBEN ANTUNEZ CASTILLO"
+  },
+  {
+    "id_puesto": "058",
+    "puesto": "CORRAL FALSO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "COYOLAR No. 1 - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "EL CALICHAL - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "061",
+    "puesto": "EL CEDRITO - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "059",
+    "puesto": "EL CHAGUITE No. 2 - ESC. HERIBERTO FLORES LAGOS"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL COCO O TULANGUARE - ESC. TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL COCOGUARE - ESC. ESTEBAN GUARDIOLA No. 2"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "EL JICARITO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "EL LIMONCITO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "EL MEDIO - ESC. ROSENDA SANTOS"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "EL NANCE - ESC. ROBERTO SOSA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL NARANJAL - ESC. 1ERO. DE MAYO"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "EL OCOTAL - CEB JUSTO R. PUENTES"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL ROSARIO LOCOMAPA - CEB CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "EL SIRIANO - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "EL SITIO - ESC. JESUS MILLA SELVA"
+  },
+  {
+    "id_puesto": "062",
+    "puesto": "EL TABLON - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "EL TECUAN - ESC. MANUEL GARCIA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "HACDA. VIEJA - CEB SAT 15 DE MARZO"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "JIMIA - ESC. ESTEBAN MENDOZA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "LA AGUJA - ESC. GREGORIO LEON"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA CAPA - ESC. GABINO GEORGE"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "LA COROZA No. 2 - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "LA GUARDARRAYA - ESC. REPUBLICA FEDERAL DE ALEMANIA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA GUATA - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "LA GUATILLA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "LA HABANA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA DE LA CAPA - CEB MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA LAGUNA DEL NARANJO - CEB POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA ROSA - CEB PILAR M. MARTINEZ"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA TRINIDAD - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "LAGUNA DEL ZAPOTE - ESC. RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "LAS LOMITAS - CEB CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "LAS QUEBRADAS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LAS TROJAS - CEB SAT LUIS LANDA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "MATADERO - CEB MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "MEJIA - ESC. DIONISIO ANDRADE"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "PLAN GRANDE - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "PUENTECITA - CEB. SAT GABRIELA MISTRAL"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PUNTA OCOTE - CEB POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "RIO ABAJO - ESC. ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "SABANA AFUERA - ESC. ROBERTO SOSA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "SAN BLAS - ESC. MARIA FELIX RAMIREZ"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "SAN DIEGO - CEB REPUBLICA DE COLOMBIA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "SAN FRANCISCO DE OCOMAPA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "SAN JOSE DE LOS GUARES - ESC. RAFAEL BARDALES BUESO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN JUAN - CEB. TEODORO SANDOVAL AVILA"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "SAN SIMON - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SANTA ANA DE AGUAN - ESC. RURAL MIXTA GIL MEDINA"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "SANTA RITA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "SUBIRANA - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "TIERRA AGRIA - ESC. OSCAR ORLANDO DURON CARRANZA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "TIERRA AMARILLA - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "TRIBU LA JOYA - ESC. JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "067",
+    "puesto": "VALLECILLO - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "YODECO - ESC. OLIMPIA VARELA Y VARELA"
+  }
+]

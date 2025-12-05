@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "011",
+    "puesto": "AGUA ZARCA - ESC. MONSEÑOR ALFONSO VILLANUEVA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CAMASCA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CARMEN - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL ROSARIO - ESC. JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "HACDA. SANTA LUCIA - CEB. LAS AMERICAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ANTONIO DEL MONTE - ESC. INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN IGNACIO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "SAN ISIDRO - CEB. CULTURA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JUAN DE DIOS - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN LUCAS - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "SANTA CATARINA - ESC. ROMULO E. DURON"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SANTA CRUZ - ESC. DIEGO VIGIL"
+  }
+]

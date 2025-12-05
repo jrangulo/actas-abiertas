@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL JICARO - ESC. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL LLANO - ESC. JORGE NELSON OYUELA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL REBALSE - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS CAÑAS - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS TROJAS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MALALAJA O EL JORDAN - ESC. GUSTAVO SIMON NUÑEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MORAMULCA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN ANTONIO DE FLORES - ESC. MACARIO ORTIZ MOTIÑO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "TEGUCIGALPITA - ESC. 14 DE MAYO"
+  }
+]

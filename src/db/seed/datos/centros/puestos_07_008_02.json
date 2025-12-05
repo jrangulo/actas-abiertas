@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "BUENA VISTA - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "BUENAS NOCHES - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL CAMPO - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL CHAGUITE - ESCUELA REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL CHILE O QUEBRADA GRANDE - ESC. JOSE MARTI"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL LLANO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL SUYATE - ESC. LA REDENCION"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "GUADALAJARA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "HOYA GRANDE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS LIMONES - ESC. REPUBLICA DE CUBA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MATA DE PLATANO - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MOROCELI - ESC. MIGUEL MORAZAN"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "NUEVA ESPERANZA - ESCUELA NUEVA ESPERANZA"
+  }
+]

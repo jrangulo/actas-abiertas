@@ -1,0 +1,110 @@
+[
+  {
+    "puesto": "AGUA DULCITA - ESC. JUAN LINDO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "CAMALOTE - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "CERRO BLANCO - ESC. RAMON VILLEDA MORALES",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "CONCEPCION DE GUASISTAGUA - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "CORRALITOS - ESC. 15 DE SEPTIEMBRE",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL BIJAGUAL - ESC. ALVARO CONTRERAS",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL BUEN PASTOR - ESC. DANIEL PEREIRA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL HORNO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "EL JUNCO DE LA PALMA - ESC. JOAQUIN SOTO",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL JUNCO DEL LEONCITO - ESC. LAS AMERICAS",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "EL RODEO - ESC. MANUEL DE JESUS SUBIRANA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "EL ROSARIO - ESC. GREGORIO DONAIRE",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "LA LAGUNA - ESC. MANUEL BONILLA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS HUERTAS - ESC. ALVARO CONTRERAS",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LOS IMPOSIBLES - ESC. HONDURAS",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LOS LLANITOS O LEONCITOS - ESC. JOSE ELIU CASTAÑEDA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LOS RANCHITOS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "PLAN GRANDE - ESC. VALENTIN PEREIRA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "PLAZUELAS - ESC. LA DEMOCRACIA",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "SABANA LARGA - ESC. LEMPIRA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SAN ANTONIO DE CHAGUITILLOS - ESC. VALENTIN RIVERA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN FRANCISCO DE LOMA LARGA - ESC. DEMETRIO MARTINEZ",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SAN ISIDRO - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN JACINTO O CARBONERAS - ESC. FERNANDO CEBALLOS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "SAN JOSE DE LAS PAVAS - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SANTA ROSA - ESC. CLEOTILDE C. DE ALVARADO",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "TABLEROS - ESC. RAFAEL PINEDA PONCE",
+    "id_puesto": "019"
+  }
+]

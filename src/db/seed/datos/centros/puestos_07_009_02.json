@@ -1,0 +1,46 @@
+[
+  {
+    "puesto": "CHAGUITE GRANDE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL BARRO - ESC. LUIS LANDA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL CAMPO O SAN JOSE - ESC. DIANA LORENA GAMERO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL CORRALITO - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL JICARO - ESC. LA IGUALDAD",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL ZAPOTE - ESC. ALFONSO GUILLEN ZELAYA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LA MESA - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "OREALI - ESC. MANUEL BONILLA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "OROPOLI - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SAMAYARE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "010"
+  }
+]

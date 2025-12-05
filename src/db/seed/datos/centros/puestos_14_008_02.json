@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "007",
+    "puesto": "EL HIGON - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "JUNTA DE LOS CAMINOS - CEB MANUEL ANTONIO MEJIA "
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA CONCORDIA - CEB. MONICO ROBLES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA PEÑA - CEB. JORGE HUMBERTO ARITA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LUCERNA - CEB ELEUTERIO BANEGAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "RIO HONDO - ESC. CARLOS PORTILLO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SANTA ROSITA - ESC. ESTEBAN GUARDIOLA"
+  }
+]

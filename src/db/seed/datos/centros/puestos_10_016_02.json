@@ -1,0 +1,78 @@
+[
+  {
+    "puesto": "AZACUALPA - CEB 28 DE SEPTIEMBRE",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "COFRADIA - CEB PINARES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL CARRIZAL - CEB JUAN MANUEL GALVEZ",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "EL CERRON - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL MEMBRILLO No. 1 - CEB MANANTIALES",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL PELON - ESC. LEMPIRA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL PERICON - ESC. CRISTOBAL MESA PORTILLO",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL PICACHO - CEB MANUEL BONILLA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "EL TABLON No. 2 - CEB. MARIANO TORRES CÁCERES",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LA PUERTA - CEB PATRIA",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LAS LAJAS - CEB FROYLAN TURCIOS",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LOS OLIVOS - CEB LAS PRIMAVERAS",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "OLOAS - CEB LEMPIRA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "PLANES - CEB FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SEMANE - CEB HONDURAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SEQUIRE - CEB. PATRIA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "YACE - CEB. FABIO MEZA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "YAMARANGUILA - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "ZACATE BLANCO - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "008"
+  }
+]

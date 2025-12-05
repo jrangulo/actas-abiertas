@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "COLOAL - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL SILE - CEB FRANCISCO MORAZÁN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL TABLON - CEB. DR. GUILLERMO LOPEZ RODEZNO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA LAGUNA - CEB PABLO PORTILLO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS MESITAS - CEB RAMÓN CARIAS DONAIRE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN FRANCISCO DEL VALLE - CEB VIRGILIO RODEZNO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA TERESA - CEB ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SINACAR - CEB. HERIBERTO ALCANTARA"
+  }
+]

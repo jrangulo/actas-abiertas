@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "COL. SUYAPA - CEB. NUEVO AMANECER"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL MIRADOR - ESC. BLANCA KAWAS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "GUADALUPE - ESC. LUIS BERNARDES SATUYE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "PLAN GRANDE - CEB EL PORVENIR"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PUNTA BETULIA - ESC. MI TESORO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "QUINITO - CEB ATENEA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN ANTONIO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA FE - ESC. DIONISIO DE HERRERA"
+  }
+]

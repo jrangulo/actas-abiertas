@@ -1,0 +1,82 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE - ESC. MEDARDO MEJIA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "BO. EL CENTRO - INST. PERLA DE SAN JUAN"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL DESVIO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL NARANJAL - CEB MINERVA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL ORO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL RECREO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL ZAPOTE - ESC. SALVADOR HUMBERTO GUEVARA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA CUMBRE - ESC. JOSE SIMEON CAÑAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA MASICA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA PRESA - ESC. VILMA MADRID DE ALVAREZ"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA UNION O NUEVA BETANIA - CEB MARIO ROBERTO AYALA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LOS LAURELES - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "MONTENEGRO - CEB POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN ANTONIO - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN JUAN BENQUE - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN JUAN PUEBLO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN MARCOS - CEB MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SANTA FE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "TIERRA FIRME O PUNTA DE RIELES - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "TRIPOLI - CEB RAFAEL HELIODORO VALLE"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BELEN - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL CARRIZAL - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL NARANJO O LA PENCA - CEB FRANCISCO MONTEJO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA PUERTA - ESC. EUSEBIO AMAYA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA PUERTA DEL OCOTE - ESC. ROLANDO CARDENAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS CAÑADAS - ESC. CLAUDIO BARRERA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LOS CONES - ESC. NEPTALY LEMUS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LOS PLANES DE OJUERA - CEB. BARTOLOME DE LAS CASAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SANTO DOMINGO - ESC. MARIA PAZ LARA"
+  }
+]

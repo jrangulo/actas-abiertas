@@ -1,0 +1,26 @@
+[
+  {
+    "puesto": "CEGUACA - CEB FRANCISCO MORAZAN",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "EL DESVIO O EL PORTILLO - ESC. PONCIANO LEIVA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL EDEN - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LA CUCHILLA - ESC. LEONIDAS RIVERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SAN JUAN - ESC. DOMINGO SAGASTUME",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SANTA ANA O LAS LOMAS - ESC. FELIX PAZ PAZ",
+    "id_puesto": "005"
+  }
+]

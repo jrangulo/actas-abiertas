@@ -1,0 +1,30 @@
+[
+  {
+    "puesto": "EL CHIMBO - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL EDEN - CEB. MARCO AURELIO SOTO",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA PANCHA - CEBG. JOSE AZCONA HOYO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LOMA ALTA DEL SUR - ESC. NUEVOS HORIZONTES",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LOMA ALTA NORTE - ESC. RURAL MIXTA UNION CENTRO AMERICANA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SANTA LUCIA - INST. SANTA LUCIA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "ZARABANDA - ESC. JUAN LINDO",
+    "id_puesto": "004"
+  }
+]

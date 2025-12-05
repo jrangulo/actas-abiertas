@@ -1,0 +1,74 @@
+[
+  {
+    "id_puesto": "016",
+    "puesto": "BO. EL CAIMAN - INST. PATRIA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "BO. GUADALUPE - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "COL. CAMPO DOS - ESC. CARLOS ROBERTO FLORES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "COL. CIUDAD PLANETA - CEB. MIRTHA TORREZ DE MEJA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "COL. FILADELFIA - CEB. REPUBLICA DE SUECIA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "COL. FRATERNIDAD No. 1 - INST. SUECO HONDUREÑO"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "COL. GUARUMA UNO CAMPO - ESC. GUARUMA UNO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "COL. INDEPENDENCIA - ESC. ENMA ROMERO DE CALLEJAS"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "COL. LA PAZ - ESC. MANUEL DE JESUS VALENCIA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "COL. MODESTO RODAS ALVARADO - CENTRO COMUNAL RODAS ALVARADO"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "COL. NUEVA GUADALUPE - CENTRO COMUNAL"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "COL. NUEVA JERUSALEN - ESC. LEOPOLDO BARRIENTOS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "COL. SAN CRISTOBAL - CEB. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "COL. SITRATERCO - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "COL. SULA - CEB ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "COL. VEINTITRES DE SEPTIEMBRE - ESC. DARIO TURCIOS"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "RES. ORO VERDE - INST. TECNICO OFICIAL VACACIONAL VALLE DE SULA"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "ZONA AMERICANA - ESC. KING AND QUEEN"
+  }
+]

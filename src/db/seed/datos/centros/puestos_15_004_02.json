@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "CONCORDIA - ESC. JUAN JOSE ORDOÑEZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL OJO DE AGUA - ESC. ELVIN MELLER"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL PORTILLO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "JUAN FRANCISCO - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA LAGUNA - CEB. NESTOR COLINDRES"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LAS CASITAS - ESC. ASDRUBAL VARELA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LAVADEROS - ESC. ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PEDERNALES - ESC. FEDERICO MEZA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "TERREROS BLANCOS - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "VILLA DE FATIMA O EL TABLON - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "VILLA VIEJA - CEB JOSE ANTONIO DOMINGUEZ"
+  }
+]

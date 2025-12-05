@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "012",
+    "puesto": "EL FILO DE SAN CARLOS - ESC. SOFIA DE RODRIGUEZ"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL NARANJO - ESC. JACOBO HERNANDEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL PINABETAL - ESC. REPUBLICA DE CHILE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL SITIO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUALCIRAS - CEB HERLINDA PINEDA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA UNION - ESC. TERESA MADRID"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS PEÑAS - CEB LUCILA P. ESTRADA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN ANTONIO MALCINCAL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN BARTOLO - CEB PRESENTACIÓN CENTENO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN CARLOS - ESC. UNION Y PROGRESO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ISIDRO O EL QUISCAMOTE - ESC. JULIO C. PALACIOS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN MARCOS O EL CEDRAL - ESC. JESUS MUÑOZ"
+  }
+]

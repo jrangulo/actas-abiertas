@@ -1,0 +1,146 @@
+[
+  {
+    "puesto": "AGUA SUCIA - ESC. RAFAEL BARDALES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "ALDEA NUEVA DIVISORIA - ESC. MANUEL BONILLA",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "BO. LAS VEGAS - ESC. LOS TRES PRESIDENTES",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "BUENA VISTA MOTAGUILLA - ESC. ALONSO ALTAMIRANO",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "BUENOS AIRES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "CAMALOTE - ESC. JOSE SANTOS GUARDIOLA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "COL. LEMPIRA ALVARENGA - ESC. HONDURAS",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "CORREDEROS - CEB. DR. MARIANO VASQUEZ",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL AGUACATE - CEB. DR. MARCO AURELIO SOTO",
+    "id_puesto": "037"
+  },
+  {
+    "puesto": "EL CHAGUITE - ESC. 18 DE NOVIEMBRE",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL HIGUERITO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "EL REGADILLO - ESC. LA SABIDURIA",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "EL TABLON - ESC. RAFAEL PINEDA PONCE",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LA ACEQUIA - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LA CEIBITA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LA FORTUNA - ESC. JUAN JOSE GUEVARA",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "LA MINA - ESC. PEDRO NUFIO",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "LA MONTAÑITA - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LAGUNA DEL CARMEN - ESC. BENJAMIN TROCHEZ",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. REPÚBLICA DE HONDURAS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LAS FLORES DEL RIO CHIQUITO - CEB 1RO DE MAYO",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LISTON No. 1 - ESC. VICTOR F. ARDON",
+    "id_puesto": "035"
+  },
+  {
+    "puesto": "MILPA ARADA - CBE.JOSE SANTOS GUARDIOLA    ",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "NACO - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "NUEVA ESPERANZA DE RIO CHIQUITO - ESC. PROF. FRANCISCO CASTELLON",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "OCOTAL TUPIDO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "PICHINEL - ESC. EL RENACIMIENTO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "PINALEJO - INST. MIGUEL PAZ BARAHONA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "QUIMISTAN - ESC. DR FRANCISCO BOGRAN",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "RIO BLANCO - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "SAN ISIDRO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "SAN JOSE DEL CACAO - CEB. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "SAN JUAN DEL SITIO - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "SAN MIGUEL DEL PASO VIEJO - ESC. ARMANDO FLORES CARIAS",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "SANTA CRUZ MINAS - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "VISTA HERMOSA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "029"
+  }
+]

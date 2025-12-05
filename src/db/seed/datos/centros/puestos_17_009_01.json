@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. ALTO VERDE - CEB. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BO. BUENA VISTA - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. BUENOS AIRES - ESC. BENITO CERRATO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "BO. BUENOS AIRES - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "BO. EL CENTRO - JARDIN DE NIÑOS PAULO VII"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. LA CEIBITA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. MONGOLLANO - ESC. REY ALFONSO XII"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "BO. SAN ANTONIO - CENTRO COMUNAL"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "BO. VICTORIA - ESC. RASARIO EMPERATRIZ CARIAS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "COL. DIECISIETE DE SEPTIEMBRE - ESC. FRANCISCO REYES POSADAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "COL. LA FRATERNIDAD - ESC. ESTADOS UNIDOS DE AMERICA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "COL. MORAZAN - ESC. VICTOR F. ARDON"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "COL. MORAZAN - INST. FELIPE AUGUSTINUS"
+  }
+]

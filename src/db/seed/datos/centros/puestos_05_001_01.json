@@ -1,0 +1,514 @@
+[
+  {
+    "puesto": "ALDEA EL CARMEN - CEB EUSEBIO FIALLOS",
+    "id_puesto": "254"
+  },
+  {
+    "puesto": "ARMENTA - CEB. 18 DE NOVIEMBRE",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "ASENT. LA FORTALEZA - CEB OSCAR R. TABLAS",
+    "id_puesto": "296"
+  },
+  {
+    "puesto": "BO. BARANDILLAS - CEB SOLEDAD FERNANDEZ CRUZ",
+    "id_puesto": "067"
+  },
+  {
+    "puesto": "BO. CABAÑAS - CEB LUIS LANDA",
+    "id_puesto": "145"
+  },
+  {
+    "puesto": "BO. CABAÑAS - CEB PRESENTACIÓN CENTENO",
+    "id_puesto": "144"
+  },
+  {
+    "puesto": "BO. CABAÑAS - ESC. LILA LUZ DE MARADIAGA",
+    "id_puesto": "150"
+  },
+  {
+    "puesto": "BO. CHAMELECON - CEB. PERFECTO H. BOBADILLA",
+    "id_puesto": "275"
+  },
+  {
+    "puesto": "BO. CONCEPCION - CEB REPUBLICA DE CUBA",
+    "id_puesto": "116"
+  },
+  {
+    "puesto": "BO. EL BENQUE - INST. PABLO MENZEL",
+    "id_puesto": "086"
+  },
+  {
+    "puesto": "BO. EL CENTRO - CEBG. LUIS BOGRAN",
+    "id_puesto": "085"
+  },
+  {
+    "puesto": "BO. GUAMILITO - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "BO. LAS FLORES - CEB. LEOPOLDO AGUILAR OSEGUERA",
+    "id_puesto": "062"
+  },
+  {
+    "puesto": "BO. LAS PALMAS - CEB REPUBLICA DE HONDURAS",
+    "id_puesto": "156"
+  },
+  {
+    "puesto": "BO. LEMPIRA - ESC. DR. RAMON ROSA",
+    "id_puesto": "115"
+  },
+  {
+    "puesto": "BO. MEDINA - CEB JOSE CASTRO LOPEZ",
+    "id_puesto": "122"
+  },
+  {
+    "puesto": "BO. MEDINA - CEB PEDRO NUFIO",
+    "id_puesto": "119"
+  },
+  {
+    "puesto": "BO. MORAZAN - CEB JOSE MARIA GONZALES ROSA",
+    "id_puesto": "083"
+  },
+  {
+    "puesto": "BO. PAZ BARAHONA - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "111"
+  },
+  {
+    "puesto": "BO. SUNCERY - GENESIS BILINGUAL SCHOOL",
+    "id_puesto": "135"
+  },
+  {
+    "puesto": "BO. SUYAPA - UCENM",
+    "id_puesto": "088"
+  },
+  {
+    "puesto": "CASA QUEMADA O MIRAFLORES - CEB. LEMPIRA",
+    "id_puesto": "297"
+  },
+  {
+    "puesto": "CHOTEPE - CEB. JOSE CASTRO LOPEZ",
+    "id_puesto": "295"
+  },
+  {
+    "puesto": "COFRADIA CENTRO - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "312"
+  },
+  {
+    "puesto": "COL. AGUA CALIENTE - UNIVERSIDAD TECNOLOGICA DE HONDURAS",
+    "id_puesto": "039"
+  },
+  {
+    "puesto": "COL. ALFONSO LACAYO - CEB. PADRE CLARET",
+    "id_puesto": "236"
+  },
+  {
+    "puesto": "COL. ALTOS DE COFRADIA - ESC. REP. DE MEXICO",
+    "id_puesto": "332"
+  },
+  {
+    "puesto": "COL. AURORA - CEB. PETRONILA",
+    "id_puesto": "130"
+  },
+  {
+    "puesto": "COL. BOGRAN - CEB. PATRICIA BOGRAN",
+    "id_puesto": "050"
+  },
+  {
+    "puesto": "COL. BRISAS DEL VALLE - CEB. REAL DE SUECIA",
+    "id_puesto": "306"
+  },
+  {
+    "puesto": "COL. BUENOS AIRES - CEB 15 DE SEPTIEMBRE DE 1821",
+    "id_puesto": "047"
+  },
+  {
+    "puesto": "COL. CALPULES - CEB. ALEX EDGARDO ALANIZ  LAGOS NO. 2",
+    "id_puesto": "216"
+  },
+  {
+    "puesto": "COL. CERRITO LINDO - CEB. RAFAEL PINEDA PONCE",
+    "id_puesto": "340"
+  },
+  {
+    "puesto": "COL. COLOMBIA - ESC. REPUBLICA DE COLOMBIA",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "COL. COLVISULA - INST. VOCACIONAL DE ARTES",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "COL. EBEN EZER - CEB. HECTOR G. GUILLEN",
+    "id_puesto": "270"
+  },
+  {
+    "puesto": "COL. EL CARMEN - INVA - ESC. GILBERTO PINEDA MADRID",
+    "id_puesto": "249"
+  },
+  {
+    "puesto": "COL. EL EDEN - ESC. CESAR LOPEZ PEREZ",
+    "id_puesto": "187"
+  },
+  {
+    "puesto": "COL. EL PORVENIR - ESC. EL PORVENIR",
+    "id_puesto": "338"
+  },
+  {
+    "puesto": "COL. EL RETIRO - ESC. MODESTO RODAS ALVARADO",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "COL. EL ROBLE - CEPREB. ROSALINDA MONDRAGON",
+    "id_puesto": "046"
+  },
+  {
+    "puesto": "COL. FE Y ESPERANZA - CEB. PABLO PORTILLO FIGUEROA",
+    "id_puesto": "288"
+  },
+  {
+    "puesto": "COL. FELIPE ZELAYA - CEB. ALTAGRACIA SANCHEZ",
+    "id_puesto": "220"
+  },
+  {
+    "puesto": "COL. FERNANDEZ GUZMAN - CEB 15 DE SEPTIEMBRE",
+    "id_puesto": "127"
+  },
+  {
+    "puesto": "COL. FESITRAN II - ESC. FESITRAN II",
+    "id_puesto": "339"
+  },
+  {
+    "puesto": "COL. FESITRANH - INST. 1ERO. DE MAYO",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "COL. FIGUEROA - INST. SAN VICENTE DE PAUL",
+    "id_puesto": "094"
+  },
+  {
+    "puesto": "COL. GRACIAS A DIOS - CEB. GRACIAS A DIOS",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "COL. GRACIAS A DIOS - ESC. GRACIAS A DIOS",
+    "id_puesto": "310"
+  },
+  {
+    "puesto": "COL. GUADALUPE - CEB LILA LUZ DE MARADIAGA",
+    "id_puesto": "311"
+  },
+  {
+    "puesto": "COL. IDEAL - JARDIN,ESCUELA E INSTITUTO. SAN JUAN BOSCO",
+    "id_puesto": "073"
+  },
+  {
+    "puesto": "COL. ISLAS DEL PROGRESO - CEB ANGELICA GARAY",
+    "id_puesto": "175"
+  },
+  {
+    "puesto": "COL. JARDINES DEL VALLE - ESC. BILINGUE VALLE DE SULA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "COL. JERONIMO SANDOVAL SORTO - CEB. YANKEL ROSENTHAL",
+    "id_puesto": "195"
+  },
+  {
+    "puesto": "COL. JUAN LINDO - CEB. JUAN LINDO",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "COL. LA RUIZ - CEB SANTA LUISA DE MARILLAC",
+    "id_puesto": "071"
+  },
+  {
+    "puesto": "COL. LA SABANA - ESC. HOGAR SAN JOSE",
+    "id_puesto": "330"
+  },
+  {
+    "puesto": "COL. LA UNION - CEB JOSE A. VELASQUEZ",
+    "id_puesto": "169"
+  },
+  {
+    "puesto": "COL. LAS BRISAS #1 - CEB RAFAEL PINEDA PONCE",
+    "id_puesto": "052"
+  },
+  {
+    "puesto": "COL. LAS BRISAS #2 - ESC. JOSE A. ESPINOZA",
+    "id_puesto": "055"
+  },
+  {
+    "puesto": "COL. LAS VEGAS - CEB ROBERTO CARLOS VALENZUELA",
+    "id_puesto": "081"
+  },
+  {
+    "puesto": "COL. LEMPIRA No. 1 - CEB. LEMPIRA",
+    "id_puesto": "276"
+  },
+  {
+    "puesto": "COL. LLANOS DE SULA I - CEB. ROSA M. ROUSELL",
+    "id_puesto": "235"
+  },
+  {
+    "puesto": "COL. LOMAS DEL CARMEN - ESC. RAFAEL LEONARDO CALLEJAS",
+    "id_puesto": "251"
+  },
+  {
+    "puesto": "COL. LOS ALAMOS - LICEO BILINGUE CENTROAMERICANO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "COL. LOS ANDES - CEBG. BILINGUE PABLO MENZEL",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "COL. LOS CASTAÑOS - CEB LEMPIRA",
+    "id_puesto": "043"
+  },
+  {
+    "puesto": "COL. LUISIANA - INST. LOUSIANA",
+    "id_puesto": "185"
+  },
+  {
+    "puesto": "COL. MATAMOROS - ESC. OSCAR ARMANDO AVILA",
+    "id_puesto": "336"
+  },
+  {
+    "puesto": "COL. MIGUEL ANGEL PAVON I - ESC. RAMON AMAYA AMADOR",
+    "id_puesto": "337"
+  },
+  {
+    "puesto": "COL. MODELO - CEB. ESTEBAN MENDOZA",
+    "id_puesto": "066"
+  },
+  {
+    "puesto": "COL. MODERNA - INST. NO GUBERNAMENTAL EXPERIMENTAL LA SALLE",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "COL. MONTEFRESCO - CEB JOSE RAMON AGUILAR",
+    "id_puesto": "178"
+  },
+  {
+    "puesto": "COL. MUNICIPAL - CEB FROYLAN TURCIOS",
+    "id_puesto": "214"
+  },
+  {
+    "puesto": "COL. NUEVA PRIMAVERA - CEB. MANUEL ESCOTO SOTO",
+    "id_puesto": "099"
+  },
+  {
+    "puesto": "COL. NUEVE DE MAYO - ESC. ANEXO LAURA GUZMAN VDA DE ALCOCER",
+    "id_puesto": "333"
+  },
+  {
+    "puesto": "COL. PANTING - ESC. JOSE RAMON VILLEDA MORALES",
+    "id_puesto": "259"
+  },
+  {
+    "puesto": "COL. PERFECTO VASQUEZ - CEB JOSE HERNAN AAYALA",
+    "id_puesto": "329"
+  },
+  {
+    "puesto": "COL. PERPETUO SOCORRO - CEB. PERPETUO SOCORRO",
+    "id_puesto": "206"
+  },
+  {
+    "puesto": "COL. PRADERA MUNICIPAL - ESC. LA SALLE",
+    "id_puesto": "203"
+  },
+  {
+    "puesto": "COL. PRADO - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "109"
+  },
+  {
+    "puesto": "COL. PROVIDENCIA - ESC. M. H. E. SANTOS",
+    "id_puesto": "260"
+  },
+  {
+    "puesto": "COL. QUINCE DE SEPTIEMBRE - CEB. INDEPENDENCIA",
+    "id_puesto": "272"
+  },
+  {
+    "puesto": "COL. RIO BLANCO - CEB. DIONISIO DE HERRERA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "COL. RIO PIEDRAS - CEB. DIONISIO DE HERRERA",
+    "id_puesto": "089"
+  },
+  {
+    "puesto": "COL. RIVERA HERNANDEZ - CEB CARLOS RIVERA RAMOS",
+    "id_puesto": "224"
+  },
+  {
+    "puesto": "COL. SABILLON CRUZ - CEB. PABLO PORTILLO 2",
+    "id_puesto": "289"
+  },
+  {
+    "puesto": "COL. SAN ANTONIO - CEB. REPUBLICA DE HONDURAS",
+    "id_puesto": "261"
+  },
+  {
+    "puesto": "COL. SAN FRANCISCO - CEB JOHN F. KENNEDY NO. 2",
+    "id_puesto": "160"
+  },
+  {
+    "puesto": "COL. SAN ISIDRO - INST. TECNICO CHAMELECON",
+    "id_puesto": "268"
+  },
+  {
+    "puesto": "COL. SAN JOSE - ESC. JOSE SIMON AZCONA",
+    "id_puesto": "142"
+  },
+  {
+    "puesto": "COL. SAN JOSE DE SULA - INST. JOSE TRINIDAD REYES",
+    "id_puesto": "133"
+  },
+  {
+    "puesto": "COL. SAN JOSE V - CEB SAN JOSE V",
+    "id_puesto": "173"
+  },
+  {
+    "puesto": "COL. SAN JUAN - CEB JERONIMO SANDOVAL",
+    "id_puesto": "284"
+  },
+  {
+    "puesto": "COL. SAN JUAN BOSCO - CEB PROFESORA MARGARITA SUAZO DE MATAMOROS",
+    "id_puesto": "309"
+  },
+  {
+    "puesto": "COL. SAN VICENTE DE PAUL No. 1 - ESC. VICENTINA",
+    "id_puesto": "211"
+  },
+  {
+    "puesto": "COL. SANTA MARTHA - ESC. PUBLICA SANTA MARTHA",
+    "id_puesto": "242"
+  },
+  {
+    "puesto": "COL. SATELITE ETAPA I - CEB. 1ERO. DE FEBRERO",
+    "id_puesto": "190"
+  },
+  {
+    "puesto": "COL. SEIS DE MAYO - CEB. JOSE ANTONIO PERAZA",
+    "id_puesto": "233"
+  },
+  {
+    "puesto": "COL. SINAI - ESC. DANIEL QUEZADA",
+    "id_puesto": "225"
+  },
+  {
+    "puesto": "COL. STIBYS - CEB. RAISSA VANESSA CASTRO",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "COL. SUAZO CORDOVA - ESC. 29 DE NOVIEMBRE",
+    "id_puesto": "105"
+  },
+  {
+    "puesto": "COL. SUYAPA - CEB. FIDELINA CERROS",
+    "id_puesto": "263"
+  },
+  {
+    "puesto": "COL. TREJO - INST. SAN VICENTE DE PAUL",
+    "id_puesto": "095"
+  },
+  {
+    "puesto": "COL. UNIVERSIDAD - CURN",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "COL. VALLE DE SULA - ESC. JOHN F. KENNEDY No. 1",
+    "id_puesto": "180"
+  },
+  {
+    "puesto": "COL. VEINTICUATRO DE ABRIL - CEB. DONALDO SABILLON VASQUEZ",
+    "id_puesto": "302"
+  },
+  {
+    "puesto": "COL. VILLA ERNESTINA - ESC. DR. ANTONIO R. VALLEJO",
+    "id_puesto": "184"
+  },
+  {
+    "puesto": "COL. VILLA FLORENCIA - CEB. EXP. GUIA TECNICA NO 3 FRANCISCO MORAZAN",
+    "id_puesto": "059"
+  },
+  {
+    "puesto": "COL. VILLA RICA - INST. 15 DE SEPTIEMBRE",
+    "id_puesto": "281"
+  },
+  {
+    "puesto": "COL. VILLA VIDA NUEVA - CEB. RENACER DE SULA",
+    "id_puesto": "335"
+  },
+  {
+    "puesto": "COL. ZERON - ESC. KIDDY CAT",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "COLINAS DEL CARMEN - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "257"
+  },
+  {
+    "puesto": "FESITRANH - CEB. CENTENARIO DE JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LA CUMBRE - ESC. GUSTAVO ALDOLFO CASTAÑEDA",
+    "id_puesto": "328"
+  },
+  {
+    "puesto": "LA PITA ARRIBA - ESC. DR. MARCO AURELIO SOTO",
+    "id_puesto": "301"
+  },
+  {
+    "puesto": "LA PUERTA - CEB LA GRAN FAMILIA",
+    "id_puesto": "107"
+  },
+  {
+    "puesto": "MAYEN - ESC. LEMPIRA",
+    "id_puesto": "327"
+  },
+  {
+    "puesto": "NACO (CENTRO) - CEB. MIGUEL A. CABALLERO",
+    "id_puesto": "323"
+  },
+  {
+    "puesto": "OJO DE AGUA - CEB. LAURA GUZMÁN VIUDA DE ALCOCER",
+    "id_puesto": "313"
+  },
+  {
+    "puesto": "REPARTO LEMPIRA O COL. LEMPIRA - CEB. CARLOS ROBERTO FLORES",
+    "id_puesto": "197"
+  },
+  {
+    "puesto": "SAN JORGE - ESC. RUBEN ANTUNEZ",
+    "id_puesto": "299"
+  },
+  {
+    "puesto": "SAN MANUEL - MILLENIUM LIGHT BILINGUAL SCHOOL",
+    "id_puesto": "334"
+  },
+  {
+    "puesto": "SANTA LUCIA - CEB. MIGUEL ANGEL CABALLERO",
+    "id_puesto": "326"
+  },
+  {
+    "puesto": "SANTO DOMINGO - ESC. HECTOR GUILLERMO GUILLEN",
+    "id_puesto": "320"
+  },
+  {
+    "puesto": "VICTORIA - ESC. PRUDENCIO TINOCO",
+    "id_puesto": "308"
+  },
+  {
+    "puesto": "VILLAS COLINAS DEL CARMEN - ESC. MARIA ARGENTINA CRUZ",
+    "id_puesto": "248"
+  },
+  {
+    "puesto": "ZAPOTAL DEL NORTE - CEB. POMPILIO ORTEGA",
+    "id_puesto": "037"
+  }
+]

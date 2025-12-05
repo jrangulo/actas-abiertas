@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "004",
+    "puesto": "BUENA VISTA - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "DESVIO DE PLANES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL PORVENIR - CEB LA REFORMA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LAS DELICIAS - ESC. MARCOS CARIAS REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PLAN DE SAN JERONIMO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN JOSE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "VIVISTORIO - CEB JESUS MARIA RODRIGUEZ"
+  }
+]

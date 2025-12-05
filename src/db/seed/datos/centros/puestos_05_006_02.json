@@ -1,0 +1,178 @@
+[
+  {
+    "id_puesto": "020",
+    "puesto": "AGUA CALIENTE - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "BAJAMAR - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "BANDERAS No. 3 - CEB ZACARIAS ALVARDO MENA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BARACOA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BARRA DE CHAMELECON - ESC. MARIO ENRIQUE PRIETO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BRISAS DE CHAMELECON - CEB. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "BRISAS DEL MAR - ESC. ELISA MURILLO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CALAN - ESC. 4 DE JULIO"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "CAMPO NOLA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "CEDROS - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CHAMELECONCITO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "CHILE ABAJO - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "COL. DIECINUEVE DE MAYO - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "COL. EMSLAND - CEB MIGUEL ANGEL BANEGAS"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "COL. LAS BRISAS - ESC. DAVID HERCULES NAVARRO"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "COL. LAS PALMAS - CEB RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "COL. TREINTA DE MAYO - ESC. TREINTA DE MAYO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL BALSAMO - CEB DIONICIO DE HERRERA"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "EL BOQUERON - ESC. INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "EL CHILE ARRIBA - CEB DIONICIO DE HERRERA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL MANGO - CEB MARIO MELGAR"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL REMOLINO TICAMAYA - ESC. CLAUDIO BARRERA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL SOFOCO - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "GRAN VILLA - ESC. CARLOS ROBERTO FLORES"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "GUANACASTALES - CEB FROYLON TURCIOS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "KELE KELE - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA CAMPANA - CEB HERIBERTO CASTILLO"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "LA CAOBA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA JUNTA - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA PITA - CEB 21 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "LAS DELICIAS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "LOS CRUCES - ESC. RUBENIA SERRANO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "MANACALITO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "NISPERALES - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "NUEVA TICAMAYA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "PUENTE ALTO - CEB RUBEN ALVARADO PEÑA"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "RIO ARRIBA - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "ROBLES - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "SAN ANTONIO - CEB 19 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "SAPADRIL ABAJO - CEB DIONICIO DE HERRERA"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "SARAGUAYNA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "SAUCE - ESC. LOS AMIGOS"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "TAPON DE LOS OROS - ESC. CECILIA CALLEJAS"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "TRAVESIA - CEB MIGUEL PAZ BARAHONA"
+  }
+]

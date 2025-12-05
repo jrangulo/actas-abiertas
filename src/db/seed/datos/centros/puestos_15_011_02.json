@@ -1,0 +1,42 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL COYOL - CEB EL PROGRESO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL COYOLAR - ESC. ANGEL VARGAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL RODEO - ESC. MELITON SARMIENTO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "GUADALUPE - CEB 3 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "GUAYAPE - ESC. UNION Y FUERZA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA CONCEPCION - KINDER REINERIO ALVAREZ "
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MONTE GRANDE - ESC. ENRIQUE ORTEZ PINEL"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN JOSE - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SANTA CRUZ DE GUAYAPE - CEB EL ESFUERZO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SUYAPITA - ESC. CRISTOBAL COLON"
+  }
+]

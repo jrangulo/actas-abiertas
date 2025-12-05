@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BELEN GUALCHO - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL CALVARIO - CEB JOSE ARTURO DUARTE"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL CIPRES - ESC. RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL MAGUEYAL - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL PARAISO - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "JUALACA - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA GOCIA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA MOAGA - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA TEJERA - ESC. MATUTE CANIZALEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "PALOS BLANCOS - ESC. MIGUEL A. CRUZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "PIEDRA LARGA - ESC. JOSE MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SUYANDE - CEB LAURO CARRANZA POLANCO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "YARUCHEL - CEB JOSE CECILIO DEL VALLE"
+  }
+]

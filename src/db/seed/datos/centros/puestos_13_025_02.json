@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL COPANTE - ESC. RUBEN MARTINEZ RODAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL ZAPOTE - CEB OSWALDO LOPEZ ARELLANO "
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LOS HORCONCILLOS - CEB HONDURAS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LOS ZUNCUYOS - CEB JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN CRISTOBAL - CEB RENACIMIENTO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN JUAN - CEB HIBUERAS "
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN LORENZO - CEB PAZ Y PROGREZO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN MARQUITOS - CEB CULTURA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "SANTA JUANA - CEB DR. CARLOS ROBERTO REINA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTO DOMINGO - CEB. JOSE LEON CASTRO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SOLEDAD DEL MORRO - CEB. RAZA MAYA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "TOMALA - CEB JUAN BAUTISTA LOPEZ"
+  }
+]

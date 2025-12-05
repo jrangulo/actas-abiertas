@@ -1,0 +1,78 @@
+[
+  {
+    "id_puesto": "013",
+    "puesto": "AZACUALPA GRANDE - ESC. JOSE ANTONIO LARA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA MONTAÑA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "CONCEPCION O BARRIO NUEVO - ESC. JESUS CASTILLO URBINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CARRIZAL - ESC. ANGEL MARIA NAVARRO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CHIMISAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL CONAL - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL MATAZANO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "EL RODEO No. 2 - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "ERANDIQUE - ESC. JOSE MARIA GUILLEN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "GUALGUIRE - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "GUATINCARA - ESC. RAFAEL MORALES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "JOSCAMON - ESC. COYOCUTENA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA LAGUNA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LAS CRUCITAS - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO MONTAÑA - ESC. ANGEL MARIA NAVARRO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SAN SEBASTIAN - ESC. JUAN ANTONIO PINEDA (PROHECO)"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "TIERRA COLORADA - ESC. RUBEN GARCIA (PROHECO)"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "VALLE DE LA CRUZ - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "YOLOMON - ESC. CERQUIN"
+  }
+]

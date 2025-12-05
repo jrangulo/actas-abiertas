@@ -1,0 +1,134 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "EL CACAO - CEB 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "EL DURAZNITO - CEB.JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL NARANJO - CEB PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL NARANJO DE MISCURE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL PAISHLAL - ESC. REPUBLICA DE PANAMA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "EL PELON DE OLOGOSI - ESC. 17 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "EL RODEO - CEB. 23 DE MARZO"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL TABOR - ESC. 1ERO. DE MAYO"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "LA CILIMANIA - ESC. NUEVA GENERACION"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA LAGUNA DE CHILIGATORO - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA SORTO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA TEJERA - CEB GABRIELA MISTRAL"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LOS ENCINOS - ESC. MANANTIAL"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "LOS PLANES - ESC. LA ESPERANZA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MALGUARA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "MANAZAPA - ESC. RURAL MIXTA VICENTE CACERES"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "MARACIA - ESC. MORAZANICA JOSE MAURICIO DELCID"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MIXCURE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "MONQUECAGUA - CEB UNION CENTRO AMERICANA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "PANINA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "PINARES - ESC. JOSE MEJIA ARELLANO"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "PUEBLO VIEJO - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "QUEATERIQUE - ESC. SUYAPA"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "QUEBRADA DE LAJAS - ESC. RODOLFO Z. VELASQUEZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "RIO COLORADO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "RIO GRANDE CENTRO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "SAN ANTONIO DEL NARANJO - ESC. MI ESPERANZA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SAN JOSE - ESC. LA LIBERTAD"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "SAN NICOLAS - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SAN PEDRO - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SANTA CATARINA - CEB REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "TOGOPALA - CEB LUIS BOGRAN"
+  }
+]

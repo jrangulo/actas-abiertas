@@ -1,0 +1,30 @@
+[
+  {
+    "puesto": "AJUTERIQUE - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "EL MISTERIO - ESC. MANUEL BONILLA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL SIFON - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LOS POZOS - ESC. LEMPIRA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "PLAYITAS - ESC. GRACIAS A DIOS",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SAN ANTONIO DEL PLAYON - ESC. PRUDENCIA HERNANDEZ",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SAN RAFAEL - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  }
+]

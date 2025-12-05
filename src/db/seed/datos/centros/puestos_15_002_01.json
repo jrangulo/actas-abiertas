@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. EL CALVARIO - INST. JOSE A. DOMINGUEZ"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. EL PINO - CEB LUZ OSORIO CASCO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. LA PRIMAVERA - CORREO NACIONAL"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "BO. LOS PROFESORES - ESC. CLEMENTINA SUAREZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. SAN ANTONIO - CEB ANEXO JUAN J. CASTRO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. SANTA ANA - CEB JUAN J. CASTRO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. SUYAPA - EL CORREO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL BARRO - ESC. DIONISIO DE HERRERA"
+  }
+]

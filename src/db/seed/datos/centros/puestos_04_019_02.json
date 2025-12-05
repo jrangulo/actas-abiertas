@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "005",
+    "puesto": "EL ACHIOTAL - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL CARRIZAL - ESC. JULIAN FLORES"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL MODELO - ESC. MARCO A. AGUILAR"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL PORVENIR - ESC. FEDERICO CANALES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "NUEVA CONCEPCION DEL CARMEN - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PUEBLO NUEVO - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN FRANCISCO - INST. HECTOR MEJIA LARA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN NICOLAS - ESC. MANUEL LUNA CASTILLO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SANTA TERESA - ESC. JOSE TRINIDAD REYES"
+  }
+]

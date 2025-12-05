@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE - CEB. RAUL ZALDIVAR"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "AZACUALPA - ESC. RAFAEL BARDALES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CANCULUNCOS - CEB. BRIGIDO BARDALES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL MOGOTE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL OCOTE - ESC. LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "HORCONCITOS - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA BOQUITA - ESC. RAFAEL COELLO RAMOS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LAS MAJADAS - ESC. DONALDO REYES AVELAR"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MOJARRAS - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN ANTONIO DE CHUCHEPEQUE - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN PEDRO ZACAPA - ESC. FRANCISCO MORAZAN"
+  }
+]

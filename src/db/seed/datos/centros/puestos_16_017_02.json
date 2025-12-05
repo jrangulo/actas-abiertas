@@ -1,0 +1,62 @@
+[
+  {
+    "id_puesto": "012",
+    "puesto": "BUENOS AIRES - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL CHILE - ESC. RAFAEL BARDALES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL ENCANTO - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL OCOTE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL TRIUNFO - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA LAGUNA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA RUIDOSA - ESC. TIMOTEO SABILLON"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LAS DELICIAS O LAS LORAS - ESC. JOSE ANIBAL RAPALO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS VUELTAS - CEB JOAQUIN BAIDE C."
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "NUEVA DELICIAS O LA CUADRILLA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "NUEVA VICTORIA O EL HIGAL - ESC. 3 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "NUEVOS HORIZONTES - ESC. ROBERTO LOPEZ TINOCO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "PROTECCION - ESC. FLORENCIO MARTINEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PUEBLO NUEVO - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "ZAMBRANO - ESC. JOSE CECILIO DEL VALLE"
+  }
+]

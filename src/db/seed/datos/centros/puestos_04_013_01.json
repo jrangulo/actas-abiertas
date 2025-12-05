@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "BO. BUENOS AIRES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. EL DORADO - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. EL PROGRESO - INST. BERNARDO GALINDO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. EL TRIANGULO - ESC. DANIEL CRUZ BERRIOS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. LA JOYA - JARDIN DE NIÑOS MARCELINO PINEDA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BO. LAS BRISAS - CEB PANORAMICA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "BO. MIRAFLORES - CEB. RODRIGO ANTONIO CASTAÑEDA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. MORAZAN - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. SUYAPA - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "COL. JUAN BENITO MONTOYA - ESC. RICARDO AGUILAR"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LOS LLANITOS - ESC. ZACARIAS CARTAGENA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "PALCO O COL. MIRAVALLE - ESC. URBANA TIBURCIO CARIAS ANDINO"
+  }
+]

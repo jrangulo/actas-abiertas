@@ -1,0 +1,38 @@
+[
+  {
+    "puesto": "BO. EL CENTRO - JARDIN DE NIÑOS HOGAR INFANTIL",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "BO. EL LLANO DE LA VIRGEN - ESC. JULIANA VASQUEZ",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "BO. EL MANEADERO - CENTRO EDUCACION PRE BASICA PROF JENARO SANCHEZ",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "BO. EL TERRERO - CENTRO EDUCATIVO TECNICO INDIGENISTA (CICAI)",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "BO. EL WAY - CEB MONSEÑOR EUSEBIO RIVERA ALEMAN",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "BO. LEMPIRA - CEB VALERO MEZA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "BO. LOS ARBOLITO - CENTRO DE EDUCACION PRE BASICA SOR MARIA ROSA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL MOLINO - JARDIN DE NIÑOS ASPIRACION INFANTIL",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LAS DELICIAS - JARDIN DE NIÑOS FELIPE ZUNIGA DELCID",
+    "id_puesto": "007"
+  }
+]

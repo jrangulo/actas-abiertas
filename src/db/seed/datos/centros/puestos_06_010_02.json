@@ -1,0 +1,98 @@
+[
+  {
+    "id_puesto": "019",
+    "puesto": "CONCEPCION - ESC. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL BARREAL - ESC. RAMON ALONSO PORTILLO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "EL BRASILAR - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL CHUPADERO - ESC. SERGIO RUBEN ORTIZ"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "EL JAZMIN - ESC. ANGEL ADOLFO MENDOZA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL JOBO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "EL MATAPALITO - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL MORAY - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL RODEITO - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL TABLON - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL TAMARINDO - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA BARRANCA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA PLAZUELA - ESC. JOSE RAUL VEROY SANTA MARIA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LAS LOMITAS - ESC. SERGIO RUBEN ORTIZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS MARIAS - ESC. RURAL MIXTA JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LAS POZAS - ESC.14 DE JULIO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LAS VENTANAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LOS ACHIOTES - ESC. RURAL MIXTA LEMPIRA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LOS ARADITOS - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LOS LIMONES - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MAL PASO - CEB LIBERATO MENDOZA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "OROCUINA - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SANTA ANA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "SANTA ANITA - ESC. JOHN F. KENNEDY"
+  }
+]

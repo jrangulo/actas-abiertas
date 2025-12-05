@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL CAMPANARIO - ESC. ROQUE R. ANDRADE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL MARAÑON - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL RINCON - ESC. JOAQUIN R. TEJEDA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL RODEO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL TIZATE - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "GUARIZAMA - ESC. URBANA MIXTA FRANCISCO MORAZÁN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LOS HORCONES - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN CRISTOBAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TIERRA CHELA - ESC. RUBEN VALDEZ"
+  }
+]

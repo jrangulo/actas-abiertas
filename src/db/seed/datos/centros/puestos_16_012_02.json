@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CECECAPA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "COL. EL OCOTE - ESC. LESLIE ARGENTINA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "ILAMA - ESC. LEONIDAS RIVERA MEJIA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA CAÑADA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA CUCHILLA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA ESTANCIA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA FE - ESC. LEOVIGILDO PINEDA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA MICA - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA MONTAÑITA - ESC. LEANDRO RAMON ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JOSE DE ORIENTE - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN JUAN DE LA CRUZ - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN VICENTE DE LAS NIEVES - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "UNCANA - ESC. JOSE TRINIDAD REYES"
+  }
+]

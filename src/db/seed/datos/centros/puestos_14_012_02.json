@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL SOCORRO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LOS LIMOS - CEB PROF. JOSE MARIA VILLEDA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS PLANES - CEBG. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "RAICERAS - ESC. JUAN ALBERTO MELGAR CASTRO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "RIO BLANCO - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN JORGE - CEB FRANCISCO MORAZON"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA ELENA - CEB CARLOS HARTLING"
+  }
+]

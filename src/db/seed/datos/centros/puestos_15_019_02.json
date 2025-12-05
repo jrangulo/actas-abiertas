@@ -1,0 +1,86 @@
+[
+  {
+    "puesto": "EL CARRIZAL - ESC. RAMON LOBO HERRERA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL COYOLAR - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL GUANCO - ESC. RAMON ROSA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "EL HATILLO - ESC. RAMON VILLEDA MORALES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL NANCE - CEB. 3 DE OCTUBRE",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL OCOTAL - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL PEDREGAL - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL QUISCAMOTE - ESC. RURAL MIXTA FRANCISCO MORAZAN",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL TULE - ESC. RURAL MIXTA 4 DE JULIO",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL URRACO - ESC. ALEJANDRO AGUILAR",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "GUACOCA - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "GUAPINOL - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LA AVISPA - J. N. OSCAR COLINDRES",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LOS CHARCOS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LOS DESMONTES - ESC. LEMPIRA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "QUEBRADA EL DANTO - ESC. FELIX ALVARENGA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "REGADIO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "SAN FRANCISCO DE LA PAZ - ESC. LUX",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SANTA ANA - ESC. ALFONSO GUILLEN ZELAYA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "TIERRA BLANCA - CEB. MANUEL BONILLA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "TILAPA - ESC. MEDARDO MEJIA",
+    "id_puesto": "011"
+  }
+]

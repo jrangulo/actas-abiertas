@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BUENA VISTA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CORPUS - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL JUNCO - ESC. EL ESFUERZO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL PACAYAL No. 2 - ESC. ARMANDO MORENO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL SITIO No. 1 - ESC. GERARDO SALINAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL TRIGO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA ARENA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA UNION - CEB. OLGA ONDINA LOPEZ"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS ARROYOS - ESC. EL PROGRESO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ANDRES MINAS - CEB JUAN PABLO VILLANUEVA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN MIGUEL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SANTA CRUZ - CEB JUAN LINDO"
+  }
+]

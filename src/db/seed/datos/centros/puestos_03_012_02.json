@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "009",
+    "puesto": "AGUA BLANCA - ESC. PAULINO VALLADARES"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BUENOS AIRES NO.2 - ESC. DR. REINALDO SALINAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CAMPO DOS - ESC. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL HIELO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL PACAYAL - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL PINABETOSO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL ROBLEDAL - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA CANDELARIA - ESC. PERFECTO H. BOBADILLA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LOS ANISES - CEB JOSE SANTOS CHOCANO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LOS DOS RIOS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "OJOS DE AGUA - CEB FRANCISCO MORAZÁN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN RAFAEL - CEB MARCOS CARIAS REYES"
+  }
+]

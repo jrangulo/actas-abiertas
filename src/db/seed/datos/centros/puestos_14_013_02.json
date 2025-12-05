@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "CUNCE - ESC. SALVADOR CORLETO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CARRIZAL - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL GRANZAL - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL JARALON O NUEVA ALDEA - CEB JOSE CECILIO DE VALLE "
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL REFUGIO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL TRANSITO - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "MESA GRANDE - CEB ERNESTO MEJIA FUENTES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "PASHAPA - CEB. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "POTRERILLOS - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN JUAN - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN LUIS - CEB RAMON ROSA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN MARCOS - CEB CANDIDO MEJIA "
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SANTA MARTA - ESC. DIONISIO DE HERRERA"
+  }
+]

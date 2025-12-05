@@ -1,0 +1,78 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "BOCA DEL MONTE - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL BEBEDERO - ESC. VICENTE MEJIA COLINDRES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CERRO - ESC. FRANCISCO AVILA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL COYOL - ESC. JUAN C. PADILLA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL GUANCO - ESC. ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL GUAPINOL - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL JUTE - ESC. MEDARDO MEJIA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL OCOTAL - ESC. MIGUEL MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL OJO DE AGUA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL PORTILLO DE PARUMBLE - JN ESCUELA E INSTITUTO JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL TERRERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "JIMASQUE - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA BOCA - ESC. FRANCISCO VILA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LAS GUACAMAYAS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MANTO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "RIO ARRIBA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SABANA LARGA - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SAN ANTONIO - CEB. REPUBLICA DE PANAMA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "ULUAPA - ESC. MARIA AUXILIADORA"
+  }
+]

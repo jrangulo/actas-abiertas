@@ -1,0 +1,66 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CAMALOTILLO - CEB 1RO. DE MAYO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL AGUILA - ESC. 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CERRO - ESC. PROHECO LEMPIRA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL GUANACASTE - CEBG. LEMPIRA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL MATAPALO - CEBG. TOMAS BARDALES CASTRO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL POTRERO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "JULIAN - CEBG. JULIAN MANGULILE, OLANCHO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA CHINGA - CEBG. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA LIMERA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA PEÑA O PORTILLO DE LA PEÑA - CEBG. FRANCISCO MORAZON"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LOMITAS - CEBG. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LOS BLANCOS - CEB RAMON ROSA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LOS TABLONES - ESC. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MANGULILE - ESC. JOSE MELITON SARMIENTO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "QUEBRADA DE MURILLO - CEBG. CLEMENTINA SUAREZ"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "SILACA - CEBG. MARCO AURELIO SOTO"
+  }
+]

@@ -1,0 +1,126 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "BUENA VISTA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "CANDELARIA - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CARIDAD - ESC. RURAL MIXTA ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "CHANCAYA - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CUYAMAPA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL FILON DEL PORVENIR - ESC. LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "EL PORVENIR - ESC. JOSÉ WUEDY HANDAL"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "LA CAÑADA O EL VOLCAN - ESCUELA RURAL MIXTA EVARISTO MEDINA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA CRUZ - CEB. LEMPIRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA ESTANCIA - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LA FRAGUA - ESC. PABLO PORTILLO FIGUEROA"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "LA MAJADITA - ESC. NORMAL MIXTA ORBELINDO PERDOMO"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "LAGUNA GRANDE - ESC. CONSUELO RODRIGUEZ"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "LAS CUEVITAS - ESC. JESUS MILLA SELVA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LEMPIRA - ESC. LA INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LOS MURILLOS - ESC. KAUL"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LOS PRIETOS O SAN MARTIN - ESC. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "MOJIMAN - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "NUEVA ESPERANZA - ESC. REPUBLICA DE CUBA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "NUEVA FLORIDA - ESC. ALFONSO XIII"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "OCOTE PAULINO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "OCOTILLO - ESC. LUIS DIAZ B."
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "PAYA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "PLACENCIA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "PORTILLO GONZALEZ - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "ROMPIDOS O LOS LIRIOS DE GUAYMAS - ESC. MELITON CASTELLANOS"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "SAN ANTONIO DE GUAYMAS - ESCUELA JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SAN ANTONIO O PALMAR - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "SAN FRANCISCO DE TOBIAS - ESCUELA ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SAN JUAN DE CAMALOTE - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "SAN RAFAEL DE AGUACATALES - ESC. MARCELINO PINEDA LOPEZ"
+  }
+]

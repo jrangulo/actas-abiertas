@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. BUENOS AIRES - ESC. GUÑA TECNICA NO. 16 NACIONES UNIDAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "BO. CONVENTILLO - JARDIN DE NIÑOS AMERICA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. CRISTALES - ESC. SOCORRO SOREL"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. EL CENTRO - ESC. LA MILAGROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. MIRAMAR - CEPB DR. TAUFICK E. BENDECK"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. RIO NEGRO - JARDIN DE NIÑOS REPUBLICA DE VENEZUELA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. SAN MARTIN - CEB RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "COL. EDUARDO CASTILLO - ESC. ROSENDO NUÑEZ"
+  }
+]

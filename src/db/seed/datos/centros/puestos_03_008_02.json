@@ -1,0 +1,26 @@
+[
+  {
+    "puesto": "COL. NUEVO PINARES - ESC. LUIS LANDA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL CORDONCILLO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL PEÑON - ESC. RURAL MIXTA LA IGUALDAD",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "GUACAMAYA - ESC. MANUEL BONILLA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LA TRINIDAD - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "TIERRA BLANCA - CEB NICOLAS MONTES",
+    "id_puesto": "003"
+  }
+]

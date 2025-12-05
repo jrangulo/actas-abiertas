@@ -1,0 +1,138 @@
+[
+  {
+    "puesto": "BARRA DE CUYAMEL - ESC. PATRIA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "BARRA DEL MOTAGUA - ESC. SOTERO BARAHONA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "CHACHAGUALA ABAJO - ESC. DOMINGO VASQUEZ",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "CHACHAGUALA ARRIBA - ESC. LA DEMOCRACIA",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "CHIVANA - ESC. PEDRO NUFIO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "COL. COSTA RICA - CENTRO COMUNAL",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "CORINTO - CEBG. JOSÉ CECILIO DEL VALLE",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "CORTESITO - CEB. 15 DE SEPTEMBRE",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "CUYAMEL - ESC. JOSE VICENTE CACERES",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "CUYAMELITO - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL PARAISO - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LA CAMISA - CEBG. DIONISIO DE HERRERA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "LA VENADA - ESC. MARIO ENRIQUE PRIETO",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "LAS DELICIAS - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "LAS FLORES - ESC. PROHECO N 146",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "LOS ACHIOTES - ESC. RAMON ROSA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "MASCA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "MILLA TRES - ESC. JOSE TRINIDAD FIALLOS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "MUCHILENA - CEBG. MARCO AURELIO SOTO",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "NUEVO TULIAN - CEBG. JUAN MANUEL GALVEZ",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "OMOA - CEB. ABRAHAM RIERA PEÑA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "POTRERILLOS - CEBG. DR. ROBERTO SUAZO CORDOVA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "PUEBLO NUEVO - ESC. LEMPIRA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "RIO CHIQUITO - CEBG. REPUBLICA DE GUATEMALA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "SAN CARLOS - CEBG. JUAN LINDO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "SAN ISIDRO - CEBG. LA PATRIA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "SAN JOSE DE JALISCO - CEBG. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN MARCOS - CEBG. JOSE TRINIDAD FIALLOS",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "SANTO DOMINGO - ESC. LEMPIRA",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "SUYAPA O GARCIA - ESC. ALVARO CONTRERAS",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "TEGUCIGALPITA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "TULIAN CAMPO - CEBG. FRANCISCO MORAZAN",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "TULIAN RIO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "VERACRUZ - ESC. MANUEL BONILLA",
+    "id_puesto": "027"
+  }
+]

@@ -1,0 +1,286 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "AGALTECA - CEB MANUEL DE JESÚS SUBIRANA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE - ESC. ROQUE J. POSAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "ARMENIA - ESC. JOSE SANTOS GUARDIOLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BALSAMO ORIENTAL - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "058",
+    "puesto": "BOCA DE MAME - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "074",
+    "puesto": "BRIONES - CEB JESUS MILLA SELVA"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "BUENA VISTA - ESC. HECTOR DANILO MOYA "
+  },
+  {
+    "id_puesto": "071",
+    "puesto": "BUENA VISTA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "062",
+    "puesto": "CALDERAS - ESC. PATRIA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CALPULES - ESC. JUAN MENDOZA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "CAMPO LIMONES No. 4 - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "CAMPO LIMONES No. 6 - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CAMPO NERONES - CEB ABRAHAM MEJIA"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "CAMPO NUEVO - CEB ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "CAMPO PALO VERDE No. 2 - CEB ANTONIO GONZALES SORIANO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "CAMPO ROSARIO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "CARBAJALES - CEB CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "CHORRERA - ESC. REMIGIO DURON GODOY"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "CLIFTON - ESC. JOAQUIN REYES TEJEDA"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "COL. SUTRASFCO - ESC. SUTRASFCO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "COOP. BRISAS DE CUYAMAPA - CEB DILMA QUEZADA"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "COOP. BRISAS DE MONGA LTD. - ESC. EDUARDO CABALLERO"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "COOP. CUATRO DE ENERO - ESC. 4 DE ENERO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "COOP. DOCE DE DICIEMBRE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "COOP. EL AGRICULTOR - CEB RAMÓN VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "COYOLES - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "COYOLES CENTRAL - ESC. ESTEBAN SOSA"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "CRUCETE - ESC. JOSÉ TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "EL CARRIL - CEB MARIA AUXILIADORA"
+  },
+  {
+    "id_puesto": "067",
+    "puesto": "EL CHAPARRAL - ESC. BENIGNO OSEGUERA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "EL COYOLAR - ESC. ALBERTO HERNÁNDEZ"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "EL JUNCAL - ESC. REGINO SOTO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "EL NANCE - CEB 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL OCOTE - ESC. BENITO SANDOVAL"
+  },
+  {
+    "id_puesto": "073",
+    "puesto": "EL POTRERO - ESC. RURAL MIXTA LUIS LANDA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "EL TERRERO - ESC. JUAN ANGEL ARIAS"
+  },
+  {
+    "id_puesto": "066",
+    "puesto": "JAGUAS ABAJO - ESC. LEOVIGILDO PINEDA CARDONA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "JAGUAS ARRIBA - ESC. HECTOR DANILO MOYA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "LA HICACA - ESC. EDUARDO CABALLERO"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "LA LIBERTAD - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "LA SABANA DE SAN CARLOS - CEB TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "072",
+    "puesto": "LAS ALMENDRAS - ESC. RURAL MIXTA VICTOR F. ARDON"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "LAS DELICIAS - ESC. ROSARIO LETICIA SOTO"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "LAS FLORES - ESC. CARMEN ROMERO"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "LAS HICOTEAS - ESC. ROSAURA SOSA"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "LOMITAS - ESC. PURIFICACION ZELAYA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LOMITAS DEL ESTE - ESC. RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "069",
+    "puesto": "LOS GAVILANES - ESC. JOSE ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "060",
+    "puesto": "MALOA - ESC. AUDATO PEREZ"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "MEDINA - ESC. MARINA MANZANARES"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "NOMBRE DE JESUS - ESC. INOCENTE ROSALES"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "NUEVO MENDEZ - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "070",
+    "puesto": "PALO VERDE VIEJO - ESC. LUIS CHAVARRIA"
+  },
+  {
+    "id_puesto": "059",
+    "puesto": "PIEDRA DE AFILAR - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "PIEDRAS BLANCAS - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "POTRERILLOS - ESC. MARCOS CARIAS REYES"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "PUERTO ESCONDIDO - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "SABANETAS - ESC. DIONISIO ROMERO"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "SAN CARLOS - ESC. LEOCADIO PUERTO"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "SAN DIMAS - ESC. JUAN PABLO SOTO"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "SAN FRANCISCO - CEB DAMASO POSAS"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "SAN JOSE - CEB NORBERTO QUEZADA"
+  },
+  {
+    "id_puesto": "061",
+    "puesto": "SAN LORENZO ABAJO - ESC. RUBEN DARIO"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "SAN LORENZO ARRIBA - CEB JUSTO RUFINO BARRIOS"
+  },
+  {
+    "id_puesto": "075",
+    "puesto": "SAN RAFAEL - PROHECO SAN RAFAEL"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "SANTA BARBARA - ESC. LEOCADIO TEJEDA"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "TACUALTUSTE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "TEGUAJINAL - ESC. PLACIDO BETANCOURTH"
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "TEJERAS - ESC. CARLOS IZAGUIRRE"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "TEPUSTECA - CEB RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "TROJAS - ESC. JOSE TRINIDAD REYES"
+  }
+]

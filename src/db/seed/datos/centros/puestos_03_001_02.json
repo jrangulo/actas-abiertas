@@ -1,0 +1,210 @@
+[
+  {
+    "id_puesto": "006",
+    "puesto": "AGUA FRIA - ESC. MAURO RUBI MADRID"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "AGUA SALADA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "BUENOS AIRES - ESC. GUILLERMO BUSTILLO LAZO"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "CACAHUAPA - ESC. JUAN DE LA CRUZ AVELAR"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CANTORAL - ESC. EL ESFUERZO"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "CASCABELES - ESC. RUBEN CANTARERO CHINCHILLA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "COL. IVAN BETANCOURTH - ESC. IVAN BETANCOURTH"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "CONCEPCION DE RIO BLANCO - ESC. CENTRO AMERICA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CONCEPCION DEL HORNO - ESC. JOSE SANTOS GUARDIOLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL CIRUELO - CEB. GUADALUPE ULLOA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL GUACHIPILIN - JN. ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "EL MOTATAL - ESC. JUAN ALBERTO ARIAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL PARAISO - ESC. CORONADO CHAVEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL PORTILLO DE LA MORA - ESC. NICOLAS MONTES"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "EL PORVENIR - ESC. JUAN DE LA CRUZ AVELAR"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "EL RESUMIDERO - ESC. PLUTARCO CASTELLANOS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL SAUCE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "EL SITIO - ESC. LUIS ALONZO ORTEGA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL TALADRO - ESC. RAFAEL BLANCO"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "EL TAMARINDO ARRIBA - ESC. RAMÓN ORTEGA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL VOLCAN - ESC. TIBURCIO CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA COOPERATIVA - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA ESCALERA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA FLOR - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "LA LAGUNA - ESC. ALONSO DE CACERES"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA PALMA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LA SAMPEDRANA - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "LAS ANONAS - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LAS LICONAS - ESC. RAMON ORTEGA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LAS MESAS - ESC. JULIO CESAR LOPEZ"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LOMAS DEL CORDERO - ESC. ALBERTINA NOLASCO DE MARADIAGA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "MATASANOS O MATASANOS II - ESC. MERCEDES CASTILLO MONTES"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "MOTAGUA DEL ROBLITO - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "OJO DE AGUA - ESC. JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "PALMEROLA No. 1 - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "PALO PINTADO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "PIEDRAS AZULES - ESC. DR. JOAQUIN SOTO"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "PLAN DE LA ROSA - ESC. MINERVA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "PLANES DE CHURUNE - ESC. FIAT LUX"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "PLANES DEL HORNO - ESC. RENACIMIENTO"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "RIO NEGRO - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "SAN ANTONIO DE LA LIBERTAD - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "SAN ANTONIO DEL MATASANO - ESC. QUINTIN POLANCO"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "SAN ANTONIO DEL PAJONAL - ESC. GRACIAS A DIOS"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "SAN JOSE DE LA MORA - CEB. HIBUERAS"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "SAN JOSE DE PANE - CEB. LEONCIO VALLE"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "SAN JOSE DE RIO BLANCO - ESC. SEGUNDA REPUBLICA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN JOSE DEL INJERTO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "SAN MIGUEL DE SELGUAPA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "SANTA RITA DE LOS EMPATES - ESC. NICOLAS MONTES"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "VALLE DE ANGELES - ESC. COMALHUACAN"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "VERACRUZ - ESC. GUSTAVO BOQUIN"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL CORDONCILLO - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "GUALCIXE - ESC. FERMIN MEJIA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LOS PATIOS - CEB. MAXIMO JEREZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LOS REALES - CEB. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN LORENZO O LA HACIENDA - ESC. ENRIQUE AYALA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SANTA BARBARA - ESC. JOSEFA LASTIRI DE MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "TIERRA BLANCA - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "VALLADOLID - CEB. JOSE CECILIO DEL VALLE"
+  }
+]

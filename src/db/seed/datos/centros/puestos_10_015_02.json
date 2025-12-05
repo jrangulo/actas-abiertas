@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "011",
+    "puesto": "EL AGUILA - ESC. SAN PEDRO SULA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CASTAÑO - ESC. CELEO ARIAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL JUNQUILLO - ESC. HONDURAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA MONTAÑA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS MARIAS - ESC. OSCAR MEJIA ARELLANO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS LLANITOS - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "PALACIOS - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN MARCOS - CENTRO COMUNAL"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA LUCIA - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA RITA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "TALQUEZAL - ESC. HONDURAS"
+  }
+]

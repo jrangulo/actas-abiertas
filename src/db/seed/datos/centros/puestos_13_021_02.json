@@ -1,0 +1,66 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "AGUA FRIA - CEB PETRONILA BARRIOS DE CABAÑAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CUBITE No. 2 - ESC. ARMANDO ESCALON"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL CARRIZAL No. 4 - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CUTAL - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL MATASANO - ESC. TECUN UMAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL SUCTE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL SUYATAL - ESC. FARO DE LUZ"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "HACDA. SUSUITE - CEB. RAMON ROSA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA ESTANZUELA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO - ESC. LA LIBERTAD"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "SAN FRANCISCO - CEB. AGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ISIDRO - CEB. JOSE ANTONIO MEJIA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN SEBASTIAN - CEB JOSE TRINIDAD REYEZ"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SANTA CRUZ - ESC. REPUBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "YOLOGUACA - ESC. BELARMINO VARGAS"
+  }
+]

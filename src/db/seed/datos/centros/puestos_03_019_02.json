@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL COQUITO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL RODEO VIEJO - CENTRO COMUNAL"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "FLORES - CEB AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS BOTIJAS - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LAS MERCEDES - PUENTE NEGRO - CEB NICOLAS MONTES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LOS CIMIENTOS - ESC. PERFECTO H. BOBADILLA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LOS PALILLOS - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "POTRERO GRANDE O QDA. HONDA - ESC. AGUSTIN MARADIAGA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "PROTECCION - ESC. ISTMANIA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN NICOLAS - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "VILLA DE SAN ANTONIO - ESC. AMILCAR RIVERA CALDERON"
+  }
+]

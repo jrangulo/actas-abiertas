@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CALEAS No. 2 - ESC. EL TRABAJO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL ESPINO - ESC. EL ADELANTO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL GUAYABO - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA CAÑADA O CALEA No. 1 - ESC. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA No. 1 - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA LAGUNA No. 2 - CEB EL ADELANTO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LAS DELICIAS - ESC. PROHECO BENITO CASTILLO AGUERO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LAS MESAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LLANO DE LA CHORCHA - ESC. JOSE ELIAS NAZAR"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS AMATES - ESC. TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "MONTECRISTO - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PANASACARAN - ESC. 14 DE JULIO DE 1969"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN FRANCISCO DE CORAY - ESC. TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "TALPETATES - CEB JOSE CECILIO DEL VALLE"
+  }
+]

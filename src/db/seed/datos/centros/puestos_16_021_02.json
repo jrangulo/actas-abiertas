@@ -1,0 +1,66 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA TAPADA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BELLA VISTA - CEB REPUBLICA DE ETIOPIA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "CAMPO ALEGRE - ESC. EL RENACIMIENTO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CORRALITO - CEB FILADELFO ROPALO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL ROBLEDAL - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA PRESA - CEBG. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA PUERTA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA TEJERA - ESC. RODRIGO PAREDES"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LAS MINITAS - CEBG. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "POTRERILLOS - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "REGADIO - CEBG. MODESTO RODAS ALVARADO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN FRANCISCO DE LOS VALLES - CEB LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN MARCOS - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SITIO VIEJO - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "ZAPOTE NO.1 - CEBG. EL PROGRESO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "ZAPOTE No. 2 - CEBG. JOSE TRINIDAD CABAÑAS"
+  }
+]

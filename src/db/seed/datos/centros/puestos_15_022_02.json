@@ -1,0 +1,62 @@
+[
+  {
+    "id_puesto": "015",
+    "puesto": "CALPULES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CAÑADA GALANA - CEB 4 DE JULIO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CUABANO - CEB JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL GUAMILON - CEBG. JESUS DE NAZARETH"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL OCOTAL DEL NAIPE - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA MEDINA - JN. BERTILIA REYES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LAS QUEBRADAS - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "POTRERO ABAJO - CEB RAMÓN ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "POTRERO ARRIBA - ESC. ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "RIO ABAJO - ESC. SALATIEL ROSALES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO - CEBG. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "SAN CIPRIAN - CEB. MARIA EVANGELISTA FLORES DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN PEDRO - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SANTA RITA O PLAN DEL CONEJO - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "YOCON - ESC. JOSE CECILIO DEL VALLE"
+  }
+]

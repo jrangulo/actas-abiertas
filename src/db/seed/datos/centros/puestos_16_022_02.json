@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "004",
+    "puesto": "CHOLOMA - CEB VIRGILIO ENAMORADO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CRUZ GRANDE - CEB JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL PORVENIR - CEB ANGELICA CASTRO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL RESUMIDERO - ESC. PEDRO LEIVA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL ZAPOTILLO - CEB RENACER"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA CUCHILLA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS FLORES - CEB RAMON VILLEDA MORALES "
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "MONTES DE ORO - ESC. RAMON AMAYA MADRID"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PINALEJO - CEB. GASPAR VALLECILLO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PLAN DEL HIGO - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ISIDRO DEL PACAYAL - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN MANUEL DEL TRIUNFO - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN NICOLAS - CEB PETRONA VIUDA DE BOGRAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SANTA CRUZ - ESC. FRANCISCO CASTELLON"
+  }
+]

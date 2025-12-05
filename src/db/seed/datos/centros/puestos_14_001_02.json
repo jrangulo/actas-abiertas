@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "ANTIGUA OCOTEPEQUE - CEB. VIRGILIO RODEZNO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL VOLCAN - CEBG. DR. JUAN LINDO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA COMUNIDAD - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA VEGA DE AZACUALPA - CEB MIGUEL ANGEL CHINCHILLA "
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAS LAJITAS - ESC. RAMON CARIAS DONAIRE"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "PIE DE LA CUESTA - ESC. MONTE DE LOS OLIVOS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PIE DEL CERRO - CEB MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN JOSE DE LA REUNION - CEB AMILCAR RIVERA CALDERON"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN MIGUEL - CEB DIONICIO DE HERRERA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN RAFAEL - CEB. DR. FRANCISCO VALLE MAYORGA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SANTA LUCIA O LOS ESTANQUILLOS - CEB LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SANTA RITA - CEB. JOSE CECILIO DEL VALLE"
+  }
+]

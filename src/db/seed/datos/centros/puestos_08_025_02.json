@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "COFRADIA - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CUESTA GRANDE - ESC. SEBASTIAN GARCIA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL PLAN DE LA LIMA - ESC. RURAL MIXTA FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA LIMA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LINACA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "MACUELIZO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "TATUMBLA - ESC. REPUBLICA DE GUATEMALA"
+  }
+]

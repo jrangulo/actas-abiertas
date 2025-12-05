@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "004",
+    "puesto": "AZACUALPA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "COCIRE - ESC. CULTURA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL CARRIZAL O LOS LESQUINES - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL PELON - ESC. BELLA VISTA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA JAGUA - ESC. EDGARDO TOSTA VELASQUEZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA MONTAÑITA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA SOLEDAD - ESC. JULIAN SANCHEZ DOMINGUEZ"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LLANO REDONDO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LOS NARANJOS - ESC. RENOVACION"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JOSE DE CATAULACA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN JUAN - ESC. MINERVA"
+  }
+]

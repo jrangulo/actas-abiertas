@@ -1,0 +1,38 @@
+[
+  {
+    "puesto": "BO. ABAJO - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "BO. ARRIBA DE TALGUA - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "COFRADIA - ESC. REPUBLICA DE COSTA RICA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL PANAL - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "JUTIAPA - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LA CAÑADA DEL GANADO - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "MENDEZ - CEB ANGEL G. HERNANDEZ",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "POZO ZARCO - ESC. SOR JUANA INES DE LA CRUZ",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SALAMA - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "001"
+  }
+]

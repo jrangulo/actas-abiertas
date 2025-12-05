@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUALCAGUAIRE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CERCO DE PIEDRA - ESC. REPUBLICA DE MEXICO PROHECO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL POTRERO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "FINCA VIEJA - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA ENEA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS DELICIAS - ESC. NAPOLEON ARIAS CRISTALES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MOROLICA - ESC. PRESENTACION BARAHONA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN MARQUITOS - ESC. CRISTÓBAL COLON"
+  }
+]

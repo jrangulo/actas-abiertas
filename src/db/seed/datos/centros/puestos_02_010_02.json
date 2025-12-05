@@ -1,0 +1,106 @@
+[
+  {
+    "id_puesto": "023",
+    "puesto": "AGUA ZARCA - ESC. LA TRINIDAD"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "BETANIA - ESC. OSWALDO LOPEZ ARELLANO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "BO. LA MILAGROSA - JARDIN DE NIÑOS JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "BO. LOMA LINDA - ESC. REYNALDO REYES GALAN"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "BO. SUBIRANA - INST. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "BONITO ORIENTAL - INST. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "BRISAS ORIENTALES - ESC. FLORINDA GALO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "BUENOS AIRES - ESC. MARCO TULIO CASTILLO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "COROCITO - CEB JESUS AGUILAR PAZ"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL ACHIOTE - CEB. AMANECER CAMPESINO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL ANTIGUAL - CEB EUGENIO MATUTE CANIZALES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL CARBONAL - CEB ALEXIS ORDOÑEZ PADILLA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL TARRAL - ESC. FARO DE LUZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "FEO - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA ESPERANZA - SALON RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA POLLA - ESC. LAS AMERICAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA SALTOSA - ESC. RAMON LOBO SOSA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LAS DELICIAS - ESC. RAUL ZALDIVAR"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LAS PALMAS - ESC. RIGOBERTO ERAZO MARTINEZ"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "MANCHONES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "PLAYA DE GANADO - CEB 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN ANTONIO DE BRICHE - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "SAN JOSE DE MINERALES - ESC. PROFETA ISAIAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JOSE DEL CINCO - ESC. MATILDE CORDOBA DE ZUASO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "UNION PACEÑA - ESC. 16 DE FEBRERO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "VISTA HERMOSA - ESC. MIRIAN GALLARDO"
+  }
+]

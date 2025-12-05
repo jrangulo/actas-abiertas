@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "BARRA PATUCA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BELEN - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "BRUS LAGUNA - CEB. JOSE SANTOS GUARDIOLA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "COCOBILA - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "KUSWA APAIKA - ESC. GAUTAMA FONSECA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LAS MARIAS - ESC. REPUBLICA DE COSTA RICA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "RIO PLATANO - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "TWITANTA - ESC. ROBERTO SUAZO CORDOVA"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "puesto": "AROCHA - ESC. ISIDRO PINEDA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "ARRAYANES - ESC. RAMON ROSA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "CASITAS - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "GALERAS - ESC. ALVARO CONTRERAS",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "GUINOPE - ESC. JUAN RAUDALES PORTILLO",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "LAS LIQUIDAMBAS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LAVANDEROS - ESC. ABEL FONSECA FLORES",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LOS FRIJOLARES - ESC. ERNESTO MENDOZA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "MANSARAGUA - CEB. MARCO AURELIO SOTO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "PACAYAS - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SANTA ROSA - ESC. ALVARO CONTRERAS",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SILISGUALAGUA - ESC. PAULINO VALLADARES",
+    "id_puesto": "007"
+  }
+]

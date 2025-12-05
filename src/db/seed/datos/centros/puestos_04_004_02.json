@@ -1,0 +1,162 @@
+[
+  {
+    "id_puesto": "023",
+    "puesto": "AGUA BUENA ARRIBA - ESC. RODOLFO CASTEJON"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE - CEB. SAT 14 DE JULIO"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "BOCA DEL MONTE - CEB. EL ESFUERZO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BUENA VISTA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "BUENOS AIRES - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "CARRIZALON - ESC. CESAR CUEVA"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "CHANCO - ESC. CELIO FRANCISCO ARIAS"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "COLON JUBUCO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "COPAN RUINAS - ESC. JUAN RAMON CUEVA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "CORRALITO - ESC. MODESTO RODAS ALVARADO"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "EL CHILAR O AGUA ZARCA - ESC. MORAZANICA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CISNE - ESC. JOSE ARMANDO CASTEJON"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "EL CORDONCILLO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "EL ENCINO - ESC. CESAR CUEVA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL PORVENIR PRIMERO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL PORVENIR SEGUNDO - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL QUEBRACHO - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL ZAPOTE - ESC. ARNULFO CUEVA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "HACDA. GRANDE - ESC. CACIQUE LEMPIRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA ESPERANZA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "LA ESTANZUELA - ESC. MARCO TULIO CUEVA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA - ESC. REPUBLICA DEL JAPON"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "LA PINTADA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAS FLORES - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LLANETIOS - ESC. TIBURCIO CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "LOS ARCOS - ESC. RODOLFO CASTEJON"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "MONTE DE LOS NEGROS - ESC. MORAZANICA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "MONTECRISTO - ESC. RAFAEL LEONARDO CALLEJAS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "NUEVA ARMENIA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "OSTUMAN - INT. DR. JESUS NUÑEZ CHINCHILLA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "PLAN DEL DANTO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "RINCON DEL BUEY - ESC. EMBAJADA DEL JAPON"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "SAN ANTONIO TAPESCO - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "SAN CRISTOBAL - ESC. MINERVA"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "SAN MIGUEL VIRGINIA - ESC. RURAL MIXTA COPAN GALEL"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "SAN RAFAEL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SESESMIL I - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SESESMIL II - ESC. EL ADELANTO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "UNION CEDRAL - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "VIRGINIA No. 1 - ESC. TIBURCIO CARIAS ANDINO"
+  }
+]

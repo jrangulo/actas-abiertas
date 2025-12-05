@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL ESCANO DE TEPALE - CEB ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL PORTILLO DE SIALE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN IGNACIO - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN JOSE DEL NARANJAL - ESC. RAMON VILLEDA  MORALES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN MIGUEL DE BARROSA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "URRUTIA - CEB REGINA E. MOLINA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "YOCULATECA - CEB MARCO AURELIO SOTO"
+  }
+]

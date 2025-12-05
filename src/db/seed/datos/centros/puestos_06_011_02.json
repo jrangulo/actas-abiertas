@@ -1,0 +1,186 @@
+[
+  {
+    "puesto": "AGUA TIBIA - ESC. DOMINGO SABIO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "BARRANCA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "049"
+  },
+  {
+    "puesto": "CACAUTARE - ESC. MARIA AUXILIADORA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "CANTON SUYAPA O EL BOCON - ESC. FLORENCIA ZUÑIGA RIVERA",
+    "id_puesto": "044"
+  },
+  {
+    "puesto": "CERRO EL HIGO - ESC. LUIS ALONSO GRIN GALLO",
+    "id_puesto": "047"
+  },
+  {
+    "puesto": "CONCEPCION EL BRASILAR - ESC. REPUBLICA DE MEXICO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL CHAPARRAL - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL CHOCOLATE - ESC. MIGUEL ANGEL VILLATORO",
+    "id_puesto": "045"
+  },
+  {
+    "puesto": "EL COYOLITO - ESC. RURAL MIXTA FRANCISCO MORAZAN",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "EL ESPINAL - ESC. MANUEL BONILLA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL JICARAL - ESC. SIMON BOLIVAR",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL NANZAL - ESC. JOSE DE SAN MARTIN",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL NARANJITO - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "EL OCOTILLO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "048"
+  },
+  {
+    "puesto": "EL OLVIDO SAN JORGE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "043"
+  },
+  {
+    "puesto": "EL QUEBRACHO - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "040"
+  },
+  {
+    "puesto": "EL RODEO - ESC. LEMPIRA",
+    "id_puesto": "037"
+  },
+  {
+    "puesto": "EL SALADITO - ESC. DOMINGO SABIO",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL TABLADO - ESC. SAN RAMON",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "EL TAMARINDO - CEB. MANUEL BONILLA",
+    "id_puesto": "035"
+  },
+  {
+    "puesto": "EL TAMARINDO - ESC. MANUEL BONILLA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "ESQUIMAY ABAJO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "ESQUIMAY ARRIBA O LA ERMITA - ESC. LEMPIRA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LA CRUCITA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LA CRUCITA - ESC. ROMELIA ALVARES",
+    "id_puesto": "039"
+  },
+  {
+    "puesto": "LA LAGUNA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "LA LUCIA - ESC. JOSE DESIDERIO CARBAJAL",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "LA MONTAÑA - ESC. SAN JOSE",
+    "id_puesto": "041"
+  },
+  {
+    "puesto": "LA PALMA - ESC. SAN ANTONIO",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "LA RINCONADA - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LAS LAJAS - ESC. SAN LUIS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LAS MARIAS - ESC. SIMON BOLIVAR",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LAS MESAS - ESC. RURAL MIXTA SIMON BOLIVAR",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "LOS LIMONES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LOS LIMONES - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LOS SURCOS - ESC. SAN JOSE",
+    "id_puesto": "046"
+  },
+  {
+    "puesto": "PALO GRANDE - ESC. DOMINGO SABIO",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "PESPIRE - ESC. MONSEÑOR TURCIOS",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "PORTILLO GRANDE - ESC. SANTA CRUZ",
+    "id_puesto": "042"
+  },
+  {
+    "puesto": "RIO CHIQUITO - ESC. FLORENCIO ZUNIGA R.",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "SAN ANTONIO DE PADUA - ESC. JUAN LINDO",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "SAN FELIPE - ESC. JUAN LINDO",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "SAN FRANCISCO - ESC. SAN FRANCISCO DE ASIS",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "SAN JUAN BAUTISTA - CEB. MIGUEL PAZ BARAHONA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "SAN JUAN BOSCO - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "TIERRA AGRIA - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "011"
+  }
+]

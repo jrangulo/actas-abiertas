@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "012",
+    "puesto": "EL SOCORRO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "HOYA DEL BLANCO - ESC. PAULINO VALLADARES"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA HOYA DE LA PUERTA - ESC. MIGUEL DARIO ZAVALA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LAS HUERTAS - CEB FELICIANO J. CASTRO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAS MAJADAS - ESC. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "MAL PASO O AGUA BLANCA - ESC. MANUEL DIAZ DEL VALLE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MINAS DE ORO - LICEO SAN ANTONIO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "MINAS DE SAN ANTONIO - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "MONTECITOS - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "PIMIENTILLA - ESC. MANUEL CALDERON"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "QUEBRACHAL - ESC. RUBEN CANTARERO CHINCHILLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "RIO COLORADO - ESC. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ISIDRO DEL MAL PASO - ESC. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SANTA CRUZ - CEB LA INDEPENDENCIA"
+  }
+]

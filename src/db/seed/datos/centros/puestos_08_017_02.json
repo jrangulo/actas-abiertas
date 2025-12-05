@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "EL CHAGUITE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL JICARITO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL LLANO DEL OCOTAL - ESC. MIXTA MARCO ANTONIO ANDINO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL SUYATILLO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL ZAMORANITO - ESC. CARLOS ROBERTO REINA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "JOYA GRANDE - CEB MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA CIENEGA - CEB JOSE CECILIO DE VALLE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA ESTANCIA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LAS MESAS - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN ANTONIO DE ORIENTE - CEB. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN FRANCISCO - ESC. ROBERTO HASBUM"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SANTA INES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TABLA GRANDE - ESC. PEDRO NUFIO"
+  }
+]

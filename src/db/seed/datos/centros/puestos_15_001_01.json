@@ -1,0 +1,70 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. BELEN - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. BUENOS AIRES - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "BO. CALONA - INST. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. DE JESUS - ESC. GUIA TECNICA NO.9 MIGUEL MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "BO. EL CENTRO - CEB. MANUELA GARAY CORTES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BO. LA CEIBITA - CEB. PROFA OLGA SARMIENTO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. LA HOYA - CEB. ROSA LUISA DE OCHOA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. LAS ACACIAS - JARDIN DE NIÑOS FLORIDA C. DE PIZZATTY"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "COL. BELLA VISTA 1 - CEB BELLA VISTA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "COL. EL EDEN - CEB. PROFESOR ARMANDO MONTES ZAPATA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "COL. MAZARELA - ESC. REPUBLICA DEL CANADA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "COL. PRIMERO DE MAYO - CEB PRIMERO DE MAYO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "COL. ROSA SOSA DE LOBO - ESC. ROSA SOSA LOBO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "COL. SANTA MARIA - CEB 25 DE FEBRERO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "COL. SOLIDARIDAD - CEB SOLIDARIDAD"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "COYOTEPE - CEB. 4 DE JULIO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LOTIFICACION VILLA SANTA - ESC. LIC. JORGE LOBO"
+  }
+]

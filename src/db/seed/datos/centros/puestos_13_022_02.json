@@ -1,0 +1,42 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CANDELARIA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL PALOMAR - ESC. MARIO ROLANDO MENDEZ"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL RANCHO - ESC. MODESTO RODAS ALVARADO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "JOCOMICO - ESC. DIONISIO DE HERRERA No. 1"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LOMA LIMPIA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "PAJAPAS - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN ISIDRO - ESC. HONDURAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN PEDRO - CEB. INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA CRUZ - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA ROSITA - ESC. GUILLERMO MUÑOZ CABAÑAS"
+  }
+]

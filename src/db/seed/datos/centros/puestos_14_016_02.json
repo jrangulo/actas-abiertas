@@ -1,0 +1,42 @@
+[
+  {
+    "puesto": "EL CARRIZAL - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL MORAL - CEB FRANCISCO MORAZON",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL OCOTILLO - CEB. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LA LABORCITA - ESC. ALVARO CONTRERAS",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "PLAN DEL RANCHO - ESC. RAMON ROSA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SAN FRANCISCO DE SUMPUL - CEB ELBA ASCENCION MORALES COTO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "SINUAPA - CEB ELISA CHINCHILLA DE CARDONA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "TEPEZCUINTE - CEB.  FRANCISCO MORAZAN",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "VALLE DE MERCEDES - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "VERACRUZ - CEB. PEDRO NUFIO",
+    "id_puesto": "005"
+  }
+]

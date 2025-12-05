@@ -1,0 +1,70 @@
+[
+  {
+    "puesto": "CHILINDRONES - ESC. PABLO PORTILLO",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL CARRIZAL - ESC. ALVARO CONTRERAS",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL DESMONTE - CEB VICENTE CACERES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL ESPINO - ESC. CARLOS AGUILAR PAZ",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL JARAL - ESC. URBANO CASTRO",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL POTRERO O LA LIBERTAD - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL PUEBLITO - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LA ALBARDILLA - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LAS CAÑAS - CEB PEDRO NUFIO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS OROPENDOLAS - ESC. AUGUSTO C. COELLO",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "LAS PILAS - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LAS TUNAS - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "MOGOTES - CEB LUIS BORJAS",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "QUEBRADA ARRIBA - ESC. LUIS LANDA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "SAN ANTONIO - CEB CRISTOBAL COLON",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN JUAN - ESC. LEMPIRA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SULACO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "001"
+  }
+]

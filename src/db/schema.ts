@@ -120,13 +120,16 @@ export const centroVotacion = pgTable(
     codigo: smallint('codigo').notNull(), // Código único dentro del municipio
 
     nombre: text('nombre').notNull(),
-    tipoZona: tipoZonaEnum('tipo_zona'), // rural o urbano
+    tipoZona: tipoZonaEnum('tipo_zona').notNull(), // rural o urbano
 
     // Campos opcionales para más contexto
     direccion: text('direccion'),
   },
   (table) => [
-    primaryKey({ columns: [table.departamentoCodigo, table.municipioCodigo, table.codigo] }),
+    primaryKey({
+      columns: [table.departamentoCodigo, table.municipioCodigo, table.codigo, table.tipoZona],
+      name: 'centro_votacion_pkey',
+    }),
 
     // FK compuesta al municipio
     foreignKey({
@@ -149,6 +152,7 @@ export const jrv = pgTable(
     departamentoCodigo: smallint('departamento_codigo').notNull(),
     municipioCodigo: smallint('municipio_codigo').notNull(),
     centroCodigo: smallint('centro_codigo').notNull(),
+    tipoZona: tipoZonaEnum('tipo_zona').notNull(), // rural o urbano
     numero: smallint('numero').notNull(), // Número de JRV dentro del centro
 
     // Cantidad de votantes registrados en esta JRV (útil para validación)
@@ -157,15 +161,22 @@ export const jrv = pgTable(
   (table) => [
     primaryKey({
       columns: [table.departamentoCodigo, table.municipioCodigo, table.centroCodigo, table.numero],
+      name: 'jrv_pkey',
     }),
 
     // FK compuesta al centro de votación
     foreignKey({
-      columns: [table.departamentoCodigo, table.municipioCodigo, table.centroCodigo],
+      columns: [
+        table.departamentoCodigo,
+        table.municipioCodigo,
+        table.centroCodigo,
+        table.tipoZona,
+      ],
       foreignColumns: [
         centroVotacion.departamentoCodigo,
         centroVotacion.municipioCodigo,
         centroVotacion.codigo,
+        centroVotacion.tipoZona,
       ],
       name: 'jrv_centro_votacion_fk',
     }).onDelete('restrict'),
@@ -195,10 +206,10 @@ export const acta = pgTable(
     departamentoCodigo: smallint('departamento_codigo'),
     municipioCodigo: smallint('municipio_codigo'),
     centroCodigo: smallint('centro_codigo'),
+    tipoZona: tipoZonaEnum('tipo_zona').notNull(), // rural o urbano
     jrvNumero: smallint('jrv_numero'),
 
-    // URL a la imagen en Supabase Storage
-    imagenUrl: text('imagen_url'),
+    // -------------------------------------------------------------------------
 
     votosNulosOficial: integer('votos_nulos_oficial'),
     votosBlancosOficial: integer('votos_blancos_oficial'),
@@ -222,8 +233,18 @@ export const acta = pgTable(
     votosTotalDigitado: integer('votos_total_digitado'),
 
     // -------------------------------------------------------------------------
+    votantesRegistrados: integer('votantes_registrados'), // del CNE
+    papeletasRecibidas: integer('papeletas_recibidas'),
+    papeletasUtilizadas: integer('papeletas_utilizadas'),
+    papeletasNoUtilizadas: integer('papeletas_no_utilizadas'),
+    votantesCiudadanos: integer('votantes_ciudadanos'),
+    votantesJRV: integer('votantes_jrv'),
+    votantesCustodios: integer('votantes_custodios'),
+    totalVotantes: integer('total_votantes'),
+    // -------------------------------------------------------------------------
     // Metadatos adicionales del CNE
     // -------------------------------------------------------------------------
+
     publicadaEnCne: boolean('publicada_en_cne'),
     escrutadaEnCne: boolean('escrutada_en_cne'),
     digitalizadaEnCne: boolean('digitalizada_en_cne'),

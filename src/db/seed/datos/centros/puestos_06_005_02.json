@@ -1,0 +1,98 @@
+[
+  {
+    "id_puesto": "006",
+    "puesto": "AGUA AGRIA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "AGUA AGRIA N 2 - CEB GUILLERMO ARTURO PINEL"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA FRIA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "APINTO - CEB MINERVA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CALAIRE - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL BANQUITO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL BIJAGUAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL CARACOL - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL CARRIZAL - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "EL CORPUS - ESC. REPUBLICA DE BRASIL"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL NARANJAL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL QUEBRACHAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "EL TERRERO - ESC. REPUBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL ZAPOTAL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA CUCHILLA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA FORTUNA - ESC. RURAL DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "LA FORTUNITA - ESC. LUIS ENRIQUE BELLINO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA GALERA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA MONTAÑA - ESC. CELIO ARIAS MONCADA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LOS CHAGUITES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LOS TERREROS - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SAN JUAN ABAJO - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "SAN JUAN ARRIBA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "SAN JUDAS - ESC. JOSE TRINIDAD REYES"
+  }
+]

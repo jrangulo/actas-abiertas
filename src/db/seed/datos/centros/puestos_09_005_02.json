@@ -1,0 +1,34 @@
+[
+  {
+    "puesto": "BENCK - ESC. REPUBLICA DE COLOMBIA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "CLUPKI - ESC. REPUBLICA DE ARGENTINA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "CRUTA O WALPATARA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "IRALAYA - ESC. REPUBLICA DE MEXICO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "MANGOTARA - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "PAKUI - ESC. SIMON BOLIVAR",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "RAYA - CEB. REPUBLICA DE PERU",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "USIBILA - ESC. REPUBLICA DE PANAMA",
+    "id_puesto": "006"
+  }
+]

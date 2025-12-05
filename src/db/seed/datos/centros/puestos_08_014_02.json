@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL ENCINO - ESC. 22 DE MAYO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL MATAPALO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL NANCE - ESC. 11 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL NARANJO - CEB FRANCISCO MEJIA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL TABLON - ESC. MARIANO P. GUEVARA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "GUATEMALITA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA JOYA DEL QUEBRACHO - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "ORICA - CEB 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PIEDRAS GORDAS - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "RIO ARRIBA - ESC. ESTADOS UNIDOS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SAN CRISTOBAL O EL OCOTAL - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN FRANCISCO DE ORICA - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JUAN O MONTAÑA DE LA FLOR - ESC. RUBEN MARTINEZ RODAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN MARQUITOS - CEB 12 DE OCTUBRE"
+  }
+]

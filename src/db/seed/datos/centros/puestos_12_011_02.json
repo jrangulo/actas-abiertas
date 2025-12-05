@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "CORRAL FALSO - ESC. LUCIO ROMERO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL PLATANAR - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "HATO DEL VIEJO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "MATAPALO - ESC. NACIONES UNIDAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PITAHAYAS - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "RINGLERAS - ESC. EL IDEAL"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN ANTONIO DEL NORTE - ESC. CELESTINO PADILLA"
+  }
+]

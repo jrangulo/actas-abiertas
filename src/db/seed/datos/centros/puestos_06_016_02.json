@@ -1,0 +1,42 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "ASENT. PUEBLO NUEVO - ESC. PORFIRIO MALDONADO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CERRO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL DIVISADERO - ESC. LIDIA WILLIAMS DE ARIAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL PUENTE - INST. TECNICO VOCACIONAL DEL SUR"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL ZORRILLO - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA PERMUTA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA TAJEADA - ESC. PAZ Y UNION"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA ANA DE YUSGUARE - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "TABLONES ABAJO - ESC. MANUEL M. MENDIETA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TABLONES ARRIBA - ESC. JOSE TRINIDAD REYES"
+  }
+]

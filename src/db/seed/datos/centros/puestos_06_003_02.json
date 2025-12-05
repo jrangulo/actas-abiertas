@@ -1,0 +1,166 @@
+[
+  {
+    "id_puesto": "039",
+    "puesto": "CERRO COLORADO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "COFRADIA - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CONCEPCION DE MARIA - ESC. URBANA MIXTA MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL AGUACATAL - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "EL CACAO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CERRON - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL GUACIMAL No. 1 - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL JICARITO - CEB MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL PACON - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL PAPALON - CEB. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL PEÑON ABAJO - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "EL PEÑON ARRIBA - ESC. JUAN RAMON AGUILERA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL TEJAR - ESC. VIRGILIO GUNERA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL TERRERO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "GRANADAS ABAJO - ESC. ELOY CONCEPCION CRUZ"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "GUANACASTE - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "LA CAÑITA - ESC. JOSEFA ALCIDES PAZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA GUARUMA - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA JOYA - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "LA MAJADA - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "LA MONTAÑA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA PABELLONA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LA PINTURA - CEB JUAN CAPIS MONDRAGON"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "LA PLOMOSA NO. 1 - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "LA VETA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LAS MARIAS DEL CENTRO - ESC. REPUBLICA DE COSTA RICA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LAS MESAS - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LAS PINTADAS - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "LOS LLANITOS - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "MATAPALO ABAJO - ESC. PRIMERO DE MAYO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "NANCE DULCE - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "OMOA - ESC. NAPOLEON TERCERO PEÑA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "PALITO ARRIBA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "PALO SOLO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "PALO VERDE - ESC. RURAL MIXTA HERMANOS RIOS"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "QUEBRADA GRANDE - ESC. FRANCISCO A. RODRIGUEZ"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "SAN BENITO NUEVO - ESC. FEDERICO RIVERA"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "SAN BENITO VIEJO - ESC. OSCAR DOMINGUEZ"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "SAN ISIDRO - ESC. AMADO ARGEÑAL"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "SANTA ANA - ESC. TIBURCIO CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "ZONZAPOTE - ESC. REPUBLICA DE COSTA RICA"
+  }
+]

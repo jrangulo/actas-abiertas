@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "EL DIVISO - ESC. JULIAN ROMERO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LA PALCA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA VEGA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PLAN DE LOS CEDROS - ESC. ROBERTO LOPEZ TINOCO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN FRANCISCO DE OJUERA - CEB.EPAMINONDAS PORTILLO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ISIDRO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN RAMON - ESC. BERTRAN ORELLANA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SANTA ANA - CEB.JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SANTA FE - CEBG. LEMPIRA"
+  }
+]

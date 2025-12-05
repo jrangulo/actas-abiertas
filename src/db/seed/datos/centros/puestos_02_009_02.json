@@ -1,0 +1,94 @@
+[
+  {
+    "puesto": "ABISINIA - ESC. ALFONSO BERGANZA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "CAYO CAMPO - ESC. CLAUDIO BARRERA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "CAYO SIERRA - CEB FRANCISCO MORAZAN",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "CHIRIPA - CEB FELIX SALGADO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "COOP. SALAMA O COL. SUYAPA - CEB. 14 DE AGOSTO",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "CUACA VIEJA O CUACA ZONA - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL GUAPINOL - CEB CENTRO AMERICA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "JUAN ANTONIO - ESC. EL ESFUERZO",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LA BOLSA - CEB LA ESPERANZA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "LA CEIBITA - CEB TESORO INFANTIL",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LA CONCEPCION - CEB POMPILIO ORTEGA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LAS MANGAS - CEB HIBUERAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LERIDA - JARDIN DE NIÑOS MON. VIRGILIO LOPEZ",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "LOS ENCUENTROS - ESC. EDGARDO RAYOFF",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "PLAN GRANDE - ESC. CRISTOBAL RODRIGUEZ",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "PRIETA - JN. FAUSTINO TORRES",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "QUEBRADA DE ARENA - ESC. LEMPIRA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "QUINCE NUEVO - ESC. 17 DE SEPTIEMBRE",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "SALAMA - ESC. LUIS LANDA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SAN JOSE DE CORRALES - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "TAUJICA - ESC. RAMON ROSA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "VADO ANCHO - ESC. JONATHAN RAFAEL GALAN",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "ZAMORA - ESC. JULIO PINEDA COELLO",
+    "id_puesto": "018"
+  }
+]

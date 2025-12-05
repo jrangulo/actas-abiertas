@@ -1,0 +1,258 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "AGUA CALIENTE - ESC. PABLO PORTILLO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BACADIA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "BUENA VISTA - ESC. CARLOS LOBO"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "CAMPAMENTO NUEVO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CAMPAMENTO VIEJO O YARULA - CEB. JOSE RAMON CALIX FIGUEROA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "CAMPO NUEVO - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "061",
+    "puesto": "CAOBITAS - CENTRO DE SALUD OSCAR PALACIOS MOYA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "CARRIZALES - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "CAÑO DE LAS MILPAS - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "CHICALTEPE - ESC. JOSE OCHOA Y MARTINEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CONCEPCION DE RIO TINTO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "COROZALES DE RIO BLANCO - ESC. MIGUEL RAFAEL MADRID"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "CORRALITOS - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "EL AGUACATE - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "EL CARBON - ESC. CARLOS ULISES CRUZ"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL CERRO - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "EL COYOTE - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL CULEBRERO - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "EL HORMIGUERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "EL MURMULLO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "EL NARANJO - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL PATASTE - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "EL PORVENIR WASPARASNI - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "ESCOTO - ESC. FRANCISCO MORAZON"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "GUANABITOS - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "JAMASQUIRE - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA BODEGA - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA COLONIA AGRICOLA - CEB. ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA COLONIA DE PONCAYA - CEB. CARLOS HUMBERTO ZELAYA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA CRUZ - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "067",
+    "puesto": "LA FLORIDA DE PONCAYA - ESC. JOSE ADALBERTO MEJÍA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "LA GLORIA DEL PATASTE - ESC. JOSE FRANCISCO ACOSTA P."
+  },
+  {
+    "id_puesto": "059",
+    "puesto": "LA LIBERTAD - ESC. TIBURCIO CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "LA NUEVA ESPERANZA - ESC 7 DE MAYO"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LA NUEVA ESPERANZA - ESC. ALBERTO DÍAZ OSORIO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA SOSA - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA UNION DE CAPAPAN - CEB ANGELA RUIZ DE MONTES"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LA UNION TALGUA - ESC JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "LAS DELICIAS - ESC. AMERICO VESPUCIO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LAS DELICIAS DE CUYAMEL No. 1 - CEB. AMERICO VESPUCIO"
+  },
+  {
+    "id_puesto": "060",
+    "puesto": "LAS FLORES - ESC. 1RO DE MAYO"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "LAS MESETAS - CEB FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "LAS PARCELAS - CEB RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "LAS PLAYAS DE SANTA FE - ESC. GLORIA DE LOPEZ ARELLANO"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "LIMONES DE COLA DE CAJON - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "LOS ENCUENTROS DE RIO BLANCO - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "LOS POZOS - ESC. ALFONSO VALDERRAMA"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "MATA DE PLATANO - ESC. JOSE RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "OJOS DE AGUA MASICALES - ESC. REPUBLICA DE CANADA"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "PEÑA BLANCA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "QUEBRADA DE CATACAMAS - ESC. GERMAN LEVI MORALES"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "SABANA LARGA - ESC. RAMON VALDERRAMA"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "SACA CLAVOS - CENTRO DE SALUD WILSON NAVAS"
+  },
+  {
+    "id_puesto": "062",
+    "puesto": "SALTO GRANDE O CUSUCO - ESC. RUBEN MATUTE"
+  },
+  {
+    "id_puesto": "066",
+    "puesto": "SAN ANDRES DE BOCAY - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN ANTONIO DE LAS CABAS - CEB DIEGO VELLA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "SAN JOSE DE RIO TINTO - CEB. VICENTE ALEMAN"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "SAN PEDRO ARRIBA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "SANTA CRUZ DE CAPAPAN - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "SANTA FE - ESC. SAN ANTONIO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "SIGUATE - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "TALGUA (GUANAJA) - ESC. GABRIELA MOYA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "VALLECITO DE RIO TINTO - ESC. DULCE NOMBRE DE JESUS"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "YARAUCA - ESC. JUAN LINDO"
+  }
+]

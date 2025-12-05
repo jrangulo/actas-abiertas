@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "012",
+    "puesto": "AGUA DULCE - ESC. LUIS GOMEZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CAMALOTAL - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CONCEPCION DEL NORTE - ESC. MIGUEL ANGEL BUESO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CONCORDIA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CERRON - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL ROBLEDAL - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL VOLCAN - CEB.MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA LAGUNA DE PROTECCION - ESC. PABLO RAPALO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS FLORES - CEB LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "MACUELIZO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SANTA ANA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SUYAPA - ESC. JOSE ANGEL MADRID PAREDES"
+  }
+]

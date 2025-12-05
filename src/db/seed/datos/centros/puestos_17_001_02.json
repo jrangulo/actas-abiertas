@@ -1,0 +1,234 @@
+[
+  {
+    "puesto": "AGUA FRIA - ESC. CASTA R. ALVARADO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "AGUA FRIITA - CEB LEMPIRA",
+    "id_puesto": "049"
+  },
+  {
+    "puesto": "CAMPAMENTO - ESC. LA DEMOCRACIA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "CARAGUAL - CEB. ROMULO ALVARADO",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "CASAS NUEVAS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "DESVIO DEL TRANSITO - INST. DR. MARCO AURELIO SOTO",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "EL ALTO DE ESTIQUIRIN - ESC. ADOLFO LOPEZ CANALES",
+    "id_puesto": "064"
+  },
+  {
+    "puesto": "EL BARREAL - ESC. BENITO MONTOYA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "EL CHIFLON ABAJO - CEB FRANCISCO MORAZAN",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL COHETE - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "045"
+  },
+  {
+    "puesto": "EL ESPINO - CEB JOSE TRINIDAD REYES",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "EL GARROBO - ESC. FROYLAN TURCIOS",
+    "id_puesto": "063"
+  },
+  {
+    "puesto": "EL GUAYABO - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "EL GUAYABO - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "050"
+  },
+  {
+    "puesto": "EL JICARILLO - ESC. NUEVA HONDURAS",
+    "id_puesto": "056"
+  },
+  {
+    "puesto": "EL JICARO - ESC. JOSE SANTOS GUARDIOLA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "EL JOBO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL JOCOTAL - CEB REPUBLICA DE HONDURAS",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "EL LIMON - CEB FRANCISCO MORAZAN",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "EL MORAICITO - CEB CELEO ARIAS",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL OBRAJE - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL PEDRERITO - CEB LUIS LANDA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL ROSARIO - CEPB ESC. OVIDIO NOLASCO",
+    "id_puesto": "065"
+  },
+  {
+    "puesto": "EL SARTENEJAL - ESC. JUAN LINDO",
+    "id_puesto": "062"
+  },
+  {
+    "puesto": "EL SAUCITO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "042"
+  },
+  {
+    "puesto": "EL TAMARINDO - CEB 15 DE SEPTIEMBRE",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "EL TERRERO BLANCO - ESC. CRISTOBAL COLON",
+    "id_puesto": "046"
+  },
+  {
+    "puesto": "EL TRANSITO - CEB PRESENTACION CENTENO",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "EL TULAR - CEB DIONISIO DE HERRERA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL VADO - CLUB DE LEONES",
+    "id_puesto": "040"
+  },
+  {
+    "puesto": "ESTACONES ARRIBA - ESC. RAMON AMAYA AMADOR",
+    "id_puesto": "043"
+  },
+  {
+    "puesto": "HACDA. VIEJA - CEB POLICARPO BONILLA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "HONDABLE - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "JICARO GALAN - CEB RAMON ROSA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "JUANCHO - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "047"
+  },
+  {
+    "puesto": "LA BARAJA - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "052"
+  },
+  {
+    "puesto": "LA BREA - ESC. EL ESFUERZO",
+    "id_puesto": "039"
+  },
+  {
+    "puesto": "LA CEIBILLA - ESC. 14 DE JULIO",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "LA JAGUITA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "060"
+  },
+  {
+    "puesto": "LAGARTILLO - ESC. JOSE ANTONIO DOMINGUEZ",
+    "id_puesto": "061"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "057"
+  },
+  {
+    "puesto": "LAS LABRANZAS DE SAN ANTONIO - ESC. ABRAHAM ZUNIGA RIVAS",
+    "id_puesto": "044"
+  },
+  {
+    "puesto": "LAS TABLAS - CEB MANUEL BONILLA",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LLANO PORTILLO EL HIGO - CEB PEDRO NUFIO",
+    "id_puesto": "058"
+  },
+  {
+    "puesto": "MAPACHIN - ESC. JULIO REYES DIAZ",
+    "id_puesto": "059"
+  },
+  {
+    "puesto": "NAGAREJO - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "OCOTILLO - CEB. JUAN XXIII",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "PASO DE VELAS - CEB 12 DE OCTUBRE",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "PASO REAL - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "053"
+  },
+  {
+    "puesto": "PLAYA GRANDE - ESC. 3 DE OCTUBRE",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "QUEBRADA HONDA - CEB. ESTELA MATUTE ZUNIGA",
+    "id_puesto": "055"
+  },
+  {
+    "puesto": "SAN NICOLAS ARRIBA - ESC. LEMPIRA",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "SAN RAFAEL - CEB JUAN LINDO",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "SANTA CLARA ABAJO - ESC. JESUS MILLA SELVA",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "SANTA CRUZ - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "051"
+  },
+  {
+    "puesto": "SONARE - ESC. POLICARPO PAZ GARCIA",
+    "id_puesto": "048"
+  },
+  {
+    "puesto": "TORRECILLAS - ESC. JOSE ANGEL CERRATO",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "ZUNIGA ABAJO - CEB VALENTIN ALVARADO",
+    "id_puesto": "037"
+  }
+]

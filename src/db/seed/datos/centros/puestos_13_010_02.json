@@ -1,0 +1,42 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "COALACA - ESC. REPUBLICA DE VENEZUELA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL MONGUAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL SOCORRO O LOMA DE LA CUEVA - ESC. CHOLOLAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "GUANAS - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LAS FLORES - ESC. TERESA MADRID"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS MERCEDES - CEB VICENTE GUITIERREZ"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "MARIPOSAS - ESC. 12 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "MONTE DE LA VIRGEN - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "NUEVA ESPERANZA - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "TEPUSUNA - CEB BELARMINO VARGAS"
+  }
+]

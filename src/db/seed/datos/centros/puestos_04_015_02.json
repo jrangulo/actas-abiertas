@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "CONCEPCION - ESC. EL PORVENIR DE LA JUVENTUD"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL OCOTON O VILLA NUEVA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LA ZUMBADORA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOMA ANCHA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "PEÑA BLANCA - ESC. EL ADELANTO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "PUEBLO NUEVO - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "QUEBRADA GRANDE - ESC. JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "QUEBRADA HONDA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN ANTONIO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JOAQUIN - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN RAIMUNDO - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "TIERRA COLORADA - ESC. MARIA I. MENJIVAR"
+  }
+]

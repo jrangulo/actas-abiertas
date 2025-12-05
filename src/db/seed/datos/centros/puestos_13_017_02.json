@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "013",
+    "puesto": "CONCORDIA - ESC. BERNARDO GALINDO GALINDO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "JELPOA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LAS ANONAS - ESC. LOS MORAZANICOS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS ARADAS - ESC. CLEMENTE MARROQUIN ROJAS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LAS CUEVAS - ESC. HERMOGENES DIAZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS FLORES O LOS HORNOS - ESC. BRUNO CASTELLANOS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LAS MARIAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LOS TABLONES - ESC. REPUBLICA DE BOLIVIA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "MAGDALENA - ESC. JESUS B. MEMBREÑO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "MAIQUIRA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "RORRUCA - ESC. OSWALDO LOPEZ ARELLANO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN FRANCISCO - ESC. FLORENCIO GAMEZ"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN LUCAS - ESC. JACOBO ORELLANA"
+  }
+]

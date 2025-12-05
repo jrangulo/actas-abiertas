@@ -1,0 +1,86 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA BLANCA - ESC. 11 DE JUNIO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CASA QUEMADA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CONQUIRE - ESC. MATIAS FUNEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CORONADO - ESC. MODESTO RODAS ALVARADO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CORRAL VIEJO - ESC. ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL AGUACATE - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL CIRUELO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "EL COYOLITO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL JOCOMICO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL PEDRERO O RIO ABAJO - CEB ESTEBAN URBINA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL QUEBRACHAL - ESC. FELIX ALVARENGA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL TUNAL - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA BALSA - CEB RAMON ROSA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LAS DELICIAS - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LAS TROJES - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LOS DOS RIOS - CEB POLICARPO ARGUELLES"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "RIO CHIQUITO - ESC. RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SAN AGUSTIN ABAJO - ESC. JOSEFA LASTIRI DE MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN ESTEBAN - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "SANTA MARIA DEL CARBON - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "TORO MUERTO - CEB AMILCAR RIVERA CALDERON"
+  }
+]

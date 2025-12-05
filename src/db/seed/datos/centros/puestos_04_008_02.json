@@ -1,0 +1,22 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "DULCE NOMBRE - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL LIMON - ESC. SALVADOR MENDIETA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL PRADO DE LA CRUZ - CEB LA DEMOCRACIA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL ZAPOTE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS CALERAS O EL HORNO - CEB RAMON ARTURO RENDON"
+  }
+]

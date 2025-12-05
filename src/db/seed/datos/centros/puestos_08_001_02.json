@@ -1,0 +1,322 @@
+[
+  {
+    "id_puesto": "067",
+    "puesto": "AGUA BLANCA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "ALDEA CERRO GRANDE - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CARPINTERO - ESC. MARIANA FOLGAR DE RAMIREZ"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "CASA QUEMADA - ESC. ANTONIA CARIAS"
+  },
+  {
+    "id_puesto": "077",
+    "puesto": "CIUDAD ESPAÑA - CENTRO BASICO EL TREBOL"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "COA ABAJO - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "COA ARRIBA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "COFRADIA - ESC. JOSE MANUEL ZEPEDA"
+  },
+  {
+    "id_puesto": "081",
+    "puesto": "COL. ALTOS DE SANTA ROSA - ESC. ENCIENDE UNA LUZ"
+  },
+  {
+    "id_puesto": "086",
+    "puesto": "COL. CATALUÑA - CEB. ALTAGRACIA SANCHEZ MELENDEZ"
+  },
+  {
+    "id_puesto": "074",
+    "puesto": "COL. CRUZ ROJA - CEB MENECA DE MENCIA"
+  },
+  {
+    "id_puesto": "075",
+    "puesto": "COL. DIVINA PROVIDENCIA - CEB. CRISTO DEL PICACHO"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "COL. LA FELICIDAD - ESC. REPUBLICA DE ESPAÑA"
+  },
+  {
+    "id_puesto": "076",
+    "puesto": "COL. LA JOYA DE AMARATECA - CEB. LA JOYA"
+  },
+  {
+    "id_puesto": "085",
+    "puesto": "COL. MIRADOR DE ORIENTE - CEB. TIM HINES"
+  },
+  {
+    "id_puesto": "073",
+    "puesto": "COL. REYNEL FUNEZ - CEB REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "084",
+    "puesto": "COL. SAN MIGUEL ARCANGEL - CEB SAN MIGUEL ARCANGEL"
+  },
+  {
+    "id_puesto": "087",
+    "puesto": "COL. VILLA LINDA MILLER - ESC. RICARDO ERNESTO MADURO ANDREWS"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "COL. VILLEDA MORALES - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "069",
+    "puesto": "CONCEPCION DE RIO GRANDE O NUEVA CONCEP. - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL AGUACATE - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "EL DURAZNO - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "061",
+    "puesto": "EL EMPEDRADO - ESC. NORBERTO GUILLEN"
+  },
+  {
+    "id_puesto": "062",
+    "puesto": "EL GUANABANO - ESC. JULIAN LOPEZ PINEDA"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "EL GUAYABO - ESC. MARIA E. DE INESTROZA"
+  },
+  {
+    "id_puesto": "090",
+    "puesto": "EL JICARITO - ESC. INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "EL LOLO - ESC. CRESCENCIO RODRIGUEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL NARANJAL - CEB. REPUBLICA DE GUATEMALA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL PILIGUIN - ESC. RURAL MIXTA FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "089",
+    "puesto": "EL REVENTON - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "EL TABLON - CEB NEMESIA PORTILLO"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL TERRERO - CEBG. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL TIZATILLO - CEB LEON ALVARADO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "GERMANIA - ESC. RUBEN MARTINEZ RODAS"
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "GUANGOLOLO - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "GUASCULILE - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "082",
+    "puesto": "LA CALERA - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "LA CALERA - ESC. PETRONA LAGOS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA CAÑADA - CEB NICOLAS URQUIETA"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "LA CAÑADA - ESC. LISANDRO SAGASTUME"
+  },
+  {
+    "id_puesto": "079",
+    "puesto": "LA CIENEGUITA - ESC. MARINA DE MARADIAGA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA CUESTA No. 2 - ESC. BONIFACIO REYES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA JAGUA - ESC. 21 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA LAGUNA - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA PUERTA - ESC. HENRY MERRIAM"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LA SABANA - ESC. RUBEN BARAHONA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LA VENTA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "LAS CASITAS - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LAS FLORES - CEB AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "091",
+    "puesto": "LAS MORAS - ESC. DOLORES REINA DE WATSON"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "LAS NUEVAS FLORES - ESC. EUGENIO MATUTE CANIZALES"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS ORICAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "LAS PILAS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "LAS TAPIAS - ESC. MIGUEL MORAZAN"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LOS JUTES - CEB. SERGIO PALACIOS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LOS PLANES - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "MATEO - ESC. ROMULO E. DURON"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "MONTE REDONDO - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "072",
+    "puesto": "MONTE REDONDO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "058",
+    "puesto": "NUEVA ALDEA - CEB. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "NUEVA VENTA - CEB. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "RIO ABAJO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "RIO HONDO - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "SAN FRANCISCO DE SOROGUARA - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "SAN JOSE DE SOROGUARA - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "088",
+    "puesto": "SAN JOSE DEL POTRERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "SAN JUAN DEL RANCHO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "SAN JUAN DEL RIO GRANDE - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "SAN JUANCITO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "SAN MATIAS No. 2 - CEB VICENTE CACERES"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "SANTA CRUZ ABAJO - ESC. LUIS A. ESCALANTE"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "SANTA CRUZ ARRIBA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "SANTA ELENA - ESC. VICTOR MANUEL LOZANO"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "SANTA ROSA - CEB 3 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "SUNTULE - ESC. DR. SALVADOR CORLETO"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "TAMARA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "VILLA REAL - ESC. MAURICIO BONILLA A."
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "VILLA VIEJA - CEB POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "YAGUACIRE - ESC. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "ZAMBRANO - ESC. MARCOS CARIAS REYES"
+  }
+]

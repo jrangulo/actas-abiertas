@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "BO. BUENOS AIRES - ESC. RAFAEL LEONARDO CALLEJAS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BORBOTON - ESC. BERNARDO GALINDO Y GALINDO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CAÑAVERAL - ESC. JOSE CASTRO LOPEZ"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "HULES - ESC. CARLOTA MARIN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA QUIMICA - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA VIRTUD - ESC. RAFAEL BARDALES BUESO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "RIO LINDO - CEB. PROF. RAUL ZALDIVAR"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN BUENAVENTURA - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TAPIQUILARES - CEB. FRANCISCO MORAZAN"
+  }
+]

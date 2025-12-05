@@ -1,0 +1,118 @@
+[
+  {
+    "puesto": "APASINIGUA - CEB PABLO PORTILLO FIGUEROA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "APATANA - ESC RURAL MIXTA JUAN LINDO",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "ARENALES - ESC. PRESENTACION CENTENO",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "COFRADIA - ESC. RURAL MIXTA 21 DE FEBRERO",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "EL CALVARIO No. 2 - ESC. LEMPIRA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL DIVISADERO - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL LLANO - CEB CRISTOBAL COLÓN",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "EL OBRAJITO - ESC. RUBEN DARIO",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "EL OCOTAL VIEJO - ESC. FRANCISCO DE MIRANDA",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "EL RINCON - CEB. EL RINCON",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL RIO - CEB DIONISIO DE HERRERA",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "EL TULE - ESC. MIGUEL PAZ BARAHONA",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "EL VINO - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LA CAÑADA - CEB ALVARO CONTRERAS",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LA CEIBA - CEB JOSÉ CECILIO DEL VALLE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LA TRINIDAD - CEB 11 DE NOVIEMBRE",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LOS CARBONES - ESC. SANTA LUCIA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "LOS CHORROS - CEB GLORIA FIGUEROA DE LÓPEZ",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LOS INFIERNITOS - ESC. VICENTE MEJIA COLINDRES",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LOS NANZALES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "LOS PORTILLOS - CEB MARCO AURELIO SOTO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "MONTE GRANDE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "PLAN DE SAN ANTONIO - ESC. PLAN DE SAN ANTONIO",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "PLAN DEL OREGANO - ESC. LEMPIRA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "SABANA DE ENCIMA - ESC. SABANA DE ENCIMA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "SABANAGRANDE - CEB FRANCISCO MORAZÁN",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SAN NICOLAS O EL ZAPOTE - CEB JUAN ANGEL BANEGAS",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "SANTA BARBARA - CEB MOISES AGUILAR",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "YURE - CEB 14 DE JULIO",
+    "id_puesto": "025"
+  }
+]

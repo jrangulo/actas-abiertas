@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "ARADA - ESC. DR. MIGUEL PAZ BARAHONA "
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CANDELARIA ARRIBA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CAULOTALES - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL OCOTAL - CEB.  RAMON ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL OCOTILLO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL PALMO - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL TULAR - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "JIMILILE - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA CUCHILLA - ESC. SALOMON ESCOTO BAYDE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS BRISAS DE ORO - ESC. LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LAS MARIAS - ESC. JOSE VIRGILIO ENAMORADO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SORCA - ESC. JOSE TRINIDAD REYES"
+  }
+]

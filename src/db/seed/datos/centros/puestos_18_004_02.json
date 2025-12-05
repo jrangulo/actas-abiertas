@@ -1,0 +1,166 @@
+[
+  {
+    "id_puesto": "032",
+    "puesto": "AGUA BLANCA DEL NORTE - ESC. MOISES AGUILAR"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA BLANCA SUR - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "ARENAS BLANCAS - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "BUENOS AIRES DEL NORTE - ESCUELA VICTOR F. ARDON"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BUENOS AIRES O PAUJILES - ESC. MERCEDES RAMIREZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CAMPO AMAPA - CEB LA INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CAMPO BIRICHICHE O LAS PALOMAS - ESC. BIRICHICHE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "CAMPO BUENA VISTA - ESC. BUENA VISTA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "CAMPO COOB - ESC. ROBERTO MICHELETTI BAIN"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "CAMPO LA FRAGUA - ESC. LA FRAGUA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CAMPO LAS FLORES - CEB LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "CAMPO MOCULA - ESC.RURAL MIXTA JESUS VILLA FRANCA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "CAMPO MONTERREY - ESC. MONTERREY"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "CAMPO NARANJO CHINO - ESC. WILFREDO ARCHAGA GALEAS"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "CAMPO PALOS BLANCOS O BRECK - ESC. CAMPOS BLANCOS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "COL. BRISAS DE LA LIBERTAD - CEB ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "COL. COHBASA - ESC. GABINO VASQUEZ"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "COL. NUÑEZ - ESC. EDITH MARISELA FIGUEROA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "CUATRO DE MARZO - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL BALSAMO - ESC. EL PORVENIR"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "EL PORVENIR DEL NORTE - ESC. PROHECO EL PORVENIR"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL PORVENIR DEL NORTE O EL CAMALOTE - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "GUAYMITAS - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "LA COLORADA - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA CUARENTA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LA CURVA O KILOMETRO CUARENTA Y CINCO - ESC. MIGUEL LARDIZABAL GALINDO"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "LA GUACAMAYA - ESC. PILAR M. MARTINEZ"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "LA MINA - CEB LUIS BOGRAN"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LA OCHO O EL SOCORRO - ESC. RAUL ZALDIVAR"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "LA SARROSA - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "LAS CHUMBAS - ESC. MIGUEL ANGEL BONILLA"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "LAS DELICIAS DEL JUTE - ESC. MARCOS RODRiGUEZ"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "MELLER - ESC. DANIEL LAINEZ"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "MICO QUEMADO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "QUEBRADA DE YORO - ESC. VICTORIA ZUNIGA"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "SAN JOSE DEL CAYO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "SANTA ELENA - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "SANTA INES - ESC. PEDRO PASCUAL AMAYA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "URRACO PUEBLO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "URRACO SUR - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "VERACRUZ PALOMA - ESC. ISMENIA SORIANO DE MEDINA"
+  }
+]

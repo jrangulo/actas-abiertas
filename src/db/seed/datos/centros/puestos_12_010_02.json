@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "CARRIZAL NO. 1 - CEB LUZ DEL FUTURO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL CEDRO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL PARAISO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL SAUCE - ESC. RICARDO MARTINEZ"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA FLORIDA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LOS PUENTES - ESC. RICARDO MARTÍNEZ ARGUETA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "OPATORO - CEB MINERVA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "SAN ANTONIO - ESC. GRACIAS A DIOS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ISIDRO - CEB SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SAN JOSE - ESC. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SANTA CRUZ - CEB MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SANTA FE - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SUYAPA O VALLE SECO - ESC. MANUEL ANTONIO MARTINEZ LOPEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "VALLE DE ANGELES - CEB MARIANO MARTINEZ"
+  }
+]

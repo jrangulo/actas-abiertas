@@ -1,0 +1,50 @@
+[
+  {
+    "puesto": "BO. EL LIMON - ESC. MIRAFLORES",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "CERRO BUENO - ESC. UNION Y FE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL AGUACATAL - CEB EL PORVENIR",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL GUAYABAL - ESC. 1ERO. DE MAYO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL NARANJO - ESC. RAFAEL PALOMO SUAZO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL PEDERNAL - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "GUASCOTORO - ESC. LAZARO GONZALEZ",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LA FLORIDA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LAS DELICIAS - ESC. PRIMERO DE SEPTIEMBRE",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "PULE - ESC. NOHEMY DE VALENZUELA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SAN JOSE - ESC. ASPIRACION INFANTIL",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SAN MARTIN - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "010"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "puesto": "AZACUALPA - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "CASA QUEMADA - CEB. PEDRO NUFIO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL CARRIZAL N1 - ESC. LIDIA GRACIELA MOLINA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LLANO ALEGRE - CEB ROBERTO SUAZO CORDOVA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LOS PATIOS - CEB 14 DE ABRIL",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "MONTE COPADO - ESC. PRESENTACION CENTENO",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "NAHUATERIQUE - CEB HIBUERAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "OJO DE AGUA - ESC. NICOLASA FLORES",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "OPALACA ABAJO - CEB. CAMPESINO LENCA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SANTA ELENA - CEB 15 DE SEPTIEMBRE",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SOLOARA - CEB JOSE TRINIDAD REYES",
+    "id_puesto": "005"
+  }
+]

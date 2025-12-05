@@ -1,0 +1,82 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "CERRO BONITO - CEB LA LUZ"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "EL CAULOTE - CEB. ROBERTO FERNANDEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL CHELON No. 1 - ESC. REPUBLICA DE GUATEMALA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL DESTINO - ESC. REPUBLICA DE ITALIA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL GUARACACAL - CEB 5 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL TOMATE - ESC. 14 DE ABRIL"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "GONES - ESC. JOSÉ CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA ASERRADERA - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LA LAGUNA - ESC. 12 DE ABRIL"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA NAVA - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA TUMBA - ESC. REPUBLICA DE COSTA RICA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LOS JOBOS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "MAJASTRE - ESC. ROLANDO RODRIGUEZ"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "MARAQUITO - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "NUEVA ESMERALDA O LA ESMERALDA - ESC. NUEVA ESMERALDA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "RIO ABAJO - ESC. MARCOS CARIAS REYES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SABANAGRANDE O PUENTE JALAN - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "SAN JOSE - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN MARCOS - CEB PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SANQUIN - ESC. MIGUEL PAZ BARAHONA"
+  }
+]

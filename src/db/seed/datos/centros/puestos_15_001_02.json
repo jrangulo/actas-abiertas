@@ -1,0 +1,246 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "ARIMIS - ESC. SALVADOR ESCALANTE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "AZACUALPA VIEJA - ESC. CARLOS HARTLING"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "BIJAGUAL - ESC. 11 DE JUNIO"
+  },
+  {
+    "id_puesto": "070",
+    "puesto": "BUENOS AIRES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "CALPULES No. 1 - ESC. ROMULO E. DURON"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "CANDELEROS - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "067",
+    "puesto": "CARRICILLO - ESC. ROMULO HERRERA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CASAS VIEJAS - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CAYO BLANCO - CEB FRANCISCA B.GARCIA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "COFRADIA - OFICINAS DE SENASA"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "EL BARRO ABAJO - ESC. NICOLAS D ANTHONY"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL BIJAO - CEB JOSE ANTONIO DOMINGUEZ "
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "EL BOQUERON - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "EL CHAPARRO - ESC. PINOS DE HONDURAS"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "EL ENCINAL No. 1 - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "EL ENCINAL No. 2 - ESC. PABLO ERNESTO AYES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL ESPINAL - ESC. JORGE COLEMAN"
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "EL MOGOTE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL PLOMO - ESC. 4 DE JULIO"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "EL RETIRO - CENTRO COMUNAL - DEL RETIRO"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "EL RINCON DE MAMISACA - ESC. MAXIMO GALVEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL RUSIO - CEB ESTEBAN GUARDIOLA "
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL TIGRE - CEB. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "ESQUILINCHUCHE - ESC. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "GUAYABILLAS - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "JUTIQUILE - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA CONCEPCION - CEB. JOAQUIN REYES TEJEDA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LA EMPALIZADA - ESC. TIMOTEO MUÑOZ"
+  },
+  {
+    "id_puesto": "061",
+    "puesto": "LA MINA POTRERILLOS - ESC. REPUBLICA FEDERAL DE SUIZA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LA SIERRA LEPAGUARE - CEB REPUBLICA DE VENEZUELA "
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA VENTA - ESC. TEGUCIGALPA"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "LAS CAÑITAS - ESC. RURAL MIXTA LEMPIRA"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "LAS LLAVES - CEB. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "LAS LOMAS - ESC. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LAS MINAS - CEB SANTIAGO MEJIA"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "LIMONES - CEB FROYLAN TURCIOS "
+  },
+  {
+    "id_puesto": "062",
+    "puesto": "LOS LLANOS - ESC. PROF. RAFAEL LANZA"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "MIRAFLORES - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "PANUAYA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "PLAN DE TURCIOS - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "058",
+    "puesto": "PLANES DE JALAN - CEB. JOSE FRANCISCO ZELAYA"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "POTRERILLOS O CAMPO - ESC. RURAL MIXTA LEMPIRA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "PUNUARE - ESC. RAUDALES MONTES"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "PUSUNCA O SAN AGUSTIN - CEB FRANCISCO MORAZAN "
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "RANCHO QUEMADO - ESC. MIGUEL NAVARRO"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "SAN ANTONIO DE SARA - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "SAN MARCOS - ESC. CENTRO AMERICA"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "SAN NICOLAS - CEB. LA PAZ"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "SANTA CRUZ DEL POTRERO - ESC. SAGRADO CORAZON"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "SANTA ELENA - ESC. TOMAS ROJAS MEMBREÑO"
+  },
+  {
+    "id_puesto": "060",
+    "puesto": "SINCUYAPA - ESC. 11 DE JUNIO"
+  },
+  {
+    "id_puesto": "069",
+    "puesto": "SONAGUERA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "TALANQUERA - CEB 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "TAPIQUILE - ESC. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "TELICA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "TEMPISCAPA - ESC. HECTOR CERNA MEDRANO"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "TROJAS ARRIBA - ESC. PERFECTO GUIFARRO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "TULIN - ESC. JOSE MEDARDO MEJIA"
+  },
+  {
+    "id_puesto": "059",
+    "puesto": "VALLE ALEGRE - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "066",
+    "puesto": "VILLA NUEVA - ESC. CLEMENTINA SUAREZ"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "ZOPILOTEPE - CEB. GRAL. POMPILIO AGUILUZ MENA"
+  }
+]

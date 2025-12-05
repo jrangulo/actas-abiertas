@@ -1,0 +1,74 @@
+[
+  {
+    "puesto": "BO. BUENA VISTA - CEB. LUIS LANDA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "BO. EL CENTRO - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "BO. EL PARAISO - ESC. POLICARPO BONILLA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "BO. EL RETIRO - ESC. MARIA A. PAZ DE PRIC",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "BO. HILAND CREEK - ESC. JOHN F. KENNEDY",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "BO. LA ISLA - ESC. EPISCOPAL ESPIRITU SANTO",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "BO. LAS BRISAS - CEB. VICENTE CACERES",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "BO. LEMPIRA - ESC. LEMPIRA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "BO. MORAZAN - JARDIN DE NIÑOS MARIA C. DE TORRES",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "BO. SAN JOSE - CEB. ANTONIO JOSE COELLO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "BO. VENECIA - CEB. MAESTROS JUBILADOS",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "CAMPO ELVIR - ESC. EUGENIA MADRID",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "COL. CUATRO DE ENERO - CEB. ZENOBIA RODAS DE LEON GOMEZ",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "COL. RUTH GARCIA - ESC. GREVI AVELAR CHAVEZ",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "COL. SITRATERCO - ESC. NORMAL MIXTA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL SAUCE - ESC. JOSE ANTONIO FUENTES POSAS",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LA GRANT - ESC. POMPILIO BENJAMIN MUNGUIA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "PIEDRAS GORDAS - ESC. FERNANDO MARTINEZ",
+    "id_puesto": "024"
+  }
+]

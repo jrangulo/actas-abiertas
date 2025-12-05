@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "COATO - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CHAGUITE - ESC. MIGUEL MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL QUIQUISQUE - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL RETIRO - ESC. PEDRO C. QUIÑONEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LAS AGUJAS - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS TABLAS - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MARAITA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "TERRERITOS - ESC. MARTHA NAZAR"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TERRERO BLANCO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "TERRERO DE SAN PEDRO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "TERRERO PRIETO - ESC. DIONISIO DE HERRERA"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "puesto": "ALDEA LA 34 - CEB FRANCISCO MORAZAN",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "ALDEA LA 36 - CEB. ELSA MARTINEZ CUBAS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "BATTAN - ESC. FROYLAN TURCIOS",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "CAMPO PAUJIL - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "CEBÓ - ESC. FROYLAN TURCIOS",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "CERRO PRIETO No. 1 - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "CERRO PRIETO No. 2 - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "EL JOCOMICO - ESC. MARIA AUXILIADORA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "EL JUNCO - ESC. CRISTOBAL COLON",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL MANGO - ESC. LEONARDO MATUTE O.",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "EL NARANJO - ESC. JUAN LINDO",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "EL ROBLEDAL - ESC. RUPERTO HERRERA P.",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL RODEO - ESC. LEMPIRA",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "ESTERO INDIO - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "GUAYMON No. 1 - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "JOCOMICO QUEBRADA ARRIBA - ESC. MARIA AUXILIADORA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "LA CRUCITA No. 1 - ESC. ALMA RODAS DE FIALLOS",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "LA GUANGOLOLA No. 1 - ESC. IVAN BETANCOURTH",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LA GUANGOLOLA No. 2 - ESC. ALFONSO GUILLEN ZELAYA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA PITA - ESC. POMPILIO ORTEGA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LA VEINTE Y NUEVE - ESC. FAUSTO UCLES",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LA VEINTE Y OCHO - ESC. PEDRO NUFIO",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LAS DELICIAS - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "PESCADERO - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "SAN JERONIMO - ESC. RAFAEL HELIODORO VALLE",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "SAN JOSE DEL NEGRITO - CEB. POLICARPO BONILLA",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "TOYOS - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "020"
+  }
+]

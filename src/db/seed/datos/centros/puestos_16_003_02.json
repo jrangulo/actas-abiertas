@@ -1,0 +1,86 @@
+[
+  {
+    "puesto": "ATIMA - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "BERLIN - C.E.B. MANUEL BONILLA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "BO. SUYAPA - CEB. RAMON VILLEDA MORALES",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL BENQUE - ESC. EL TRIUNFO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL CAÑALITO - CEB. LUIS BOGRAN",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL LEMANAL - CEB LEMPIRA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL NARANJO - ESC. JOSE VIRGILIO ENAMORADO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LA CAÑADA - CEB 3 DE OCTUBRE",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LA CEIBITA - CEB LUIS LANDA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA LIMA - ESC. RUBEN A. CASTELLANOS",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LAGUNITAS - CEB JOSÉ TRINIDAD ÑAS",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS DELICIAS - ESC. PRIMERO DE ENERO",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LAS JUNTAS DE QUEBRADAS - ESC. RAMON ROSA",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LEMPA - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "NUEVA VICTORIA - CEB. DIONISIO DE HERRERA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "RIO FRIO - ESC. WENCESLAO REYES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SAN ANTONIO DE LA CAÑADA - CEB PAULA ALBA",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "SAN JOSE DE BUENA VISTA - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "SAN PEDRITO - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "SAN RAFAEL - ESC. PRESENTACION CENTENO",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "TALANGA - CEB MIGUEL PAZ BARAHONA",
+    "id_puesto": "020"
+  }
+]

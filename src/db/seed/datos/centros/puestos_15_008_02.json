@@ -1,0 +1,94 @@
+[
+  {
+    "puesto": "CAMALOTAL - ESC. FRANCISCO MORAZON",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "CERRO VERDE - ESC. PEDRO ANGEL PADILLA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "CHINDONA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "CUACA - ESC. LOS PINOS",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "EL AGUACATAL - ESC. MEDARDO MEJIA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL BARRERO - ESC. DR. RAMÓN VILLEDA MORALES",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL NARANJAL - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL OCOTAL No. 1 - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL PIE DE LA CUESTA - ESC. LUIS LANDA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "EL QUEBRACHAL - CEB. JUAN MANUEL GALVEZ",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "EL TABLON - ESC. FRAY BARTOLOME DE LAS CASAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "GUALACO - ESC. DR. MARCO AURELIO SOTO",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "JICALAPA - ESC. JOSE ANTONIO DOMINGUEZ",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LA FUENTE - ESC. JOSE ANTONIO DOMINGUEZ",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LA PEÑA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "LA VENTA - CEB FRANCISCO MORAZAN",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LAGUNA GRANDE - ESC. PEDRO SIMON CARDONA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "MAGUA - ESC. SANTOS GUARDIOLA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "SAN ANTONIO - ESC. SAN ANTONIO",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN ANTONIO DE PACURA - CEB.  JOSE TRINIDAD REYES",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN BUENAVENTURA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SAN LORENZO - CEB  MANUEL BONILLA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SAN PEDRO - ESC. JUAN LINDO",
+    "id_puesto": "012"
+  }
+]

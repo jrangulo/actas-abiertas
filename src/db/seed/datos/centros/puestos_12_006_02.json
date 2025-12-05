@@ -1,0 +1,82 @@
+[
+  {
+    "id_puesto": "018",
+    "puesto": "ALTAMIRA - ESC. CARLOS SANCHEZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "DOLORES - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL GUAPINOL - CEB REPUBLICA DE CHILE "
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL PINAR - ESC. VICTORIO SANCHEZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "GUAJIQUIRITO - ESC. MONTAÑAS AZULES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "GUAJIQUIRO - ESC. ESPIRITU LEMPIRA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "INGRULA - CEB RAMON ROSA "
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LAS DELICIAS - CEB LA INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LAS VEGAS DEL PARAISO - ESC. NACIONES UNIDAS"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LINDERO - CEB. LEMPIRA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "MONTE GRANDE - ESC. ELIA PORTILLO B."
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "PASGUARE - CEB RIGOBERTO LOPEZ R."
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN JOSE - CEB JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN MARCOS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN MATIAS O LAS JOYAS - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SANTA ROSITA - CEB RAMON ROSA "
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "TALANGUITA - ESC. JULIO CESAR LOPEZ"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "TAMARA - ESC. ALICIA GOMEZ"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "YUPE - ESC. ESPIRITU DE MORAZAN"
+  }
+]

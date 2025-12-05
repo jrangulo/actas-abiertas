@@ -1,0 +1,46 @@
+[
+  {
+    "puesto": "EL PLAN GRANDE - ESC. LA INDEPENDENCIA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL TABLON - ESC. JOSE ADAN CANALES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LAS QUEBRADAS - CEB MARCO AURELIO SOTO",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LOS ANIZALES - ESC. JOSE RAMON CASTRO",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LOS PLANES - ESC. NICOLAS MONTES",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "LOS PUENTES - ESC. JOAQUIN SOTO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LOS TRES PALOS - CEB REPUBLICA DE HONDURAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LOS ZACATALES - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "QUEBRADA AMARILLA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SAN LUIS - ESC. LUIS ALONSO SUAZO",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "TROJES - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "007"
+  }
+]

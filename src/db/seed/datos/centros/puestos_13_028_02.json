@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "ARCAMON - CEB ANTONIO R. VALLEJO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "AZACUALPA - ESC. VICTOR M. ZACAPA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CAIQUIN - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "COALACA - CEB. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUANAJULQUE - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LAGUNA SECA - CEB. JUSTO J. HERRERA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LAS MATARAS - ESC. CONSUELO PINEDA DE ORDOÑEZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SUNTULIN - ESC. SANTA ANA"
+  }
+]

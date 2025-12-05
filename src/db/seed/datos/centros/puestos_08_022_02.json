@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "BABANATO - INST. SANTA ANA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL CRUCE - ESC. PRIMERO DE AGOSTO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL SAUCE - ESC. REPUBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA BODEGA - CEB 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LA CALI - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LAS CUEVECITAS - CEB. ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LAS MESITAS - ESC. REPUBLICA DE CANADA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS ENCINOS - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "NUEVA ARCADIA - ESC. EL FUTURO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA ANA - ESC. URBANA MIXTA JUAN LINDO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SICATACARE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "TIERRA DEL PADRE - ESC. REPUBLICA DE HONDURAS"
+  }
+]

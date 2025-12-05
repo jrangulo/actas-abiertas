@@ -1,0 +1,178 @@
+[
+  {
+    "id_puesto": "014",
+    "puesto": "AGUA CALIENTE - CEB. LUIS F. LARDIZABAL"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE DE LINACA - CEB. SAN JUAN BOSCO"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "ALTOS DE LAS CABEZAS - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "CERCO DE PIEDRAS - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "CERRO VERDE - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "COL. EMILIO WILLIAMS - ESC. EMILIO WILLIAMS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "COPAL ABAJO - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "COPAL ARRIBA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL APITANAL - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CARRIZO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL COYOL - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "EL JICARAL - ESC. REPUBLICA DE VENEZUELA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL MARILLAL - CEB. WILLIANS VIUDA DE ARIAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL PALENQUE - ESC. MELANEO BOJORQUE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL PILLADO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "EL QUEBRACHAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL SANTUARIO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL TRAPICHE - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL TULITO - ESC. FRANCISCO MARTINEZ"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "EL ZAPOTE O LOS ESCAÑOS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "FRAY LAZARO - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "GUANACASTILLO - CEB. ELISEO CARRANZA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "HATO NUEVO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "JOCOMICO - ESC. CESAR MORAN"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "LA CRUZ - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA PICOTA - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "LAS CAÑAS - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "LAS PITAS - ESC. DR. ROBERTO SUAZO CORDOVA"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "LAS UVAS - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LINACA - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "LOS COLORADOS - ESC. FEDERICO RIVERA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LOS HATILLOS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "LOS MANGOS - ESC. MIGUEL ALFONSO CASTILLO"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "MADRIAL - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "PAVANA - CEB. RAMON P. COELLO"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "SAN CRISTOBAL - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "SAN JOSE DE LA LANDA - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "SAN MARTIN - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "SAN RAMON ABAJO - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "SAN RAMON ARRIBA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "TAPAIRE - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "TAPASI - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "TAPATOCA - CEB. RITO F. OYUELA"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "ZACATUSTAL - ESC. MARIA AUXILIADORA"
+  }
+]

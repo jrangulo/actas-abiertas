@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "BANDERILLAS - ESC.  AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CONCEPCION - CEB CLAUDIO BARRERA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL CORAL - CEB FRANCISCO MORAZON "
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL CORALITO O MIRAFLORES - CEB. PROF. FLORENCIO VENTURA QUEZADA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL LIMONCITO - CEB MINERVA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL TULAR - CEB. MARIA ANGELICA VENTURA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAGUNA SECA - CEB MIGUEL ANGEL CHINCHILLA "
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LAS VEGAS DEL RIO CHIQUITO - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "MERCEDES - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "PLAN DEL ROSARIO - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ANTONIO - CEB ALFONSO GUILLEN ZELAYA "
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN JOSE CHAGUITE - ESC. PROF. SALVADOR GUEVARA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN JOSE DE JOCOTAN - CEB JULIAN LOPEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "YARUCONTE - CEB EUGENIO MATUTE CANIZALES"
+  }
+]

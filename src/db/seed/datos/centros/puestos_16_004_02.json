@@ -1,0 +1,66 @@
+[
+  {
+    "puesto": "AGUALOTE - ESC. CRISTOBAL COLON",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "AZACUALPA - ESC. URBANA MIXTA LEMPIRA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "BUENOS AIRES - ESC. DR. JUAN LINDO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "CERRO GRANDE - ESC. PATRIA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL AGUACATE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL NARANJO - CEB POLICARPO BONILLA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL PINABETE - ESC. PINARES",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "JOCONAL - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LA ESPERANZA - ESC. REPUBLICA DE INDONESIA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LA GUAMA - ESC. EL PROGRESO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LA PUERTA - ESC. CARLOS VILLALVIR",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "LAGUNA VERDE - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS FLORES - ESC. REPUBLICA DE HUNGRIA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LOMA ALTA - CEB FRANCISCO MORAZON ",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN ANTONIO - ESC. NICOLAS VALLECILLO",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "TEOCINTALES - ESC. RUTILIA DEL CARMEN PEÑA",
+    "id_puesto": "009"
+  }
+]

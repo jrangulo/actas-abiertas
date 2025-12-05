@@ -1,0 +1,278 @@
+[
+  {
+    "id_puesto": "061",
+    "puesto": "AGUA FRIA SANTA MARIA - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "ALTOS DE ESCUAPA - CEB. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "ARAULI - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BAÑADEROS - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "069",
+    "puesto": "BUENOS AIRES No. 2 - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "056",
+    "puesto": "CALPULES - ESC. CARLOS DIAZ GALLARDO"
+  },
+  {
+    "id_puesto": "067",
+    "puesto": "CAMPAMENTO No. 2 - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "CAMPO ARGELIA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "075",
+    "puesto": "CERRO COLORADO - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "CHIRINAS - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "CUYAMAPA - CEB. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL ARENAL - ESC. RODOLFO ROJAS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "EL BARRO - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "059",
+    "puesto": "EL BENQUE - KiNDER LUZ Y ESPERANZA"
+  },
+  {
+    "id_puesto": "063",
+    "puesto": "EL BORDO - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "EL CAÑON - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CEDRAL No. 1 - CEB. CLAUDIO BARRERA"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "EL CEDRAL No. 2 - ESC. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "EL CHAGUITE DE LINACA - CEB. RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL CHAPARRAL - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL CHICHICASTE - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL COYOLAR - ESC. NUEVO ORIENTE (2)"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "EL EMPALME - CEB. MIRIAN JUDITH GALLARDO"
+  },
+  {
+    "id_puesto": "071",
+    "puesto": "EL GUABAL - ESC. SANTOS ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "EL GUANO - CEB. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL MAGUELAR - CEB. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "EL MATASANO - ESC. RAMON MOLINA"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "EL OBRAJE - CEB. REPUBLICA DE GUATEMALA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "EL OLINGO O EL PORVENIR - ESC. SALATIEL ROSALES"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "EL PARAISITO - CEB. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "066",
+    "puesto": "EL PASTAL - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL PATASTE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "EL PESCADERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "EL PORVENIR - CEB. RENOVACION"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "EL POZO BENDITO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL QUEBRADON - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "EL TABLON - CEB. RAMON ROSA"
+  },
+  {
+    "id_puesto": "073",
+    "puesto": "EL ZARZAL - ESC. ESTEBAN  GUARDIOLA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "JUTIAPA - ESC. JOSE ANTONIO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA ACAMPO APALI - ESC. ROBERTO SUAZO CORDOVA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "LA COOPERATIVA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LA DANTA - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "LA ESPERANZA - CEB. AGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA LAGUNA No. 1 - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "070",
+    "puesto": "LA LIMA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "LA LIMA DE ESCUAPA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "LA LODOSA - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "064",
+    "puesto": "LA PROVIDENCIA - ESC. EUGENIO SOSA ARDON"
+  },
+  {
+    "id_puesto": "068",
+    "puesto": "LA REDONDA EL AGUILA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "074",
+    "puesto": "LA REFORMA CUYAMAPA NO.2 - ESC. PEDRO ARTURO SEVILLA"
+  },
+  {
+    "id_puesto": "060",
+    "puesto": "LA TRINIDAD O SARTENEJAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "LAS ANIMAS - ESC. EL ESFUERZO"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "LAS CAMELIAS - ESC. ALFONSO XIII"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LAS DELICIAS - ESCUELA CARLOS HARTLING"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "LAS VEGAS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LIMA APALI - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "057",
+    "puesto": "LOS ALMENDROS - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "072",
+    "puesto": "LOS MEZCALES - ESC. MAMILIO RODAS"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "PALMILLAS - CEB. TIBURCIO RODRIGUEZ"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "PUEBLO NUEVO No. 2 - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "QUEBRADA ARRIBA U OCULI - ESC. RAFAEL MEDINA RAUDALES"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "QUEBRADA CHIQUITA No. 1 - CEB. COSME GARCIA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "QUEBRADA LARGA - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "SAN DIEGO - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SAN JOSE DE AZABACHE - ESC. LA LIBERTAD"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "SAN JULIAN - CEB. LUIS LANDA"
+  },
+  {
+    "id_puesto": "065",
+    "puesto": "SAN MIGUELITO DE LA BATEA - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "SANTA MARIA - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "VILLA SANTA - ESC. AUGUSTO C. COELLO"
+  }
+]

@@ -1,0 +1,46 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "EL CARBONAL - CEB SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL CAULOTE - ESC. RAMON VILLEDA MORALES "
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL QUEBRACHAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUAMILES - CEB POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA CECILIA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LA CRUZ - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "PANUAYA - CEB JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PARUMBLE NUEVO - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "QUEBRADA GRANDE - CEB JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SANTA ELENA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SILCA - ESC. MARCOS CARIAS REYES"
+  }
+]

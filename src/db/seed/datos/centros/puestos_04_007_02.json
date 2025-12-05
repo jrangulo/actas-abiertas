@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "DOLORES - INST. OCTAVIO MEDINA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL CAMALOTE - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "JOYAS GALANAS - ESC. SALVADOR CORLETO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS DELICIAS - ESC. HERIBERTO ALCANTARA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PLAN DEL NARANJO - ESC. FEDERICO CANALES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN ANTONIO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "VEGA REDONDA O SAN ANTONIO - CEB MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "YARUCONTE - ESC. JUAN LINDO"
+  }
+]

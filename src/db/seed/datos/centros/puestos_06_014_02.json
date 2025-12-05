@@ -1,0 +1,30 @@
+[
+  {
+    "puesto": "CORAYCITO - ESC. MANUEL BONILLA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL MACUELIZO - ESC. RAMON ROSA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LA CRUCITA - ESC. RAMON ROSA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LAS CAÑAS - ESC. LEMPIRA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS LAJAS - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LAS MARIAS - ESC. LEMPIRA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "SAN JOSE - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "001"
+  }
+]

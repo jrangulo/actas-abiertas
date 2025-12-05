@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "006",
+    "puesto": "EL GUAYABAL - CEB. RAMON ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL PERICON - ESC. ROBERTO SUAZO CORDOVA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA CUMBRE - CEB. VICENTE MEJIA COLINDRES"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LAGUNA SECA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS HUERTAS - ESC. 18 DE NOVIEMBRE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN MIGUEL - ESC. LORENZO CERVANTES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN PEDRO DE TUTULE - ESC. MARIANO VASQUEZ"
+  }
+]

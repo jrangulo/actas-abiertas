@@ -1,0 +1,94 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. ABAJO - INST. GENARO MUÑOZ HERNÁNDEZ"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "BO. BRISAS DEL BOSQUE - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. BUENA ESPERANZA - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. BUENA VISTA - ESC. JUAN DE LA CRUZ AVELAR"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "BO. CALAN - INST. LICEO CATOLICO CRISTO REY"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. CALENTERIQUE O SUYAPA - ESC. ERNESTINA FLORES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. EL CARMEN - ESC. ESTADOS UNIDOS DE AMERICA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. EL CENTRO - CEB REPUBLICA DE COLOMBIA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. EL PARNAZO - CEB. RENACIMIENTO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "BO. LAS COLINAS - CEB. LEMPIRA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "BO. LAS MERCEDES - CEB DARIO VELASQUEZ"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "BO. MACARUYA - ESC. SALOMON PINEDA"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "BO. PASO HONDO - ESC. GREGORIO CONSUEGRA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BO. SAN ANTONIO - CEB. JULIA CASTELLANOS DE GÓMEZ RODICIO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "BO. SAN FRANCISCO - ESC. SAN FRANCISCO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "BO. SAN JUAN - ESC. NORMA REGINA DE CALLEJAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "BO. SAN MIGUEL - CEB. REY ALFONZO XIII"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BO. SANTA MARTHA - CEB. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "BO. ZARAGOZA - CEB ALFONSO GUILLEN ZELAYA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "COL. ANTONIO MATA - CEB PIEDAD SEVILLA GAMERO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "COL. JUAN DE LA CRUZ AVELAR - ESC. ENMA ROMERO DE CALLEJAS"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "COL. LAS AMERICAS - ESC. NUESTRA SEÑORA DE FATIMA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "COLONIA CANADA - CEB. REPUBLICA DE CANADA"
+  }
+]

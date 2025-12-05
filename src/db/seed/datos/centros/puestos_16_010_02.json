@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "EL NISPERO - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL PARAISO - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL ROBLEDAL - ESC. MARTIN CARDONA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL TONTOLO - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "NEJAPA - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "NUEVA YORK - CEB ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN JERONIMO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SANTA CRUZ - CEB RAMON ROSA"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "011",
+    "puesto": "CORINTIO - CASA COMUNAL"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CUQUINCA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "ESTANCIA - CEB. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "JUNIGUARA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LOS HORNOS - ESC. EVARISTO MARTINEZ"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LOS SOSAS - ESC. RICARDO R. VALDEZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "MUZULA - ESC. SOBERANIA NACIONAL"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN ANTONIO - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ISIDRO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN MIGUEL - ESC. REPUBLICA DE CHILE"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA ANA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SANTA LUCIA O EL POTRERO - ESC. RODOLFO Z. VELASQUEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SANTIAGO - ESC. 4 DE JUNIO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "ZACATE BLANCO - ESC. MARIA CACERES RIVERA"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. ABAJO - INST. RAMON ROSA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. BUENOS AIRES - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BO. EL CENTRO - INST. RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. EL TAMARINDO - CEB ALBA NORA GUNERA DE MELGAR"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "BO. EL TRIUNFO - ESC. ANDREA LAZO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. LAS FLORES - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. MANGA SECA - CEB PABLO FREIRE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. SAN ISIDRO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "COL. AURORA - CEB JUANA DOMITILA RUIZ"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "COL. BAJO AGUAN - INST. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "COL. DIECIOCHO DE SEPTIEMBRE - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "COL. FAVIO OCHOA - CEB GUILLERMO AYES MEJIA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "COL. OCCIDENTAL - ESC. COYOCUTENA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "COL. SALOMON MARTINEZ - CEB ROTARIO"
+  }
+]

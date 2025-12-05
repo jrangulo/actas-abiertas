@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "006",
+    "puesto": "EL OCOTAL - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "EL ROSARIO - ESC. PABLO MONCADA BANEGAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL SALITRE - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA CEIBA - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LAS LAJAS - ESC. INOCENTE ORELLANA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "RIO TABACO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "YUPITE - CEB MANUEL BONILLA"
+  }
+]

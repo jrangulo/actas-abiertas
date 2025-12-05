@@ -1,0 +1,130 @@
+[
+  {
+    "puesto": "BAÑADEROS - CEB DIONISIO DE HERRERA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL CANTON - CEB ALFONZO GUILLEN ZELAYA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL CHILITO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "EL ENCINO - ESC. VICENTE CACERES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL JUTE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "EL OCOTAL - CEB FELIX SALGADO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL RIITO No. 1 - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL RODEO - CEB PRESENTACION CENTENO",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL SUYATAL - ESC. CRISTOBAL COLON",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "ESCOBAS AMARILLAS - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LA CEBADILLA - CEB LUIS BOGRON",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LA GRANJA - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LA LAGUNA No. 2 - ESC. RAMON CARIAS DONAIRE",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "LA UNION - CEB 1ERO DE AGOSTO",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LA ZACATERA - CEB RAMON ROSA",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "LAS CAÑITAS - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. REPUBLICA DE COSTA RICA",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LAS DELICIAS - CEB EL PROGRESO",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LAS FLORES - ESC. FRANCISCO DUARTE R.",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "LOS ENCINOS - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "LOS PLANCITOS - CEB. RAMON ROSA",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "PASO HONDO - ESC. LEMPIRA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "PEDRIOS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "POTRERILLOS - CEB JUAN LINDO",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "SALADINO - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "SAN ISIDRO - CEB PEDRO NUFIO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "SAN LORENZO - ESC. PEDRO NUFIO",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "SANTA CRUZ - ESC. JOSE SIMON AZCONA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "SANTA ROSA No. 1 - CEB DIONISIO DE HERRERA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "SANTA ROSA No. 2 - ESC. SUPERACION",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "TEUPASENTI - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "VALPARAISO - CEB FRANCISCO MORAZAN ",
+    "id_puesto": "022"
+  }
+]

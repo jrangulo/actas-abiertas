@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "CASITAS - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "COLOLACA - CEB MANUEL BONILLA "
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL OBRAJE - CEB.NARCISO CASTILLO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL ZAPOTE CHICHIPATE - ESC. RURAL MIXTA GUSTAVO ZUNIGA ANDRADE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS FLORES - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LLANO DE LA CRUZ O ANA SANCHEZ - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS PLANES - CEB EMILIO HERCULES NAVARRO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "MALSINCALES - CEB. LADISLAO URBINA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN ISIDRO CANGUACOTA - CEB PEDRO NUFIO"
+  }
+]

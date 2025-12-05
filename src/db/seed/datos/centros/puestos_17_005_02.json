@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "CARIDAD - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CUTILE - ESC. DOMINGO BONILLA SANTOS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL ESPINO - ESC. AMADO AGUSTINUS"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL TABLON - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "HONDABLE No. 1 - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA CAÑADA - ESC. JOSÉ TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAS DELICIAS - ESC. JOSE CECILIO DEL VALLE"
+  }
+]

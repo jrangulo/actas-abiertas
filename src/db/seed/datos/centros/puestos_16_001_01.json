@@ -1,0 +1,54 @@
+[
+  {
+    "puesto": "BO. ABAJO - INST. TECNICO SANTA BARBARA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "BO. EL CALVARIO - ESC. MELIDA CONCEPCION BU GIRON",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "BO. EL CENTRO - ESC. AGUSTINUS VIDAURRETA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "BO. EL CHAPARRAL - JARDIN DE NIÑOS LUIS LANDA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "BO. EL CONEJO - ESC. MANUEL DE JESUS SUBIRANA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "BO. EL FAROLITO - ESC. MARCOS GARCIA O GUIA TEC. 2",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "BO. EL JILOTE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "BO. LA CAÑADA - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "BO. LA LIBERTAD - ESC. DR HECTOR MUÑOZ",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "COL. ALFONSO XIII - JARDIN DE NIÑOS GABRIELA MISTRAL",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "COL. LOS NARANJOS - JARDIN DE NIÑOS EDGARDO SABILLON",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL RODEO - ESC. DR. JESUS AGUILAR PAZ",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LA ESTANCIA - ESC. SANTOS GUARDIOLA",
+    "id_puesto": "013"
+  }
+]

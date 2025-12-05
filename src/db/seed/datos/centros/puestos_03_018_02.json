@@ -1,0 +1,90 @@
+[
+  {
+    "id_puesto": "022",
+    "puesto": "AGUA DULCE - ESC. JULIAN R. CACERES"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "AGUAS DEL PADRE - ESC. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "BUENA VISTA DE RIO BONITO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "BUENAS CASAS - CEB MARIA DEL SOCORRO AMADOR "
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CHORRERITAS - CEB PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL ACHIOTE - ESC. ESTANISLAO DOMINGUEZ"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL PITO - ESC. SEGUNDA REPUBLICA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL PORVENIR - CEB. MAX MARTINEZ ZAMBRANO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL RINCON - CEB JUAN RAMON MOLINA "
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL SOCORRO - CEB LA IGUALDAD"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL SOCORRO DE LA PEÑITA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "EL ZAPOTE - ESC. RAMON ORTEGA"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "GERMANIA - ESC. MIRIAN AZCONA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "GUARAJAO NUEVO - ESC. MAXIMO SOTO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA CRUCITA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "POTRERILLOS 2 - CEB MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "RIO BONITO - ESC. JUAN CASTRO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SAN IGNACIO - ESC. ALBERTO MEMBREÑO"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "SAN JOSE DE LA CUESTA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN JOSE DE LOS CHAGUITES - ESC. EDUARDO MARTINEZ"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SANTA CRUZ DEL DULCE - CEB JOSE LEON MADRID"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SANTA ROSITA - CEB JOSE CECILIO DEL VALLE"
+  }
+]

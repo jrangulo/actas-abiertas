@@ -1,0 +1,254 @@
+[
+  {
+    "puesto": "AGUA BLANCA - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "057"
+  },
+  {
+    "puesto": "AGUA CHIQUITA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "BRISAS DE LEAN - ESC. DOMINGO BUSTAMANTE",
+    "id_puesto": "054"
+  },
+  {
+    "puesto": "BUENA VISTA - ESC. ALEJANDRINA BERMUDEZ",
+    "id_puesto": "055"
+  },
+  {
+    "puesto": "BUENOS AIRES No. 1 - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "CANGELIQUITA ABAJO - ESC. GABRIELA MISTRAL",
+    "id_puesto": "059"
+  },
+  {
+    "puesto": "CANGELIQUITA ARRIBA - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "CHAMPERIO O EL TRIUNFO DE ESQUIPULAS - ESC. PABLO PORTILLO FIGUEROA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "COL. LOS LAURELES - ESC. ADRIANA DE VALERIO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "COL. MUNICIPAL - INST. CELESTINO CANALES SIERRA",
+    "id_puesto": "060"
+  },
+  {
+    "puesto": "COL. TRES DE MAYO - CEB SAT. PABLO PORTILLO FIGUEROA",
+    "id_puesto": "062"
+  },
+  {
+    "puesto": "CONCEPCION LA FLORIDA VIEJA - ESC. RAMON CARIAS DONAIRE",
+    "id_puesto": "051"
+  },
+  {
+    "puesto": "EL BARRO O BUENA VISTA - ESC. RAFAEL HELIODORO VALLE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL BOQUETE - ESC. ALFONSO XIII",
+    "id_puesto": "053"
+  },
+  {
+    "puesto": "EL CEDRO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "EL DESVIO DEL ZAPOTE MOJIMAN - ESC. PABLO AYES",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "EL DORADO - ESC. LA TRINIDAD",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "EL ENCANTO - ESC. FRANCISCO MURILLO SOTO",
+    "id_puesto": "049"
+  },
+  {
+    "puesto": "EL GUANO - ESC. PABLO ZELAYA SIERRA",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL JUNCO - ESC. CELESTINO CANALES",
+    "id_puesto": "050"
+  },
+  {
+    "puesto": "EL JUTE - ESC. MINERVA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL RODEO - ESC. CAMILA ZEPEDA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL TRIUNFO DE LA CRUZ - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL ZAPOTE No. 1 - ESC. BRAULIO FAJARDO",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "KILOMETRO TRECE - ESC. AUGUSTO C. COELLO",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "LA CITRONELA - ESC. EDUARDO MUNGUIA SUAREZ",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LA ENSENADA - ESC. JOSE HERIBERTO DIAZ",
+    "id_puesto": "063"
+  },
+  {
+    "puesto": "LA ESPERANZA - ESC. MANUEL BONILLA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "LA ESPERANZA DE SANTIAGO - ESC. RAMON ROSA",
+    "id_puesto": "064"
+  },
+  {
+    "puesto": "LA FORTUNA - ESC. ROMULO E. DURON",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "LA UNION - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "LA YUSA - ESC. REPUBLICA DE MEXICO",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LANCETILLA - ESC. JOSEFA LASTIRI DE MORAZAN",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LAS DELICIAS - ESC. NATIVIDAD MENDOZA",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "LAS MERCEDES - ESC. ALEJANDRO VADOS MURILLO",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LAS METALIAS - ESC. ALFONSO XIII",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "LAS MINAS - ESC. JUAN MANUEL GALVEZ",
+    "id_puesto": "061"
+  },
+  {
+    "puesto": "LAS PALMAS - ESC. MIGUEL MORAZAN",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "LAS QUEBRADAS - ESC. CRISTOBAL COLON",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "LOS CERRITOS - ESC. PEDRO NUFIO",
+    "id_puesto": "048"
+  },
+  {
+    "puesto": "LOS COCOS - ESC. 18 DE NOVIEMBRE",
+    "id_puesto": "058"
+  },
+  {
+    "puesto": "LOS PATOS - ESC. CELEO MURILLO SOTO",
+    "id_puesto": "056"
+  },
+  {
+    "puesto": "MELCHER 17 - ESC. LUIS LANDA",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "MEZAPA O SANTA ROSA DEL NORTE - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "MIRAMAR - ESC. JOSE ANTONIO MURILLO SOTO",
+    "id_puesto": "065"
+  },
+  {
+    "puesto": "MORAZAN - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "MOREJEN - ESC. ALMA RODAS DE FIALLOS",
+    "id_puesto": "052"
+  },
+  {
+    "puesto": "NOMBRE DE DIOS - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "PAJUILES - ESC. VISITACION PADILLA",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "PEMAN O ULUITA ADENTRO - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "PLANES - ESC. JUAN LINDO",
+    "id_puesto": "035"
+  },
+  {
+    "puesto": "PROCON - ESC. LA INSTRUCCION",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "PUERTO ARTURO - ESC. INDEPENDENCIA",
+    "id_puesto": "037"
+  },
+  {
+    "puesto": "RIO TINTO - ESC. ALVARO CONTRERAS",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "SAN ALEJO - CEB. SAN ALEJO",
+    "id_puesto": "039"
+  },
+  {
+    "puesto": "SAN JUAN - ESC. LUIS BOGRAN",
+    "id_puesto": "040"
+  },
+  {
+    "puesto": "SAN JUAN LEMPIRA - ESC. RAMON VILLEDA MORALES",
+    "id_puesto": "041"
+  },
+  {
+    "puesto": "SANTIAGO - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "042"
+  },
+  {
+    "puesto": "TOLOA ADENTRO - ESC. SIMON BOLIVAR",
+    "id_puesto": "043"
+  },
+  {
+    "puesto": "TOLOA CREEK - ESC. REPUBLICA DE COSTA RICA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "TORNABE - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "044"
+  },
+  {
+    "puesto": "VILLAFRANCA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "045"
+  },
+  {
+    "puesto": "ZOILABE - ESC. LADISLAO ENAMORADO",
+    "id_puesto": "046"
+  }
+]

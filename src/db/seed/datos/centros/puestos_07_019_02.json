@@ -1,0 +1,146 @@
+[
+  {
+    "puesto": "AMPARO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "035"
+  },
+  {
+    "puesto": "ARENALES - CEB. DIONISIO DE HERRERA",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "BUENA VISTA No. 2 - ESC. ALVARO CONTRERAS",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "CABECERA DE GUINEO - ESC. CARLOS ROBERTO REINA",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "CAPIRE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "CAYANTU - ESC. FROYLAN TURCIOS",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "CIFUENTES - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL PROGRESO DE CAPIRE - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "EL ZAPOTAL - ESC. ROBERTO SUAZO CORDOVA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "ESPAÑOL - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "FLOR DEL VALLE - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "GUANO No. 1 - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LA ESPERANZA DE CAPIRE - ESC. CARLOS ALBERTO ALEMAN",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "LA FLORIDA - ESC. ESTEBAN GUARDIOLA",
+    "id_puesto": "034"
+  },
+  {
+    "puesto": "LA FORTUNA - ESC. RAMON MONTOYA",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "LAS MEZAS - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LAS QUEBRADAS - ESC. POLICARPO PAZ GARCIA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LAS VEGAS DE VERACRUZ - ESC. AUGUSTO C. COELLO",
+    "id_puesto": "031"
+  },
+  {
+    "puesto": "LOS PLACERES - ESC. LUIS BOGRAN",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LOS PLANES - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "MAQUENGALE - ESC. ALVARO CONTRERAS",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "MAQUENGALITO - ESC JOSE CECILIO VALLE",
+    "id_puesto": "037"
+  },
+  {
+    "puesto": "MORIAH - ESC. UNION EUROPEA",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "POSAS REDONDA ARRIBA - ESC. COMUNIDAD ECONOM. EUROPEA",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "PRADO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "RANCHO GRANDE - ESC DR. CARLOS ROBERTO REINA",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "RIO ARRIBA No. 2 - ESC. ROBERTO SUAZO CORDOVA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SAMARIA - ESC. HERIBERTO SOLORZANO",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "SAN ANTONIO DE LAS VEGAS - ESC JOSE CECILIO BAIDE",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SAN ESTEBAN - ESC. 29 DE SEPTIEMBRE",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SAN FRANCISCO DE CAPIRE - ESC. LUIS LANDA",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "SAN JOSE DE YAMALE - ESC. VILLEDA MORALES",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "SANTA FE - ESC. ALVARO CONTRERAS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "TAPALCHI - ESC. ALVARO CONTRERAS",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "TROJES - ESC. ALFONSO XIII",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "ZEPEDA No. 2 - ESC. NUEVO AMANECER",
+    "id_puesto": "023"
+  }
+]

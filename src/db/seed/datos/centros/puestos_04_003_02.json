@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "BAÑADEROS - ESC. JOSÉ TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BUENA VISTA - ESC. LA INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CANDELARIA - CEB DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CONCEPCION - CEB MANUEL DE JESUS JORDAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LAS DELICIAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "PLAN GRANDE - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN JOSE DE LAS QUEBRADITAS - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN JUAN - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "VERTIENTES - ESC. PEDRO NUFIO"
+  }
+]

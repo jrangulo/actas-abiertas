@@ -1,0 +1,30 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "CHINDA - CEB. JESUS MARIA RODRIGUEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL LIMON - CEB. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL RETIRO - ESC. EL TRABAJO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL TULE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LA BREA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "PLATANARES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN RAFAEL - ESC.  J.M. AGUILAR"
+  }
+]

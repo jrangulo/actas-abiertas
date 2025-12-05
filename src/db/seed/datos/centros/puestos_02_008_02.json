@@ -1,0 +1,158 @@
+[
+  {
+    "puesto": "AGUA CALIENTE - ESC. FEDERICO CANALES",
+    "id_puesto": "032"
+  },
+  {
+    "puesto": "BO. LOS SUREÑOS - ESC. MANUEL DE JESUS SUBIRANA",
+    "id_puesto": "036"
+  },
+  {
+    "puesto": "CHURRUSQUERA - ESC. JUAN LINDO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "COL. CARLOS ALBERTO MORAZAN OCAMPO - CEB LUIS LANDA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "COL. EL CASTAÑO - ESC. JUAN LINDO",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "COL. MONROY - ESC. SANTIAGO GUILLERMO BARDALES",
+    "id_puesto": "043"
+  },
+  {
+    "puesto": "COOP. VEINTIUNO DE NOVIEMBRE - ESC. 18 DE NOVIEMBRE",
+    "id_puesto": "040"
+  },
+  {
+    "puesto": "CUYULAPA - ESC. 12 DE OCTUBRE",
+    "id_puesto": "042"
+  },
+  {
+    "puesto": "EL CHORRO O EL CHORIZO - ESC. OVIDIO PADILLA ORTIZ",
+    "id_puesto": "044"
+  },
+  {
+    "puesto": "EL ESCANO - ESC. CARLOS HARTLING",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "EL GUAYABAL - ESC. LA UNION",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "EL LIMÓN - ESC. AIDA ZACAPA DE SUAZO",
+    "id_puesto": "045"
+  },
+  {
+    "puesto": "EL SASTRE - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "FAUST - ESC. JOAQUIN REYES TEJEDA",
+    "id_puesto": "033"
+  },
+  {
+    "puesto": "FLORES DEL ESTE - ESC. JOSE ARTURO GOMEZ",
+    "id_puesto": "038"
+  },
+  {
+    "puesto": "GIOCONDA - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "ISLETA CENTRAL (SECTOR DE ISLETAS) - ESC. CRISTOBAL COLON",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "JUAN LAZARO ABAJO - ESC. ZORAYDA CRUZ DE GARCÍA",
+    "id_puesto": "037"
+  },
+  {
+    "puesto": "LA CUBANA - ESC. REPUBLICA DE MEXICO",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "LA CURVA DE ISLETAS - CEB PEDRO NUFIO",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LA HILARIA - CEB AMANECER CAMPESINO",
+    "id_puesto": "035"
+  },
+  {
+    "puesto": "LA PRESA O JUAN LAZARO ARRIBA - ESC. LOS LAURELES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LA SABANA DE LORELAY - ESC. EL PROGRESO",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "LANZA (AIDA PUENTE ALTO) - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "039"
+  },
+  {
+    "puesto": "LAS MINITAS O EL TAPON - ESC. REPUBLICA DE MEXICO",
+    "id_puesto": "041"
+  },
+  {
+    "puesto": "LORELAY - CEB MIGUEL MORAZAN",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LORENCITO - ESC. POMPILIO ORTEGA",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LOS CARRIOLES - ESC. JOSE SIMEON CAÑAS",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "LOS PLANES - CEB ALVARO CONTRERAS",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LUCIA - CEB NAPOLEON ARIAS CRISTALES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "PARMAS - CEB RAMON ROSA",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "PUENTE ALTO - ESC. JUAN ALBERTO MELGAR CASTRO",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "QUEBRADA DE ARENA - CEB OSCAR A. FLORES",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "RIO DE PIEDRA - ESC. RURAL MIXTA MANUEL BONILLA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "SABANA DE UTILA - CEB JOAQUIN REYES TEJEDA",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "SONAGUERA - INST. TECNICO OFICIAL 19 DE DICIEMBRE DE 1881",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "TOSCA - ESC. ANTONIO VELASQUEZ",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "TROVADOR - ESC. POLICARPO BONILLA",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "UTILA - ESC. ALONSO BRITO",
+    "id_puesto": "031"
+  }
+]

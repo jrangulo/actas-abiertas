@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "APACILAGUA - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CAÑA VIEJA - ESC. EMILIO CUBERO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL HONDABLE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL OJUSTE - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "GUAYABILLAS - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA GARZA - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAS LOMITAS - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS TROJAS - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOS MEZCALES No. 1 - ESC. JUAN CAPIS MONDRAGON"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LOS ZANJONES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN FELIPE - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN JACINTO - ESC. SAN JACINTO"
+  }
+]

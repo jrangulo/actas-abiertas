@@ -1,0 +1,62 @@
+[
+  {
+    "id_puesto": "010",
+    "puesto": "BO. EL CENTRO - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. FERNANDEZ FLORES - CEB. LA FRATERNIDAD"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "BO. JOSE TRINIDAD CABAÑAS - CEB. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. LA VICTORIA - CEB GABRIELA MISTRAL"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "BO. MANUEL BONILLA - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "BO. TEGUCIGALPA - CEPB ALBA NORA GUNERA DE MELGAR"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "COL. BUENA FE - CEB PROFA MARIA ANTONIETA BOTTO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "COL. EL SAUCE - CEB. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "COL. GRACIAS A DIOS - CEB . AGUSTO C COELLO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "COL. GUADALUPE LOPEZ - ESC. RAFAEL CANTARERO MARQUEZ"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "COL. IDEAL - CEB.  IDEAL"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "COL. LA INDEPENDENCIA - INST. UNION Y ESFUERZO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "COL. PRIMERO DE MAYO - ESC. RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "RES. LOS TRES REYES - ESC. PROF. ROSA MARIA BOTTO"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "RES. VILLA REAL - CEB VILLA REAL"
+  }
+]

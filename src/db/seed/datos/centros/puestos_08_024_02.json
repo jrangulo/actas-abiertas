@@ -1,0 +1,94 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA BLANCA - ESC. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "CANDELARIA - ESC. GLORIA FIGUEROA DE LOPEZ"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "CASILLAS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CORRALITOS - CEB. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "EL ESTERO - ESC. DR. EUGENIO MATUTE CANIZALES"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL OCOTAL - ESC. SOBERANIA NACIONAL"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL ROSARIO - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "JALACA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA CUESTA O LA PRIMER SABANA - ESC. JESUS SOTO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA ERMITA - ESC. JUAN LINDO No. 1 Y No. 2"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LA ESPERANZA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LA HORQUETA - ESC. CENTRO AMERICA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA LABRANZA - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LA MAJADA VERDE - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAS QUEBRADAS - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LOS CHARCOS - CEB LUIS LANDA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LOS IZOTES - ESC. ERNESTO AMADO PINOT"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "PALMIRA - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "RIO DULCE - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SAN ANTONIO DE PASTOS - ESC. SAN ANTONIO DE PASTOS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "TERRERO COLORADO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "VALLE ARRIBA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "ZARZALOSA - ESC. FRANCISCO MORAZAN"
+  }
+]

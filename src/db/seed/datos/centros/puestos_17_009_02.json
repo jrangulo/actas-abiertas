@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "013",
+    "puesto": "ALTO DE LA CRUZ O EL CAMPO - ESC. PAPY LEOPOLDO BONILLA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "ALTO DE LA FLOR - CEB. ENEAS ANTONIO ALVARADO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL CAIMITO - CEB. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL COMERCIO - CEB. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL MATIARAL - ESC. VICENTE CACERES"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "GRUPO CAMPESINO O AGUA ZARCA - ESC. GERARDO MEDINA"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA CAUCARA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA CRIBA - ESC. TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA CUESTA - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "LA PUENTE - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LAURE ABAJO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LAURE ARRIBA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN JERONIMO - CEB. MARCO AURELIO SOTO"
+  }
+]

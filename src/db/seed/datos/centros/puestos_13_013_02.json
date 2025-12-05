@@ -1,0 +1,178 @@
+[
+  {
+    "id_puesto": "030",
+    "puesto": "ARENALES - CEB. 14 DE JULIO"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "BRISAS DEL OCOTILLO - ESC. RAMON AMAYA AMADOR"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "BUENOS AIRES - ESC. CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "CEMENTERA - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "CERRITOS No. 1 - ESC. 15 DE SEPTIEMBRE"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "CERRITOS No.2 - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "CERRO DE COROS - ESC. CONGOLON"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CONSOLACION - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "EL AGUACATAL - ESC. HONDURAS"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "EL BARRIO - ESC. RENACIMIENTO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "EL CARMEN - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL CHAGUITE - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "EL MATASANITO - ESC. LORENZO MATEO CRUZ"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "EL ROSARIO - CEB. MARCO ANTONIO ARAGON"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "GUALAN - ESC. CRISTOBAL DE OLID"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "JAGUA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA ESTANCIA - CEB MIGUEL HIDALGO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LA LAGUNA DEL PEDERNAL - CEB 14 DE JULIO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA LIBERTAD - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "LA LIMA - ESC. JUSTO JOSE HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA RINCONADA - CEB. JERONIMO J. REYNA"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "LAGUNA DE PAJAPAS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "037",
+    "puesto": "LAS CRUCITAS - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "LAS DANTAS - CEB. REPUBLICA DE COLOMBIA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LAS PILAS DE CANMAYA - CEB HERMAN ACOSTA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LAS TEJERAS - CEB. ARCADIA PINEDA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LEPAERA - CEB. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "LOMA ALTA - ESC. REPUBLICA DE CUBA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "MERCEDES OCOTILLO - CEB FELIX REYES PAZ"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "MISIORA - CEB. JOSE MARIA MORELOS"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "NUEVA EDEN O EL EDEN - ESC. DESPERTAD"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "OCOTE CHACHO - CEB. ALFONSO XIII"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "OCOTILLO TIERRA COLORADA - ESC. RURAL MIXTA RAMON ROSA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "PAJAPAS - CEB EL PROGRESO"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "PLAN DE LA PUA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "PLAN DEL JARRO O SANTA EDUVIGES - ESC. MARCO TULIO RODRIGUEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "PLAN DEL SOCORRO O EL CERRON - ESC. JOSE ARNALDO POSADAS"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "PLAN GRANDE - ESC. EUCEBIO ALVARADO"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "SAN ISIDRO EL BELLOTO - CEB. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "SAN MATIAS - ESC. MARTINIANO DIAZ"
+  },
+  {
+    "id_puesto": "039",
+    "puesto": "SANTA RITA - ESC. MARCO ANTONIO GUILLEN"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "TIERRA COLORADA - ESC. SIMON BOLIVAR"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "YUENA - ESC. FIAT LUX"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "YUENITA - CEB MARIA MANUELA CRUZ"
+  }
+]

@@ -1,0 +1,78 @@
+[
+  {
+    "puesto": "BO. NUEVO - ESC. ALONSO VILLANUEVA",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "COLOMONCAGUA - ESC. MARIANO VASQUEZ",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "EL ALMENDRO - ESC. UNION",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL APINTAL - ESC. REPUBLICA DE ESPAÑA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "EL CALLEJON - ESC. REPUBLICA DE ARGENTINA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "EL CARRIZAL - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "EL HONDABLE - ESC. CARLOS ROBERTO PINEDA COLATO",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "EL PICACHO - ESC. 18 DE NOVIEMBRE",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "GUACHIPILIN - ESC. DOMINGO FAUSTINO SARMIENTO",
+    "id_puesto": "021"
+  },
+  {
+    "puesto": "LAS FLORES - ESC. LEMPIRA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LLANO GRANDE - ESC. ALVARO CONTRERAS",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LOS AMATES - ESC. RUMUALDO BUESO PEÑALBA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "PIEDRA PARADA - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "PUEBLO VIEJO - ESC. VICENTE TOSTA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SAN MARCOS - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "SAN MIGUELITO - ESC. 15 DE SEPTIEMBRE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SANTA ANA - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "SANTO DOMINGO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "VADOS DE SAN ANTONIO - ESC. MARCO AURELIO SOTO",
+    "id_puesto": "012"
+  }
+]

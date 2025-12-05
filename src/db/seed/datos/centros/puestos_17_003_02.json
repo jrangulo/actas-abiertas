@@ -1,0 +1,74 @@
+[
+  {
+    "puesto": "AMAPALA - ESC. MANUEL BONILLA",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "COYOLITO - ESC. LUIS LANDA",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL ZOPE - ESC. JUAN RAMON MOLINA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "GUALORITA - ESC. LEMPIRA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "ISLITAS - ESC. RUBEN MARTINEZ RODAS",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "LA FLOR - CEB MARCELINO PINEDA LOPEZ",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LA PINTADILLERA - ESC. MINERVA",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LAS PELONAS - ESC. JUAN JOSE QUIROZ",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "LOS LANGUES - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "PLAYA BLANCA - ESC. FRANCISCO ESPINOZA DUBON",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "PLAYA DE TIGUILOTADA - ESC. DOMINGO FLORES",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "PLAYA GRANDE - ESC. FROYLAN TURCIOS",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "PLAYA NEGRA - CEB JOSE TRINIDAD REYES",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "PLAYA O PUNTA NOVILLO - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "PUERTO GRANDE - CEB DIONISIO DE HERRERA",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "PUNTA HONDA - ESC. LA FRATERNIDAD",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "SAN CARLOS O EL GARROBO - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "SAN PABLO - CEB SAN PABLO",
+    "id_puesto": "013"
+  }
+]

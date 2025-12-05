@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "BO. ABAJO - ESC. MODESTO CHACON"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "BO. ARRIBA - CEPB CELIA SARAVIA DE FUNES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. LA ESTACION - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "COL. DIONISIO NARVAEZ - CEB. COLONIA LA LIBERTAD"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "COL. GUILLERMO MOORE - INST. GUILLERMO MOORE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "COL. LA LIBERTAD - JARDIN DE NIÑOS RICCI HERRERA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "COL. RAMON AMAYA AMADOR - CEB SAN JORGE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "COL. VEINTICUATRO DE MAYO - CEBG. JOSE TRINIDAD CABAÑAS "
+  }
+]

@@ -1,0 +1,66 @@
+[
+  {
+    "id_puesto": "012",
+    "puesto": "CALUCICA - ESC. EXEQUIEL ROMERO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "COLOMARIGUA O EL TABLON - ESC. FRANCISCO BERTRAND"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CONCEPCION - ESC. REPUBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL CERRON - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "EL DORADO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL GUARUMO - ESC. LAS AMERICAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL RODEO - ESC. REPUBLICA DE ARGENTINA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "GUACHIPILINCITO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GUAJINIQUIL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "HOJA BLANCA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "JIQUINLACA - CEB PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA - ESC. CLAUDIO BARRERA"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "PLAN VERDE - ESC. REPUBLICA DE CUBA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SAN JERONIMO - ESC. LA LIBERTAD"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN NICOLAS - ESC. REPUBLICA DE COSTA RICA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SANTIAGO - ESC. MARCO AURELIO SOTO"
+  }
+]

@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "013",
+    "puesto": "BUENA VISTA - CEB. LUIS ANTONIO CASTRO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL CALICHITO - ESC. NICOLAS MONTES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL CHAPARRAL - ESC. GRACIAS A DIOS"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "EL DIVISO - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL PORVENIR - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "HIGUERONES - ESC. OBED CASTAÑEDA LAINEZ"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "LA PIMIENTA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "LAGUNA SECA - ESC. ROMULO E. DURON"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "LAS DELICIAS - CEB CESAR AUGUSTO SANDINO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LOS ANISES - CEB JUAN LINDO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "PUERTA DEL POTRERO - CEB FRANCISCO DE MONTEJO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN JOSE DE COMAYAGUA - ESC. NICOLAS MONTES"
+  }
+]

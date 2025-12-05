@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "003",
+    "puesto": "AGUA BLANCA - CEB RAMON ORTEGA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL CAMALOTAL ABAJO - ESC. LUIS ANDRES ZUNIGA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL ENCINAL - CEB. RUBEN BARAHONA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL RODEO - ESC. SEGUNDA REPUBLICA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA LAGUNA - ESC. OLIMPIA VDA. DE CASTRO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "MINAS DE PLATA - ESC. RUBEN BARAHONA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SAN JOSE DEL POTRERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "TERRERITO DE LOS COELLOS - ESC. EL ESFUERZO"
+  }
+]

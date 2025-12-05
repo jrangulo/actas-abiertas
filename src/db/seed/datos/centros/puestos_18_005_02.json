@@ -1,0 +1,82 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA FRIA - ESC. HERMENEGILDO MARTINEZ"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "ALTA CRUZ - CEB RUPERTO MARTINEZ"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "BUENA VISTA - CEB OSWALDO LOPEZ"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL COROZO - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL HATO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "JAGUA ARRIBA - ESC. ALVARO ESCOTO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "JOCON - ESC. FELIPE REYES"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LA DALIA - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA LOMA - ESC. VENANCIO HERNANDEZ"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA ROSA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LA SOLEDAD - ESC. CARMEN SUAZO VDA DE ALVAREZ"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LAMA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LAS MANGAS - ESC. PADRE RAMON CALERO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LOS ENCUENTROS - ESC. ERMENEGILDO P. MARTINEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MACORA - ESC. JOSE S. PEREZ"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "PACAYA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "PIEDRA COLORADA - ESC. BLAS ALBERTO LOPEZ"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PUENTE GRANDE - CEB JOSÉ ERNESTO GEORGE"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "TAPIQUIL - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "TERCALES - ESC. FRANCISCO MORAZAN"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "puesto": "AGUA BLANQUITA - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "CERRO EL TORO - ESC. LEOVIGILDO PINEDA CARDONA",
+    "id_puesto": "028"
+  },
+  {
+    "puesto": "COL. SUYAPA - ESC. SUYAPA",
+    "id_puesto": "026"
+  },
+  {
+    "puesto": "EL AGUACATAL - ESC. FRANCISCO MORAZAN",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "EL DIEZ Y OCHO O MIRAFLORES - ESC. JUAN LINDO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL SALITRE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "022"
+  },
+  {
+    "puesto": "EL SAUCE - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "030"
+  },
+  {
+    "puesto": "EL ZAPOTE - CEB. MARCO AURELIO SOTO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "GUALJOCO - CEB ING. LUIS BOGRAN MOREJON",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "INGUAYA - ESC. EL TRABAJO",
+    "id_puesto": "025"
+  },
+  {
+    "puesto": "LA CEIBITA - ESC. EULOGIO ENAMORADO",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "LA CUESTA - CEB. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "LA MONTAÑITA EL REGADIO - ESC. JOSE CECILIO DEL VALLE",
+    "id_puesto": "023"
+  },
+  {
+    "puesto": "LA UNION DEL DORADO - ESC. JUAN LINDO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LAS CRUCITAS - ESC. LA FRATERNIDAD",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "LAS QUEBRADAS - ESC. RURAL MIXTA PROF. CLEOFAS C. CABALLEROS",
+    "id_puesto": "029"
+  },
+  {
+    "puesto": "LOS ANISES - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LOS BANCOS - ESC. PERFECTO H. BOBADILLA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "LOS CERRITOS - ESC. RURAL MIXTA JUAN LINDO",
+    "id_puesto": "027"
+  },
+  {
+    "puesto": "LOS LAURELES - CEB JOSE CECILIO DEL VALLE",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LOS PLANCITOS DE SUYAPA - ESC. REPUBLICA DE EL SALVADOR",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "MACHOLOA - CEB. JOSE CECILIO DEL VALLE",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "RIO SECO - CEB ING. LUIS BOGRAN",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "SAN GASPAR DE TABLONES - ESC. JUAN LINDO",
+    "id_puesto": "024"
+  },
+  {
+    "puesto": "SAN JERONIMO DEL PINAL - ESC. ABOG. EFRAIN F. BU GIRON",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "SAN LUIS DE PLANES - CEB. DOMINGO SAGASTUME",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SANTA RITA DE ORIENTE - ESC. JOSE TRINIDAD REYES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "VALLE DE TENCOA - ESC. CLEOFAS C. CABALLERO",
+    "id_puesto": "019"
+  }
+]

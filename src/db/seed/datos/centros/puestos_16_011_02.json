@@ -1,0 +1,38 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "ARENALES - CEB. RAFAEL PINEDA PONCE"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "EL CARRIZAL - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL ZAPOTE - ESC. MOISES REYES"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "GUACAMAYA - CEB DOLORES SABILLON"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "GUALALA - CEB MAURA R. DE SABILLON"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "GUALJOQUITO - ESC. VALENTIN MEJIA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "LOMA DEL AGUILA O LAS PULGAS - ESC. REPUBLICA DE COSTA RICA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "PLATANARES - ESC. HONDURAS"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SANTA ROSITA - ESC. SOLEDAD RIVERA"
+  }
+]

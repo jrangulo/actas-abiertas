@@ -1,0 +1,54 @@
+[
+  {
+    "id_puesto": "011",
+    "puesto": "AGUA BUENA - ESC. ARMANDO GUTIERREZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BODEGA DE LOS TANGOS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CHALMECA - CEB. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "EL CEDRAL - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA CUCHILLA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA UNION - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LAS CONCHAS - ESC. MARGARITA CHAVARRIA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LOS TANGOS - CEB.  BASICA CRISTOBAL COLON"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "NUEVA ARCADIA - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "QUEBRADA SECA - ESC. 21 DE OCTUBRE"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN ISIDRO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN PABLO DEL ROBLE - ESC. JUANA CASTRILLO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "SANTA LUZ - ESC. JOSE CECILIO DEL VALLE"
+  }
+]

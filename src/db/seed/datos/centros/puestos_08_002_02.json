@@ -1,0 +1,34 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "ALUBAREN - CEB RAMON ROSA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CENTRO DEL VALLE O LA CONCEPCION - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL DIVISADERO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL HATILLO - ESC. JUAN MANUEL GALVEZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "EL JICARO - ESC. PROHECO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LOS TABLONES - INSTITUTO OSCAR ARNULFO FIALLOS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ANTONIO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SANTA RITA - ESC. JOSE CECILIO DEL VALLE"
+  }
+]

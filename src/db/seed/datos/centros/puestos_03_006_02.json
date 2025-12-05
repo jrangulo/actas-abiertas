@@ -1,0 +1,102 @@
+[
+  {
+    "id_puesto": "029",
+    "puesto": "BUENA VISTA - ESC. GUADALUPE JEREZANO"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CABECERAS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "CERRO NEGRO - ESC. AMBROSIO BUESO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CUESTA DEL NEO - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "EL FILO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "EL HIGUERON - ESC. HECTOR MELGAR"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "EL OLVIDO - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "EL TRANSITO - CEB JUAN FRANCISCO ROMERO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "GOTERAS - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "LA ESPERANZA - ESC. ROBERTO ANIBAL ORELLANA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LA LAGUNA DEL RINCON - ESC. LA DEMOCRACIA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "LA LIBERTAD - ESC. LA DEMOCRACIA"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "LA MINA - ESC. RAMON ORTEGA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA PITA - ESC. JOSE MEJIA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LOMA ALTA - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LOS ALFAROS - ESC. AUGUSTO C. COELLO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LOS LAURELES - ESC. REYNALDO SALINAS LOPEZ"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "MATASANO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MONTAÑUELAS - CEB PEDRO A. MEDAL"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PLAN DE ALEJANDRO - ESC. VICENTE VILLA SEÑOR"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "SAN ANTONIO DE SAQUE - ESC. BATALLA DE LAS CHARCAS"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "SANTA FE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "VALLE BONITO - CEB INST. LA DEMOCRACIA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "VALLE DE ANGELES - ESC. GONZALO BOQUIN"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "ZACATALITOS - ESC. JUAN LINDO"
+  }
+]

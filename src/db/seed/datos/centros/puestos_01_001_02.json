@@ -1,0 +1,62 @@
+[
+  {
+    "puesto": "ARMENIA BONITO - ESC. GUSTAVO A. MARTINEZ",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "COROZAL - ESC. RAMON ROSA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "EL BUFALO - ESC. JUSTO RUFINO SPILBURY",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "EL PERU - ESC. JUAN LINDO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "EL PITAL - ESC. ABRAHAM MEJIA ZERON",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "LAS MANGAS - ESC. EL PROGRESO",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "LOS LIMPIOS - ESC. PEDRO NUFIO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LOS NARANJOS - ESC. MIGUEL ROBERTO MONCADA",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "RIO MARIA - ESC. 10 DE SEPTIEMBRE",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "RIO VIEJO - ESC. RURAL MIXTA MARCO AURELIO SOTO",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAMBO CREEK - ESC. LA LIBERTAD",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SATUYE - ESC. CARLOS HARTLING",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "TONCONTIN - ESC. RAMON ROSA",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "URRACO - ESC. 14 DE JULIO DE 1969",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "YARUCA - CEB. MINERVA",
+    "id_puesto": "010"
+  }
+]

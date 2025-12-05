@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "008",
+    "puesto": "BURGOS - ESC. FELIPE SANCHEZ"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "CACERES - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "CARACAS - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL GANCHO - ESC. MARGIE DE DIPP"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "EL PINO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "EL PORVENIR - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA CURVA - ESC. AUGUSTIN GONZALES TRIMINIO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "LA UNION - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LOPEZ BONITO - ESC. OSWALDO LOPEZ ARELLANO"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "MONTE POBRE - ESC. JUAN LINDO"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "OROTINA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "SAN JOSE DE MONTEVIDEO - ESC. SAN JOSE DE MONTEVIDEO"
+  }
+]

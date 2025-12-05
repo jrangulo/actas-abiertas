@@ -1,0 +1,42 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "ARAMECINA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL CANTIL - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL PEDREGAL - ESC. TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LAS POZAS - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "LOS TERREROS - ESC. REPUBLICA DE ECUADOR"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "MACUELIZO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SALUBRE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAMPITO - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SANTA LUCIA - CEB LEMPIRA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "TIERRA BLANCA - ESC. JOSE TRINIDAD REYES"
+  }
+]

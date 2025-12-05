@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AZACUALPA - ESC. MEDARDO MEJIA"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "CAMAPARA - CEB. JOSE VISITACION ALFARO"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "CANDELARIA - CEB. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "EL CALVARIO - CEB. PEDRO IGLESIAS GUZMAN"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL LIMON - ESC. COMIZAHUALT"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "LA ARADA - CEB. FELIX MARIA SANDOVAL"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA HACIENDA - ESC. RAMON VILLEDA MORALES"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA ISLETA - CEB. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "PORTILLO LA FLOR - ESC. DESPERTAR"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "SAN FRANCISCO - ESC. MATIAS DELGADO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "SAN JOSE - CEB LEON ALVARADO"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "SAN LORENZO - CEB PEDRO NUFIO"
+  }
+]

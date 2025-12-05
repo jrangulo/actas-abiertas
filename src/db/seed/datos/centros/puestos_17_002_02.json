@@ -1,0 +1,50 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "ALIANZA - INST. POLIVALENTE HONDURAS "
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "ALTO DE JESUS - ESC. JOSE ANTONIO MONTES"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "CUBULERO - CEB TERENCIO SIERRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL ACEITUNO - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "EL CONCHAL - CEB FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA LAGUNA - CEB FELIPE AUGUSTINUS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LOS LUISES - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "PLAYA GRANDE - CEPB HUMBERTO COREA"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "PLAYITA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "SAN JERONIMO - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "SAN PEDRO CALERO - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "SONORA - CEB RAMON AMAYA AMADOR"
+  }
+]

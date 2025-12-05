@@ -1,0 +1,106 @@
+[
+  {
+    "id_puesto": "001",
+    "puesto": "BO. ABAJO - ESC. GUADALUPE ULLOA"
+  },
+  {
+    "id_puesto": "002",
+    "puesto": "BO. ARRIBA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BO. LA CABAÑA - ESC. MANUEL ANDARA"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "BO. LA INDEPENDENCIA - ESC. MARCELINO PINEDA LOPEZ"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "BO. LA JOYA - JARDIN DE NIÑOS ANGELA OCHOA VELASQUEZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "BO. LA ZARCITA - CEB. RAMIRO HUMBERTO MORENO"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "BO. LOS LIRIOS - KINDER VIRGINIA MEDAL DE FAJARDO "
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "BO. LOURDES - ESC. DR. RAMON ERNESTO CRUZ"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "BO. SAN ANTONIO DE LA SABANA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "BO. SAN BLAS - ESC. ANGEL ANTONIO VINDEL"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "BO. SAN JOSE - ESC. RAMON ORTEGA"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "BO. SANTA LUCIA - CEB. RAMON ORTEGA No. 1"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "BO. SUYAPA - ESC. CLEOTILDE BOQUÍN"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "BO. TORONDON - INST. LEON ALVARADO"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "COL. DEL VALLE - JARDIN DE NIÑOS REBECA DE BULNES"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "COL. DOS DE MAYO SECTOR SUR - JARDIN DE NIÑOS CLEMENTINA SUAREZ"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "COL. MILAGRO DE DIOS - JARDIN DE NIÑOS MORAZANICOS"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "COL. NUEVA ESPERANZA - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "COL. NUEVA VALLADOLID - ESC. JOSE ELOY GUZMAN"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "COL. PIEDRAS BONITAS NORTE - ESC. EBEN EZER"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "COL. PRIMERO DE MAYO - ESC. PABLO PORTILLO FIGUEROA"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "COL. SAN MIGUEL #2 - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "COL. VEINTIUNO DE ABRIL - ESC. MARIA TERESA ARGUETA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "LA JAGUITA - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "MATA DE CAÑAS - ESC. LEONCIO VALLE"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "NUEVA VALLADOLID DE CAPIRO - ESC. FRAY BARTOLOME DE LAS CASAS"
+  }
+]

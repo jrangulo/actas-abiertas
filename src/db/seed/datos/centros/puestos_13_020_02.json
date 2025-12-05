@@ -1,0 +1,62 @@
+[
+  {
+    "puesto": "CONCEPCION - ESC. RODOLFO CORTEZ",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "EL CAMPANARIO - ESC. LA LIBERTAD",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL EDEN - ESC. FROYLAN TURCIOS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "EL MOGOTE - ESC. JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "EL SINAI - ESC. RAMON VILLEDA MORALES",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "LA CAÑADA - ESC. EDILBERTO MURILLO LARA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "LA ZACATERA O SANTA LUCIA - ESC. FRANCISCO DE LAS CASAS",
+    "id_puesto": "013"
+  },
+  {
+    "puesto": "LOS LAURELES - ESC. LA DEMOCRACIA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "QUERUCO - CEB DIEGO GARCIA",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "SAN ANTONIO - CEB RAMON ROSA",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "SAN JOSE DE LA MONTAÑA - CEB ALBERTO GALEANO",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "SAN MIGUEL - ESC. NEPTALY LEMUS",
+    "id_puesto": "011"
+  },
+  {
+    "puesto": "SAN PEDRITO - CEB LEMPIRA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "SAN RAFAEL - CEB FRANCISCO MORAZON ",
+    "id_puesto": "001"
+  },
+  {
+    "puesto": "SUYAPA - ESC. 14 DE JULIO",
+    "id_puesto": "009"
+  }
+]

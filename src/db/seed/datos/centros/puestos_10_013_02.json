@@ -1,0 +1,38 @@
+[
+  {
+    "puesto": "EL DERRUMBADO - CEB. RAMON ORTEGA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "EL PATERNO O SANTA ROSA - ESC. NUEVA HONDURAS",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "EL PORTILLON - CEB JOSE TRINIDAD CABAÑAS",
+    "id_puesto": "009"
+  },
+  {
+    "puesto": "LAS DELICIAS - CEB EL SABIO VALLE ",
+    "id_puesto": "003"
+  },
+  {
+    "puesto": "LODO NEGRO - ESC. OSCAR MEJIA ARELLANO",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "LOS PINARES O LA RESINA - ESC. LOS PINARES",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "RANCHO QUEMADO - ESC. REPUBLICA DE HONDURAS",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "SAN JOSE - ESC. DIONISIO DE HERRERA",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "SAN MARCOS DE SIERRA - ESC. PRESIDENTE SIERRA",
+    "id_puesto": "001"
+  }
+]

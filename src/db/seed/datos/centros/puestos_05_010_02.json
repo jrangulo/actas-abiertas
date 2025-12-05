@@ -1,0 +1,206 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA AZUL RANCHO - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "AGUA AZUL SIERRA - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "053",
+    "puesto": "AGUA DE LA REINA - ESC. JUAN B. ENAMORADO"
+  },
+  {
+    "id_puesto": "051",
+    "puesto": "BUENA VISTA - ESC. INDEPENDENCIA"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "BUENOS AIRES - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CAMPO BARRANCO - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "CAMPO LLANO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "CAMPO OLIVO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "CASAS VIEJAS - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "044",
+    "puesto": "COL. EL REPARTO - CEB. JOSE HUMBERTO PINEDA PAZ"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "CONCEPCION - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "EL ACHIOTAL - ESC. MANUEL BONILLA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL CHAGUITON - ESC. ANGEL ZUNIGA HUETE"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL EDEN - CEB. MODESTO CHACON"
+  },
+  {
+    "id_puesto": "048",
+    "puesto": "EL JARAL - ESC. LUIS LANDA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "EL LLANO - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "046",
+    "puesto": "EL OLVIDO - ESC. PATRIA"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "EL PLAN GRANDE - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "EL TIGRE - ESC. PEDRO NUFIO"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "EL ZAPOTE - ESC. REPUBLICA DE CHILE"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "LA BARCA - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LA BOLSITA - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "052",
+    "puesto": "LA FE - CEB. PROF. POMPILIO TROCHEZ"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "LA GUAMA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "LA QUESERA O EL PARAISO - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "043",
+    "puesto": "LAS DELICIAS - ESC. REPUBLICA DE MEXICO"
+  },
+  {
+    "id_puesto": "047",
+    "puesto": "LAS FLORES - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "LAS MARIAS - ESC. GRACIAS A DIOS"
+  },
+  {
+    "id_puesto": "055",
+    "puesto": "LAS PILETAS - ESC. CONCEPCION DE PINEDA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LOS CAMINOS - ESC. JOSE CASTRO LOPEZ"
+  },
+  {
+    "id_puesto": "041",
+    "puesto": "LOS CHORROS - ESC. HECTOR SABILLON CRUZ"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "LOS MANGOS - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LOS NARANJOS - CEB. TERESA MOREJON DE BOGRAN"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "MONTE VERDE - CEB. RAMON ROSA"
+  },
+  {
+    "id_puesto": "054",
+    "puesto": "MONTECILLOS - AGRON. ARNOLD DAVID SANCHEZ"
+  },
+  {
+    "id_puesto": "050",
+    "puesto": "NUEVA ESPERANZA - CEB. MINERVA"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "OROPENDOLAS - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "PEÑA BLANCA - ESC. RAMON ROSA"
+  },
+  {
+    "id_puesto": "042",
+    "puesto": "PINOLAPA - CEB. POMPILIO ORTEGA"
+  },
+  {
+    "id_puesto": "045",
+    "puesto": "PUEBLO QUEMADO - ESC. MARCO AURELIO SOTO"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "SAN ANTONIO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "040",
+    "puesto": "SAN BARTOLO O TERRERO NEGRO - ESC. JOSE TRINIDAD CABAÑAS"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "SAN ISIDRO - CEB. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "SAN JOSE DE BALINCITO - CEB. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "027",
+    "puesto": "SAN LUIS DE ZACATALES - ESC. GUADALUPE DE QUEZADA"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA CRUZ DE YOJOA - ESC. JOHN F. KENNEDY"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "SANTA ELENA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "SUBIRANA DEL OLIVAR - ESC. MANUEL DE JESUS SUBIRANA"
+  },
+  {
+    "id_puesto": "049",
+    "puesto": "TERRERITOS DE LA LIBERTAD - CEB. JUAN LINDO"
+  },
+  {
+    "id_puesto": "038",
+    "puesto": "VICTORIA - ESC. MODESTO CHACON"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "YOJOA - ESC. SOTERO BARAHONA"
+  }
+]

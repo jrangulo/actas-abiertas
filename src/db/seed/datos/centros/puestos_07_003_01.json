@@ -1,0 +1,66 @@
+[
+  {
+    "puesto": "BO. ABAJO - A.D.A.G.O.",
+    "id_puesto": "002"
+  },
+  {
+    "puesto": "BO. EL CARMELO - INST. DEPARTAMENTAL DE ORIENTE",
+    "id_puesto": "020"
+  },
+  {
+    "puesto": "BO. EL CENTRO - ESC. MANUEL ADALID GAMERO",
+    "id_puesto": "016"
+  },
+  {
+    "puesto": "BO. LA REFORMA - ESC. REPUBLICA DE NICARAGUA",
+    "id_puesto": "010"
+  },
+  {
+    "puesto": "BO. LAS COLINAS - ESC. GABRIELA MISTRAL",
+    "id_puesto": "017"
+  },
+  {
+    "puesto": "BO. LOS ARCOS - CEB. DIONISIO DE HERRERA",
+    "id_puesto": "014"
+  },
+  {
+    "puesto": "BO. ORIENTAL - INST. PEDRO NUFIO",
+    "id_puesto": "015"
+  },
+  {
+    "puesto": "BO. PUEBLO NUEVO - CEB. MIRIAM JUDITH GALLARDO",
+    "id_puesto": "019"
+  },
+  {
+    "puesto": "COL. BELLA VISTA - ESC. CARLOS ROBERTO REINA",
+    "id_puesto": "004"
+  },
+  {
+    "puesto": "COL. LA CEIBITA - CEB. PRESENTACION CENTENO",
+    "id_puesto": "018"
+  },
+  {
+    "puesto": "COL. LA COFRADIA - CEB. JOSE TRINIDAD REYES",
+    "id_puesto": "007"
+  },
+  {
+    "puesto": "COL. LA CONCEPCION - ESC. MARIA TERESA MATA",
+    "id_puesto": "006"
+  },
+  {
+    "puesto": "COL. LAS BRISAS - ESC. GUIA TECNICA No. 10",
+    "id_puesto": "005"
+  },
+  {
+    "puesto": "COL. NUEVA ESPERANZA - CEB. FRANCISCO MORAZAN",
+    "id_puesto": "008"
+  },
+  {
+    "puesto": "COL. SANTA GERTRUDIS - ESC. PEDRO NUFIO",
+    "id_puesto": "012"
+  },
+  {
+    "puesto": "EL ENCANTO - ESC. CARLOS E. SOSA",
+    "id_puesto": "001"
+  }
+]

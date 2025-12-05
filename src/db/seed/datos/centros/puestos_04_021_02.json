@@ -1,0 +1,142 @@
+[
+  {
+    "id_puesto": "002",
+    "puesto": "AGUA CALIENTE - ESC. RAFAEL HELIODORO VALLE"
+  },
+  {
+    "id_puesto": "003",
+    "puesto": "BUENA VISTA - ESC. JOSE CECILIO DEL VALLE"
+  },
+  {
+    "id_puesto": "004",
+    "puesto": "CAMPAMENTO No. 1 - ESC. ALVARO CONTRERAS"
+  },
+  {
+    "id_puesto": "035",
+    "puesto": "EL CARRIZAL - ESC. TIBURCIO CARIAS ANDINO"
+  },
+  {
+    "id_puesto": "023",
+    "puesto": "EL CONAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "006",
+    "puesto": "EL JARAL - ESC. JUAN ANGEL ARIAS"
+  },
+  {
+    "id_puesto": "028",
+    "puesto": "EL LIMON - ESC. RURAL MIXTA LEMPIRA"
+  },
+  {
+    "id_puesto": "008",
+    "puesto": "EL MIRADOR - ESC. ESTEBAN GUARDIOLA"
+  },
+  {
+    "id_puesto": "007",
+    "puesto": "EL PEDERNAL - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "024",
+    "puesto": "EL PLANON - ESC. JUVENAL TOBIAS LOPEZ"
+  },
+  {
+    "id_puesto": "026",
+    "puesto": "EL ROSARIO - ESC. PRESENTACION CENTENO"
+  },
+  {
+    "id_puesto": "030",
+    "puesto": "EL ZAPOTE - ESC. CESAR AUGUSTO CUELLO"
+  },
+  {
+    "id_puesto": "036",
+    "puesto": "GOTAS DE SANGRE NO.1 - ESC. ISIDORO VASQUEZ"
+  },
+  {
+    "id_puesto": "020",
+    "puesto": "LA CANTEADA - ESC. MANUEL ENRIQUE VILLELA"
+  },
+  {
+    "id_puesto": "025",
+    "puesto": "LA CASTELLONA - ESC. RODOLFO BUESO ARIAS"
+  },
+  {
+    "id_puesto": "032",
+    "puesto": "LA HUERTONA - ESC. VIVIAN DE SERRANO"
+  },
+  {
+    "id_puesto": "009",
+    "puesto": "LA LIBERTAD - ESC. JUAN RAMON MOLINA"
+  },
+  {
+    "id_puesto": "010",
+    "puesto": "LA REFORMA - ESC. SALVADOR CORLETO"
+  },
+  {
+    "id_puesto": "011",
+    "puesto": "LA UNION OTUTA - ESC. RODOLFO ROJAS"
+  },
+  {
+    "id_puesto": "034",
+    "puesto": "LA VEGONA - ESC. DIONISIO DE HERRERA"
+  },
+  {
+    "id_puesto": "029",
+    "puesto": "LAS MESAS - ESC. POLICARPO BONILLA"
+  },
+  {
+    "id_puesto": "017",
+    "puesto": "LONDRES - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "012",
+    "puesto": "LOS ACHIOTES - ESC. MINERVA"
+  },
+  {
+    "id_puesto": "019",
+    "puesto": "LOS PLANES DE LA BREA - ESC. FROYLAN TURCIOS"
+  },
+  {
+    "id_puesto": "013",
+    "puesto": "LOS RANCHOS - ESC. REPUBLICA DE HONDURAS"
+  },
+  {
+    "id_puesto": "014",
+    "puesto": "MIRASOL - ESC. JOSE TRINIDAD REYES"
+  },
+  {
+    "id_puesto": "033",
+    "puesto": "PINABETON - ESC. CESAR AUGUSTO CUEVAS"
+  },
+  {
+    "id_puesto": "031",
+    "puesto": "RASTROJITOS - ESC. FRANCISCO MORAZAN"
+  },
+  {
+    "id_puesto": "015",
+    "puesto": "RIO AMARILLO - ESC. MANUEL BUESO PINEDA"
+  },
+  {
+    "id_puesto": "005",
+    "puesto": "RIO BLANCO - ESC. ANGEL ZUNIGA HUETE"
+  },
+  {
+    "id_puesto": "021",
+    "puesto": "SAN JERONIMO - ESC. DANIEL ALMAZAN"
+  },
+  {
+    "id_puesto": "001",
+    "puesto": "SANTA RITA - ESC. URBANA SAUL BUESO CASTAÑEDA"
+  },
+  {
+    "id_puesto": "016",
+    "puesto": "TIERRA FRIA No. 1 - ESC. MIGUEL PAZ BARAHONA"
+  },
+  {
+    "id_puesto": "022",
+    "puesto": "TIERRA FRIA No. 2 - ESC. LEMPIRA"
+  },
+  {
+    "id_puesto": "018",
+    "puesto": "VADO ANCHO - ESC. AUGUSTO C. COELLO"
+  }
+]
