@@ -421,6 +421,45 @@ export const discrepancia = pgTable(
 )
 
 // ============================================================================
+// Estadísticas de Usuario (Leaderboard)
+// ============================================================================
+
+/**
+ * Estadísticas de Usuario - Contadores desnormalizados para leaderboard
+ *
+ * Esta tabla almacena conteos por usuario para consultas rápidas de leaderboard.
+ * Los contadores se actualizan cuando el usuario realiza acciones.
+ */
+export const estadisticaUsuario = pgTable(
+  'estadistica_usuario',
+  {
+    // El usuario - clave primaria
+    usuarioId: uuid('usuario_id')
+      .primaryKey()
+      .references(() => authUsers.id, { onDelete: 'cascade' }),
+
+    // Contadores de actividad
+    actasDigitadas: integer('actas_digitadas').default(0).notNull(),
+    actasValidadas: integer('actas_validadas').default(0).notNull(),
+    validacionesCorrectas: integer('validaciones_correctas').default(0).notNull(),
+    discrepanciasReportadas: integer('discrepancias_reportadas').default(0).notNull(),
+
+    // Para detectar posibles malos actores
+    correccionesRecibidas: integer('correcciones_recibidas').default(0).notNull(),
+
+    // Timestamps
+    primeraActividad: timestamp('primera_actividad', { withTimezone: true }),
+    ultimaActividad: timestamp('ultima_actividad', { withTimezone: true }),
+  },
+  (table) => [
+    // Índices para ordenar el leaderboard
+    index('estadistica_digitadas_idx').on(table.actasDigitadas),
+    index('estadistica_validadas_idx').on(table.actasValidadas),
+    index('estadistica_ultima_actividad_idx').on(table.ultimaActividad),
+  ]
+)
+
+// ============================================================================
 // Exportación de Tipos
 // ============================================================================
 
@@ -447,6 +486,9 @@ export type NewValidacion = typeof validacion.$inferInsert
 
 export type Discrepancia = typeof discrepancia.$inferSelect
 export type NewDiscrepancia = typeof discrepancia.$inferInsert
+
+export type EstadisticaUsuario = typeof estadisticaUsuario.$inferSelect
+export type NewEstadisticaUsuario = typeof estadisticaUsuario.$inferInsert
 
 export type EstadoActa = (typeof estadoActaEnum.enumValues)[number]
 export type TipoDiscrepancia = (typeof tipoDiscrepanciaEnum.enumValues)[number]
