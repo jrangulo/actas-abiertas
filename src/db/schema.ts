@@ -13,6 +13,7 @@ import {
   primaryKey,
   unique,
   foreignKey,
+  json,
 } from 'drizzle-orm/pg-core'
 
 // ============================================================================
@@ -199,9 +200,8 @@ export const acta = pgTable(
     // URL a la imagen en Supabase Storage
     imagenUrl: text('imagen_url'),
 
-    // -------------------------------------------------------------------------
-    // Votos oficiales (reportados por el CNE) - INMUTABLES
-    // -------------------------------------------------------------------------
+    votosNulosOficial: integer('votos_nulos_oficial'),
+    votosBlancosOficial: integer('votos_blancos_oficial'),
     votosPnOficial: integer('votos_pn_oficial'),
     votosPlhOficial: integer('votos_plh_oficial'),
     votosPlOficial: integer('votos_pl_oficial'),
@@ -217,7 +217,17 @@ export const acta = pgTable(
     votosPlDigitado: integer('votos_pl_digitado'),
     votosPinuDigitado: integer('votos_pinu_digitado'),
     votosDcDigitado: integer('votos_dc_digitado'),
+    votosNulosDigitado: integer('votos_nulos_digitado'),
+    votosBlancosDigitado: integer('votos_blancos_digitado'),
     votosTotalDigitado: integer('votos_total_digitado'),
+
+    // -------------------------------------------------------------------------
+    // Metadatos adicionales del CNE
+    // -------------------------------------------------------------------------
+    publicadaEnCne: boolean('publicada_en_cne'),
+    escrutadaEnCne: boolean('escrutada_en_cne'),
+    digitalizadaEnCne: boolean('digitalizada_en_cne'),
+    etiquetasCNE: json('etiquetas_cne'), // Array de etiquetas adicionales del CNE (si las hay)
 
     // -------------------------------------------------------------------------
     // Estado y flujo de trabajo
