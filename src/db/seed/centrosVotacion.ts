@@ -78,7 +78,7 @@ function cargarCentrosDesdeArchivos(directorioBase: string): NewCentroVotacion[]
         // Transformar cada puesto a NewCentroVotacion
         for (const puesto of puestos) {
           // Extraer el nombre del centro y la dirección
-          const [nombre, direccion] = puesto.puesto.split(' - ')
+          const [direccion, nombre] = puesto.puesto.split(' - ')
 
           centrosVotacion.push({
             departamentoCodigo,
