@@ -260,6 +260,7 @@ export const acta = pgTable(
 
     // -------------------------------------------------------------------------
     // Sistema de bloqueo distribuido (10 minutos)
+    // Solo UNA persona puede trabajar en un acta a la vez (digitalizar o validar)
     // -------------------------------------------------------------------------
     bloqueadoHasta: timestamp('bloqueado_hasta', { withTimezone: true }),
     bloqueadoPor: uuid('bloqueado_por').references(() => authUsers.id, { onDelete: 'set null' }),
