@@ -45,7 +45,12 @@ export function StartButton({ modo }: StartButtonProps) {
   }
 
   return (
-    <Button variant="outline" className="w-full" onClick={handleStart} disabled={isPending}>
+    <Button
+      variant="outline"
+      className="w-full border-green-600 text-green-600 hover:bg-green-600 hover:text-white dark:border-green-500 dark:text-green-500 dark:hover:bg-green-600 dark:hover:text-white"
+      onClick={handleStart}
+      disabled={isPending}
+    >
       {isPending ? (
         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
       ) : (
