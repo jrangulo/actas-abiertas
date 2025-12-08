@@ -312,8 +312,21 @@ export async function getTopUsuarios(limite: number = 10) {
 /**
  * Obtener la posición de un usuario en el ranking
  * Basado en total de contribuciones (digitadas + validadas)
+ * Retorna null si el usuario no tiene estadísticas (no ha contribuido)
  */
 export async function getRankingUsuario(userId: string) {
+  // Primero verificar si el usuario tiene estadísticas
+  const [userStats] = await db
+    .select()
+    .from(estadisticaUsuario)
+    .where(eq(estadisticaUsuario.usuarioId, userId))
+    .limit(1)
+
+  // Si no tiene estadísticas o no ha hecho nada, retornar null
+  if (!userStats || (userStats.actasDigitadas === 0 && userStats.actasValidadas === 0)) {
+    return null
+  }
+
   // Contar cuántos usuarios tienen más contribuciones
   const [result] = await db
     .select({

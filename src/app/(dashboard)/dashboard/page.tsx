@@ -1,5 +1,6 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
@@ -10,6 +11,8 @@ import {
   Trophy,
   ArrowRight,
   Clock,
+  TrendingUp,
+  User,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import {
@@ -20,17 +23,18 @@ import {
   getRankingUsuario,
 } from '@/lib/actas'
 import { PendingTimer } from './pending-timer'
+import { cn } from '@/lib/utils'
 
 // ============================================================================
-// Componentes de Stats (Wireframe)
+// Componentes de Stats
 // ============================================================================
 
 function StatsCardSkeleton() {
   return (
-    <Card>
-      <CardContent className="pt-4">
-        <div className="h-4 w-20 bg-muted rounded animate-pulse mb-2" />
-        <div className="h-8 w-16 bg-muted rounded animate-pulse" />
+    <Card className="overflow-hidden">
+      <CardContent className="p-6">
+        <div className="h-4 w-24 bg-muted rounded animate-pulse mb-3" />
+        <div className="h-10 w-20 bg-muted rounded animate-pulse" />
       </CardContent>
     </Card>
   )
@@ -40,84 +44,101 @@ async function GlobalStats() {
   const stats = await getActasStats()
 
   // Calcular digitadas: total - porDigitalizar (aproximación)
-  // ya que "digitadas" = las que ya tienen digitadoPor o escrutadaEnCne
   const digitadas = stats.total - stats.porDigitalizar
 
+  // Calcular porcentaje de progreso
+  const porcentajeValidadas =
+    stats.total > 0 ? Math.round((stats.validadas / stats.total) * 100) : 0
+
+  const statsData = [
+    {
+      label: 'Total Actas',
+      value: stats.total,
+      icon: FileCheck,
+      iconColor: 'text-muted-foreground',
+      valueColor: 'text-foreground',
+    },
+    {
+      label: 'Procesadas',
+      value: digitadas,
+      icon: Users,
+      iconColor: 'text-blue-500',
+      valueColor: 'text-foreground',
+    },
+    {
+      label: 'Validadas',
+      value: stats.validadas,
+      icon: CheckCircle2,
+      iconColor: 'text-green-500',
+      valueColor: 'text-green-600 dark:text-green-400',
+      suffix: `(${porcentajeValidadas}%)`,
+    },
+    {
+      label: 'Discrepancias',
+      value: stats.conDiscrepancias,
+      icon: AlertTriangle,
+      iconColor: 'text-amber-500',
+      valueColor: 'text-amber-600 dark:text-amber-400',
+    },
+  ]
+
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-      <Card>
-        <CardContent className="pt-4 pb-3">
-          <div className="flex items-center gap-2 text-muted-foreground mb-1">
-            <FileCheck className="h-4 w-4" />
-            <span className="text-xs font-medium">Total Actas</span>
-          </div>
-          <p className="text-2xl font-bold">{stats.total.toLocaleString()}</p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="pt-4 pb-3">
-          <div className="flex items-center gap-2 text-muted-foreground mb-1">
-            <Users className="h-4 w-4" />
-            <span className="text-xs font-medium">Procesadas</span>
-          </div>
-          <p className="text-2xl font-bold">{digitadas.toLocaleString()}</p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="pt-4 pb-3">
-          <div className="flex items-center gap-2 text-muted-foreground mb-1">
-            <CheckCircle2 className="h-4 w-4 text-green-600" />
-            <span className="text-xs font-medium">Validadas</span>
-          </div>
-          <p className="text-2xl font-bold text-green-600">{stats.validadas.toLocaleString()}</p>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardContent className="pt-4 pb-3">
-          <div className="flex items-center gap-2 text-muted-foreground mb-1">
-            <AlertTriangle className="h-4 w-4 text-amber-600" />
-            <span className="text-xs font-medium">Discrepancias</span>
-          </div>
-          <p className="text-2xl font-bold text-amber-600">
-            {stats.conDiscrepancias.toLocaleString()}
-          </p>
-        </CardContent>
-      </Card>
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      {statsData.map((stat) => (
+        <Card key={stat.label} className="overflow-hidden shadow-sm">
+          <CardContent className="p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <stat.icon className={cn('h-5 w-5', stat.iconColor)} />
+              <span className="text-sm font-semibold text-muted-foreground">{stat.label}</span>
+            </div>
+            <div className="flex items-baseline gap-2">
+              <p className={cn('text-3xl lg:text-4xl font-bold tracking-tight', stat.valueColor)}>
+                {stat.value.toLocaleString()}
+              </p>
+              {stat.suffix && (
+                <span className="text-sm font-medium text-muted-foreground">{stat.suffix}</span>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
     </div>
   )
 }
 
 // ============================================================================
-// Componente de Leaderboard (Wireframe)
+// Componente de Leaderboard
 // ============================================================================
 
 function LeaderboardSkeleton() {
   return (
-    <div className="space-y-3">
-      {[1, 2, 3].map((i) => (
-        <div key={i} className="flex items-center gap-3">
-          <div className="h-8 w-8 rounded-full bg-muted animate-pulse" />
+    <div className="space-y-4">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <div key={i} className="flex items-center gap-4">
+          <div className="h-12 w-12 rounded-full bg-muted animate-pulse" />
           <div className="flex-1">
-            <div className="h-4 w-24 bg-muted rounded animate-pulse mb-1" />
-            <div className="h-3 w-16 bg-muted rounded animate-pulse" />
+            <div className="h-4 w-28 bg-muted rounded animate-pulse mb-2" />
+            <div className="h-3 w-20 bg-muted rounded animate-pulse" />
           </div>
+          <div className="h-8 w-16 bg-muted rounded animate-pulse" />
         </div>
       ))}
     </div>
   )
 }
 
+// Medallas para top 3
+const MEDALS = ['🥇', '🥈', '🥉']
+
 async function MiniLeaderboard() {
   const topUsers = await getTopUsuarios(5)
 
   if (topUsers.length === 0) {
     return (
-      <p className="text-sm text-muted-foreground text-center py-4">
-        ¡Sé el primero en verificar actas!
-      </p>
+      <div className="text-center py-8">
+        <Trophy className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
+        <p className="text-sm text-muted-foreground">¡Sé el primero en verificar actas!</p>
+      </div>
     )
   }
 
@@ -125,30 +146,72 @@ async function MiniLeaderboard() {
     <div className="space-y-3">
       {topUsers.map((user, index) => {
         const position = index + 1
-        // Extraer nombre del metadata de OAuth (Google, Facebook, etc.)
-        const metadata = user.rawUserMetaData as { full_name?: string; name?: string } | null
-        const fullName = metadata?.full_name || metadata?.name || null
-        // Mostrar solo el primer nombre
-        const displayName = fullName ? fullName.split(' ')[0] : 'Anónimo'
+        // Extraer datos del metadata de OAuth
+        const metadata = user.rawUserMetaData as {
+          full_name?: string
+          name?: string
+          avatar_url?: string
+          picture?: string
+        } | null
+        const fullName = metadata?.full_name || metadata?.name || 'Anónimo'
+        const avatarUrl = metadata?.avatar_url || metadata?.picture || null
 
         return (
-          <div key={user.usuarioId} className="flex items-center gap-3">
-            <div
-              className={`flex items-center justify-center h-8 w-8 rounded-full text-sm font-bold ${
-                position === 1
-                  ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
-                  : position === 2
-                    ? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
-                    : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-              }`}
-            >
-              {position}
+          <div
+            key={user.usuarioId}
+            className={cn(
+              'flex items-center gap-4 p-3 rounded-xl transition-colors',
+              position <= 3 && 'bg-muted/50',
+              position > 3 && 'hover:bg-muted/50'
+            )}
+          >
+            {/* Avatar / Position */}
+            <div className="relative flex-shrink-0">
+              {avatarUrl ? (
+                <Image
+                  src={avatarUrl}
+                  alt={fullName}
+                  width={48}
+                  height={48}
+                  className="rounded-full object-cover ring-2 ring-background"
+                />
+              ) : (
+                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#0069b4] to-[#004a7c] flex items-center justify-center text-white font-bold text-lg">
+                  {fullName.charAt(0).toUpperCase()}
+                </div>
+              )}
+              {/* Medal/Position badge */}
+              <div
+                className={cn(
+                  'absolute -bottom-1 -right-1 h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold',
+                  position <= 3
+                    ? 'bg-white dark:bg-gray-900 shadow-sm'
+                    : 'bg-muted text-muted-foreground'
+                )}
+              >
+                {position <= 3 ? MEDALS[position - 1] : position}
+              </div>
             </div>
+
+            {/* Name and stats */}
             <div className="flex-1 min-w-0">
-              <p className="font-medium truncate">{displayName}</p>
-              <p className="text-xs text-muted-foreground">
-                {user.total} actas ({user.actasDigitadas} dig. + {user.actasValidadas} val.)
+              <p className="font-semibold truncate">{fullName}</p>
+              <p className="text-sm text-muted-foreground">
+                {user.actasDigitadas} digitadas · {user.actasValidadas} validadas
               </p>
+            </div>
+
+            {/* Total badge */}
+            <div
+              className={cn(
+                'text-right px-3 py-1.5 rounded-full font-bold text-sm',
+                position === 1 && 'bg-yellow-500/20 text-yellow-600 dark:text-yellow-400',
+                position === 2 && 'bg-gray-500/20 text-gray-600 dark:text-gray-300',
+                position === 3 && 'bg-amber-500/20 text-amber-600 dark:text-amber-400',
+                position > 3 && 'bg-muted text-muted-foreground'
+              )}
+            >
+              {user.total}
             </div>
           </div>
         )
@@ -158,7 +221,7 @@ async function MiniLeaderboard() {
 }
 
 // ============================================================================
-// Componente de Stats del Usuario (Wireframe)
+// Componente de Stats del Usuario
 // ============================================================================
 
 async function UserStats() {
@@ -178,23 +241,33 @@ async function UserStats() {
 
   const digitadas = stats?.actasDigitadas ?? 0
   const validadas = stats?.actasValidadas ?? 0
-  const posicion = ranking ?? '-'
+  const total = digitadas + validadas
+  const hasContributed = total > 0
 
   return (
-    <div className="flex items-center justify-around py-2">
-      <div className="text-center">
-        <p className="text-2xl font-bold">{digitadas}</p>
-        <p className="text-xs text-muted-foreground">Digitadas</p>
+    <div className="grid grid-cols-3 gap-4 py-3">
+      <div className="text-center space-y-1">
+        <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-1">
+          <FileCheck className="h-5 w-5 text-blue-600" />
+        </div>
+        <p className="text-2xl lg:text-3xl font-bold">{digitadas}</p>
+        <p className="text-xs text-muted-foreground font-medium">Digitadas</p>
       </div>
-      <div className="h-8 w-px bg-border" />
-      <div className="text-center">
-        <p className="text-2xl font-bold">{validadas}</p>
-        <p className="text-xs text-muted-foreground">Validadas</p>
+
+      <div className="text-center space-y-1">
+        <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 mb-1">
+          <CheckCircle2 className="h-5 w-5 text-green-600" />
+        </div>
+        <p className="text-2xl lg:text-3xl font-bold">{validadas}</p>
+        <p className="text-xs text-muted-foreground font-medium">Validadas</p>
       </div>
-      <div className="h-8 w-px bg-border" />
-      <div className="text-center">
-        <p className="text-2xl font-bold">#{posicion}</p>
-        <p className="text-xs text-muted-foreground">Ranking</p>
+
+      <div className="text-center space-y-1">
+        <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-amber-100 dark:bg-amber-900/30 mb-1">
+          <TrendingUp className="h-5 w-5 text-amber-600" />
+        </div>
+        <p className="text-2xl lg:text-3xl font-bold">{hasContributed ? `#${ranking}` : '-'}</p>
+        <p className="text-xs text-muted-foreground font-medium">Ranking</p>
       </div>
     </div>
   )
@@ -218,7 +291,7 @@ async function MainCTA() {
   // Si hay un acta pendiente, mostrar advertencia
   if (actaPendiente) {
     return (
-      <Card className="bg-gradient-to-br from-amber-500 to-amber-600 text-white border-0">
+      <Card className="bg-gradient-to-br from-amber-500 to-amber-600 text-white border-0 shadow-lg shadow-amber-500/20">
         <CardContent className="pt-6 pb-6">
           <div className="flex items-start gap-4">
             <div className="flex-1 space-y-3">
@@ -250,22 +323,22 @@ async function MainCTA() {
 
   // CTA normal
   return (
-    <Card className="bg-gradient-to-br from-[#0069b4] to-[#004a7c] text-white border-0">
+    <Card className="bg-gradient-to-br from-[#0069b4] to-[#004a7c] text-white border-0 shadow-lg shadow-blue-500/20">
       <CardContent className="pt-6 pb-6">
         <div className="flex items-start gap-4">
           <div className="flex-1 space-y-3">
-            <h2 className="font-semibold text-lg">Comienza a verificar</h2>
+            <h2 className="font-semibold text-xl">Comienza a verificar</h2>
             <p className="text-sm text-white/80">
               Ayuda a digitalizar y validar las actas electorales de Honduras.
             </p>
-            <Button asChild variant="secondary" className="mt-2">
+            <Button asChild variant="secondary" className="mt-2 font-semibold">
               <Link href="/dashboard/verificar">
                 Verificar actas
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </div>
-          <FileCheck className="h-12 w-12 text-white/20" />
+          <FileCheck className="h-14 w-14 text-white/20" />
         </div>
       </CardContent>
     </Card>
@@ -278,21 +351,23 @@ async function MainCTA() {
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-6 py-4 lg:py-6">
+    <div className="space-y-8 py-4 lg:py-8">
       {/* Saludo y CTA principal */}
-      <section className="space-y-4">
+      <section className="space-y-6">
         <div>
-          <h1 className="text-2xl lg:text-3xl font-bold">¡Bienvenido!</h1>
-          <p className="text-muted-foreground">Tu participación fortalece la democracia.</p>
+          <h1 className="text-2xl lg:text-4xl font-bold tracking-tight">¡Bienvenido!</h1>
+          <p className="text-muted-foreground text-lg mt-1">
+            Tu participación fortalece la democracia.
+          </p>
         </div>
 
         {/* Desktop: 2-column layout for CTA and User Stats */}
-        <div className="grid lg:grid-cols-2 gap-4">
+        <div className="grid lg:grid-cols-2 gap-6">
           <Suspense
             fallback={
               <Card className="bg-gradient-to-br from-[#0069b4] to-[#004a7c] text-white border-0">
                 <CardContent className="pt-6 pb-6">
-                  <div className="h-24 flex items-center justify-center">
+                  <div className="h-28 flex items-center justify-center">
                     <div className="h-4 w-32 bg-white/20 rounded animate-pulse" />
                   </div>
                 </CardContent>
@@ -303,19 +378,24 @@ export default function DashboardPage() {
           </Suspense>
 
           {/* Mi progreso - visible en desktop junto al CTA */}
-          <Card className="hidden lg:block">
-            <CardHeader className="pb-2">
-              <CardTitle className="text-base">Mi progreso</CardTitle>
+          <Card className="hidden lg:flex lg:flex-col shadow-sm">
+            <CardHeader className="pb-0">
+              <CardTitle className="text-lg flex items-center gap-2">
+                <User className="h-5 w-5 text-muted-foreground" />
+                Mi progreso
+              </CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-1 flex items-center">
               <Suspense
                 fallback={
-                  <div className="h-16 flex items-center justify-center">
+                  <div className="w-full h-20 flex items-center justify-center">
                     <div className="h-4 w-32 bg-muted rounded animate-pulse" />
                   </div>
                 }
               >
-                <UserStats />
+                <div className="w-full">
+                  <UserStats />
+                </div>
               </Suspense>
             </CardContent>
           </Card>
@@ -324,14 +404,17 @@ export default function DashboardPage() {
 
       {/* Mi progreso - solo en móvil */}
       <section className="lg:hidden">
-        <Card>
-          <CardHeader className="pb-2">
-            <CardTitle className="text-base">Mi progreso</CardTitle>
+        <Card className="shadow-sm">
+          <CardHeader className="pb-0">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <User className="h-5 w-5 text-muted-foreground" />
+              Mi progreso
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <Suspense
               fallback={
-                <div className="h-16 flex items-center justify-center">
+                <div className="h-20 flex items-center justify-center">
                   <div className="h-4 w-32 bg-muted rounded animate-pulse" />
                 </div>
               }
@@ -343,11 +426,11 @@ export default function DashboardPage() {
       </section>
 
       {/* Estadísticas globales */}
-      <section className="space-y-3">
-        <h2 className="font-semibold">Progreso general</h2>
+      <section className="space-y-4">
+        <h2 className="text-xl font-semibold tracking-tight">Progreso general</h2>
         <Suspense
           fallback={
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[1, 2, 3, 4].map((i) => (
                 <StatsCardSkeleton key={i} />
               ))}
@@ -360,18 +443,18 @@ export default function DashboardPage() {
 
       {/* Mini Leaderboard */}
       <section>
-        <Card>
-          <CardHeader className="pb-2">
+        <Card className="shadow-sm">
+          <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle className="text-base flex items-center gap-2">
-                <Trophy className="h-4 w-4 text-yellow-600" />
+              <CardTitle className="text-lg flex items-center gap-2">
+                <Trophy className="h-5 w-5 text-yellow-600" />
                 Top verificadores
               </CardTitle>
               <Link
                 href="/dashboard/leaderboard"
-                className="text-sm text-[#0069b4] font-medium hover:underline"
+                className="text-sm text-[#0069b4] font-semibold hover:underline"
               >
-                Ver todo
+                Ver todo →
               </Link>
             </div>
           </CardHeader>

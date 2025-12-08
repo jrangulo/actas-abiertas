@@ -64,8 +64,8 @@ export function VoteInput({
     <div
       className={cn(
         'flex items-center gap-2 p-2 rounded-lg transition-colors',
-        isDifferent && 'bg-amber-50 dark:bg-amber-950/30',
-        isMatch && showComparison && 'bg-green-50 dark:bg-green-950/30'
+        isDifferent && 'bg-amber-100/60 dark:bg-amber-900/30',
+        isMatch && showComparison && 'bg-green-100/60 dark:bg-green-900/30'
       )}
     >
       {/* Indicador de partido */}

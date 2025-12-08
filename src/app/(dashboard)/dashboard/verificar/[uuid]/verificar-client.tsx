@@ -412,8 +412,7 @@ export function VerificarClient({
                   <ChevronRight className="h-4 w-4 ml-2" />
                 </Button>
                 <Button
-                  variant="outline"
-                  className="w-full"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
                   disabled={!isFormValid || isPending}
                   onClick={() => handleGuardarDigitalizacion(false)}
                 >
@@ -422,14 +421,14 @@ export function VerificarClient({
                   ) : (
                     <Check className="h-4 w-4 mr-2" />
                   )}
-                  Solo guardar
+                  Guardar y salir
                 </Button>
               </>
             ) : showCorrectionForm ? (
               // Acciones para corrección
               <>
                 <Button
-                  className="w-full bg-amber-600 hover:bg-amber-700"
+                  className="w-full bg-green-600 hover:bg-green-700"
                   disabled={!isFormValid || isPending}
                   onClick={() => handleGuardarCorreccion(true)}
                 >
@@ -442,8 +441,7 @@ export function VerificarClient({
                   <ChevronRight className="h-4 w-4 ml-2" />
                 </Button>
                 <Button
-                  variant="outline"
-                  className="w-full"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
                   disabled={!isFormValid || isPending}
                   onClick={() => handleGuardarCorreccion(false)}
                 >
@@ -452,7 +450,7 @@ export function VerificarClient({
                   ) : (
                     <Check className="h-4 w-4 mr-2" />
                   )}
-                  Solo guardar
+                  Guardar y salir
                 </Button>
                 <Button
                   variant="ghost"
@@ -480,8 +478,7 @@ export function VerificarClient({
                   <ChevronRight className="h-4 w-4 ml-2" />
                 </Button>
                 <Button
-                  variant="outline"
-                  className="w-full"
+                  className="w-full bg-green-600 hover:bg-green-700 text-white"
                   disabled={isPending}
                   onClick={() => handleConfirmarCorrecto(false)}
                 >
@@ -490,7 +487,7 @@ export function VerificarClient({
                   ) : (
                     <Check className="h-4 w-4 mr-2" />
                   )}
-                  Correctos, sin siguiente
+                  Valores correctos (y salir)
                 </Button>
                 <Button
                   variant="outline"

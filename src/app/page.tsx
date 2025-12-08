@@ -107,7 +107,7 @@ export default function WelcomePage() {
           <h1 className="font-display text-4xl sm:text-5xl font-bold text-foreground tracking-tight mb-4">
             Actas Abiertas
           </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-md mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-md mx-auto leading-relaxed">
             Verificación ciudadana y transparente de las actas electorales de Honduras 2025
           </p>
         </div>
@@ -122,7 +122,7 @@ export default function WelcomePage() {
                   : 'Iniciar sesión'
                 : 'Únete a la verificación'}
             </h2>
-            <p className="text-muted text-center mb-8">
+            <p className="text-muted-foreground text-center mb-8">
               {showEmailForm
                 ? 'Ingresa tus datos para continuar'
                 : 'Tu voz importa para la democracia'}
@@ -190,7 +190,7 @@ export default function WelcomePage() {
                 {/* Divider */}
                 <div className="flex items-center gap-4 my-6">
                   <div className="flex-1 h-px bg-border" />
-                  <span className="text-sm text-muted">o</span>
+                  <span className="text-sm text-muted-foreground">o</span>
                   <div className="flex-1 h-px bg-border" />
                 </div>
 
@@ -268,7 +268,7 @@ export default function WelcomePage() {
                 </form>
 
                 {/* Toggle Sign Up / Sign In */}
-                <p className="text-center text-sm text-muted mt-6">
+                <p className="text-center text-sm text-muted-foreground mt-6">
                   {isSignUp ? '¿Ya tienes cuenta?' : '¿No tienes cuenta?'}{' '}
                   <button
                     type="button"
@@ -286,7 +286,7 @@ export default function WelcomePage() {
                     setShowEmailForm(false)
                     setMessage(null)
                   }}
-                  className="w-full mt-4 text-sm text-muted hover:text-foreground transition-colors"
+                  className="w-full mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   ← Volver a opciones de acceso
                 </button>
@@ -296,8 +296,8 @@ export default function WelcomePage() {
 
           {/* Trust indicators */}
           <div className="mt-8 text-center opacity-0 animate-slide-up delay-400">
-            <p className="text-sm text-muted mb-4">Respaldado por la transparencia</p>
-            <div className="flex items-center justify-center gap-6 text-muted">
+            <p className="text-sm text-muted-foreground mb-4">Respaldado por la transparencia</p>
+            <div className="flex items-center justify-center gap-6 text-muted-foreground">
               <div className="flex items-center gap-2">
                 <svg
                   className="w-4 h-4"
@@ -351,7 +351,7 @@ export default function WelcomePage() {
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 text-center text-sm text-muted opacity-0 animate-slide-up delay-500">
+        <footer className="mt-12 text-center text-sm text-muted-foreground opacity-0 animate-slide-up delay-500">
           <p>
             Proyecto de observación ciudadana independiente.{' '}
             <a
