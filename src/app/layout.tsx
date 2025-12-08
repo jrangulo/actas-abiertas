@@ -1,5 +1,7 @@
 import { type Metadata } from 'next'
 import { Instrument_Sans, Space_Grotesk } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 
 const instrumentSans = Instrument_Sans({
@@ -29,6 +31,8 @@ export default function RootLayout({
     <html lang="es">
       <body className={`${instrumentSans.variable} ${spaceGrotesk.variable} antialiased`}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )

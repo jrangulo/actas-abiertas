@@ -1,12 +1,66 @@
+import { Suspense } from 'react'
+import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { FileCheck, PenLine, CheckSquare, Clock, Users } from 'lucide-react'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { PenLine, CheckSquare, Clock, Users, AlertTriangle, Info } from 'lucide-react'
+import { getActasStats, getActaBloqueadaPorUsuario } from '@/lib/actas'
+import { createClient } from '@/lib/supabase/server'
+import { StartButton } from './start-button'
 
-export default function VerificarPage() {
-  // TODO: Obtener estadísticas reales
-  const stats = {
-    actasPendientes: 15306,
-    actasParaValidar: 1349,
+interface VerificarPageProps {
+  searchParams: Promise<{ error?: string; message?: string }>
+}
+
+async function ActasStats() {
+  const stats = await getActasStats()
+
+  return (
+    <div className="grid grid-cols-2 gap-3 text-sm">
+      <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+        <Clock className="h-4 w-4 text-muted-foreground" />
+        <div>
+          <p className="font-bold tabular-nums">{stats.porDigitalizar.toLocaleString()}</p>
+          <p className="text-xs text-muted-foreground">Por digitalizar</p>
+        </div>
+      </div>
+      <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
+        <Users className="h-4 w-4 text-muted-foreground" />
+        <div>
+          <p className="font-bold tabular-nums">{stats.porValidar.toLocaleString()}</p>
+          <p className="text-xs text-muted-foreground">Por validar</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function StatsSkeleton() {
+  return (
+    <div className="grid grid-cols-2 gap-3">
+      <div className="h-16 bg-muted/50 rounded-lg animate-pulse" />
+      <div className="h-16 bg-muted/50 rounded-lg animate-pulse" />
+    </div>
+  )
+}
+
+export default async function VerificarPage({ searchParams }: VerificarPageProps) {
+  const params = await searchParams
+  const error = params.error
+  const message = params.message
+
+  // Verificar si el usuario tiene un acta bloqueada pendiente
+  // Si la tiene, redirigir directamente a ella (no puede empezar otra)
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (user) {
+    const actaPendiente = await getActaBloqueadaPorUsuario(user.id)
+    if (actaPendiente && actaPendiente.uuid) {
+      // Usuario tiene un acta pendiente - redirigir directamente
+      redirect(`/dashboard/verificar/${actaPendiente.uuid}`)
+    }
   }
 
   return (
@@ -15,6 +69,39 @@ export default function VerificarPage() {
         <h1 className="text-2xl lg:text-3xl font-bold">Verificar Actas</h1>
         <p className="text-muted-foreground">Elige cómo quieres contribuir</p>
       </div>
+
+      {/* Mensajes de error o estado */}
+      {error === 'bloqueada' && (
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertDescription>
+            El acta ya está siendo procesada por otro usuario. Intenta con otra.
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {error === 'expirado' && (
+        <Alert variant="destructive">
+          <AlertTriangle className="h-4 w-4" />
+          <AlertDescription>
+            Tu tiempo para trabajar en el acta expiró. Intenta con una nueva.
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {message === 'sin-actas' && (
+        <Alert>
+          <Info className="h-4 w-4" />
+          <AlertDescription>
+            No hay más actas disponibles en este momento. ¡Gracias por tu ayuda!
+          </AlertDescription>
+        </Alert>
+      )}
+
+      {/* Estadísticas */}
+      <Suspense fallback={<StatsSkeleton />}>
+        <ActasStats />
+      </Suspense>
 
       {/* Desktop: Side-by-side cards */}
       <div className="grid lg:grid-cols-2 gap-4">
@@ -31,19 +118,7 @@ export default function VerificarPage() {
               Transcribe los datos de un acta que aún no ha sido procesada. Serás el primero en
               ingresar los valores.
             </p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground py-2 px-3 bg-muted/50 rounded-lg">
-              <Clock className="h-4 w-4" />
-              <span>
-                <strong className="text-foreground">
-                  {stats.actasPendientes.toLocaleString()}
-                </strong>{' '}
-                actas pendientes
-              </span>
-            </div>
-            <Button className="w-full bg-[#0069b4] hover:bg-[#004a7c]">
-              <FileCheck className="mr-2 h-4 w-4" />
-              Comenzar a digitalizar
-            </Button>
+            <StartButton modo="digitalizar" />
           </CardContent>
         </Card>
 
@@ -57,22 +132,10 @@ export default function VerificarPage() {
           </CardHeader>
           <CardContent className="flex-1 flex flex-col space-y-4">
             <p className="text-sm text-muted-foreground flex-1">
-              Revisa un acta que ya fue digitalizada y confirma que los datos son correctos o
-              reporta discrepancias.
+              Revisa un acta que ya tiene valores y confirma que son correctos o reporta
+              diferencias.
             </p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground py-2 px-3 bg-muted/50 rounded-lg">
-              <Users className="h-4 w-4" />
-              <span>
-                <strong className="text-foreground">
-                  {stats.actasParaValidar.toLocaleString()}
-                </strong>{' '}
-                listas para validar
-              </span>
-            </div>
-            <Button variant="outline" className="w-full">
-              <CheckSquare className="mr-2 h-4 w-4" />
-              Comenzar a validar
-            </Button>
+            <StartButton modo="validar" />
           </CardContent>
         </Card>
       </div>

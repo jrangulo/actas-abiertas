@@ -197,6 +197,10 @@ export const acta = pgTable(
   {
     id: serial('id').primaryKey(),
 
+    // UUID público para APIs - no predecible, seguro para exponer en URLs
+    // Usar este en lugar de `id` o `cneId` en endpoints públicos
+    uuid: uuid('uuid').defaultRandom().unique().notNull(),
+
     // Identificador único del CNE
     cneId: text('cne_id').unique(),
 
