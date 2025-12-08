@@ -43,12 +43,15 @@ function StatsCardSkeleton() {
 async function GlobalStats() {
   const stats = await getActasStats()
 
-  // Calcular digitadas: total - porDigitalizar (aproximación)
-  const digitadas = stats.total - stats.porDigitalizar
-
-  // Calcular porcentaje de progreso
+  // Calcular porcentaje de progreso de actas completamente validadas
   const porcentajeValidadas =
     stats.total > 0 ? Math.round((stats.validadas / stats.total) * 100) : 0
+
+  // Calcular progreso de validaciones individuales
+  const porcentajeValidaciones =
+    stats.validacionesNecesarias > 0
+      ? Math.round((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
+      : 0
 
   const statsData = [
     {
@@ -60,18 +63,10 @@ async function GlobalStats() {
     },
     {
       label: 'Procesadas',
-      value: digitadas,
+      value: stats.procesadas,
       icon: Users,
       iconColor: 'text-blue-500',
       valueColor: 'text-foreground',
-    },
-    {
-      label: 'Validadas',
-      value: stats.validadas,
-      icon: CheckCircle2,
-      iconColor: 'text-green-500',
-      valueColor: 'text-green-600 dark:text-green-400',
-      suffix: `(${porcentajeValidadas}%)`,
     },
     {
       label: 'Discrepancias',
@@ -83,25 +78,55 @@ async function GlobalStats() {
   ]
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-      {statsData.map((stat) => (
-        <Card key={stat.label} className="overflow-hidden shadow-sm">
+    <div className="space-y-4">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        {statsData.map((stat) => (
+          <Card key={stat.label} className="overflow-hidden shadow-sm">
+            <CardContent className="p-5 lg:p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <stat.icon className={cn('h-5 w-5', stat.iconColor)} />
+                <span className="text-sm font-semibold text-muted-foreground">{stat.label}</span>
+              </div>
+              <div className="flex items-baseline gap-2">
+                <p className={cn('text-3xl lg:text-4xl font-bold tracking-tight', stat.valueColor)}>
+                  {stat.value.toLocaleString()}
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        ))}
+
+        {/* Validadas card with progress bar */}
+        <Card className="overflow-hidden shadow-sm">
           <CardContent className="p-5 lg:p-6">
             <div className="flex items-center gap-2 mb-3">
-              <stat.icon className={cn('h-5 w-5', stat.iconColor)} />
-              <span className="text-sm font-semibold text-muted-foreground">{stat.label}</span>
+              <CheckCircle2 className="h-5 w-5 text-green-500" />
+              <span className="text-sm font-semibold text-muted-foreground">Validadas</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <p className={cn('text-3xl lg:text-4xl font-bold tracking-tight', stat.valueColor)}>
-                {stat.value.toLocaleString()}
+            <div className="flex items-baseline gap-2 mb-3">
+              <p className="text-3xl lg:text-4xl font-bold tracking-tight text-green-600 dark:text-green-400">
+                {stats.validadas.toLocaleString()}
               </p>
-              {stat.suffix && (
-                <span className="text-sm font-medium text-muted-foreground">{stat.suffix}</span>
-              )}
+              <span className="text-sm font-medium text-muted-foreground">
+                ({porcentajeValidadas}%)
+              </span>
+            </div>
+            {/* Progress bar for individual validations */}
+            <div className="space-y-1.5">
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
+                  style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
+                />
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {stats.validacionesRealizadas.toLocaleString()} /{' '}
+                {stats.validacionesNecesarias.toLocaleString()} validaciones
+              </p>
             </div>
           </CardContent>
         </Card>
-      ))}
+      </div>
     </div>
   )
 }

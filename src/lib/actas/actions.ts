@@ -208,7 +208,77 @@ export async function guardarDigitalizacion(
 }
 
 /**
+ * Tipo para los valores de votos
+ */
+type VoteValues = {
+  pn: number
+  plh: number
+  pl: number
+  pinu: number
+  dc: number
+  nulos: number
+  blancos: number
+  total: number
+}
+
+/**
+ * Comparar dos conjuntos de valores para ver si son iguales
+ */
+function valuesMatch(a: VoteValues, b: VoteValues): boolean {
+  return (
+    a.pn === b.pn &&
+    a.plh === b.plh &&
+    a.pl === b.pl &&
+    a.pinu === b.pinu &&
+    a.dc === b.dc &&
+    a.nulos === b.nulos &&
+    a.blancos === b.blancos
+  )
+}
+
+/**
+ * Encontrar consenso entre validaciones (2+ deben coincidir)
+ * Retorna los valores ganadores y los IDs de usuarios que discreparon
+ */
+function findConsensus(
+  validaciones: Array<{ usuarioId: string; values: VoteValues }>
+): { winningValues: VoteValues; discrepantUserIds: string[] } | null {
+  if (validaciones.length < 3) return null
+
+  // Comparar cada par
+  for (let i = 0; i < validaciones.length; i++) {
+    let matchCount = 1
+    const matchingUserIds = [validaciones[i].usuarioId]
+
+    for (let j = 0; j < validaciones.length; j++) {
+      if (i !== j && valuesMatch(validaciones[i].values, validaciones[j].values)) {
+        matchCount++
+        matchingUserIds.push(validaciones[j].usuarioId)
+      }
+    }
+
+    // Si 2+ coinciden, encontramos consenso
+    if (matchCount >= 2) {
+      const discrepantUserIds = validaciones
+        .filter((v) => !matchingUserIds.includes(v.usuarioId))
+        .map((v) => v.usuarioId)
+
+      return {
+        winningValues: validaciones[i].values,
+        discrepantUserIds,
+      }
+    }
+  }
+
+  // No hay consenso - todos diferentes
+  return null
+}
+
+/**
  * Guardar validación de un acta
+ *
+ * IMPORTANTE: Los valores finales del acta NO se actualizan hasta que tengamos
+ * 3 validaciones y podamos determinar consenso (2+ deben coincidir).
  */
 export async function guardarValidacion(
   uuid: string,
@@ -244,66 +314,66 @@ export async function guardarValidacion(
     throw new Error('No tienes el bloqueo de esta acta')
   }
 
-  let historialCorreccionId: number | null = null
+  // Determinar qué valores está confirmando/enviando este validador
+  // Si dice "correcto", usa los valores actuales. Si corrige, usa sus correcciones.
+  let submittedValues: VoteValues
+
+  if (datos.esCorrecta) {
+    // Usuario confirma valores actuales - obtener valores actuales del acta
+    // Prioridad: digitado > CNE oficial
+    submittedValues = {
+      pn: actaData.votosPnDigitado ?? actaData.votosPnOficial ?? 0,
+      plh: actaData.votosPlhDigitado ?? actaData.votosPlhOficial ?? 0,
+      pl: actaData.votosPlDigitado ?? actaData.votosPlOficial ?? 0,
+      pinu: actaData.votosPinuDigitado ?? actaData.votosPinuOficial ?? 0,
+      dc: actaData.votosDcDigitado ?? actaData.votosDcOficial ?? 0,
+      nulos: actaData.votosNulosDigitado ?? actaData.votosNulosOficial ?? 0,
+      blancos: actaData.votosBlancosDigitado ?? actaData.votosBlancosOficial ?? 0,
+      total: actaData.votosTotalDigitado ?? actaData.votosTotalOficial ?? 0,
+    }
+  } else if (datos.correciones) {
+    // Usuario envía correcciones
+    const total =
+      datos.correciones.pn +
+      datos.correciones.plh +
+      datos.correciones.pl +
+      datos.correciones.pinu +
+      datos.correciones.dc +
+      datos.correciones.blancos +
+      datos.correciones.nulos
+
+    submittedValues = {
+      pn: datos.correciones.pn,
+      plh: datos.correciones.plh,
+      pl: datos.correciones.pl,
+      pinu: datos.correciones.pinu,
+      dc: datos.correciones.dc,
+      nulos: datos.correciones.nulos,
+      blancos: datos.correciones.blancos,
+      total,
+    }
+  } else {
+    throw new Error('Datos de validación inválidos')
+  }
 
   try {
-    // Si hay correcciones, registrarlas primero
-    if (!datos.esCorrecta && datos.correciones) {
-      // Total incluye todos los votos (partidos + blancos + nulos)
-      const total =
-        datos.correciones.pn +
-        datos.correciones.plh +
-        datos.correciones.pl +
-        datos.correciones.pinu +
-        datos.correciones.dc +
-        datos.correciones.blancos +
-        datos.correciones.nulos
-
-      // Actualizar valores digitados con las correcciones
-      await db
-        .update(acta)
-        .set({
-          votosPnDigitado: datos.correciones.pn,
-          votosPlhDigitado: datos.correciones.plh,
-          votosPlDigitado: datos.correciones.pl,
-          votosPinuDigitado: datos.correciones.pinu,
-          votosDcDigitado: datos.correciones.dc,
-          votosNulosDigitado: datos.correciones.nulos,
-          votosBlancosDigitado: datos.correciones.blancos,
-          votosTotalDigitado: total,
-          actualizadoEn: new Date(),
-        })
-        .where(eq(acta.uuid, uuid))
-
-      // Registrar en historial
-      const [historial] = await db
-        .insert(historialDigitacion)
-        .values({
-          actaId: actaData.id,
-          usuarioId: user.id,
-          tipoCambio: 'correccion_validador',
-          votosPn: datos.correciones.pn,
-          votosPlh: datos.correciones.plh,
-          votosPl: datos.correciones.pl,
-          votosPinu: datos.correciones.pinu,
-          votosDc: datos.correciones.dc,
-          votosTotal: total,
-        })
-        .returning({ id: historialDigitacion.id })
-
-      historialCorreccionId = historial.id
-    }
-
-    // Registrar validación - usar try-catch para manejar duplicados
+    // Registrar validación con los valores
     try {
       await db.insert(validacion).values({
         actaId: actaData.id,
         usuarioId: user.id,
         esCorrecto: datos.esCorrecta,
-        historialCorreccionId: historialCorreccionId,
+        votosPn: submittedValues.pn,
+        votosPlh: submittedValues.plh,
+        votosPl: submittedValues.pl,
+        votosPinu: submittedValues.pinu,
+        votosDc: submittedValues.dc,
+        votosNulos: submittedValues.nulos,
+        votosBlancos: submittedValues.blancos,
+        votosTotal: submittedValues.total,
+        historialCorreccionId: null,
       })
     } catch (error) {
-      // Si es un error de duplicado, liberar el bloqueo y retornar error amigable
       const isDuplicate =
         error instanceof Error &&
         error.message.includes('duplicate key') &&
@@ -315,43 +385,108 @@ export async function guardarValidacion(
       throw error
     }
 
-    // Actualizar contadores
+    // Actualizar contador de validaciones
     const nuevaCantidadValidaciones = actaData.cantidadValidaciones + 1
-    const nuevaCantidadCorrectas =
-      actaData.cantidadValidacionesCorrectas + (datos.esCorrecta ? 1 : 0)
 
-    // Determinar nuevo estado
-    let nuevoEstado = actaData.estado
+    // Si llegamos a 3 validaciones, determinar consenso
     if (nuevaCantidadValidaciones >= 3) {
-      nuevoEstado = nuevaCantidadCorrectas >= 2 ? 'validada' : 'con_discrepancia'
-    } else {
-      nuevoEstado = 'en_validacion'
-    }
+      // Obtener todas las validaciones para esta acta
+      const todasValidaciones = await db
+        .select()
+        .from(validacion)
+        .where(eq(validacion.actaId, actaData.id))
 
-    await db
-      .update(acta)
-      .set({
-        cantidadValidaciones: nuevaCantidadValidaciones,
-        cantidadValidacionesCorrectas: nuevaCantidadCorrectas,
-        estado: nuevoEstado,
-        bloqueadoPor: null,
-        bloqueadoHasta: null,
-        actualizadoEn: new Date(),
-      })
-      .where(eq(acta.uuid, uuid))
+      const validacionesConValores = todasValidaciones.map((v) => ({
+        usuarioId: v.usuarioId,
+        values: {
+          pn: v.votosPn,
+          plh: v.votosPlh,
+          pl: v.votosPl,
+          pinu: v.votosPinu,
+          dc: v.votosDc,
+          nulos: v.votosNulos,
+          blancos: v.votosBlancos,
+          total: v.votosTotal,
+        },
+      }))
+
+      const consensoResult = findConsensus(validacionesConValores)
+
+      if (consensoResult) {
+        // ¡Tenemos consenso! Actualizar acta con valores ganadores
+        const { winningValues, discrepantUserIds } = consensoResult
+
+        await db
+          .update(acta)
+          .set({
+            votosPnDigitado: winningValues.pn,
+            votosPlhDigitado: winningValues.plh,
+            votosPlDigitado: winningValues.pl,
+            votosPinuDigitado: winningValues.pinu,
+            votosDcDigitado: winningValues.dc,
+            votosNulosDigitado: winningValues.nulos,
+            votosBlancosDigitado: winningValues.blancos,
+            votosTotalDigitado: winningValues.total,
+            cantidadValidaciones: nuevaCantidadValidaciones,
+            cantidadValidacionesCorrectas: todasValidaciones.length - discrepantUserIds.length,
+            estado: 'validada',
+            bloqueadoPor: null,
+            bloqueadoHasta: null,
+            actualizadoEn: new Date(),
+          })
+          .where(eq(acta.uuid, uuid))
+
+        // Registrar en historial que se alcanzó consenso
+        await db.insert(historialDigitacion).values({
+          actaId: actaData.id,
+          usuarioId: user.id, // El último validador que disparó el consenso
+          tipoCambio: 'rectificacion',
+          votosPn: winningValues.pn,
+          votosPlh: winningValues.plh,
+          votosPl: winningValues.pl,
+          votosPinu: winningValues.pinu,
+          votosDc: winningValues.dc,
+          votosTotal: winningValues.total,
+          comentario: `Consenso alcanzado con ${todasValidaciones.length - discrepantUserIds.length}/${todasValidaciones.length} validadores`,
+        })
+
+        // Marcar usuarios discrepantes (incrementar correcciones recibidas)
+        for (const discrepantUserId of discrepantUserIds) {
+          await actualizarEstadisticaUsuario(discrepantUserId, {
+            correccionesRecibidas: 1,
+          })
+        }
+      } else {
+        // No hay consenso - todos diferentes, marcar como discrepancia
+        await db
+          .update(acta)
+          .set({
+            cantidadValidaciones: nuevaCantidadValidaciones,
+            estado: 'con_discrepancia',
+            bloqueadoPor: null,
+            bloqueadoHasta: null,
+            actualizadoEn: new Date(),
+          })
+          .where(eq(acta.uuid, uuid))
+      }
+    } else {
+      // Menos de 3 validaciones - solo actualizar contador
+      await db
+        .update(acta)
+        .set({
+          cantidadValidaciones: nuevaCantidadValidaciones,
+          estado: 'en_validacion',
+          bloqueadoPor: null,
+          bloqueadoHasta: null,
+          actualizadoEn: new Date(),
+        })
+        .where(eq(acta.uuid, uuid))
+    }
 
     // Actualizar estadísticas del usuario validador
     await actualizarEstadisticaUsuario(user.id, {
       actasValidadas: 1,
-      validacionesCorrectas: datos.esCorrecta ? 1 : 0,
     })
-
-    // Si hubo corrección, incrementar correcciones recibidas del digitador original
-    if (!datos.esCorrecta && actaData.digitadoPor && actaData.digitadoPor !== user.id) {
-      await actualizarEstadisticaUsuario(actaData.digitadoPor, {
-        correccionesRecibidas: 1,
-      })
-    }
   } finally {
     // Asegurar liberar bloqueo aunque falle algo
     await liberarActa(uuid).catch(() => {})

@@ -1,46 +1,13 @@
-import { Suspense } from 'react'
 import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { PenLine, CheckSquare, Clock, Users, AlertTriangle, Info } from 'lucide-react'
+import { PenLine, CheckSquare, AlertTriangle, Info } from 'lucide-react'
 import { getActasStats, getActaBloqueadaPorUsuario } from '@/lib/actas'
 import { createClient } from '@/lib/supabase/server'
 import { StartButton } from './start-button'
 
 interface VerificarPageProps {
   searchParams: Promise<{ error?: string; message?: string }>
-}
-
-async function ActasStats() {
-  const stats = await getActasStats()
-
-  return (
-    <div className="grid grid-cols-2 gap-3 text-sm">
-      <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
-        <Clock className="h-4 w-4 text-muted-foreground" />
-        <div>
-          <p className="font-bold tabular-nums">{stats.porDigitalizar.toLocaleString()}</p>
-          <p className="text-xs text-muted-foreground">Por digitalizar</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-2 p-3 bg-muted/50 rounded-lg">
-        <Users className="h-4 w-4 text-muted-foreground" />
-        <div>
-          <p className="font-bold tabular-nums">{stats.porValidar.toLocaleString()}</p>
-          <p className="text-xs text-muted-foreground">Por validar</p>
-        </div>
-      </div>
-    </div>
-  )
-}
-
-function StatsSkeleton() {
-  return (
-    <div className="grid grid-cols-2 gap-3">
-      <div className="h-16 bg-muted/50 rounded-lg animate-pulse" />
-      <div className="h-16 bg-muted/50 rounded-lg animate-pulse" />
-    </div>
-  )
 }
 
 export default async function VerificarPage({ searchParams }: VerificarPageProps) {
@@ -62,6 +29,13 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
       redirect(`/dashboard/verificar/${actaPendiente.uuid}`)
     }
   }
+
+  // Get stats for the cards
+  const stats = await getActasStats()
+  const porcentajeValidaciones =
+    stats.validacionesNecesarias > 0
+      ? Math.round((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
+      : 0
 
   return (
     <div className="space-y-6 py-4 lg:py-6">
@@ -98,20 +72,23 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
         </Alert>
       )}
 
-      {/* Estadísticas */}
-      <Suspense fallback={<StatsSkeleton />}>
-        <ActasStats />
-      </Suspense>
-
       {/* Desktop: Side-by-side cards */}
       <div className="grid lg:grid-cols-2 gap-4">
         {/* Opción: Digitalizar */}
         <Card className="flex flex-col">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg flex items-center gap-2">
-              <PenLine className="h-5 w-5 text-[#0069b4]" />
-              Digitalizar acta
-            </CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg flex items-center gap-2">
+                <PenLine className="h-5 w-5 text-[#0069b4]" />
+                Digitalizar acta
+              </CardTitle>
+              <div className="text-right">
+                <p className="text-2xl font-bold tabular-nums text-[#0069b4]">
+                  {stats.porDigitalizar.toLocaleString()}
+                </p>
+                <p className="text-xs text-muted-foreground">pendientes</p>
+              </div>
+            </div>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col space-y-4">
             <p className="text-sm text-muted-foreground flex-1">
@@ -125,16 +102,37 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
         {/* Opción: Validar */}
         <Card className="flex flex-col">
           <CardHeader className="pb-2">
-            <CardTitle className="text-lg flex items-center gap-2">
-              <CheckSquare className="h-5 w-5 text-green-600" />
-              Validar acta
-            </CardTitle>
+            <div className="flex items-center justify-between">
+              <CardTitle className="text-lg flex items-center gap-2">
+                <CheckSquare className="h-5 w-5 text-green-600" />
+                Validar acta
+              </CardTitle>
+              <div className="text-right">
+                <p className="text-2xl font-bold tabular-nums text-green-600">
+                  {porcentajeValidaciones}%
+                </p>
+                <p className="text-xs text-muted-foreground">completado</p>
+              </div>
+            </div>
           </CardHeader>
           <CardContent className="flex-1 flex flex-col space-y-4">
-            <p className="text-sm text-muted-foreground flex-1">
+            <p className="text-sm text-muted-foreground">
               Revisa un acta que ya tiene valores y confirma que son correctos o reporta
               diferencias.
             </p>
+            {/* Validation progress bar */}
+            <div className="space-y-1.5">
+              <div className="h-2 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
+                  style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
+                />
+              </div>
+              <p className="text-xs text-muted-foreground">
+                {stats.validacionesRealizadas.toLocaleString()} /{' '}
+                {stats.validacionesNecesarias.toLocaleString()} validaciones
+              </p>
+            </div>
             <StartButton modo="validar" />
           </CardContent>
         </Card>

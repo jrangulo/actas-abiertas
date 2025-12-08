@@ -392,6 +392,9 @@ export const historialDigitacion = pgTable(
  *
  * Un usuario puede validar un acta solo una vez.
  * No puede validar un acta que él mismo digitó (se verifica en código).
+ *
+ * IMPORTANTE: Siempre almacenamos los valores que el validador confirmó/corrigió
+ * para poder determinar consenso cuando tengamos 3 validaciones.
  */
 export const validacion = pgTable(
   'validacion',
@@ -404,10 +407,24 @@ export const validacion = pgTable(
       .notNull()
       .references(() => authUsers.id, { onDelete: 'cascade' }),
 
-    // ¿El usuario confirma que los datos digitados son correctos?
+    // ¿El usuario confirma que los datos actuales son correctos?
+    // (ahora es más de referencia - lo importante son los valores)
     esCorrecto: boolean('es_correcto').notNull(),
 
-    // Si corrigió valores, referencia al historial de la corrección
+    // -------------------------------------------------------------------------
+    // Valores que el validador confirmó/corrigió
+    // SIEMPRE se almacenan, incluso si dijo "correcto"
+    // -------------------------------------------------------------------------
+    votosPn: integer('votos_pn').notNull(),
+    votosPlh: integer('votos_plh').notNull(),
+    votosPl: integer('votos_pl').notNull(),
+    votosPinu: integer('votos_pinu').notNull(),
+    votosDc: integer('votos_dc').notNull(),
+    votosNulos: integer('votos_nulos').notNull(),
+    votosBlancos: integer('votos_blancos').notNull(),
+    votosTotal: integer('votos_total').notNull(),
+
+    // Si corrigió valores, referencia al historial de la corrección (legacy, mantener por compatibilidad)
     historialCorreccionId: integer('historial_correccion_id').references(
       () => historialDigitacion.id,
       { onDelete: 'set null' }
