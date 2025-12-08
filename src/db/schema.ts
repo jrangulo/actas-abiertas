@@ -5,6 +5,7 @@ import {
   serial,
   uuid,
   text,
+  varchar,
   integer,
   smallint,
   timestamp,
@@ -14,6 +15,7 @@ import {
   unique,
   foreignKey,
   json,
+  jsonb,
 } from 'drizzle-orm/pg-core'
 
 // ============================================================================
@@ -28,6 +30,8 @@ const authSchema = pgSchema('auth')
 
 export const authUsers = authSchema.table('users', {
   id: uuid('id').primaryKey(),
+  email: varchar('email', { length: 255 }),
+  rawUserMetaData: jsonb('raw_user_meta_data'),
 })
 
 // ============================================================================

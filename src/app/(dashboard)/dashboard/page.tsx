@@ -12,7 +12,13 @@ import {
   Clock,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
-import { getActaBloqueadaPorUsuario } from '@/lib/actas'
+import {
+  getActaBloqueadaPorUsuario,
+  getActasStats,
+  getTopUsuarios,
+  getEstadisticaUsuario,
+  getRankingUsuario,
+} from '@/lib/actas'
 import { PendingTimer } from './pending-timer'
 
 // ============================================================================
@@ -31,13 +37,11 @@ function StatsCardSkeleton() {
 }
 
 async function GlobalStats() {
-  // TODO: Obtener estadísticas reales de la base de datos
-  const stats = {
-    totalActas: 18547,
-    actasDigitadas: 3241,
-    actasValidadas: 1892,
-    actasConDiscrepancia: 47,
-  }
+  const stats = await getActasStats()
+
+  // Calcular digitadas: total - porDigitalizar (aproximación)
+  // ya que "digitadas" = las que ya tienen digitadoPor o escrutadaEnCne
+  const digitadas = stats.total - stats.porDigitalizar
 
   return (
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
@@ -47,7 +51,7 @@ async function GlobalStats() {
             <FileCheck className="h-4 w-4" />
             <span className="text-xs font-medium">Total Actas</span>
           </div>
-          <p className="text-2xl font-bold">{stats.totalActas.toLocaleString()}</p>
+          <p className="text-2xl font-bold">{stats.total.toLocaleString()}</p>
         </CardContent>
       </Card>
 
@@ -55,9 +59,9 @@ async function GlobalStats() {
         <CardContent className="pt-4 pb-3">
           <div className="flex items-center gap-2 text-muted-foreground mb-1">
             <Users className="h-4 w-4" />
-            <span className="text-xs font-medium">Digitadas</span>
+            <span className="text-xs font-medium">Procesadas</span>
           </div>
-          <p className="text-2xl font-bold">{stats.actasDigitadas.toLocaleString()}</p>
+          <p className="text-2xl font-bold">{digitadas.toLocaleString()}</p>
         </CardContent>
       </Card>
 
@@ -67,9 +71,7 @@ async function GlobalStats() {
             <CheckCircle2 className="h-4 w-4 text-green-600" />
             <span className="text-xs font-medium">Validadas</span>
           </div>
-          <p className="text-2xl font-bold text-green-600">
-            {stats.actasValidadas.toLocaleString()}
-          </p>
+          <p className="text-2xl font-bold text-green-600">{stats.validadas.toLocaleString()}</p>
         </CardContent>
       </Card>
 
@@ -80,7 +82,7 @@ async function GlobalStats() {
             <span className="text-xs font-medium">Discrepancias</span>
           </div>
           <p className="text-2xl font-bold text-amber-600">
-            {stats.actasConDiscrepancia.toLocaleString()}
+            {stats.conDiscrepancias.toLocaleString()}
           </p>
         </CardContent>
       </Card>
@@ -109,36 +111,48 @@ function LeaderboardSkeleton() {
 }
 
 async function MiniLeaderboard() {
-  // TODO: Obtener leaderboard real de la base de datos
-  const topUsers = [
-    { position: 1, name: 'María G.', count: 156, type: 'digitadas' },
-    { position: 2, name: 'Carlos R.', count: 142, type: 'digitadas' },
-    { position: 3, name: 'Ana L.', count: 128, type: 'digitadas' },
-  ]
+  const topUsers = await getTopUsuarios(5)
+
+  if (topUsers.length === 0) {
+    return (
+      <p className="text-sm text-muted-foreground text-center py-4">
+        ¡Sé el primero en verificar actas!
+      </p>
+    )
+  }
 
   return (
     <div className="space-y-3">
-      {topUsers.map((user) => (
-        <div key={user.position} className="flex items-center gap-3">
-          <div
-            className={`flex items-center justify-center h-8 w-8 rounded-full text-sm font-bold ${
-              user.position === 1
-                ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
-                : user.position === 2
-                  ? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
-                  : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
-            }`}
-          >
-            {user.position}
+      {topUsers.map((user, index) => {
+        const position = index + 1
+        // Extraer nombre del metadata de OAuth (Google, Facebook, etc.)
+        const metadata = user.rawUserMetaData as { full_name?: string; name?: string } | null
+        const fullName = metadata?.full_name || metadata?.name || null
+        // Mostrar solo el primer nombre
+        const displayName = fullName ? fullName.split(' ')[0] : 'Anónimo'
+
+        return (
+          <div key={user.usuarioId} className="flex items-center gap-3">
+            <div
+              className={`flex items-center justify-center h-8 w-8 rounded-full text-sm font-bold ${
+                position === 1
+                  ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400'
+                  : position === 2
+                    ? 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300'
+                    : 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
+              }`}
+            >
+              {position}
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="font-medium truncate">{displayName}</p>
+              <p className="text-xs text-muted-foreground">
+                {user.total} actas ({user.actasDigitadas} dig. + {user.actasValidadas} val.)
+              </p>
+            </div>
           </div>
-          <div className="flex-1 min-w-0">
-            <p className="font-medium truncate">{user.name}</p>
-            <p className="text-xs text-muted-foreground">
-              {user.count} actas {user.type}
-            </p>
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
@@ -148,27 +162,38 @@ async function MiniLeaderboard() {
 // ============================================================================
 
 async function UserStats() {
-  // TODO: Obtener estadísticas del usuario actual
-  const myStats = {
-    digitadas: 12,
-    validadas: 28,
-    posicion: 47,
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return null
   }
+
+  const [stats, ranking] = await Promise.all([
+    getEstadisticaUsuario(user.id),
+    getRankingUsuario(user.id),
+  ])
+
+  const digitadas = stats?.actasDigitadas ?? 0
+  const validadas = stats?.actasValidadas ?? 0
+  const posicion = ranking ?? '-'
 
   return (
     <div className="flex items-center justify-around py-2">
       <div className="text-center">
-        <p className="text-2xl font-bold">{myStats.digitadas}</p>
+        <p className="text-2xl font-bold">{digitadas}</p>
         <p className="text-xs text-muted-foreground">Digitadas</p>
       </div>
       <div className="h-8 w-px bg-border" />
       <div className="text-center">
-        <p className="text-2xl font-bold">{myStats.validadas}</p>
+        <p className="text-2xl font-bold">{validadas}</p>
         <p className="text-xs text-muted-foreground">Validadas</p>
       </div>
       <div className="h-8 w-px bg-border" />
       <div className="text-center">
-        <p className="text-2xl font-bold">#{myStats.posicion}</p>
+        <p className="text-2xl font-bold">#{posicion}</p>
         <p className="text-xs text-muted-foreground">Ranking</p>
       </div>
     </div>

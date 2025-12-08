@@ -3,8 +3,21 @@
  */
 
 import { db } from '@/db'
-import { acta, validacion } from '@/db/schema'
-import { eq, and, or, isNull, isNotNull, lt, gt, ne, notExists, sql, count } from 'drizzle-orm'
+import { acta, validacion, estadisticaUsuario, authUsers } from '@/db/schema'
+import {
+  eq,
+  and,
+  or,
+  isNull,
+  isNotNull,
+  lt,
+  gt,
+  ne,
+  notExists,
+  sql,
+  count,
+  desc,
+} from 'drizzle-orm'
 import { LOCK_DURATION_MINUTES } from './utils'
 
 /**
@@ -255,4 +268,65 @@ export function getValoresActuales(actaData: typeof acta.$inferSelect) {
     blancos: actaData.votosBlancosOficial,
     total: actaData.votosTotalOficial,
   }
+}
+
+// ============================================================================
+// Estadísticas de usuarios y leaderboard
+// ============================================================================
+
+/**
+ * Obtener estadísticas de un usuario específico
+ */
+export async function getEstadisticaUsuario(userId: string) {
+  const [stats] = await db
+    .select()
+    .from(estadisticaUsuario)
+    .where(eq(estadisticaUsuario.usuarioId, userId))
+    .limit(1)
+
+  return stats || null
+}
+
+/**
+ * Obtener el top de usuarios para el leaderboard
+ * Ordena por total de contribuciones (digitadas + validadas)
+ */
+export async function getTopUsuarios(limite: number = 10) {
+  const usuarios = await db
+    .select({
+      usuarioId: estadisticaUsuario.usuarioId,
+      rawUserMetaData: authUsers.rawUserMetaData,
+      actasDigitadas: estadisticaUsuario.actasDigitadas,
+      actasValidadas: estadisticaUsuario.actasValidadas,
+      validacionesCorrectas: estadisticaUsuario.validacionesCorrectas,
+      total: sql<number>`${estadisticaUsuario.actasDigitadas} + ${estadisticaUsuario.actasValidadas}`,
+    })
+    .from(estadisticaUsuario)
+    .leftJoin(authUsers, eq(estadisticaUsuario.usuarioId, authUsers.id))
+    .orderBy(desc(sql`${estadisticaUsuario.actasDigitadas} + ${estadisticaUsuario.actasValidadas}`))
+    .limit(limite)
+
+  return usuarios
+}
+
+/**
+ * Obtener la posición de un usuario en el ranking
+ * Basado en total de contribuciones (digitadas + validadas)
+ */
+export async function getRankingUsuario(userId: string) {
+  // Contar cuántos usuarios tienen más contribuciones
+  const [result] = await db
+    .select({
+      posicion: sql<number>`(
+        SELECT COUNT(*) + 1 
+        FROM estadistica_usuario e2 
+        WHERE (e2.actas_digitadas + e2.actas_validadas) > 
+              (SELECT COALESCE(actas_digitadas + actas_validadas, 0) 
+               FROM estadistica_usuario 
+               WHERE usuario_id = ${userId})
+      )`,
+    })
+    .from(sql`(SELECT 1) as dummy`)
+
+  return result?.posicion ?? null
 }
