@@ -2,8 +2,14 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from '@/components/ui/dialog'
-import { Maximize2, ZoomIn, ZoomOut, RotateCw, FileImage } from 'lucide-react'
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+  DialogTitle,
+  DialogClose,
+} from '@/components/ui/dialog'
+import { Maximize2, ZoomIn, ZoomOut, RotateCw, FileImage, X } from 'lucide-react'
 
 interface ImageViewerProps {
   src: string
@@ -24,7 +30,10 @@ export function MobileImageViewer({ src, alt }: ImageViewerProps) {
           </div>
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0">
+      <DialogContent
+        className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0"
+        showCloseButton={false}
+      >
         <DialogTitle className="sr-only">Imagen del acta</DialogTitle>
         <FullscreenImageViewer src={src} alt={alt} />
       </DialogContent>
@@ -82,7 +91,10 @@ export function DesktopImageViewer({ src, alt }: ImageViewerProps) {
               <Maximize2 className="h-4 w-4" />
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0">
+          <DialogContent
+            className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0"
+            showCloseButton={false}
+          >
             <DialogTitle className="sr-only">Imagen del acta en pantalla completa</DialogTitle>
             <FullscreenImageViewer src={src} alt={alt} />
           </DialogContent>
@@ -177,8 +189,20 @@ function FullscreenImageViewer({ src, alt }: ImageViewerProps) {
 
   return (
     <div className="relative w-full h-full bg-black flex flex-col">
+      {/* Close button - always visible and accessible */}
+      <DialogClose asChild>
+        <Button
+          size="icon"
+          variant="secondary"
+          className="absolute top-4 right-4 z-50 h-10 w-10 rounded-full shadow-lg"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Cerrar</span>
+        </Button>
+      </DialogClose>
+
       {/* Controles superiores */}
-      <div className="absolute top-4 left-4 right-4 z-10 flex items-center justify-center gap-2 flex-wrap safe-area-pt">
+      <div className="absolute top-4 left-4 right-16 z-10 flex items-center justify-center gap-2 flex-wrap safe-area-pt">
         <Button size="sm" variant="secondary" onClick={handleZoomOut}>
           <ZoomOut className="h-4 w-4 mr-1" />
           <span className="hidden sm:inline">Alejar</span>

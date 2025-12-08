@@ -88,6 +88,16 @@ export async function obtenerNuevaActa(modo: 'digitalizar' | 'validar') {
     throw new Error('No autenticado')
   }
 
+  // Verificar si el usuario ya tiene un acta bloqueada
+  const actaPendiente = await getActaBloqueadaPorUsuario(user.id)
+  if (actaPendiente) {
+    return {
+      success: false,
+      message: 'Ya tienes un acta en proceso',
+      pendingUuid: actaPendiente.uuid,
+    }
+  }
+
   const actaDisponible =
     modo === 'digitalizar'
       ? await getActaParaDigitalizar(user.id)

@@ -229,6 +229,9 @@ export function VerificarClient({
     const result = await obtenerNuevaActa(nextModo)
     if (result.success && result.uuid) {
       router.push(`/dashboard/verificar/${result.uuid}`)
+    } else if ('pendingUuid' in result && result.pendingUuid) {
+      // User still has a pending acta (shouldn't happen, but handle it)
+      router.push(`/dashboard/verificar/${result.pendingUuid}`)
     } else {
       router.push('/dashboard/verificar?message=sin-actas')
     }

@@ -20,6 +20,9 @@ export function StartButton({ modo }: StartButtonProps) {
 
       if (result.success && result.uuid) {
         router.push(`/dashboard/verificar/${result.uuid}`)
+      } else if ('pendingUuid' in result && result.pendingUuid) {
+        // User already has a pending acta - redirect to it
+        router.push(`/dashboard/verificar/${result.pendingUuid}`)
       } else {
         // No hay actas disponibles
         router.push('/dashboard/verificar?message=sin-actas')
