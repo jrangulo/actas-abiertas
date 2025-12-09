@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
@@ -13,7 +13,7 @@ export default function WelcomePage() {
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
   const router = useRouter()
-  const supabase = createClient()
+  const supabase = useMemo(() => createClient(), [])
 
   useEffect(() => {
     const checkUser = async () => {
@@ -25,7 +25,7 @@ export default function WelcomePage() {
       }
     }
     checkUser()
-  }, [supabase, router])
+  }, [router, supabase])
 
   const handleOAuthSignIn = async (provider: 'google' | 'facebook') => {
     setIsLoading(provider)

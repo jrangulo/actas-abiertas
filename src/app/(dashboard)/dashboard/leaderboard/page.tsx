@@ -73,7 +73,7 @@ export default async function LeaderboardPage() {
                   <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
                     <Award className="h-8 w-8 text-gray-500 dark:text-gray-400" />
                   </div>
-                  <p className="font-medium text-sm truncate max-w-[80px]">
+                  <p className="font-medium text-sm truncate max-w-20">
                     {leaderboardData[1]?.name.split(' ')[0]}
                   </p>
                   <p className="text-xs text-muted-foreground">
@@ -143,11 +143,15 @@ export default async function LeaderboardPage() {
                   } px-4`}
                 >
                   <p className="font-bold">{user.digitadas + user.validadas}</p>
-                  <p className={`text-xs ${
-                    user.position === 1 || user.position === 2 || user.position === 3
-                      ? 'text-stone-200'
-                      : 'text-muted-foreground'
-                  }`}>total</p>
+                  <p
+                    className={`text-xs ${
+                      user.position === 1 || user.position === 2 || user.position === 3
+                        ? 'text-stone-200'
+                        : 'text-muted-foreground'
+                    }`}
+                  >
+                    total
+                  </p>
                 </div>
               </div>
             ))}
