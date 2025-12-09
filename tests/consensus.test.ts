@@ -62,12 +62,16 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
   // Limpiar usuarios de prueba después de todos los tests
   afterAll(async () => {
     console.log('Limpiando usuarios de prueba...')
-    // Limpiar estadísticas de usuarios
-    await cleanupUserStats([TEST_USER_1, TEST_USER_2, TEST_USER_3])
-    // Eliminar usuarios de prueba de auth
-    await deleteTestUser(TEST_USER_1)
-    await deleteTestUser(TEST_USER_2)
-    await deleteTestUser(TEST_USER_3)
+    // Filtrar IDs undefined (si la creación falló)
+    const validUserIds = [TEST_USER_1, TEST_USER_2, TEST_USER_3].filter(Boolean)
+    if (validUserIds.length > 0) {
+      // Limpiar estadísticas de usuarios
+      await cleanupUserStats(validUserIds)
+      // Eliminar usuarios de prueba de auth
+      for (const userId of validUserIds) {
+        await deleteTestUser(userId)
+      }
+    }
     console.log('Usuarios de prueba eliminados')
   }, 30000)
 
@@ -81,7 +85,10 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
 
   // Reiniciar estadísticas de usuarios antes de cada test
   beforeEach(async () => {
-    await cleanupUserStats([TEST_USER_1, TEST_USER_2, TEST_USER_3])
+    const validUserIds = [TEST_USER_1, TEST_USER_2, TEST_USER_3].filter(Boolean)
+    if (validUserIds.length > 0) {
+      await cleanupUserStats(validUserIds)
+    }
   })
 
   describe('Escenario 1: Los 3 validadores coinciden', () => {
