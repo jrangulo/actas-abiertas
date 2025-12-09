@@ -25,7 +25,7 @@ export default async function LeaderboardPage() {
     validadas: user.actasValidadas || 0,
   }))
 
-  // Verificar si el usuario actual está en el top 10
+  // Verificar si el usuario actual está en el top 100
   let currentUserEntry = null
   let showEllipsis = false
 
