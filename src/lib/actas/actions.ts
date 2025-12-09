@@ -2,6 +2,9 @@
 
 /**
  * Server Actions para verificación de actas
+ *
+ * Este archivo contiene server actions (que usan auth) y funciones
+ * internas exportadas para testing.
  */
 
 import { revalidatePath } from 'next/cache'
@@ -24,11 +27,13 @@ import {
   getActaBloqueadaPorUsuario,
   extenderBloqueo,
 } from './queries'
+import { findConsensus, type VoteValues } from './consensus'
 
 /**
  * Actualizar estadísticas del usuario (upsert)
+ * @exported for testing
  */
-async function actualizarEstadisticaUsuario(
+export async function actualizarEstadisticaUsuario(
   userId: string,
   incrementos: {
     actasDigitadas?: number
@@ -207,81 +212,13 @@ export async function guardarDigitalizacion(
   return { success: true }
 }
 
-/**
- * Tipo para los valores de votos
- */
-type VoteValues = {
-  pn: number
-  plh: number
-  pl: number
-  pinu: number
-  dc: number
-  nulos: number
-  blancos: number
-  total: number
-}
+// ============================================================================
+// Función interna de validación (exportada para testing)
+// ============================================================================
 
-/**
- * Comparar dos conjuntos de valores para ver si son iguales
- */
-function valuesMatch(a: VoteValues, b: VoteValues): boolean {
-  return (
-    a.pn === b.pn &&
-    a.plh === b.plh &&
-    a.pl === b.pl &&
-    a.pinu === b.pinu &&
-    a.dc === b.dc &&
-    a.nulos === b.nulos &&
-    a.blancos === b.blancos
-  )
-}
-
-/**
- * Encontrar consenso entre validaciones (2+ deben coincidir)
- * Retorna los valores ganadores y los IDs de usuarios que discreparon
- */
-function findConsensus(
-  validaciones: Array<{ usuarioId: string; values: VoteValues }>
-): { winningValues: VoteValues; discrepantUserIds: string[] } | null {
-  if (validaciones.length < 3) return null
-
-  // Comparar cada par
-  for (let i = 0; i < validaciones.length; i++) {
-    let matchCount = 1
-    const matchingUserIds = [validaciones[i].usuarioId]
-
-    for (let j = 0; j < validaciones.length; j++) {
-      if (i !== j && valuesMatch(validaciones[i].values, validaciones[j].values)) {
-        matchCount++
-        matchingUserIds.push(validaciones[j].usuarioId)
-      }
-    }
-
-    // Si 2+ coinciden, encontramos consenso
-    if (matchCount >= 2) {
-      const discrepantUserIds = validaciones
-        .filter((v) => !matchingUserIds.includes(v.usuarioId))
-        .map((v) => v.usuarioId)
-
-      return {
-        winningValues: validaciones[i].values,
-        discrepantUserIds,
-      }
-    }
-  }
-
-  // No hay consenso - todos diferentes
-  return null
-}
-
-/**
- * Guardar validación de un acta
- *
- * IMPORTANTE: Los valores finales del acta NO se actualizan hasta que tengamos
- * 3 validaciones y podamos determinar consenso (2+ deben coincidir).
- */
-export async function guardarValidacion(
-  uuid: string,
+export type GuardarValidacionParams = {
+  uuid: string
+  userId: string
   datos: {
     esCorrecta: boolean
     correciones?: {
@@ -294,28 +231,45 @@ export async function guardarValidacion(
       blancos: number
     }
   }
-) {
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
+  /** Si true, omite verificación de bloqueo (para testing) */
+  skipLockCheck?: boolean
+  /** Si true, omite revalidatePath (para testing) */
+  skipRevalidate?: boolean
+}
 
-  if (!user) {
-    throw new Error('No autenticado')
+export type GuardarValidacionResult = {
+  success: boolean
+  nuevoEstado?: string
+  consenso?: {
+    encontrado: boolean
+    winningValues?: VoteValues
+    discrepantUserIds?: string[]
   }
+  error?: string
+}
+
+/**
+ * Función interna para guardar validación
+ * Puede ser llamada directamente en tests con userId explícito
+ *
+ * @exported for testing - Usa esta función en tests de integración
+ */
+export async function guardarValidacionInternal(
+  params: GuardarValidacionParams
+): Promise<GuardarValidacionResult> {
+  const { uuid, userId, datos, skipLockCheck = false, skipRevalidate = false } = params
 
   const actaData = await getActaByUuid(uuid)
   if (!actaData) {
-    throw new Error('Acta no encontrada')
+    return { success: false, error: 'Acta no encontrada' }
   }
 
-  // Verificar que el usuario tiene el bloqueo
-  if (actaData.bloqueadoPor !== user.id) {
-    throw new Error('No tienes el bloqueo de esta acta')
+  // Verificar que el usuario tiene el bloqueo (skip en tests)
+  if (!skipLockCheck && actaData.bloqueadoPor !== userId) {
+    return { success: false, error: 'No tienes el bloqueo de esta acta' }
   }
 
   // Determinar qué valores está confirmando/enviando este validador
-  // Si dice "correcto", usa los valores actuales. Si corrige, usa sus correcciones.
   let submittedValues: VoteValues
 
   if (datos.esCorrecta) {
@@ -353,7 +307,7 @@ export async function guardarValidacion(
       total,
     }
   } else {
-    throw new Error('Datos de validación inválidos')
+    return { success: false, error: 'Datos de validación inválidos' }
   }
 
   try {
@@ -361,7 +315,7 @@ export async function guardarValidacion(
     try {
       await db.insert(validacion).values({
         actaId: actaData.id,
-        usuarioId: user.id,
+        usuarioId: userId,
         esCorrecto: datos.esCorrecta,
         votosPn: submittedValues.pn,
         votosPlh: submittedValues.plh,
@@ -373,20 +327,39 @@ export async function guardarValidacion(
         votosTotal: submittedValues.total,
         historialCorreccionId: null,
       })
-    } catch (error) {
-      const isDuplicate =
-        error instanceof Error &&
-        error.message.includes('duplicate key') &&
-        error.message.includes('validacion')
+    } catch (error: unknown) {
+      // Check for duplicate key violation (PK constraint)
+      // Drizzle wraps PostgresError in a DrizzleQueryError with a 'cause' property
+      const isDuplicate = (() => {
+        const errorStr = String(error)
+        if (errorStr.includes('duplicate key') || errorStr.includes('23505')) {
+          return true
+        }
+        if (error instanceof Error) {
+          if (error.message.includes('duplicate key')) return true
+          // Check the cause (Drizzle wraps the original error)
+          const cause = (error as { cause?: unknown }).cause
+          if (cause) {
+            const causeStr = String(cause)
+            if (causeStr.includes('duplicate key') || causeStr.includes('23505')) {
+              return true
+            }
+          }
+        }
+        return false
+      })()
 
       if (isDuplicate) {
-        throw new Error('Ya validaste esta acta anteriormente')
+        return { success: false, error: 'Ya validaste esta acta anteriormente' }
       }
       throw error
     }
 
     // Actualizar contador de validaciones
     const nuevaCantidadValidaciones = actaData.cantidadValidaciones + 1
+
+    let nuevoEstado = 'en_validacion'
+    let consensoResult: GuardarValidacionResult['consenso'] = undefined
 
     // Si llegamos a 3 validaciones, determinar consenso
     if (nuevaCantidadValidaciones >= 3) {
@@ -410,11 +383,18 @@ export async function guardarValidacion(
         },
       }))
 
-      const consensoResult = findConsensus(validacionesConValores)
+      const consenso = findConsensus(validacionesConValores)
 
-      if (consensoResult) {
+      if (consenso) {
         // ¡Tenemos consenso! Actualizar acta con valores ganadores
-        const { winningValues, discrepantUserIds } = consensoResult
+        const { winningValues, discrepantUserIds } = consenso
+        nuevoEstado = 'validada'
+
+        consensoResult = {
+          encontrado: true,
+          winningValues,
+          discrepantUserIds,
+        }
 
         await db
           .update(acta)
@@ -439,7 +419,7 @@ export async function guardarValidacion(
         // Registrar en historial que se alcanzó consenso
         await db.insert(historialDigitacion).values({
           actaId: actaData.id,
-          usuarioId: user.id, // El último validador que disparó el consenso
+          usuarioId: userId,
           tipoCambio: 'rectificacion',
           votosPn: winningValues.pn,
           votosPlh: winningValues.plh,
@@ -458,6 +438,12 @@ export async function guardarValidacion(
         }
       } else {
         // No hay consenso - todos diferentes, marcar como discrepancia
+        nuevoEstado = 'con_discrepancia'
+
+        consensoResult = {
+          encontrado: false,
+        }
+
         await db
           .update(acta)
           .set({
@@ -484,15 +470,67 @@ export async function guardarValidacion(
     }
 
     // Actualizar estadísticas del usuario validador
-    await actualizarEstadisticaUsuario(user.id, {
+    await actualizarEstadisticaUsuario(userId, {
       actasValidadas: 1,
     })
+
+    if (!skipRevalidate) {
+      revalidatePath('/dashboard')
+    }
+
+    return {
+      success: true,
+      nuevoEstado,
+      consenso: consensoResult,
+    }
   } finally {
     // Asegurar liberar bloqueo aunque falle algo
-    await liberarActa(uuid).catch(() => {})
+    if (!skipLockCheck) {
+      await liberarActa(uuid).catch(() => {})
+    }
+  }
+}
+
+/**
+ * Guardar validación de un acta (Server Action con autenticación)
+ *
+ * IMPORTANTE: Los valores finales del acta NO se actualizan hasta que tengamos
+ * 3 validaciones y podamos determinar consenso (2+ deben coincidir).
+ */
+export async function guardarValidacion(
+  uuid: string,
+  datos: {
+    esCorrecta: boolean
+    correciones?: {
+      pn: number
+      plh: number
+      pl: number
+      pinu: number
+      dc: number
+      nulos: number
+      blancos: number
+    }
+  }
+) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    throw new Error('No autenticado')
   }
 
-  revalidatePath('/dashboard')
+  const result = await guardarValidacionInternal({
+    uuid,
+    userId: user.id,
+    datos,
+  })
+
+  if (!result.success && result.error) {
+    throw new Error(result.error)
+  }
+
   return { success: true }
 }
 
