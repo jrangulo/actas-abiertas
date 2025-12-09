@@ -37,15 +37,12 @@ export default async function LeaderboardPage() {
 
     if (userRanking && userRanking > TOP_USUARIOS_LIMIT) {
       const userStats = await getEstadisticaUsuario(user?.id || '')
-      const {
-        data: { user: authUser },
-      } = await supabase.auth.getUser()
 
-      if (userStats && authUser) {
+      if (userStats && user) {
         currentUserEntry = {
           position: userRanking,
           userId: user?.id || '',
-          name: getUserName(authUser.user_metadata),
+          name: getUserName(user.user_metadata),
           digitadas: userStats.actasDigitadas || 0,
           validadas: userStats.actasValidadas || 0,
         }
