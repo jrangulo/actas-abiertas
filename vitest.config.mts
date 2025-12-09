@@ -10,14 +10,11 @@ export default defineConfig({
     environment: 'node',
     include: ['src/**/*.test.ts', 'tests/**/*.test.ts'],
     setupFiles: ['./tests/setup.ts'],
-    // Run tests sequentially to avoid database conflicts
-    pool: 'forks',
-    poolOptions: {
-      forks: {
-        singleFork: true,
-      },
+    // Ejecutar tests secuencialmente para evitar conflictos de base de datos
+    sequence: {
+      concurrent: false,
     },
-    testTimeout: 30000, // 30s timeout for DB operations
+    testTimeout: 30000, // 30s timeout para operaciones de BD
   },
   resolve: {
     alias: {
@@ -25,4 +22,3 @@ export default defineConfig({
     },
   },
 })
-

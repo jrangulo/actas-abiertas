@@ -4,6 +4,7 @@
  * Se ejecuta antes de todos los tests para verificar que la base de datos esté lista.
  */
 
+import { beforeAll } from 'vitest'
 import 'dotenv/config'
 
 // Registrar qué variables de entorno están disponibles (para depuración)
