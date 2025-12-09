@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 
 export default function WelcomePage() {
@@ -11,7 +12,20 @@ export default function WelcomePage() {
   const [isSignUp, setIsSignUp] = useState(true)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
+  const router = useRouter()
   const supabase = createClient()
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession()
+      if (session) {
+        router.push('/dashboard')
+      }
+    }
+    checkUser()
+  }, [supabase, router])
 
   const handleOAuthSignIn = async (provider: 'google' | 'facebook') => {
     setIsLoading(provider)

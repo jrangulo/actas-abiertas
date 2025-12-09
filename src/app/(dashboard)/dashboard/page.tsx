@@ -24,6 +24,8 @@ import {
 } from '@/lib/actas'
 import { PendingTimer } from './pending-timer'
 import { cn } from '@/lib/utils'
+import { PositionBadge } from '@/components/leaderboard/PositionBadge'
+import { getUserName } from '@/lib/users/utils'
 
 // ============================================================================
 // Componentes de Stats
@@ -152,13 +154,9 @@ function LeaderboardSkeleton() {
   )
 }
 
-// Medallas para top 3
-const MEDALS = ['🥇', '🥈', '🥉']
-
 async function MiniLeaderboard() {
-  const topUsers = await getTopUsuarios(5)
-
-  if (topUsers.length === 0) {
+  const topUsuarios = await getTopUsuarios(3)
+  if (topUsuarios.length === 0) {
     return (
       <div className="text-center py-8">
         <Trophy className="h-12 w-12 text-muted-foreground/30 mx-auto mb-3" />
@@ -167,81 +165,103 @@ async function MiniLeaderboard() {
     )
   }
 
+  const leaderboardData = topUsuarios.map((user, index) => ({
+    position: index + 1,
+    usuarioId: user.usuarioId,
+    nombre: getUserName(user.rawUserMetaData),
+    actasDigitadas: user.actasDigitadas || 0,
+    actasValidadas: user.actasValidadas || 0,
+  }))
+
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return null
+  }
+  // Verificar si el usuario actual está en el top 10
+  let currentUserEntry = null
+  let showEllipsis = false
+  const userInTop = leaderboardData.find((u) => u.usuarioId === user?.id)
+
+  if (!userInTop) {
+    // El usuario no está en el top, obtener su ranking y estadísticas
+    const userRanking = await getRankingUsuario(user?.id || '')
+
+    if (userRanking && userRanking > 3) {
+      const userStats = await getEstadisticaUsuario(user?.id || '')
+      const {
+        data: { user: authUser },
+      } = await supabase.auth.getUser()
+
+      if (userStats && authUser) {
+        currentUserEntry = {
+          position: userRanking,
+          userId: user?.id || '',
+          name: getUserName(authUser.user_metadata),
+          digitadas: userStats.actasDigitadas || 0,
+          validadas: userStats.actasValidadas || 0,
+        }
+        showEllipsis = true
+      }
+    }
+  }
+
   return (
-    <div className="space-y-3">
-      {topUsers.map((user, index) => {
-        const position = index + 1
-        // Extraer datos del metadata de OAuth
-        const metadata = user.rawUserMetaData as {
-          full_name?: string
-          name?: string
-          avatar_url?: string
-          picture?: string
-        } | null
-        const fullName = metadata?.full_name || metadata?.name || 'Anónimo'
-        const avatarUrl = metadata?.avatar_url || metadata?.picture || null
-
-        return (
+    <>
+      {leaderboardData.map((user) => (
+        <div
+          key={user.position}
+          className="flex items-center gap-3 px-3 py-2 border-b last:border-0"
+        >
+          <PositionBadge position={user.position} />
+          <div className="flex-1 min-w-0">
+            <p className="font-medium truncate">{user.nombre}</p>
+            <p className="text-xs text-muted-foreground">
+              {user.actasDigitadas} digitadas · {user.actasValidadas} validadas
+            </p>
+          </div>
           <div
-            key={user.usuarioId}
-            className={cn(
-              'flex items-center gap-4 p-3 rounded-xl transition-colors',
-              position <= 3 && 'bg-muted/50',
-              position > 3 && 'hover:bg-muted/50'
-            )}
+            className={`text-center rounded-full  ${
+              user.position === 1
+                ? 'bg-yellow-600'
+                : user.position === 2
+                  ? 'bg-gray-600'
+                  : 'bg-amber-600'
+            } px-4`}
           >
-            {/* Avatar / Position */}
-            <div className="relative flex-shrink-0">
-              {avatarUrl ? (
-                <Image
-                  src={avatarUrl}
-                  alt={fullName}
-                  width={48}
-                  height={48}
-                  className="rounded-full object-cover ring-2 ring-background"
-                />
-              ) : (
-                <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#0069b4] to-[#004a7c] flex items-center justify-center text-white font-bold text-lg">
-                  {fullName.charAt(0).toUpperCase()}
-                </div>
-              )}
-              {/* Medal/Position badge */}
-              <div
-                className={cn(
-                  'absolute -bottom-1 -right-1 h-6 w-6 rounded-full flex items-center justify-center text-xs font-bold',
-                  position <= 3
-                    ? 'bg-white dark:bg-gray-900 shadow-sm'
-                    : 'bg-muted text-muted-foreground'
-                )}
-              >
-                {position <= 3 ? MEDALS[position - 1] : position}
-              </div>
-            </div>
+            <p className="font-bold">{user.actasDigitadas + user.actasValidadas}</p>
+            <p className="text-xs text-stone-200">total</p>
+          </div>
+        </div>
+      ))}
 
-            {/* Name and stats */}
+      {/* Mostrar puntos suspensivos si el usuario no está en el top 10 */}
+      {showEllipsis && currentUserEntry && (
+        <>
+          <div className="flex items-center justify-center py-2">
+            <span className="text-2xl text-muted-foreground">⋯</span>
+          </div>
+          <div className="flex items-center gap-3 py-2 bg-primary/5 rounded-lg px-3 border-2 border-primary/20">
+            <PositionBadge position={currentUserEntry.position} />
             <div className="flex-1 min-w-0">
-              <p className="font-semibold truncate">{fullName}</p>
-              <p className="text-sm text-muted-foreground">
-                {user.actasDigitadas} digitadas · {user.actasValidadas} validadas
+              <p className="font-medium truncate">
+                {currentUserEntry.name} <span className="text-xs text-muted-foreground">(Tú)</span>
+              </p>
+              <p className="text-xs text-muted-foreground">
+                {currentUserEntry.digitadas} digitadas · {currentUserEntry.validadas} validadas
               </p>
             </div>
-
-            {/* Total badge */}
-            <div
-              className={cn(
-                'text-right px-3 py-1.5 rounded-full font-bold text-sm',
-                position === 1 && 'bg-yellow-500/20 text-yellow-600 dark:text-yellow-400',
-                position === 2 && 'bg-gray-500/20 text-gray-600 dark:text-gray-300',
-                position === 3 && 'bg-amber-500/20 text-amber-600 dark:text-amber-400',
-                position > 3 && 'bg-muted text-muted-foreground'
-              )}
-            >
-              {user.total}
+            <div className="text-center rounded-full bg-muted px-4">
+              <p className="font-bold">{currentUserEntry.digitadas + currentUserEntry.validadas}</p>
+              <p className="text-xs text-muted-foreground">total</p>
             </div>
           </div>
-        )
-      })}
-    </div>
+        </>
+      )}
+    </>
   )
 }
 
@@ -348,7 +368,7 @@ async function MainCTA() {
 
   // CTA normal
   return (
-    <Card className="bg-gradient-to-br from-[#0069b4] to-[#004a7c] text-white border-0 shadow-lg shadow-blue-500/20">
+    <Card className="bg-linear-to-br from-[#0069b4] to-[#004a7c] text-white border-0 shadow-lg shadow-blue-500/20">
       <CardContent className="pt-6 pb-6">
         <div className="flex items-start gap-4">
           <div className="flex-1 space-y-3">
@@ -363,7 +383,7 @@ async function MainCTA() {
               </Link>
             </Button>
           </div>
-          <FileCheck className="h-14 w-14 text-white/20" />
+          <FileCheck className="h-14 w-14 text-white" />
         </div>
       </CardContent>
     </Card>
