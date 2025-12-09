@@ -143,7 +143,11 @@ export default async function LeaderboardPage() {
                   } px-4`}
                 >
                   <p className="font-bold">{user.digitadas + user.validadas}</p>
-                  <p className="text-xs text-stone-200">total</p>
+                  <p className={`text-xs ${
+                    user.position === 1 || user.position === 2 || user.position === 3
+                      ? 'text-stone-200'
+                      : 'text-muted-foreground'
+                  }`}>total</p>
                 </div>
               </div>
             ))}
