@@ -17,7 +17,12 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, afterEach } from 'vitest'
 import { guardarValidacionInternal } from '@/lib/actas/actions'
 import { valuesMatch, findConsensus, type VoteValues } from '@/lib/actas/consensus'
-import { createTestUser, deleteTestUser, canRunAdminTests } from './helpers/supabase-admin'
+import {
+  createTestUser,
+  deleteTestUser,
+  canRunAdminTests,
+  cleanupStaleTestUsers,
+} from './helpers/supabase-admin'
 import {
   createTestActa,
   getTestActa,
@@ -52,6 +57,9 @@ const describeWithUsers = canRunAdminTests() ? describe : describe.skip
 describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
   // Crear usuarios de prueba antes de todos los tests
   beforeAll(async () => {
+    // Limpiar usuarios de prueba antiguos (de ejecuciones anteriores que fallaron)
+    await cleanupStaleTestUsers()
+
     console.log('Creando usuarios de prueba...')
     TEST_USER_1 = await createTestUser(`test-consensus-1-${Date.now()}@test.local`)
     TEST_USER_2 = await createTestUser(`test-consensus-2-${Date.now()}@test.local`)

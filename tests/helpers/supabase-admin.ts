@@ -71,3 +71,40 @@ export async function deleteTestUser(userId: string): Promise<void> {
 export function canRunAdminTests(): boolean {
   return !!supabaseServiceKey
 }
+
+/**
+ * Limpiar usuarios de prueba antiguos (por si quedaron de ejecuciones anteriores)
+ * Identifica usuarios de prueba por el metadata is_test_user: true
+ */
+export async function cleanupStaleTestUsers(): Promise<number> {
+  if (!supabaseServiceKey) return 0
+
+  try {
+    // Listar todos los usuarios y filtrar los de prueba
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers()
+
+    if (error) {
+      console.warn('Error al listar usuarios para limpieza:', error.message)
+      return 0
+    }
+
+    const testUsers = data.users.filter((user) => user.user_metadata?.is_test_user === true)
+
+    let deleted = 0
+    for (const user of testUsers) {
+      const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(user.id)
+      if (!deleteError) {
+        deleted++
+      }
+    }
+
+    if (deleted > 0) {
+      console.log(`Limpiados ${deleted} usuarios de prueba antiguos`)
+    }
+
+    return deleted
+  } catch (err) {
+    console.warn('Error durante limpieza de usuarios antiguos:', err)
+    return 0
+  }
+}
