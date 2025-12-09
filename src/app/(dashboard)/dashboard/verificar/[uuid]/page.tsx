@@ -46,6 +46,14 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
     redirect('/dashboard')
   }
 
+  // Si el usuario digitó esta acta, no puede validarla
+  // IMPORTANTE: Esta verificación también previene un bug donde Next.js re-ejecuta
+  // este server component durante la navegación, causando que bloquearActa() se llame
+  // de nuevo después de que guardarDigitalizacion() liberó el bloqueo
+  if (actaData.digitadoPor === user.id) {
+    redirect('/dashboard')
+  }
+
   // Intentar bloquear el acta
   const bloqueoResult = await bloquearActa(uuid, user.id)
 
