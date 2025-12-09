@@ -2,6 +2,7 @@ import { createClient } from '@/lib/supabase/server'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { FileCheck, CheckSquare, AlertTriangle, Calendar, TrendingUp } from 'lucide-react'
+import { getEstadisticaUsuario, getRankingUsuario } from '@/lib/actas'
 
 export default async function PerfilPage() {
   const supabase = await createClient()
@@ -9,20 +10,8 @@ export default async function PerfilPage() {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // TODO: Obtener estadísticas reales del usuario
-  const userStats = {
-    digitadas: 12,
-    validadas: 28,
-    discrepancias: 3,
-    ranking: 47,
-    fechaRegistro: user?.created_at
-      ? new Date(user.created_at).toLocaleDateString('es-HN', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })
-      : 'Desconocida',
-  }
+  const userStats = await getEstadisticaUsuario(user?.id || '')
+  const rankingUsuario = (await getRankingUsuario(user?.id || '')) || 0
 
   const initials =
     user?.user_metadata?.full_name
@@ -57,10 +46,12 @@ export default async function PerfilPage() {
                   {user?.user_metadata?.full_name || 'Usuario'}
                 </p>
                 <p className="text-sm text-muted-foreground truncate">{user?.email}</p>
-                <div className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground mt-2">
-                  <Calendar className="h-4 w-4" />
-                  <span>Desde {userStats.fechaRegistro}</span>
-                </div>
+                {userStats.primeraActividad && (
+                  <div className="flex items-center justify-center lg:justify-start gap-2 text-sm text-muted-foreground mt-2">
+                    <Calendar className="h-4 w-4" />
+                    <span>Desde {userStats.primeraActividad.toDateString()}</span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -70,7 +61,7 @@ export default async function PerfilPage() {
                 <TrendingUp className="h-4 w-4 text-[#0069b4]" />
                 <span className="text-sm font-medium">Tu ranking</span>
               </div>
-              <p className="text-3xl font-bold text-[#0069b4]">#{userStats.ranking}</p>
+              <p className="text-3xl font-bold text-[#0069b4]">#{rankingUsuario}</p>
             </div>
           </CardContent>
         </Card>
@@ -84,17 +75,17 @@ export default async function PerfilPage() {
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center p-4 bg-muted/50 rounded-lg">
                 <FileCheck className="h-6 w-6 mx-auto mb-2 text-[#0069b4]" />
-                <p className="text-3xl font-bold">{userStats.digitadas}</p>
+                <p className="text-3xl font-bold">{userStats.actasDigitadas}</p>
                 <p className="text-sm text-muted-foreground">Digitadas</p>
               </div>
               <div className="text-center p-4 bg-muted/50 rounded-lg">
                 <CheckSquare className="h-6 w-6 mx-auto mb-2 text-green-600" />
-                <p className="text-3xl font-bold">{userStats.validadas}</p>
+                <p className="text-3xl font-bold">{userStats.actasValidadas}</p>
                 <p className="text-sm text-muted-foreground">Validadas</p>
               </div>
               <div className="text-center p-4 bg-muted/50 rounded-lg">
                 <AlertTriangle className="h-6 w-6 mx-auto mb-2 text-amber-600" />
-                <p className="text-3xl font-bold">{userStats.discrepancias}</p>
+                <p className="text-3xl font-bold">{userStats.discrepanciasReportadas}</p>
                 <p className="text-sm text-muted-foreground">Reportes</p>
               </div>
             </div>
@@ -107,7 +98,7 @@ export default async function PerfilPage() {
                 <span className="text-muted-foreground">
                   Has verificado{' '}
                   <strong className="text-foreground">
-                    {userStats.digitadas + userStats.validadas}
+                    {userStats.actasDigitadas + userStats.actasValidadas}
                   </strong>{' '}
                   actas en total.
                 </span>
