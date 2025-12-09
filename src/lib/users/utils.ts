@@ -22,3 +22,23 @@ export function getUserName(rawUserMetaData: unknown): string {
 
   return 'Usuario Anónimo'
 }
+
+/**
+ * Extraer la URL del avatar del metadata del usuario
+ * Soporta Google (picture) y Facebook (avatar_url)
+ */
+export function getUserAvatarUrl(rawUserMetaData: unknown): string | null {
+  if (rawUserMetaData && typeof rawUserMetaData === 'object') {
+    const metadata = rawUserMetaData as Record<string, unknown>
+
+    // Google usa 'picture', Facebook usa 'avatar_url'
+    if (metadata.avatar_url && typeof metadata.avatar_url === 'string') {
+      return metadata.avatar_url
+    }
+    if (metadata.picture && typeof metadata.picture === 'string') {
+      return metadata.picture
+    }
+  }
+
+  return null
+}

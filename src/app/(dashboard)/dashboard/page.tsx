@@ -24,8 +24,8 @@ import {
 } from '@/lib/actas'
 import { PendingTimer } from './pending-timer'
 import { cn } from '@/lib/utils'
-import { PositionBadge } from '@/components/leaderboard/PositionBadge'
-import { getUserName } from '@/lib/users/utils'
+import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
+import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
 
 // ============================================================================
 // Componentes de Stats
@@ -169,6 +169,7 @@ async function MiniLeaderboard() {
     position: index + 1,
     usuarioId: user.usuarioId,
     nombre: getUserName(user.rawUserMetaData),
+    avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
     actasDigitadas: user.actasDigitadas || 0,
     actasValidadas: user.actasValidadas || 0,
   }))
@@ -201,6 +202,7 @@ async function MiniLeaderboard() {
           position: userRanking,
           userId: user?.id || '',
           name: getUserName(authUser.user_metadata),
+          avatarUrl: getUserAvatarUrl(authUser.user_metadata),
           digitadas: userStats.actasDigitadas || 0,
           validadas: userStats.actasValidadas || 0,
         }
@@ -211,45 +213,47 @@ async function MiniLeaderboard() {
 
   return (
     <>
-      {leaderboardData.map((user) => (
+      {leaderboardData.map((entry) => (
         <div
-          key={user.position}
+          key={entry.position}
           className="flex items-center gap-3 px-3 py-2 border-b last:border-0"
         >
-          <PositionBadge position={user.position} />
+          <LeaderboardAvatar
+            position={entry.position}
+            name={entry.nombre}
+            avatarUrl={entry.avatarUrl}
+            size="md"
+            isCurrentUser={entry.usuarioId === user?.id}
+          />
           <div className="flex-1 min-w-0">
-            <p className="font-medium truncate">{user.nombre}</p>
+            <p className="font-medium truncate">{entry.nombre}</p>
             <p className="text-xs text-muted-foreground">
-              {user.actasDigitadas} digitadas · {user.actasValidadas} validadas
+              {entry.actasDigitadas} digitadas · {entry.actasValidadas} validadas
             </p>
           </div>
-          <div
-            className={`text-center rounded-full  ${
-              user.position === 1
-                ? 'bg-yellow-600'
-                : user.position === 2
-                  ? 'bg-gray-600'
-                  : 'bg-amber-600'
-            } px-4`}
-          >
-            <p className="font-bold">{user.actasDigitadas + user.actasValidadas}</p>
-            <p className="text-xs text-stone-200">total</p>
+          <div className="text-right">
+            <p className="font-bold text-lg">{entry.actasDigitadas + entry.actasValidadas}</p>
+            <p className="text-xs text-muted-foreground">total</p>
           </div>
         </div>
       ))}
 
-      {/* Mostrar puntos suspensivos si el usuario no está en el top 10 */}
+      {/* Mostrar puntos suspensivos si el usuario no está en el top 3 */}
       {showEllipsis && currentUserEntry && (
         <>
           <div className="flex items-center justify-center py-2">
             <span className="text-2xl text-muted-foreground">⋯</span>
           </div>
           <div className="flex items-center gap-3 py-2 bg-primary/5 rounded-lg px-3 border-2 border-primary/20">
-            <PositionBadge position={currentUserEntry.position} />
+            <LeaderboardAvatar
+              position={currentUserEntry.position}
+              name={currentUserEntry.name}
+              avatarUrl={currentUserEntry.avatarUrl}
+              size="md"
+              isCurrentUser={true}
+            />
             <div className="flex-1 min-w-0">
-              <p className="font-medium truncate">
-                {currentUserEntry.name} <span className="text-xs text-muted-foreground">(Tú)</span>
-              </p>
+              <p className="font-medium truncate">{currentUserEntry.name}</p>
               <p className="text-xs text-muted-foreground">
                 {currentUserEntry.digitadas} digitadas · {currentUserEntry.validadas} validadas
               </p>

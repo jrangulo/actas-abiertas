@@ -2,28 +2,13 @@ import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
 import * as schema from './schema'
 
-/**
- * Conexión a la base de datos PostgreSQL usando Drizzle ORM
- *
- * Usamos un patrón singleton para evitar crear múltiples conexiones
- * durante hot-reload en desarrollo (causa el error "MaxClientsInSessionMode")
- */
+// Solo para uso del lado del servidor
+// DATABASE_URL debe ser la cadena de conexión de Supabase
+// Usar el pooler "Transaction" para entornos serverless (Vercel)
 
 const connectionString = process.env.DATABASE_URL!
 
-// En desarrollo, guardar el cliente en globalThis para evitar crear
-// múltiples conexiones durante hot-reload
-const globalForDb = globalThis as unknown as {
-  pgClient: ReturnType<typeof postgres> | undefined
-}
-
-// Reusar cliente existente o crear uno nuevo
-const client = globalForDb.pgClient ?? postgres(connectionString, { prepare: false })
-
-// En desarrollo, guardar en global para reusar
-if (process.env.NODE_ENV !== 'production') {
-  globalForDb.pgClient = client
-}
+const client = postgres(connectionString, { prepare: false })
 
 export const db = drizzle(client, { schema })
 

@@ -1,9 +1,8 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Award } from 'lucide-react'
 import { getTopUsuarios, getRankingUsuario, getEstadisticaUsuario } from '@/lib/actas'
 import { createClient } from '@/lib/supabase/server'
-import { PositionBadge } from '@/components/leaderboard/PositionBadge'
-import { getUserName } from '@/lib/users/utils'
+import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
+import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
 
 const TOP_USUARIOS_LIMIT = 100
 
@@ -21,6 +20,7 @@ export default async function LeaderboardPage() {
     position: index + 1,
     userId: user.usuarioId,
     name: getUserName(user.rawUserMetaData),
+    avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
     digitadas: user.actasDigitadas || 0,
     validadas: user.actasValidadas || 0,
   }))
@@ -43,6 +43,7 @@ export default async function LeaderboardPage() {
           position: userRanking,
           userId: user?.id || '',
           name: getUserName(user.user_metadata),
+          avatarUrl: getUserAvatarUrl(user.user_metadata),
           digitadas: userStats.actasDigitadas || 0,
           validadas: userStats.actasValidadas || 0,
         }
@@ -67,45 +68,69 @@ export default async function LeaderboardPage() {
               <CardTitle className="text-base">Podio</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex items-end justify-center gap-4 py-4">
+              <div className="flex items-end justify-center gap-6 py-4">
                 {/* Segundo lugar */}
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-gray-200 dark:bg-gray-800 flex items-center justify-center">
-                    <Award className="h-8 w-8 text-gray-500 dark:text-gray-400" />
+                {leaderboardData[1] && (
+                  <div className="text-center">
+                    <div className="relative mx-auto mb-2">
+                      <LeaderboardAvatar
+                        position={2}
+                        name={leaderboardData[1].name}
+                        avatarUrl={leaderboardData[1].avatarUrl}
+                        size="xl"
+                        isCurrentUser={leaderboardData[1].userId === user?.id}
+                      />
+                    </div>
+                    <p className="font-medium text-sm truncate max-w-20">
+                      {leaderboardData[1].name.split(' ')[0]}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {leaderboardData[1].digitadas + leaderboardData[1].validadas} actas
+                    </p>
                   </div>
-                  <p className="font-medium text-sm truncate max-w-20">
-                    {leaderboardData[1]?.name.split(' ')[0]}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {leaderboardData[1]?.digitadas + leaderboardData[1]?.validadas} actas
-                  </p>
-                </div>
+                )}
 
                 {/* Primer lugar */}
-                <div className="text-center -mt-4">
-                  <div className="w-20 h-20 mx-auto mb-2 rounded-full bg-yellow-200 dark:bg-yellow-900/40 flex items-center justify-center ring-4 ring-yellow-200 dark:ring-yellow-800">
-                    <Award className="h-10 w-10 text-yellow-600 dark:text-yellow-400" />
+                {leaderboardData[0] && (
+                  <div className="text-center -mt-4">
+                    <div className="relative mx-auto mb-2 ring-4 ring-yellow-400 dark:ring-yellow-600 rounded-full">
+                      <LeaderboardAvatar
+                        position={1}
+                        name={leaderboardData[0].name}
+                        avatarUrl={leaderboardData[0].avatarUrl}
+                        size="xl"
+                        isCurrentUser={leaderboardData[0].userId === user?.id}
+                      />
+                    </div>
+                    <p className="font-bold truncate max-w-[100px]">
+                      {leaderboardData[0].name.split(' ')[0]}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {leaderboardData[0].digitadas + leaderboardData[0].validadas} actas
+                    </p>
                   </div>
-                  <p className="font-bold truncate max-w-[100px]">
-                    {leaderboardData[0]?.name.split(' ')[0]}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {leaderboardData[0]?.digitadas + leaderboardData[0]?.validadas} actas
-                  </p>
-                </div>
+                )}
 
                 {/* Tercer lugar */}
-                <div className="text-center">
-                  <div className="w-16 h-16 mx-auto mb-2 rounded-full bg-orange-200 dark:bg-orange-900/40 flex items-center justify-center">
-                    <Award className="h-8 w-8 text-amber-600 dark:text-amber-400" />
+                {leaderboardData[2] && (
+                  <div className="text-center">
+                    <div className="relative mx-auto mb-2">
+                      <LeaderboardAvatar
+                        position={3}
+                        name={leaderboardData[2].name}
+                        avatarUrl={leaderboardData[2].avatarUrl}
+                        size="xl"
+                        isCurrentUser={leaderboardData[2].userId === user?.id}
+                      />
+                    </div>
+                    <p className="font-medium text-sm truncate max-w-20">
+                      {leaderboardData[2].name.split(' ')[0]}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {leaderboardData[2].digitadas + leaderboardData[2].validadas} actas
+                    </p>
                   </div>
-                  <p className="font-medium text-sm truncate max-w-20">
-                    {leaderboardData[2]?.name.split(' ')[0]}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    {leaderboardData[2]?.digitadas + leaderboardData[2]?.validadas} actas
-                  </p>
-                </div>
+                )}
               </div>
             </CardContent>
           </Card>
@@ -119,56 +144,47 @@ export default async function LeaderboardPage() {
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
-            {leaderboardData.map((user) => (
+            {leaderboardData.map((entry) => (
               <div
-                key={user.position}
+                key={entry.position}
                 className="flex items-center gap-3 py-2 border-b last:border-0"
               >
-                <PositionBadge position={user.position} />
+                <LeaderboardAvatar
+                  position={entry.position}
+                  name={entry.name}
+                  avatarUrl={entry.avatarUrl}
+                  size="md"
+                  isCurrentUser={entry.userId === user?.id}
+                />
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium truncate">{user.name}</p>
+                  <p className="font-medium truncate">{entry.name}</p>
                   <p className="text-xs text-muted-foreground">
-                    {user.digitadas} digitadas · {user.validadas} validadas
+                    {entry.digitadas} digitadas · {entry.validadas} validadas
                   </p>
                 </div>
-                <div
-                  className={`text-center rounded-full  ${
-                    user.position === 1
-                      ? 'bg-yellow-600'
-                      : user.position === 2
-                        ? 'bg-gray-600'
-                        : user.position === 3
-                          ? 'bg-amber-600'
-                          : 'bg-muted'
-                  } px-4`}
-                >
-                  <p className="font-bold">{user.digitadas + user.validadas}</p>
-                  <p
-                    className={`text-xs ${
-                      user.position === 1 || user.position === 2 || user.position === 3
-                        ? 'text-stone-200'
-                        : 'text-muted-foreground'
-                    }`}
-                  >
-                    total
-                  </p>
+                <div className="text-right">
+                  <p className="font-bold text-lg">{entry.digitadas + entry.validadas}</p>
+                  <p className="text-xs text-muted-foreground">total</p>
                 </div>
               </div>
             ))}
 
-            {/* Mostrar puntos suspensivos si el usuario no está en el top 10 */}
+            {/* Mostrar puntos suspensivos si el usuario no está en el top 100 */}
             {showEllipsis && currentUserEntry && (
               <>
                 <div className="flex items-center justify-center py-2">
                   <span className="text-2xl text-muted-foreground">⋯</span>
                 </div>
                 <div className="flex items-center gap-3 py-2 bg-primary/5 rounded-lg px-3 border-2 border-primary/20">
-                  <PositionBadge position={currentUserEntry.position} />
+                  <LeaderboardAvatar
+                    position={currentUserEntry.position}
+                    name={currentUserEntry.name}
+                    avatarUrl={currentUserEntry.avatarUrl}
+                    size="md"
+                    isCurrentUser={true}
+                  />
                   <div className="flex-1 min-w-0">
-                    <p className="font-medium truncate">
-                      {currentUserEntry.name}{' '}
-                      <span className="text-xs text-muted-foreground">(Tú)</span>
-                    </p>
+                    <p className="font-medium truncate">{currentUserEntry.name}</p>
                     <p className="text-xs text-muted-foreground">
                       {currentUserEntry.digitadas} digitadas · {currentUserEntry.validadas}{' '}
                       validadas
