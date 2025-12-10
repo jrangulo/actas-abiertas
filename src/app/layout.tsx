@@ -20,6 +20,43 @@ export const metadata: Metadata = {
   title: 'Actas Abiertas | Verificación Ciudadana',
   description:
     'Plataforma abierta para el conteo y validación colaborativa de las actas electorales de Honduras 2025.',
+  keywords: [
+    'honduras',
+    'elecciones',
+    'actas',
+    'verificación',
+    'democracia',
+    'transparencia',
+    '2025',
+  ],
+  authors: [{ name: 'Actas Abiertas' }],
+  openGraph: {
+    title: 'Actas Abiertas | Verificación Ciudadana',
+    description:
+      'Únete a la verificación ciudadana de las actas electorales de Honduras 2025. Tu voz importa para la democracia.',
+    url: 'https://actas-abiertas.vercel.app',
+    siteName: 'Actas Abiertas',
+    locale: 'es_HN',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Actas Abiertas - Verificación Ciudadana de Elecciones Honduras 2025',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Actas Abiertas | Verificación Ciudadana',
+    description: 'Únete a la verificación ciudadana de las actas electorales de Honduras 2025.',
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function RootLayout({

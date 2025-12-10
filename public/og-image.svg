@@ -1,0 +1,59 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background with gradient -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Subtle pattern overlay -->
+  <defs>
+    <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M 60 0 L 0 0 0 60" fill="none" stroke="white" stroke-width="0.5" opacity="0.05"/>
+    </pattern>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0069b4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#004a7c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0e0e0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="530" r="200" fill="white" opacity="0.03"/>
+  <circle cx="1100" cy="100" r="150" fill="white" opacity="0.03"/>
+  
+  <!-- Main content container -->
+  <g transform="translate(600, 280)">
+    <!-- Icon background -->
+    <rect x="-60" y="-160" width="120" height="120" rx="24" fill="white" opacity="0.15"/>
+    
+    <!-- Checkmark icon -->
+    <g transform="translate(0, -100)">
+      <path d="M-20 0 L-5 15 L25 -15" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect x="-35" y="-30" width="70" height="60" rx="8" stroke="white" stroke-width="4" fill="none"/>
+    </g>
+    
+    <!-- Title -->
+    <text y="40" text-anchor="middle" fill="white" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="700">
+      Actas Abiertas
+    </text>
+    
+    <!-- Subtitle -->
+    <text y="100" text-anchor="middle" fill="white" opacity="0.9" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="400">
+      Verificación Ciudadana de Elecciones
+    </text>
+    
+    <!-- Tagline -->
+    <text y="160" text-anchor="middle" fill="white" opacity="0.7" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="400">
+      Honduras 2025 • Transparencia • Democracia
+    </text>
+  </g>
+  
+  <!-- Bottom bar -->
+  <rect y="600" width="1200" height="30" fill="white" opacity="0.1"/>
+  
+  <!-- Honduras flag colors accent -->
+  <rect x="0" y="0" width="8" height="630" fill="#0069b4"/>
+  <rect x="1192" y="0" width="8" height="630" fill="#0069b4"/>
+</svg>
+
