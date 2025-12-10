@@ -77,6 +77,13 @@ export const estadoUsuarioEnum = pgEnum('estado_usuario', [
   'baneado', // Suspendido completamente (<30%)
 ])
 
+// Tipo de logro (achievement)
+export const tipoLogroEnum = pgEnum('tipo_logro', [
+  'validaciones_totales', // Total de actas validadas (10, 20, 50, 100, etc.)
+  'racha_sesion', // Racha en una sesión (10, 20, 30, 50)
+  'reportes_totales', // Total de reportes (5, 10, 20, 25)
+])
+
 // ============================================================================
 // Tablas Geográficas (Claves Compuestas Jerárquicas)
 // ============================================================================
@@ -626,6 +633,67 @@ export const historialUsuarioEstado = pgTable(
 )
 
 // ============================================================================
+// Sistema de Logros (Achievements)
+// ============================================================================
+
+/**
+ * Logro - Definición de logros disponibles en el sistema
+ */
+export const logro = pgTable(
+  'logro',
+  {
+    id: serial('id').primaryKey(),
+
+    tipo: tipoLogroEnum('tipo').notNull(),
+
+    valorObjetivo: integer('valor_objetivo').notNull(),
+
+    nombre: text('nombre').notNull(),
+
+    descripcion: text('descripcion').notNull(),
+
+    icono: text('icono'),
+
+    orden: integer('orden').notNull(),
+
+    creadoEn: timestamp('creado_en', { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    unique('logro_tipo_valor_unique').on(table.tipo, table.valorObjetivo),
+    index('logro_tipo_idx').on(table.tipo),
+    index('logro_orden_idx').on(table.orden),
+  ]
+)
+
+/**
+ * Usuario Logro - Logros obtenidos por usuarios
+ */
+export const usuarioLogro = pgTable(
+  'usuario_logro',
+  {
+    id: serial('id').primaryKey(),
+
+    usuarioId: uuid('usuario_id')
+      .notNull()
+      .references(() => authUsers.id, { onDelete: 'cascade' }),
+
+    logroId: integer('logro_id')
+      .notNull()
+      .references(() => logro.id, { onDelete: 'cascade' }),
+
+    obtenidoEn: timestamp('obtenido_en', { withTimezone: true }).defaultNow().notNull(),
+
+    valorAlcanzado: integer('valor_alcanzado'),
+  },
+  (table) => [
+    unique('usuario_logro_unique').on(table.usuarioId, table.logroId),
+    index('usuario_logro_usuario_idx').on(table.usuarioId),
+    index('usuario_logro_logro_idx').on(table.logroId),
+    index('usuario_logro_obtenido_idx').on(table.obtenidoEn),
+  ]
+)
+
+// ============================================================================
 // Exportación de Tipos
 // ============================================================================
 
@@ -662,8 +730,15 @@ export type NewEstadisticaUsuario = typeof estadisticaUsuario.$inferInsert
 export type HistorialUsuarioEstado = typeof historialUsuarioEstado.$inferSelect
 export type NewHistorialUsuarioEstado = typeof historialUsuarioEstado.$inferInsert
 
+export type Logro = typeof logro.$inferSelect
+export type NewLogro = typeof logro.$inferInsert
+
+export type UsuarioLogro = typeof usuarioLogro.$inferSelect
+export type NewUsuarioLogro = typeof usuarioLogro.$inferInsert
+
 export type EstadoActa = (typeof estadoActaEnum.enumValues)[number]
 export type TipoDiscrepancia = (typeof tipoDiscrepanciaEnum.enumValues)[number]
 export type TipoZona = (typeof tipoZonaEnum.enumValues)[number]
 export type TipoCambio = (typeof tipoCambioEnum.enumValues)[number]
 export type EstadoUsuario = (typeof estadoUsuarioEnum.enumValues)[number]
+export type TipoLogro = (typeof tipoLogroEnum.enumValues)[number]
