@@ -24,8 +24,10 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 py-12">
-        <article className="prose prose-gray dark:prose-invert max-w-none">{children}</article>
+      <main className="max-w-3xl mx-auto px-6 py-12">
+        <article className="prose prose-lg dark:prose-invert prose-headings:font-semibold prose-headings:text-foreground prose-h1:text-3xl prose-h2:text-xl prose-h2:mt-8 prose-h3:text-lg prose-p:text-foreground/90 prose-li:text-foreground/90 prose-strong:text-foreground prose-a:text-[#0069b4] dark:prose-a:text-[#3399d6] prose-a:no-underline hover:prose-a:underline">
+          {children}
+        </article>
       </main>
 
       {/* Footer */}

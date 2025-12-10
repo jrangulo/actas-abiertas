@@ -166,6 +166,15 @@ export default function FAQPage() {
             </svg>
             Abrir un issue en GitHub
           </a>
+          <div className="pt-4 text-xs text-muted-foreground">
+            <a href="/privacidad" className="hover:text-foreground transition-colors">
+              Política de Privacidad
+            </a>
+            {' · '}
+            <a href="/terminos" className="hover:text-foreground transition-colors">
+              Términos de Servicio
+            </a>
+          </div>
         </div>
       </div>
     </div>

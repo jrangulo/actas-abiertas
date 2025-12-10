@@ -106,6 +106,17 @@ export function DesktopSidebar({ user, onSignOut }: DesktopSidebarProps) {
           <LogOut className="mr-2 h-4 w-4" />
           Cerrar sesión
         </Button>
+
+        {/* Legal links */}
+        <div className="mt-4 pt-4 border-t text-xs text-muted-foreground space-x-2">
+          <Link href="/privacidad" className="hover:text-foreground transition-colors">
+            Privacidad
+          </Link>
+          <span>·</span>
+          <Link href="/terminos" className="hover:text-foreground transition-colors">
+            Términos
+          </Link>
+        </div>
       </div>
     </aside>
   )
