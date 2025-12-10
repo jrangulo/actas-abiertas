@@ -79,7 +79,7 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
           <Button
             variant="ghost"
             size="sm"
-            className="text-amber-600 hover:text-amber-700 hover:bg-amber-100 dark:hover:bg-amber-900/30"
+            className="text-rose-600 hover:text-rose-700 hover:bg-rose-100 dark:text-rose-400 dark:hover:text-rose-300 dark:hover:bg-rose-900/30"
             disabled={disabled}
             title="Reportar problema"
           >
@@ -89,7 +89,7 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
         ) : (
           <Button
             variant="outline"
-            className="w-full text-amber-600 border-amber-300"
+            className="w-full text-rose-600 border-rose-300 dark:text-rose-400 dark:border-rose-800"
             disabled={disabled}
           >
             <AlertTriangle className="h-4 w-4 mr-2" />

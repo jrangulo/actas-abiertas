@@ -11,6 +11,7 @@ import {
   ReportDialog,
   LockTimer,
   ConfirmationDialog,
+  InconsistenciaDialog,
 } from '@/components/verificar'
 import {
   guardarValidacion,
@@ -47,6 +48,7 @@ interface VerificarClientProps {
     estado: string
     escrutada: boolean
     cantidadValidaciones: number
+    etiquetasCNE: string[]
   }
   valoresActuales: {
     fuente: 'cne' | 'digitado'
@@ -363,6 +365,10 @@ export function VerificarClient({
                       {valoresActuales.fuente === 'cne' ? 'CNE' : 'Digitado por usuario'}
                     </p>
                   )}
+
+                  <InconsistenciaDialog
+                    hasInconsistencia={actaInfo.etiquetasCNE.includes('Inconsistencia')}
+                  />
                 </div>
                 {!showCorrectionForm && (
                   <ReportDialog onReport={handleReportarProblema} disabled={isPending} compact />
