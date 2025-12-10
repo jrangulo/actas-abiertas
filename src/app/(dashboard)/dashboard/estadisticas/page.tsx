@@ -4,10 +4,12 @@ import { BarChart3, TrendingUp, CheckCircle2, Database } from 'lucide-react'
 import {
   getEstadisticasVotos,
   getProgresionVotos,
-  COLORES_PARTIDOS,
-  type PartidoPrincipal,
+  COLORES_TODOS_PARTIDOS,
+  LOGOS_PARTIDOS,
+  type TodoPartido,
 } from '@/lib/stats/queries'
 import { ProgresionChart } from './progresion-chart'
+import Image from 'next/image'
 
 // Force dynamic - estos datos cambian constantemente
 export const dynamic = 'force-dynamic'
@@ -79,7 +81,7 @@ async function StatsContent() {
             </div>
           </CardHeader>
           <CardContent>
-            <VotosBarChart votosPartidos={stats.cne.votosPartidos} label="CNE" />
+            <VotosBarChart votosPartidos={stats.cne.votosTodosPartidos} />
             <p className="text-sm text-muted-foreground mt-4 text-center">
               Total: {stats.cne.votosTotales.toLocaleString()} votos
             </p>
@@ -102,7 +104,7 @@ async function StatsContent() {
           <CardContent>
             {stats.validados.actasValidadas > 0 ? (
               <>
-                <VotosBarChart votosPartidos={stats.validados.votosPartidos} label="Validados" />
+                <VotosBarChart votosPartidos={stats.validados.votosTodosPartidos} />
                 <p className="text-sm text-muted-foreground mt-4 text-center">
                   Total: {stats.validados.votosTotales.toLocaleString()} votos
                 </p>
@@ -139,7 +141,7 @@ async function StatsContent() {
 
       {/* Disclaimer */}
       <p className="text-xs text-muted-foreground text-center">
-        Los porcentajes mostrados solo consideran los tres partidos principales (PN, PLH, PL). Los
+        La gráfica de progresión solo considera los tres partidos principales (PN, PLH, PL). Los
         datos validados provienen únicamente de actas que han pasado por nuestro proceso de
         validación por consenso.
       </p>
@@ -151,33 +153,51 @@ async function StatsContent() {
 function VotosBarChart({
   votosPartidos,
 }: {
-  votosPartidos: Array<{ partido: PartidoPrincipal; votos: number; porcentaje: number }>
-  label: string
+  votosPartidos: Array<{ partido: TodoPartido; votos: number; porcentaje: number }>
 }) {
   // Ordenar por votos descendente
   const sorted = [...votosPartidos].sort((a, b) => b.votos - a.votos)
 
   return (
     <div className="space-y-4">
-      {sorted.map((p) => (
-        <div key={p.partido} className="space-y-1">
-          <div className="flex justify-between text-sm">
-            <span className="font-medium">{p.partido}</span>
-            <span className="text-muted-foreground">
-              {p.porcentaje.toFixed(2)}% ({p.votos.toLocaleString()})
-            </span>
+      {sorted.map((p) => {
+        const logoPath = LOGOS_PARTIDOS[p.partido]
+        return (
+          <div key={p.partido} className="space-y-1.5">
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                {logoPath ? (
+                  <Image
+                    src={logoPath}
+                    alt={p.partido}
+                    width={20}
+                    height={20}
+                    className="shrink-0 rounded-sm object-contain"
+                  />
+                ) : (
+                  <div
+                    className="w-5 h-5 rounded-full shrink-0"
+                    style={{ backgroundColor: COLORES_TODOS_PARTIDOS[p.partido] }}
+                  />
+                )}
+                <span className="font-medium">{p.partido}</span>
+              </div>
+              <span className="text-muted-foreground tabular-nums">
+                {p.porcentaje.toFixed(2)}% ({p.votos.toLocaleString()})
+              </span>
+            </div>
+            <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-500"
+                style={{
+                  width: `${Math.max(p.porcentaje, 0.5)}%`,
+                  backgroundColor: COLORES_TODOS_PARTIDOS[p.partido],
+                }}
+              />
+            </div>
           </div>
-          <div className="h-4 bg-muted rounded-full overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all duration-500"
-              style={{
-                width: `${p.porcentaje}%`,
-                backgroundColor: COLORES_PARTIDOS[p.partido],
-              }}
-            />
-          </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
@@ -196,10 +216,13 @@ function StatsSkeletons() {
         {[1, 2].map((i) => (
           <Card key={i}>
             <CardContent className="pt-6 space-y-4">
-              {[1, 2, 3].map((j) => (
-                <div key={j} className="space-y-2">
-                  <div className="h-4 w-24 bg-muted animate-pulse rounded" />
-                  <div className="h-4 bg-muted animate-pulse rounded-full" />
+              {[1, 2, 3, 4, 5, 6, 7].map((j) => (
+                <div key={j} className="space-y-1.5">
+                  <div className="flex items-center gap-2">
+                    <div className="h-5 w-5 bg-muted animate-pulse rounded-full" />
+                    <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+                  </div>
+                  <div className="h-2.5 bg-muted animate-pulse rounded-full" />
                 </div>
               ))}
             </CardContent>
