@@ -18,6 +18,43 @@ import {
 } from 'recharts'
 import { cn } from '@/lib/utils'
 
+// Hook para obtener colores CSS computados (necesario para SVG en Recharts)
+function useChartColors() {
+  const [colors, setColors] = React.useState({
+    text: '#a1a1aa', // zinc-400 fallback
+    border: '#3f3f46', // zinc-700 fallback
+  })
+
+  React.useEffect(() => {
+    const root = document.documentElement
+
+    const updateColors = () => {
+      const isDark = root.classList.contains('dark')
+      setColors({
+        text: isDark ? '#a1a1aa' : '#71717a', // zinc-400 / zinc-500
+        border: isDark ? '#3f3f46' : '#e4e4e7', // zinc-700 / zinc-200
+      })
+    }
+
+    updateColors()
+
+    // Observar cambios de tema
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          updateColors()
+        }
+      })
+    })
+
+    observer.observe(root, { attributes: true })
+
+    return () => observer.disconnect()
+  }, [])
+
+  return colors
+}
+
 // Tipo para los datos del chart
 export interface ChartDataPoint {
   [key: string]: string | number
@@ -125,6 +162,8 @@ export function LineChart({
   className,
   height = 300,
 }: LineChartProps) {
+  const colors = useChartColors()
+
   if (!data?.length) {
     return (
       <div
@@ -143,30 +182,30 @@ export function LineChart({
           data={data}
           margin={{ top: 5, right: 20, left: 10, bottom: xAxisLabel ? 30 : 5 }}
         >
-          <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.5} />
+          <CartesianGrid strokeDasharray="3 3" stroke={colors.border} opacity={0.5} />
           <XAxis
             dataKey={xAxisKey}
-            tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+            tick={{ fontSize: 12, fill: colors.text }}
             tickFormatter={xAxisFormatter}
-            axisLine={{ stroke: 'hsl(var(--border))' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
+            axisLine={{ stroke: colors.border }}
+            tickLine={{ stroke: colors.border }}
             label={
               xAxisLabel
                 ? {
                     value: xAxisLabel,
                     position: 'bottom',
                     offset: 15,
-                    style: { fontSize: 12, fill: 'hsl(var(--muted-foreground))' },
+                    style: { fontSize: 12, fill: colors.text },
                   }
                 : undefined
             }
           />
           <YAxis
             domain={yAxisDomain}
-            tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+            tick={{ fontSize: 12, fill: colors.text }}
             tickFormatter={yAxisFormatter}
-            axisLine={{ stroke: 'hsl(var(--border))' }}
-            tickLine={{ stroke: 'hsl(var(--border))' }}
+            axisLine={{ stroke: colors.border }}
+            tickLine={{ stroke: colors.border }}
             label={
               yAxisLabel
                 ? {
@@ -175,7 +214,7 @@ export function LineChart({
                     position: 'insideLeft',
                     style: {
                       fontSize: 12,
-                      fill: 'hsl(var(--muted-foreground))',
+                      fill: colors.text,
                       textAnchor: 'middle',
                     },
                   }
