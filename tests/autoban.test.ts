@@ -33,6 +33,7 @@ import {
   getUserStats,
   updateUserStats,
   cleanupTestActa,
+  cleanupAllTestActas,
   STANDARD_VOTES,
   DIFFERENT_VOTES_1,
   type TestActa,
@@ -100,7 +101,9 @@ async function getUserStateHistory(userId: string) {
 describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
   // Crear usuarios de prueba antes de todos los tests
   beforeAll(async () => {
+    // Limpiar datos huérfanos de ejecuciones anteriores
     await cleanupStaleTestUsers()
+    await cleanupAllTestActas()
 
     console.log('Creando usuarios de prueba para autoban...')
     const timestamp = Date.now()
@@ -121,7 +124,15 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
 
   // Limpiar usuarios de prueba después de todos los tests
   afterAll(async () => {
-    console.log('Limpiando usuarios de prueba de autoban...')
+    console.log('Limpiando datos de prueba de autoban...')
+
+    // Limpiar todas las actas de prueba (por si alguna no se rastreó en el array)
+    try {
+      await cleanupAllTestActas()
+    } catch (error) {
+      console.warn('Error limpiando actas de prueba:', error)
+    }
+
     const validUserIds = [TEST_USER_GOOD_1, TEST_USER_GOOD_2, TEST_USER_BAD].filter(Boolean)
     if (validUserIds.length > 0) {
       // Limpiar TODOS los datos relacionados primero (orden correcto para FK)
@@ -139,7 +150,7 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
         )
       )
     }
-    console.log('Usuarios de prueba eliminados')
+    console.log('Datos de prueba eliminados')
   }, 60000)
 
   // Limpiar actas de prueba después de cada test

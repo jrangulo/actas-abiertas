@@ -28,6 +28,7 @@ import {
   getTestActa,
   getUserStats,
   cleanupTestActa,
+  cleanupAllTestActas,
   cleanupUserStats,
   STANDARD_VOTES,
   DIFFERENT_VOTES_1,
@@ -57,8 +58,9 @@ const describeWithUsers = canRunAdminTests() ? describe : describe.skip
 describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
   // Crear usuarios de prueba antes de todos los tests
   beforeAll(async () => {
-    // Limpiar usuarios de prueba antiguos (de ejecuciones anteriores que fallaron)
+    // Limpiar datos huérfanos de ejecuciones anteriores que fallaron
     await cleanupStaleTestUsers()
+    await cleanupAllTestActas()
 
     console.log('Creando usuarios de prueba...')
     TEST_USER_1 = await createTestUser(`test-consensus-1-${Date.now()}@test.local`)
@@ -69,7 +71,15 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
 
   // Limpiar usuarios de prueba después de todos los tests
   afterAll(async () => {
-    console.log('Limpiando usuarios de prueba...')
+    console.log('Limpiando datos de prueba...')
+
+    // Limpiar todas las actas de prueba (por si alguna no se rastreó en el array)
+    try {
+      await cleanupAllTestActas()
+    } catch (error) {
+      console.warn('Error limpiando actas de prueba:', error)
+    }
+
     // Filtrar IDs undefined (si la creación falló)
     const validUserIds = [TEST_USER_1, TEST_USER_2, TEST_USER_3].filter(Boolean)
     if (validUserIds.length > 0) {
@@ -80,7 +90,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         await deleteTestUser(userId)
       }
     }
-    console.log('Usuarios de prueba eliminados')
+    console.log('Datos de prueba eliminados')
   }, 30000)
 
   // Limpiar actas de prueba después de cada test
