@@ -26,6 +26,54 @@ import { PendingTimer } from './pending-timer'
 import { cn } from '@/lib/utils'
 import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
 import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
+import { UserStatusBanner } from '@/components/autoban/user-status-banner'
+import { db } from '@/db'
+import { estadisticaUsuario } from '@/db/schema'
+import { eq } from 'drizzle-orm'
+import { calcularPorcentajeAcierto } from '@/lib/autoban/calculations'
+
+// ============================================================================
+// Componente de Banner de Estado de Usuario
+// ============================================================================
+
+async function UserStatusBannerWrapper() {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return null
+  }
+
+  const [userStats] = await db
+    .select({
+      estado: estadisticaUsuario.estado,
+      razonEstado: estadisticaUsuario.razonEstado,
+      actasValidadas: estadisticaUsuario.actasValidadas,
+      correccionesRecibidas: estadisticaUsuario.correccionesRecibidas,
+    })
+    .from(estadisticaUsuario)
+    .where(eq(estadisticaUsuario.usuarioId, user.id))
+    .limit(1)
+
+  if (!userStats || userStats.estado === 'activo') {
+    return null
+  }
+
+  const porcentajeAcierto = calcularPorcentajeAcierto({
+    actasValidadas: userStats.actasValidadas,
+    correccionesRecibidas: userStats.correccionesRecibidas,
+  })
+
+  return (
+    <UserStatusBanner
+      estado={userStats.estado}
+      porcentajeAcierto={porcentajeAcierto}
+      razonEstado={userStats.razonEstado}
+    />
+  )
+}
 
 // ============================================================================
 // Componentes de Stats
@@ -409,6 +457,11 @@ export default function DashboardPage() {
             Tu participación fortalece la democracia.
           </p>
         </div>
+
+        {/* Banner de estado de usuario (autoban) */}
+        <Suspense fallback={null}>
+          <UserStatusBannerWrapper />
+        </Suspense>
 
         {/* Desktop: 2-column layout for CTA and User Stats */}
         <div className="grid lg:grid-cols-2 gap-6">
