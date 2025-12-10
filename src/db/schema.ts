@@ -68,6 +68,14 @@ export const tipoCambioEnum = pgEnum('tipo_cambio', [
   'rectificacion', // Corrección después de discrepancia
 ])
 
+// Estado del usuario en el sistema de autoban
+export const estadoUsuarioEnum = pgEnum('estado_usuario', [
+  'activo', // Usuario normal sin restricciones
+  'advertido', // Advertencia por baja precisión (<70%)
+  'restringido', // Restringido a solo validación (<50%)
+  'baneado', // Suspendido completamente (<30%)
+])
+
 // ============================================================================
 // Tablas Geográficas (Claves Compuestas Jerárquicas)
 // ============================================================================
@@ -504,6 +512,19 @@ export const estadisticaUsuario = pgTable(
     // Para detectar posibles malos actores
     correccionesRecibidas: integer('correcciones_recibidas').default(0).notNull(),
 
+    // Sistema de autoban: estado y tracking
+    estado: estadoUsuarioEnum('estado').default('activo').notNull(),
+    estadoCambiadoEn: timestamp('estado_cambiado_en', { withTimezone: true }),
+    razonEstado: text('razon_estado'),
+    ultimaAdvertenciaEn: timestamp('ultima_advertencia_en', { withTimezone: true }),
+    conteoAdvertencias: integer('conteo_advertencias').default(0).notNull(),
+
+    // Admin override: bloquea cambios automáticos de estado
+    estadoBloqueadoPorAdmin: boolean('estado_bloqueado_por_admin').default(false).notNull(),
+    estadoModificadoPor: uuid('estado_modificado_por').references(() => authUsers.id, {
+      onDelete: 'set null',
+    }),
+
     // Timestamps
     primeraActividad: timestamp('primera_actividad', { withTimezone: true }),
     ultimaActividad: timestamp('ultima_actividad', { withTimezone: true }),
@@ -513,6 +534,53 @@ export const estadisticaUsuario = pgTable(
     index('estadistica_digitadas_idx').on(table.actasDigitadas),
     index('estadistica_validadas_idx').on(table.actasValidadas),
     index('estadistica_ultima_actividad_idx').on(table.ultimaActividad),
+
+    // Índices para sistema de autoban
+    index('estadistica_estado_idx').on(table.estado),
+    index('estadistica_accuracy_idx').on(table.actasValidadas, table.correccionesRecibidas),
+  ]
+)
+
+/**
+ * Historial de cambios de estado de usuario (sistema de autoban)
+ *
+ * Registra todos los cambios de estado (advertencias, restricciones, baneos)
+ * para transparencia total y capacidad de auditoría.
+ */
+export const historialUsuarioEstado = pgTable(
+  'historial_usuario_estado',
+  {
+    id: serial('id').primaryKey(),
+
+    usuarioId: uuid('usuario_id')
+      .notNull()
+      .references(() => authUsers.id, { onDelete: 'cascade' }),
+
+    // Estado anterior y nuevo
+    estadoAnterior: estadoUsuarioEnum('estado_anterior').notNull(),
+    estadoNuevo: estadoUsuarioEnum('estado_nuevo').notNull(),
+
+    // Razón del cambio (algoritmo o manual)
+    razon: text('razon').notNull(),
+
+    // Métricas en el momento del cambio (para auditoría)
+    validacionesTotales: integer('validaciones_totales').notNull(),
+    correccionesRecibidas: integer('correcciones_recibidas').notNull(),
+    porcentajeAcierto: integer('porcentaje_acierto'), // 0-100
+
+    // ¿Fue cambio automático o manual?
+    esAutomatico: boolean('es_automatico').default(true).notNull(),
+
+    // Si manual, quién lo hizo
+    modificadoPor: uuid('modificado_por').references(() => authUsers.id, {
+      onDelete: 'set null',
+    }),
+
+    creadoEn: timestamp('creado_en', { withTimezone: true }).defaultNow().notNull(),
+  },
+  (table) => [
+    index('historial_estado_usuario_idx').on(table.usuarioId),
+    index('historial_estado_fecha_idx').on(table.creadoEn),
   ]
 )
 
@@ -547,7 +615,11 @@ export type NewDiscrepancia = typeof discrepancia.$inferInsert
 export type EstadisticaUsuario = typeof estadisticaUsuario.$inferSelect
 export type NewEstadisticaUsuario = typeof estadisticaUsuario.$inferInsert
 
+export type HistorialUsuarioEstado = typeof historialUsuarioEstado.$inferSelect
+export type NewHistorialUsuarioEstado = typeof historialUsuarioEstado.$inferInsert
+
 export type EstadoActa = (typeof estadoActaEnum.enumValues)[number]
 export type TipoDiscrepancia = (typeof tipoDiscrepanciaEnum.enumValues)[number]
 export type TipoZona = (typeof tipoZonaEnum.enumValues)[number]
 export type TipoCambio = (typeof tipoCambioEnum.enumValues)[number]
+export type EstadoUsuario = (typeof estadoUsuarioEnum.enumValues)[number]

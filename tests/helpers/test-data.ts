@@ -5,7 +5,13 @@
  */
 
 import { db } from '@/db'
-import { acta, validacion, historialDigitacion, estadisticaUsuario } from '@/db/schema'
+import {
+  acta,
+  validacion,
+  historialDigitacion,
+  estadisticaUsuario,
+  historialUsuarioEstado,
+} from '@/db/schema'
 import { eq, like, inArray } from 'drizzle-orm'
 
 // Prefijo para datos de prueba para identificar y limpiar fácilmente
@@ -162,5 +168,45 @@ export async function cleanupAllTestActas(): Promise<void> {
  */
 export async function cleanupUserStats(userIds: string[]): Promise<void> {
   if (userIds.length === 0) return
+  await db.delete(historialUsuarioEstado).where(inArray(historialUsuarioEstado.usuarioId, userIds))
   await db.delete(estadisticaUsuario).where(inArray(estadisticaUsuario.usuarioId, userIds))
+}
+
+/**
+ * Actualizar manualmente las estadísticas de un usuario
+ */
+export async function updateUserStats(
+  userId: string,
+  stats: {
+    actasValidadas?: number
+    correccionesRecibidas?: number
+    estado?: 'activo' | 'advertido' | 'restringido' | 'baneado'
+    estadoBloqueadoPorAdmin?: boolean
+  }
+): Promise<void> {
+  const existing = await getUserStats(userId)
+
+  if (existing) {
+    await db
+      .update(estadisticaUsuario)
+      .set({
+        ...stats,
+        ultimaActividad: new Date(),
+      })
+      .where(eq(estadisticaUsuario.usuarioId, userId))
+  } else {
+    await db.insert(estadisticaUsuario).values({
+      usuarioId: userId,
+      actasDigitadas: 0,
+      actasValidadas: stats.actasValidadas ?? 0,
+      validacionesCorrectas: 0,
+      discrepanciasReportadas: 0,
+      correccionesRecibidas: stats.correccionesRecibidas ?? 0,
+      estado: stats.estado ?? 'activo',
+      estadoBloqueadoPorAdmin: stats.estadoBloqueadoPorAdmin ?? false,
+      conteoAdvertencias: 0,
+      primeraActividad: new Date(),
+      ultimaActividad: new Date(),
+    })
+  }
 }

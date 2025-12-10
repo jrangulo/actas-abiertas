@@ -29,6 +29,7 @@ import {
   extenderBloqueo,
 } from './queries'
 import { findConsensus, type VoteValues } from './consensus'
+import { verificarEstadoUsuario } from '@/lib/autoban/check'
 
 /**
  * Actualizar estadísticas del usuario (upsert)
@@ -92,6 +93,24 @@ export async function obtenerNuevaActa(modo: 'digitalizar' | 'validar') {
 
   if (!user) {
     throw new Error('No autenticado')
+  }
+
+  // Verificar estado del usuario (sistema de autoban)
+  const [userStats] = await db
+    .select({ estado: estadisticaUsuario.estado })
+    .from(estadisticaUsuario)
+    .where(eq(estadisticaUsuario.usuarioId, user.id))
+    .limit(1)
+
+  if (userStats) {
+    // Usuarios baneados no pueden hacer nada
+    if (userStats.estado === 'baneado') {
+      return {
+        success: false,
+        message: 'Tu cuenta ha sido suspendida debido a baja precisión en validaciones.',
+        banned: true,
+      }
+    }
   }
 
   // Verificar si el usuario ya tiene un acta bloqueada
@@ -474,6 +493,15 @@ export async function guardarValidacionInternal(
     await actualizarEstadisticaUsuario(userId, {
       actasValidadas: 1,
     })
+
+    // Ejecutar autoban check después de actualizar stats
+    if (consensoResult?.encontrado && consensoResult.discrepantUserIds) {
+      for (const discrepantUserId of consensoResult.discrepantUserIds) {
+        verificarEstadoUsuario(discrepantUserId).catch((err) => {
+          console.error('Error en autoban check:', err)
+        })
+      }
+    }
 
     if (!skipRevalidate) {
       revalidatePath('/dashboard')
