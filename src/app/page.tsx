@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client'
 import { validateEmail } from '@/lib/auth/email-validator'
 
 export default function WelcomePage() {
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true)
   const [isLoading, setIsLoading] = useState<string | null>(null)
   const [showEmailForm, setShowEmailForm] = useState(false)
   const [email, setEmail] = useState('')
@@ -23,10 +24,37 @@ export default function WelcomePage() {
       } = await supabase.auth.getSession()
       if (session) {
         router.push('/dashboard')
+      } else {
+        setIsCheckingAuth(false)
       }
     }
     checkUser()
   }, [router, supabase])
+
+  // Mostrar pantalla de carga mientras verificamos autenticación
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen bg-cream flex items-center justify-center">
+        <div className="text-center">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary mb-4 animate-pulse">
+            <svg
+              viewBox="0 0 24 24"
+              className="w-8 h-8 text-white"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+            </svg>
+          </div>
+          <p className="text-muted-foreground">Cargando...</p>
+        </div>
+      </div>
+    )
+  }
 
   const handleOAuthSignIn = async (provider: 'google' | 'facebook') => {
     setIsLoading(provider)
