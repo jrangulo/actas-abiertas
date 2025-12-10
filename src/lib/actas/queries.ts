@@ -6,6 +6,7 @@ import { db } from '@/db'
 import {
   acta,
   validacion,
+  discrepancia,
   estadisticaUsuario,
   authUsers,
   municipio,
@@ -140,12 +141,12 @@ export async function getActaParaDigitalizar(userId: string) {
 
 /**
  * Obtener una acta aleatoria para validar
- * (escrutada O digitada por nosotros, no validada por este usuario, no bloqueada)
+ * (escrutada O digitada por nosotros, no validada/reportada por este usuario, no bloqueada)
  */
 export async function getActaParaValidar(userId: string) {
   const now = new Date()
 
-  // Excluimos actas que el usuario ya digitó o ya validó
+  // Excluimos actas que el usuario ya digitó, validó o reportó
   const [actaDisponible] = await db
     .select()
     .from(acta)
@@ -163,12 +164,19 @@ export async function getActaParaValidar(userId: string) {
           lt(acta.bloqueadoHasta, now),
           eq(acta.bloqueadoPor, userId)
         ),
-        // No validada por este usuario (subquery para verificar que no existe validación previa)
+        // No validada por este usuario
         notExists(
           db
             .select({ one: sql`1` })
             .from(validacion)
             .where(and(eq(validacion.actaId, acta.id), eq(validacion.usuarioId, userId)))
+        ),
+        // No reportada por este usuario (1 interacción por acta por persona)
+        notExists(
+          db
+            .select({ one: sql`1` })
+            .from(discrepancia)
+            .where(and(eq(discrepancia.actaId, acta.id), eq(discrepancia.usuarioId, userId)))
         )
       )
     )
