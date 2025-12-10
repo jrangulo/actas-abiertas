@@ -1,11 +1,13 @@
 import { Suspense } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
+
+// Force dynamic rendering - never cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
   FileCheck,
-  Users,
   CheckCircle2,
   AlertTriangle,
   Trophy,
@@ -64,13 +66,6 @@ async function GlobalStats() {
       valueColor: 'text-foreground',
     },
     {
-      label: 'Procesadas',
-      value: stats.procesadas,
-      icon: Users,
-      iconColor: 'text-blue-500',
-      valueColor: 'text-foreground',
-    },
-    {
       label: 'Discrepancias',
       value: stats.conDiscrepancias,
       icon: AlertTriangle,
@@ -97,7 +92,6 @@ async function GlobalStats() {
             </CardContent>
           </Card>
         ))}
-
         {/* Validadas card with progress bar */}
         <Card className="overflow-hidden shadow-sm">
           <CardContent className="p-5 lg:p-6">
@@ -170,7 +164,6 @@ async function MiniLeaderboard() {
     usuarioId: user.usuarioId,
     nombre: getUserName(user.rawUserMetaData),
     avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
-    actasDigitadas: user.actasDigitadas || 0,
     actasValidadas: user.actasValidadas || 0,
   }))
 
@@ -203,7 +196,6 @@ async function MiniLeaderboard() {
           userId: user?.id || '',
           name: getUserName(authUser.user_metadata),
           avatarUrl: getUserAvatarUrl(authUser.user_metadata),
-          digitadas: userStats.actasDigitadas || 0,
           validadas: userStats.actasValidadas || 0,
         }
         showEllipsis = true
@@ -227,12 +219,10 @@ async function MiniLeaderboard() {
           />
           <div className="flex-1 min-w-0">
             <p className="font-medium truncate">{entry.nombre}</p>
-            <p className="text-xs text-muted-foreground">
-              {entry.actasDigitadas} digitadas · {entry.actasValidadas} validadas
-            </p>
+            <p className="text-xs text-muted-foreground">{entry.actasValidadas} validadas</p>
           </div>
           <div className="text-right">
-            <p className="font-bold text-lg">{entry.actasDigitadas + entry.actasValidadas}</p>
+            <p className="font-bold text-lg">{entry.actasValidadas}</p>
             <p className="text-xs text-muted-foreground">total</p>
           </div>
         </div>
@@ -255,11 +245,11 @@ async function MiniLeaderboard() {
             <div className="flex-1 min-w-0">
               <p className="font-medium truncate">{currentUserEntry.name}</p>
               <p className="text-xs text-muted-foreground">
-                {currentUserEntry.digitadas} digitadas · {currentUserEntry.validadas} validadas
+                {currentUserEntry.validadas} validadas
               </p>
             </div>
             <div className="text-center rounded-full bg-muted px-4">
-              <p className="font-bold">{currentUserEntry.digitadas + currentUserEntry.validadas}</p>
+              <p className="font-bold">{currentUserEntry.validadas}</p>
               <p className="text-xs text-muted-foreground">total</p>
             </div>
           </div>
@@ -288,27 +278,26 @@ async function UserStats() {
     getRankingUsuario(user.id),
   ])
 
-  const digitadas = stats?.actasDigitadas ?? 0
   const validadas = stats?.actasValidadas ?? 0
-  const total = digitadas + validadas
-  const hasContributed = total > 0
+  const discrepancias = stats?.discrepanciasReportadas ?? 0
+  const hasContributed = validadas > 0
 
   return (
     <div className="grid grid-cols-3 gap-4 py-3">
-      <div className="text-center space-y-1">
-        <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900/30 mb-1">
-          <FileCheck className="h-5 w-5 text-blue-600" />
-        </div>
-        <p className="text-2xl lg:text-3xl font-bold">{digitadas}</p>
-        <p className="text-xs text-muted-foreground font-medium">Digitadas</p>
-      </div>
-
       <div className="text-center space-y-1">
         <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-green-100 dark:bg-green-900/30 mb-1">
           <CheckCircle2 className="h-5 w-5 text-green-600" />
         </div>
         <p className="text-2xl lg:text-3xl font-bold">{validadas}</p>
         <p className="text-xs text-muted-foreground font-medium">Validadas</p>
+      </div>
+
+      <div className="text-center space-y-1">
+        <div className="inline-flex items-center justify-center h-10 w-10 rounded-full bg-red-100 dark:bg-red-900/30 mb-1">
+          <AlertTriangle className="h-5 w-5 text-red-600" />
+        </div>
+        <p className="text-2xl lg:text-3xl font-bold">{discrepancias}</p>
+        <p className="text-xs text-muted-foreground font-medium">Reportes</p>
       </div>
 
       <div className="text-center space-y-1">
@@ -378,9 +367,14 @@ async function MainCTA() {
           <div className="flex-1 space-y-3">
             <h2 className="font-semibold text-xl">Comienza a verificar</h2>
             <p className="text-sm text-white/80">
-              Ayuda a digitalizar y validar las actas electorales de Honduras.
+              Ayuda a validar las actas electorales de Honduras.
             </p>
-            <Button asChild variant="secondary" className="mt-2 font-semibold">
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="mt-2 font-semibold border-2 shadow-md"
+            >
               <Link href="/dashboard/verificar">
                 Verificar actas
                 <ArrowRight className="ml-2 h-4 w-4" />

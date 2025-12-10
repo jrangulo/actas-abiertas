@@ -8,6 +8,7 @@
  */
 
 import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { db } from '@/db'
 import {
@@ -152,7 +153,7 @@ export async function guardarDigitalizacion(
   }
 
   // Verificar que el usuario tiene el bloqueo
-  if (actaData.bloqueadoPor !== user.id) {
+  if (actaData.acta.bloqueadoPor !== user.id) {
     throw new Error('No tienes el bloqueo de esta acta')
   }
 
@@ -190,7 +191,7 @@ export async function guardarDigitalizacion(
 
     // Registrar en historial
     await db.insert(historialDigitacion).values({
-      actaId: actaData.id,
+      actaId: actaData.acta.id,
       usuarioId: user.id,
       tipoCambio: 'digitacion_inicial',
       votosPn: valores.pn,
@@ -265,7 +266,7 @@ export async function guardarValidacionInternal(
   }
 
   // Verificar que el usuario tiene el bloqueo (skip en tests)
-  if (!skipLockCheck && actaData.bloqueadoPor !== userId) {
+  if (!skipLockCheck && actaData.acta.bloqueadoPor !== userId) {
     return { success: false, error: 'No tienes el bloqueo de esta acta' }
   }
 
@@ -276,14 +277,14 @@ export async function guardarValidacionInternal(
     // Usuario confirma valores actuales - obtener valores actuales del acta
     // Prioridad: digitado > CNE oficial
     submittedValues = {
-      pn: actaData.votosPnDigitado ?? actaData.votosPnOficial ?? 0,
-      plh: actaData.votosPlhDigitado ?? actaData.votosPlhOficial ?? 0,
-      pl: actaData.votosPlDigitado ?? actaData.votosPlOficial ?? 0,
-      pinu: actaData.votosPinuDigitado ?? actaData.votosPinuOficial ?? 0,
-      dc: actaData.votosDcDigitado ?? actaData.votosDcOficial ?? 0,
-      nulos: actaData.votosNulosDigitado ?? actaData.votosNulosOficial ?? 0,
-      blancos: actaData.votosBlancosDigitado ?? actaData.votosBlancosOficial ?? 0,
-      total: actaData.votosTotalDigitado ?? actaData.votosTotalOficial ?? 0,
+      pn: actaData.acta.votosPnDigitado ?? actaData.acta.votosPnOficial ?? 0,
+      plh: actaData.acta.votosPlhDigitado ?? actaData.acta.votosPlhOficial ?? 0,
+      pl: actaData.acta.votosPlDigitado ?? actaData.acta.votosPlOficial ?? 0,
+      pinu: actaData.acta.votosPinuDigitado ?? actaData.acta.votosPinuOficial ?? 0,
+      dc: actaData.acta.votosDcDigitado ?? actaData.acta.votosDcOficial ?? 0,
+      nulos: actaData.acta.votosNulosDigitado ?? actaData.acta.votosNulosOficial ?? 0,
+      blancos: actaData.acta.votosBlancosDigitado ?? actaData.acta.votosBlancosOficial ?? 0,
+      total: actaData.acta.votosTotalDigitado ?? actaData.acta.votosTotalOficial ?? 0,
     }
   } else if (datos.correciones) {
     // Usuario envía correcciones
@@ -314,7 +315,7 @@ export async function guardarValidacionInternal(
     // Registrar validación con los valores
     try {
       await db.insert(validacion).values({
-        actaId: actaData.id,
+        actaId: actaData.acta.id,
         usuarioId: userId,
         esCorrecto: datos.esCorrecta,
         votosPn: submittedValues.pn,
@@ -356,7 +357,7 @@ export async function guardarValidacionInternal(
     }
 
     // Actualizar contador de validaciones
-    const nuevaCantidadValidaciones = actaData.cantidadValidaciones + 1
+    const nuevaCantidadValidaciones = actaData.acta.cantidadValidaciones + 1
 
     let nuevoEstado = 'en_validacion'
     let consensoResult: GuardarValidacionResult['consenso'] = undefined
@@ -367,7 +368,7 @@ export async function guardarValidacionInternal(
       const todasValidaciones = await db
         .select()
         .from(validacion)
-        .where(eq(validacion.actaId, actaData.id))
+        .where(eq(validacion.actaId, actaData.acta.id))
 
       const validacionesConValores = todasValidaciones.map((v) => ({
         usuarioId: v.usuarioId,
@@ -418,7 +419,7 @@ export async function guardarValidacionInternal(
 
         // Registrar en historial que se alcanzó consenso
         await db.insert(historialDigitacion).values({
-          actaId: actaData.id,
+          actaId: actaData.acta.id,
           usuarioId: userId,
           tipoCambio: 'rectificacion',
           votosPn: winningValues.pn,
@@ -560,7 +561,7 @@ export async function reportarProblema(
 
   // Registrar discrepancia
   await db.insert(discrepancia).values({
-    actaId: actaData.id,
+    actaId: actaData.acta.id,
     usuarioId: user.id,
     tipo: datos.tipo,
     descripcion: datos.descripcion || null,
@@ -572,8 +573,34 @@ export async function reportarProblema(
   // Actualizar estadísticas del usuario
   await actualizarEstadisticaUsuario(user.id, { discrepanciasReportadas: 1 })
 
+  revalidatePath('/dashboard/verificar')
+  redirect('/dashboard/verificar')
+}
+
+/**
+ * Abandonar un acta sin guardar (liberar el bloqueo)
+ * Uses redirect() to prevent Next.js from re-rendering the current page
+ * which would call bloquearActa() again and re-lock the acta
+ */
+export async function abandonarActa(uuid: string) {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    throw new Error('No autenticado')
+  }
+
+  const liberar_result = await liberarActa(uuid, user.id)
+
+  if (!liberar_result || liberar_result.length === 0) {
+    throw new Error('No se pudo liberar el bloqueo')
+  }
+
   revalidatePath('/dashboard')
-  return { success: true }
+
+  redirect('/dashboard')
 }
 
 /**
