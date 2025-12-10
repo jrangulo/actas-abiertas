@@ -161,6 +161,7 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
         className="sm:max-w-md max-h-[90vh] flex flex-col"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
+        showCloseButton={false}
       >
         <DialogHeader className="text-center items-center shrink-0">
           <div className="mx-auto w-20 h-20 rounded-2xl bg-[#0069b4]/10 flex items-center justify-center mb-2">
