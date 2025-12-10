@@ -11,6 +11,7 @@ import {
   LogOut,
   HelpCircle,
   BarChart3,
+  AlertTriangle,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -19,6 +20,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 const navItems = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
   { href: '/dashboard/verificar', label: 'Verificar Actas', icon: FileCheck },
+  { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
   { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
