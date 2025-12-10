@@ -375,6 +375,7 @@ export async function getTopUsuarios(limite: number = 10) {
     .from(estadisticaUsuario)
     .leftJoin(authUsers, eq(estadisticaUsuario.usuarioId, authUsers.id))
     .orderBy(desc(estadisticaUsuario.actasValidadas))
+    .where(gt(estadisticaUsuario.actasValidadas, 0))
     .limit(limite)
 
   return usuarios
