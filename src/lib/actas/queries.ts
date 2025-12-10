@@ -155,6 +155,8 @@ export async function getActaParaValidar(userId: string) {
         or(eq(acta.escrutadaEnCne, true), isNotNull(acta.digitadoPor)),
         // Menos de 3 validaciones
         lt(acta.cantidadValidaciones, 3),
+        // NO contenga "Inconsistencia" en el array de etiquetas
+        sql`NOT (${acta.etiquetasCNE}::text ILIKE '%Inconsistencia%')`,
         // No digitada por este usuario (IMPORTANTE: no puede validar lo que él mismo digitó)
         or(isNull(acta.digitadoPor), ne(acta.digitadoPor, userId)),
         // No bloqueada o bloqueo expirado o bloqueada por este usuario
