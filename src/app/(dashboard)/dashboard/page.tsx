@@ -115,11 +115,12 @@ async function GlobalStats() {
       valueColor: 'text-foreground',
     },
     {
-      label: 'Discrepancias',
-      value: stats.conDiscrepancias,
+      label: 'Reportadas',
+      value: stats.conProblemas,
       icon: AlertTriangle,
       iconColor: 'text-amber-500',
       valueColor: 'text-amber-600 dark:text-amber-400',
+      description: 'Actas bajo revisión',
     },
   ]
 

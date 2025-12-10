@@ -65,11 +65,11 @@ export async function getActasStats() {
     .from(acta)
     .where(eq(acta.estado, 'en_validacion'))
 
-  // Con discrepancias
-  const [conDiscrepancias] = await db
+  // Actas con problemas (bajo_revision por reportes de usuarios + con_discrepancia por falta de consenso)
+  const [actasConProblemas] = await db
     .select({ count: count() })
     .from(acta)
-    .where(eq(acta.estado, 'con_discrepancia'))
+    .where(or(eq(acta.estado, 'bajo_revision'), eq(acta.estado, 'con_discrepancia')))
 
   // Todas las actas están disponibles para validación
   const totalActas = Number(total.count)
@@ -90,7 +90,7 @@ export async function getActasStats() {
     porValidar: Number(porValidar.count),
     validadas: Number(validadas.count),
     enValidacion: Number(enValidacion.count), // Actas con 1-2 validaciones (en proceso)
-    conDiscrepancias: Number(conDiscrepancias.count),
+    conProblemas: Number(actasConProblemas.count), // bajo_revision + con_discrepancia
     // Validation progress stats
     validacionesNecesarias,
     validacionesRealizadas: Number(validacionesRealizadas.sum),
