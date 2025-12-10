@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { LayoutDashboard, FileCheck, Trophy, User, LogOut } from 'lucide-react'
+import { LayoutDashboard, FileCheck, Trophy, User, LogOut, HelpCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
@@ -13,6 +13,7 @@ const navItems = [
   { href: '/dashboard/verificar', label: 'Verificar Actas', icon: FileCheck },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
+  { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
 ]
 
 interface DesktopSidebarProps {

@@ -15,6 +15,13 @@
       "when": 1765254193124,
       "tag": "0001_add_autoban",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1765343020779,
+      "tag": "0002_icy_bastion",
+      "breakpoints": true
     }
   ]
 }

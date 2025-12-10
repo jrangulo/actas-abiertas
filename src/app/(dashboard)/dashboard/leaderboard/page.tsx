@@ -3,6 +3,7 @@ import { getTopUsuarios, getRankingUsuario, getEstadisticaUsuario } from '@/lib/
 import { createClient } from '@/lib/supabase/server'
 import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
 import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
+import { generateAnonName } from '@/lib/users/anon-names'
 
 const TOP_USUARIOS_LIMIT = 100
 
@@ -16,13 +17,15 @@ export default async function LeaderboardPage() {
   // Obtener datos reales del leaderboard
   const topUsuarios = await getTopUsuarios(TOP_USUARIOS_LIMIT)
 
-  const leaderboardData = topUsuarios.map((user, index) => ({
+  const leaderboardData = topUsuarios.map((u, index) => ({
     position: index + 1,
-    userId: user.usuarioId,
-    name: getUserName(user.rawUserMetaData),
-    avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
-    digitadas: user.actasDigitadas || 0,
-    validadas: user.actasValidadas || 0,
+    userId: u.usuarioId,
+    // Respetar configuración de privacidad - generar nombre anónimo único
+    name: u.perfilPrivado ? generateAnonName(u.usuarioId) : getUserName(u.rawUserMetaData),
+    avatarUrl: u.perfilPrivado ? null : getUserAvatarUrl(u.rawUserMetaData),
+    digitadas: u.actasDigitadas || 0,
+    validadas: u.actasValidadas || 0,
+    isPrivate: u.perfilPrivado,
   }))
 
   // Verificar si el usuario actual está en el top 100
@@ -77,6 +80,7 @@ export default async function LeaderboardPage() {
                         position={2}
                         name={leaderboardData[1].name}
                         avatarUrl={leaderboardData[1].avatarUrl}
+                        userId={leaderboardData[1].userId}
                         size="xl"
                         isCurrentUser={leaderboardData[1].userId === user?.id}
                       />
@@ -98,6 +102,7 @@ export default async function LeaderboardPage() {
                         position={1}
                         name={leaderboardData[0].name}
                         avatarUrl={leaderboardData[0].avatarUrl}
+                        userId={leaderboardData[0].userId}
                         size="xl"
                         isCurrentUser={leaderboardData[0].userId === user?.id}
                       />
@@ -119,6 +124,7 @@ export default async function LeaderboardPage() {
                         position={3}
                         name={leaderboardData[2].name}
                         avatarUrl={leaderboardData[2].avatarUrl}
+                        userId={leaderboardData[2].userId}
                         size="xl"
                         isCurrentUser={leaderboardData[2].userId === user?.id}
                       />
@@ -153,6 +159,7 @@ export default async function LeaderboardPage() {
                   position={entry.position}
                   name={entry.name}
                   avatarUrl={entry.avatarUrl}
+                  userId={entry.userId}
                   size="md"
                   isCurrentUser={entry.userId === user?.id}
                 />

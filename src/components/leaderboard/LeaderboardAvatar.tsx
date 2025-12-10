@@ -1,15 +1,40 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Award } from 'lucide-react'
+import { Award, User } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { getAnonColorIndex } from '@/lib/users/anon-names'
 
 interface LeaderboardAvatarProps {
   position: number
   name: string
   avatarUrl?: string | null
+  /** ID del usuario para colores consistentes en modo anónimo */
+  userId?: string
   /** Tamaño: 'sm' = 32px, 'md' = 40px, 'lg' = 48px, 'xl' = 64px */
   size?: 'sm' | 'md' | 'lg' | 'xl'
   /** Si es true, muestra un indicador de que es el usuario actual */
   isCurrentUser?: boolean
+}
+
+// Paleta de colores para avatares anónimos (estilo Discord)
+const ANON_COLORS = [
+  'from-blue-500 to-blue-600',
+  'from-green-500 to-green-600',
+  'from-purple-500 to-purple-600',
+  'from-orange-500 to-orange-600',
+  'from-pink-500 to-pink-600',
+  'from-cyan-500 to-cyan-600',
+  'from-red-500 to-red-600',
+  'from-indigo-500 to-indigo-600',
+  'from-teal-500 to-teal-600',
+  'from-amber-500 to-amber-600',
+]
+
+// Obtener color basado en userId (consistente para cada usuario) o posición como fallback
+function getAnonColor(userId?: string, position?: number): string {
+  if (userId) {
+    return ANON_COLORS[getAnonColorIndex(userId)]
+  }
+  return ANON_COLORS[(position || 0) % ANON_COLORS.length]
 }
 
 const sizeClasses = {
@@ -31,6 +56,14 @@ const iconSizeClasses = {
   md: 'h-3.5 w-3.5',
   lg: 'h-4 w-4',
   xl: 'h-5 w-5',
+}
+
+// Tamaño del icono de usuario para avatares anónimos
+const userIconSizeClasses = {
+  sm: 'h-5 w-5',
+  md: 'h-6 w-6',
+  lg: 'h-7 w-7',
+  xl: 'h-9 w-9',
 }
 
 // Estilos para medallas (top 3)
@@ -57,9 +90,13 @@ export function LeaderboardAvatar({
   position,
   name,
   avatarUrl,
+  userId,
   size = 'md',
   isCurrentUser = false,
 }: LeaderboardAvatarProps) {
+  // Detectar si es usuario anónimo (no tiene foto de perfil real)
+  const isAnonymous = !avatarUrl
+
   // Obtener iniciales del nombre
   const initials = name
     .split(' ')
@@ -71,6 +108,9 @@ export function LeaderboardAvatar({
   const isMedal = position >= 1 && position <= 3
   const medalStyle = medalStyles[position]
 
+  // Color para usuarios anónimos (consistente por userId)
+  const anonColorClass = getAnonColor(userId, position)
+
   return (
     <div className="relative">
       <Avatar
@@ -80,7 +120,14 @@ export function LeaderboardAvatar({
         )}
       >
         {avatarUrl && <AvatarImage src={avatarUrl} alt={name} />}
-        <AvatarFallback className="bg-[#0069b4] text-white font-medium">{initials}</AvatarFallback>
+        <AvatarFallback
+          className={cn(
+            'font-medium text-white',
+            isAnonymous ? `bg-gradient-to-br ${anonColorClass}` : 'bg-[#0069b4]'
+          )}
+        >
+          {isAnonymous ? <User className={userIconSizeClasses[size]} /> : initials}
+        </AvatarFallback>
       </Avatar>
 
       {/* Badge de posición - medalla para top 3, número para el resto */}

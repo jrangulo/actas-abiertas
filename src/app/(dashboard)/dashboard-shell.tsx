@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { MobileNav, BottomNav, DesktopSidebar } from '@/components/nav'
+import { WelcomeModal } from '@/components/onboarding/welcome-modal'
 
 interface DashboardShellProps {
   children: React.ReactNode
@@ -11,9 +12,10 @@ interface DashboardShellProps {
     name?: string
     avatarUrl?: string
   }
+  showOnboarding?: boolean
 }
 
-export function DashboardShell({ children, user }: DashboardShellProps) {
+export function DashboardShell({ children, user, showOnboarding = false }: DashboardShellProps) {
   const router = useRouter()
   const supabase = createClient()
 
@@ -24,6 +26,9 @@ export function DashboardShell({ children, user }: DashboardShellProps) {
 
   return (
     <div className="min-h-screen bg-background">
+      {/* Modal de bienvenida para nuevos usuarios */}
+      {showOnboarding && <WelcomeModal userName={user?.name} isOpen={true} />}
+
       {/* Desktop: Sidebar + Content */}
       <div className="flex">
         <DesktopSidebar user={user} onSignOut={handleSignOut} />

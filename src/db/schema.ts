@@ -528,6 +528,12 @@ export const estadisticaUsuario = pgTable(
     // Timestamps
     primeraActividad: timestamp('primera_actividad', { withTimezone: true }),
     ultimaActividad: timestamp('ultima_actividad', { withTimezone: true }),
+
+    // Configuración de privacidad
+    // Si true, el nombre y foto del usuario no se muestran en leaderboards públicos
+    perfilPrivado: boolean('perfil_privado').default(false).notNull(),
+    // Si true, el usuario ya vio el onboarding de privacidad
+    onboardingCompletado: boolean('onboarding_completado').default(false).notNull(),
   },
   (table) => [
     // Índices para ordenar el leaderboard

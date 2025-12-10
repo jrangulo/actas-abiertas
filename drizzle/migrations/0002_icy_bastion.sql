@@ -1,0 +1,2 @@
+ALTER TABLE "estadistica_usuario" ADD COLUMN "perfil_privado" boolean DEFAULT false NOT NULL;--> statement-breakpoint
+ALTER TABLE "estadistica_usuario" ADD COLUMN "onboarding_completado" boolean DEFAULT false NOT NULL;

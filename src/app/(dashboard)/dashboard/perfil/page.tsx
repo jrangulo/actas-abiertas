@@ -1,8 +1,9 @@
 import { createClient } from '@/lib/supabase/server'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { FileCheck, CheckSquare, AlertTriangle, Calendar, TrendingUp } from 'lucide-react'
+import { FileCheck, CheckSquare, AlertTriangle, Calendar, TrendingUp, Shield } from 'lucide-react'
 import { getEstadisticaUsuario, getRankingUsuario } from '@/lib/actas'
+import { PrivacyToggle } from './privacy-toggle'
 
 export default async function PerfilPage() {
   const supabase = await createClient()
@@ -61,7 +62,9 @@ export default async function PerfilPage() {
                 <TrendingUp className="h-4 w-4 text-[#0069b4]" />
                 <span className="text-sm font-medium">Tu ranking</span>
               </div>
-              <p className="text-3xl font-bold text-[#0069b4]">#{rankingUsuario}</p>
+              <p className="text-3xl font-bold text-[#0069b4]">
+                {rankingUsuario ? `#${rankingUsuario}` : '-'}
+              </p>
             </div>
           </CardContent>
         </Card>
@@ -107,6 +110,24 @@ export default async function PerfilPage() {
           </CardContent>
         </Card>
       </div>
+
+      {/* Configuración de privacidad */}
+      <Card>
+        <CardHeader>
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-[#0069b4]/10">
+              <Shield className="h-5 w-5 text-[#0069b4]" />
+            </div>
+            <div>
+              <CardTitle className="text-base">Configuración de Privacidad</CardTitle>
+              <CardDescription>Controla cómo apareces en los rankings públicos</CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <PrivacyToggle initialValue={userStats.perfilPrivado ?? false} />
+        </CardContent>
+      </Card>
     </div>
   )
 }

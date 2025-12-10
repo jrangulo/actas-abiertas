@@ -36,3 +36,4 @@ ALTER TABLE "validacion" ALTER COLUMN "votos_nulos" SET NOT NULL;
 ALTER TABLE "validacion" ALTER COLUMN "votos_blancos" SET NOT NULL;
 ALTER TABLE "validacion" ALTER COLUMN "votos_total" SET NOT NULL;
 
+

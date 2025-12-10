@@ -26,6 +26,7 @@ import { PendingTimer } from './pending-timer'
 import { cn } from '@/lib/utils'
 import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
 import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
+import { generateAnonName } from '@/lib/users/anon-names'
 import { UserStatusBanner } from '@/components/autoban/user-status-banner'
 import { db } from '@/db'
 import { estadisticaUsuario } from '@/db/schema'
@@ -213,13 +214,14 @@ async function MiniLeaderboard() {
     )
   }
 
-  const leaderboardData = topUsuarios.map((user, index) => ({
+  const leaderboardData = topUsuarios.map((u, index) => ({
     position: index + 1,
-    usuarioId: user.usuarioId,
-    nombre: getUserName(user.rawUserMetaData),
-    avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
-    actasDigitadas: user.actasDigitadas || 0,
-    actasValidadas: user.actasValidadas || 0,
+    usuarioId: u.usuarioId,
+    // Respetar configuración de privacidad - generar nombre anónimo único
+    nombre: u.perfilPrivado ? generateAnonName(u.usuarioId) : getUserName(u.rawUserMetaData),
+    avatarUrl: u.perfilPrivado ? null : getUserAvatarUrl(u.rawUserMetaData),
+    actasDigitadas: u.actasDigitadas || 0,
+    actasValidadas: u.actasValidadas || 0,
   }))
 
   const supabase = await createClient()
@@ -270,6 +272,7 @@ async function MiniLeaderboard() {
             position={entry.position}
             name={entry.nombre}
             avatarUrl={entry.avatarUrl}
+            userId={entry.usuarioId}
             size="md"
             isCurrentUser={entry.usuarioId === user?.id}
           />
@@ -297,6 +300,7 @@ async function MiniLeaderboard() {
               position={currentUserEntry.position}
               name={currentUserEntry.name}
               avatarUrl={currentUserEntry.avatarUrl}
+              userId={currentUserEntry.userId}
               size="md"
               isCurrentUser={true}
             />

@@ -302,12 +302,34 @@ export async function getEstadisticaUsuario(userId: string) {
     .where(eq(estadisticaUsuario.usuarioId, userId))
     .limit(1)
 
-  return stats || null
+  // Retornar valores por defecto si no hay estadísticas
+  return (
+    stats || {
+      usuarioId: userId,
+      actasDigitadas: 0,
+      actasValidadas: 0,
+      validacionesCorrectas: 0,
+      discrepanciasReportadas: 0,
+      correccionesRecibidas: 0,
+      estado: 'activo' as const,
+      estadoCambiadoEn: null,
+      razonEstado: null,
+      ultimaAdvertenciaEn: null,
+      conteoAdvertencias: 0,
+      estadoBloqueadoPorAdmin: false,
+      estadoModificadoPor: null,
+      primeraActividad: null,
+      ultimaActividad: null,
+      perfilPrivado: false,
+      onboardingCompletado: false,
+    }
+  )
 }
 
 /**
  * Obtener el top de usuarios para el leaderboard
  * Ordena por total de contribuciones (digitadas + validadas)
+ * Incluye configuración de privacidad para respetar anonimato
  */
 export async function getTopUsuarios(limite: number = 10) {
   const usuarios = await db
@@ -317,6 +339,7 @@ export async function getTopUsuarios(limite: number = 10) {
       actasDigitadas: estadisticaUsuario.actasDigitadas,
       actasValidadas: estadisticaUsuario.actasValidadas,
       validacionesCorrectas: estadisticaUsuario.validacionesCorrectas,
+      perfilPrivado: estadisticaUsuario.perfilPrivado,
       total: sql<number>`${estadisticaUsuario.actasDigitadas} + ${estadisticaUsuario.actasValidadas}`,
     })
     .from(estadisticaUsuario)

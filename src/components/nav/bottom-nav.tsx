@@ -3,13 +3,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { LayoutDashboard, FileCheck, Trophy, User } from 'lucide-react'
+import { LayoutDashboard, FileCheck, Trophy, User, HelpCircle } from 'lucide-react'
 
 const navItems = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
   { href: '/dashboard/verificar', label: 'Verificar', icon: FileCheck },
   { href: '/dashboard/leaderboard', label: 'Ranking', icon: Trophy },
   { href: '/dashboard/perfil', label: 'Perfil', icon: User },
+  { href: '/dashboard/faq', label: 'FAQ', icon: HelpCircle },
 ]
 
 export function BottomNav() {
