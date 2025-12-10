@@ -360,7 +360,7 @@ export async function getEstadisticaUsuario(userId: string) {
 
 /**
  * Obtener el top de usuarios para el leaderboard
- * Ordena por total de contribuciones (digitadas + validadas)
+ * Ordena por actas validadas
  * Incluye configuración de privacidad para respetar anonimato
  */
 export async function getTopUsuarios(limite: number = 10) {
@@ -368,15 +368,13 @@ export async function getTopUsuarios(limite: number = 10) {
     .select({
       usuarioId: estadisticaUsuario.usuarioId,
       rawUserMetaData: authUsers.rawUserMetaData,
-      actasDigitadas: estadisticaUsuario.actasDigitadas,
       actasValidadas: estadisticaUsuario.actasValidadas,
       validacionesCorrectas: estadisticaUsuario.validacionesCorrectas,
       perfilPrivado: estadisticaUsuario.perfilPrivado,
-      total: sql<number>`${estadisticaUsuario.actasDigitadas} + ${estadisticaUsuario.actasValidadas}`,
     })
     .from(estadisticaUsuario)
     .leftJoin(authUsers, eq(estadisticaUsuario.usuarioId, authUsers.id))
-    .orderBy(desc(sql`${estadisticaUsuario.actasDigitadas} + ${estadisticaUsuario.actasValidadas}`))
+    .orderBy(desc(estadisticaUsuario.actasValidadas))
     .limit(limite)
 
   return usuarios
@@ -384,7 +382,7 @@ export async function getTopUsuarios(limite: number = 10) {
 
 /**
  * Obtener la posición de un usuario en el ranking
- * Basado en total de contribuciones (digitadas + validadas)
+ * Basado en actas validadas únicamente
  * Retorna null si el usuario no tiene estadísticas (no ha contribuido)
  */
 export async function getRankingUsuario(userId: string) {
@@ -395,19 +393,19 @@ export async function getRankingUsuario(userId: string) {
     .where(eq(estadisticaUsuario.usuarioId, userId))
     .limit(1)
 
-  // Si no tiene estadísticas o no ha hecho nada, retornar null
-  if (!userStats || (userStats.actasDigitadas === 0 && userStats.actasValidadas === 0)) {
+  // Si no tiene estadísticas o no ha validado nada, retornar null
+  if (!userStats || userStats.actasValidadas === 0) {
     return null
   }
 
-  // Contar cuántos usuarios tienen más contribuciones
+  // Contar cuántos usuarios tienen más validaciones
   const [result] = await db
     .select({
       posicion: sql<number>`(
         SELECT COUNT(*) + 1 
         FROM estadistica_usuario e2 
-        WHERE (e2.actas_digitadas + e2.actas_validadas) > 
-              (SELECT COALESCE(actas_digitadas + actas_validadas, 0) 
+        WHERE e2.actas_validadas > 
+              (SELECT COALESCE(actas_validadas, 0) 
                FROM estadistica_usuario 
                WHERE usuario_id = ${userId})
       )`,
