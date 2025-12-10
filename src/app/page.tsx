@@ -3,6 +3,7 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
+import { validateEmail } from '@/lib/auth/email-validator'
 
 export default function WelcomePage() {
   const [isLoading, setIsLoading] = useState<string | null>(null)
@@ -48,6 +49,16 @@ export default function WelcomePage() {
     e.preventDefault()
     setIsLoading('email')
     setMessage(null)
+
+    // Validar email contra dominios desechables (solo en registro)
+    if (isSignUp) {
+      const emailValidation = validateEmail(email)
+      if (!emailValidation.isValid) {
+        setMessage({ type: 'error', text: emailValidation.error || 'Correo inválido' })
+        setIsLoading(null)
+        return
+      }
+    }
 
     if (isSignUp) {
       const { error } = await supabase.auth.signUp({
