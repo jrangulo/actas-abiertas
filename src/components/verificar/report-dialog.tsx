@@ -78,11 +78,12 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
         {compact ? (
           <Button
             variant="ghost"
-            size="icon"
-            className="h-8 w-8 text-amber-600 hover:text-amber-700 hover:bg-amber-100 dark:hover:bg-amber-900/30"
+            size="sm"
+            className="text-amber-600 hover:text-amber-700 hover:bg-amber-100 dark:hover:bg-amber-900/30"
             disabled={disabled}
             title="Reportar problema"
           >
+            Reportar
             <AlertTriangle className="h-4 w-4" />
           </Button>
         ) : (
