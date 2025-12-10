@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
-import { AlertTriangle } from 'lucide-react'
+import { AlertTriangle, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const TIPOS_PROBLEMA = [
@@ -63,17 +63,17 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
 
     setIsSubmitting(true)
     try {
+      // Keep dialog open showing "Enviando..." until navigation
       await onReport(tipo, descripcion || undefined)
-      setOpen(false)
-      setTipo(null)
-      setDescripcion('')
-    } finally {
+      // Navigation will unmount us, no need to close/reset
+    } catch (error) {
+      console.error('Error reporting:', error)
       setIsSubmitting(false)
     }
   }
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} onOpenChange={(newOpen) => !isSubmitting && setOpen(newOpen)}>
       <DialogTrigger asChild>
         {compact ? (
           <Button
@@ -105,12 +105,13 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
           </DialogDescription>
         </DialogHeader>
 
-        <div className="space-y-3 py-4">
+        <div className={cn('space-y-3 py-4', isSubmitting && 'opacity-50 pointer-events-none')}>
           {TIPOS_PROBLEMA.map((problema) => (
             <button
               key={problema.value}
               type="button"
               onClick={() => setTipo(problema.value)}
+              disabled={isSubmitting}
               className={cn(
                 'w-full text-left p-3 rounded-lg border transition-colors',
                 tipo === problema.value
@@ -131,7 +132,8 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
                 value={descripcion}
                 onChange={(e) => setDescripcion(e.target.value)}
                 placeholder="Describe brevemente el problema..."
-                className="w-full min-h-[80px] p-2 text-sm border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#0069b4]"
+                disabled={isSubmitting}
+                className="w-full min-h-[80px] p-2 text-sm border rounded-lg resize-none focus:outline-none focus:ring-2 focus:ring-[#0069b4] bg-background"
               />
             </div>
           )}
@@ -144,9 +146,16 @@ export function ReportDialog({ onReport, disabled, compact = false }: ReportDial
           <Button
             onClick={handleSubmit}
             disabled={!tipo || isSubmitting}
-            className="bg-amber-600 hover:bg-amber-700"
+            className="bg-amber-600 hover:bg-amber-700 min-w-[140px]"
           >
-            {isSubmitting ? 'Enviando...' : 'Enviar reporte'}
+            {isSubmitting ? (
+              <>
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                Enviando...
+              </>
+            ) : (
+              'Enviar reporte'
+            )}
           </Button>
         </DialogFooter>
       </DialogContent>

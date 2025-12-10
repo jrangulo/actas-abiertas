@@ -246,10 +246,15 @@ export function VerificarClient({
     tipo: 'ilegible' | 'adulterada' | 'datos_inconsistentes' | 'imagen_incompleta' | 'otro',
     descripcion?: string
   ) => {
-    await reportarProblema(uuid, { tipo, descripcion })
-    // Limpiar borrador después de reportar
+    const result = await reportarProblema(uuid, { tipo, descripcion })
     clearDraft()
-    await goToNextActa()
+
+    // Use nextUuid from response to avoid race condition
+    if (result.nextUuid) {
+      router.push(`/dashboard/verificar/${result.nextUuid}`)
+    } else {
+      router.push('/dashboard/verificar?message=sin-actas')
+    }
   }
 
   // Flag to prevent lock refresh during abandon
@@ -285,7 +290,6 @@ export function VerificarClient({
     if (result.success && result.uuid) {
       router.push(`/dashboard/verificar/${result.uuid}`)
     } else if ('pendingUuid' in result && result.pendingUuid) {
-      // User still has a pending acta (shouldn't happen, but handle it)
       router.push(`/dashboard/verificar/${result.pendingUuid}`)
     } else {
       router.push('/dashboard/verificar?message=sin-actas')

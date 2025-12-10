@@ -596,10 +596,10 @@ export async function reportarProblema(
     .limit(1)
 
   if (existingReport) {
-    // Ya existe un reporte de este usuario para esta acta, solo liberar y redirigir
+    // Ya existe un reporte de este usuario para esta acta, solo liberar
     await liberarActa(uuid, user.id)
     revalidatePath('/dashboard/verificar')
-    redirect('/dashboard/verificar')
+    return { success: true, alreadyReported: true }
   }
 
   // Registrar discrepancia
@@ -636,9 +636,17 @@ export async function reportarProblema(
   // Actualizar estadísticas del usuario
   await actualizarEstadisticaUsuario(user.id, { discrepanciasReportadas: 1 })
 
+  // Get next acta in same request to avoid race condition
+  const nextActa = await getActaParaValidar(user.id)
+  let nextUuid: string | null = null
+  if (nextActa) {
+    await bloquearActa(nextActa.uuid, user.id)
+    nextUuid = nextActa.uuid
+  }
+
   revalidatePath('/dashboard/verificar')
   revalidatePath('/dashboard/discrepancias')
-  redirect('/dashboard/verificar')
+  return { success: true, nextUuid }
 }
 
 /**
