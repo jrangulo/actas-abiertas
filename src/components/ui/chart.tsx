@@ -74,12 +74,15 @@ interface LineChartProps {
   xAxisKey: string
   xAxisLabel?: string
   yAxisLabel?: string
+  xAxisDomain?: [number, number]
   yAxisDomain?: [number, number]
+  xAxisTicks?: number[]
   xAxisFormatter?: (value: number) => string
   yAxisFormatter?: (value: number) => string
   tooltipFormatter?: (value: number, name: string) => string
   className?: string
   height?: number
+  legendPosition?: 'top' | 'bottom'
 }
 
 // Custom tooltip con tipos explícitos
@@ -138,7 +141,7 @@ function ChartLegend({ payload }: CustomLegendProps) {
   if (!payload?.length) return null
 
   return (
-    <div className="flex justify-center gap-6 mt-4">
+    <div className="flex justify-center gap-6">
       {payload.map((entry, index) => (
         <div key={index} className="flex items-center gap-2">
           <div className="w-4 h-1 rounded-full" style={{ backgroundColor: entry.color }} />
@@ -155,12 +158,15 @@ export function LineChart({
   xAxisKey,
   xAxisLabel,
   yAxisLabel,
+  xAxisDomain,
   yAxisDomain,
+  xAxisTicks,
   xAxisFormatter,
   yAxisFormatter,
   tooltipFormatter,
   className,
   height = 300,
+  legendPosition = 'top',
 }: LineChartProps) {
   const colors = useChartColors()
 
@@ -180,15 +186,24 @@ export function LineChart({
       <ResponsiveContainer width="100%" height="100%">
         <RechartsLineChart
           data={data}
-          margin={{ top: 5, right: 20, left: 10, bottom: xAxisLabel ? 30 : 5 }}
+          margin={{
+            top: legendPosition === 'top' ? 45 : 5,
+            right: 20,
+            left: 10,
+            bottom: xAxisLabel ? 30 : 5,
+          }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke={colors.border} opacity={0.5} />
           <XAxis
             dataKey={xAxisKey}
+            domain={xAxisDomain}
+            ticks={xAxisTicks}
             tick={{ fontSize: 12, fill: colors.text }}
             tickFormatter={xAxisFormatter}
             axisLine={{ stroke: colors.border }}
             tickLine={{ stroke: colors.border }}
+            type="number"
+            allowDataOverflow={true}
             label={
               xAxisLabel
                 ? {
@@ -226,7 +241,7 @@ export function LineChart({
               <ChartTooltip xAxisFormatter={xAxisFormatter} tooltipFormatter={tooltipFormatter} />
             }
           />
-          <Legend content={<ChartLegend />} />
+          <Legend content={<ChartLegend />} verticalAlign={legendPosition} />
           {series.map((s) => (
             <Line
               key={s.dataKey}

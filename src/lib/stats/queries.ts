@@ -250,6 +250,10 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
  * Para eficiencia, muestreamos en intervalos (no cada acta individual)
  */
 export async function getProgresionVotos(puntosMuestreo: number = 20): Promise<PuntoProgresion[]> {
+  // Obtener total de actas en el sistema para calcular cobertura real
+  const [totalActasResult] = await db.select({ count: sql<number>`COUNT(*)` }).from(acta)
+  const totalActasSistema = Number(totalActasResult.count)
+
   // Obtener actas validadas ordenadas por fecha de actualización
   // Solo traemos los campos necesarios para eficiencia
   const actasValidadas = await db
@@ -266,8 +270,8 @@ export async function getProgresionVotos(puntosMuestreo: number = 20): Promise<P
     return []
   }
 
-  const totalActas = actasValidadas.length
-  const intervalo = Math.max(1, Math.floor(totalActas / puntosMuestreo))
+  const totalValidadas = actasValidadas.length
+  const intervalo = Math.max(1, Math.floor(totalValidadas / puntosMuestreo))
 
   const puntos: PuntoProgresion[] = []
   let acumuladoPn = 0
@@ -275,17 +279,18 @@ export async function getProgresionVotos(puntosMuestreo: number = 20): Promise<P
   let acumuladoPl = 0
 
   for (let i = 0; i < actasValidadas.length; i++) {
-    const acta = actasValidadas[i]
-    acumuladoPn += acta.votosPn || 0
-    acumuladoPlh += acta.votosPlh || 0
-    acumuladoPl += acta.votosPl || 0
+    const actaItem = actasValidadas[i]
+    acumuladoPn += actaItem.votosPn || 0
+    acumuladoPlh += actaItem.votosPlh || 0
+    acumuladoPl += actaItem.votosPl || 0
 
     // Solo agregar punto en intervalos o al final
     if ((i + 1) % intervalo === 0 || i === actasValidadas.length - 1) {
       const totalPartidos = acumuladoPn + acumuladoPlh + acumuladoPl
 
       puntos.push({
-        cobertura: ((i + 1) / totalActas) * 100,
+        // Cobertura = actas validadas hasta este punto / total de actas en sistema
+        cobertura: ((i + 1) / totalActasSistema) * 100,
         actasAcumuladas: i + 1,
         porcentajes: {
           PN: totalPartidos > 0 ? (acumuladoPn / totalPartidos) * 100 : 0,
