@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { FileCheck, CheckSquare, AlertTriangle, Calendar, TrendingUp } from 'lucide-react'
+import { CheckSquare, AlertTriangle, Calendar, TrendingUp } from 'lucide-react'
 import { getEstadisticaUsuario, getRankingUsuario } from '@/lib/actas'
 
 export default async function PerfilPage() {
@@ -56,7 +56,7 @@ export default async function PerfilPage() {
             </div>
 
             {/* Ranking badge */}
-            <div className="mt-6 p-4 bg-gradient-to-br from-[#0069b4]/10 to-[#004a7c]/10 rounded-lg text-center">
+            <div className="mt-6 p-4 bg-linear-to-br from-[#0069b4]/10 to-[#004a7c]/10 rounded-lg text-center">
               <div className="flex items-center justify-center gap-2 mb-1">
                 <TrendingUp className="h-4 w-4 text-[#0069b4]" />
                 <span className="text-sm font-medium">Tu ranking</span>
@@ -72,12 +72,7 @@ export default async function PerfilPage() {
             <CardTitle className="text-base">Mis estadísticas</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-muted/50 rounded-lg">
-                <FileCheck className="h-6 w-6 mx-auto mb-2 text-[#0069b4]" />
-                <p className="text-3xl font-bold">{userStats.actasDigitadas}</p>
-                <p className="text-sm text-muted-foreground">Digitadas</p>
-              </div>
+            <div className="grid grid-cols-2 gap-4">
               <div className="text-center p-4 bg-muted/50 rounded-lg">
                 <CheckSquare className="h-6 w-6 mx-auto mb-2 text-green-600" />
                 <p className="text-3xl font-bold">{userStats.actasValidadas}</p>
@@ -97,10 +92,8 @@ export default async function PerfilPage() {
                 <br />
                 <span className="text-muted-foreground">
                   Has verificado{' '}
-                  <strong className="text-foreground">
-                    {userStats.actasDigitadas + userStats.actasValidadas}
-                  </strong>{' '}
-                  actas en total.
+                  <strong className="text-foreground">{userStats.actasValidadas}</strong> actas en
+                  total.
                 </span>
               </p>
             </div>

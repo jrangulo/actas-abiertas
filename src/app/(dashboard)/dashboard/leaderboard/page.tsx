@@ -21,7 +21,6 @@ export default async function LeaderboardPage() {
     userId: user.usuarioId,
     name: getUserName(user.rawUserMetaData),
     avatarUrl: getUserAvatarUrl(user.rawUserMetaData),
-    digitadas: user.actasDigitadas || 0,
     validadas: user.actasValidadas || 0,
   }))
 
@@ -44,7 +43,6 @@ export default async function LeaderboardPage() {
           userId: user?.id || '',
           name: getUserName(user.user_metadata),
           avatarUrl: getUserAvatarUrl(user.user_metadata),
-          digitadas: userStats.actasDigitadas || 0,
           validadas: userStats.actasValidadas || 0,
         }
         showEllipsis = true
@@ -70,7 +68,7 @@ export default async function LeaderboardPage() {
             <CardContent>
               <div className="flex items-end justify-center gap-6 py-4">
                 {/* Segundo lugar */}
-                {leaderboardData[1] && (
+                {leaderboardData.length > 1 && leaderboardData[1] && (
                   <div className="text-center">
                     <div className="relative mx-auto mb-2">
                       <LeaderboardAvatar
@@ -85,13 +83,13 @@ export default async function LeaderboardPage() {
                       {leaderboardData[1].name.split(' ')[0]}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {leaderboardData[1].digitadas + leaderboardData[1].validadas} actas
+                      {leaderboardData[1].validadas} actas
                     </p>
                   </div>
                 )}
 
                 {/* Primer lugar */}
-                {leaderboardData[0] && (
+                {leaderboardData.length > 0 && leaderboardData[0] && (
                   <div className="text-center -mt-4">
                     <div className="relative mx-auto mb-2 ring-4 ring-yellow-400 dark:ring-yellow-600 rounded-full">
                       <LeaderboardAvatar
@@ -106,13 +104,13 @@ export default async function LeaderboardPage() {
                       {leaderboardData[0].name.split(' ')[0]}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {leaderboardData[0].digitadas + leaderboardData[0].validadas} actas
+                      {leaderboardData[0].validadas} actas
                     </p>
                   </div>
                 )}
 
                 {/* Tercer lugar */}
-                {leaderboardData[2] && (
+                {leaderboardData.length > 2 && leaderboardData[2] && (
                   <div className="text-center">
                     <div className="relative mx-auto mb-2">
                       <LeaderboardAvatar
@@ -127,7 +125,7 @@ export default async function LeaderboardPage() {
                       {leaderboardData[2].name.split(' ')[0]}
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      {leaderboardData[2].digitadas + leaderboardData[2].validadas} actas
+                      {leaderboardData[2].validadas} actas
                     </p>
                   </div>
                 )}
@@ -158,12 +156,10 @@ export default async function LeaderboardPage() {
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-medium truncate">{entry.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {entry.digitadas} digitadas · {entry.validadas} validadas
-                  </p>
+                  <p className="text-xs text-muted-foreground">{entry.validadas} validadas</p>
                 </div>
                 <div className="text-right">
-                  <p className="font-bold text-lg">{entry.digitadas + entry.validadas}</p>
+                  <p className="font-bold text-lg">{entry.validadas}</p>
                   <p className="text-xs text-muted-foreground">total</p>
                 </div>
               </div>
@@ -186,14 +182,11 @@ export default async function LeaderboardPage() {
                   <div className="flex-1 min-w-0">
                     <p className="font-medium truncate">{currentUserEntry.name}</p>
                     <p className="text-xs text-muted-foreground">
-                      {currentUserEntry.digitadas} digitadas · {currentUserEntry.validadas}{' '}
-                      validadas
+                      {currentUserEntry.validadas} validadas
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="font-bold">
-                      {currentUserEntry.digitadas + currentUserEntry.validadas}
-                    </p>
+                    <p className="font-bold">{currentUserEntry.validadas}</p>
                     <p className="text-xs text-muted-foreground">total</p>
                   </div>
                 </div>

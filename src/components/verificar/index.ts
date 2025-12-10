@@ -2,3 +2,4 @@ export { ImageViewer, MobileImageViewer, DesktopImageViewer } from './image-view
 export { VoteInput, VoteInputGroup } from './vote-input'
 export { ReportDialog } from './report-dialog'
 export { LockTimer } from './lock-timer'
+export { ConfirmationDialog } from './confirmation-dialog'

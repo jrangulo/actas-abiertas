@@ -2,8 +2,8 @@
 
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
-import { Check, X, Minus, Plus } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Check, X } from 'lucide-react'
+import React, { forwardRef } from 'react'
 
 interface VoteInputProps {
   partido: string
@@ -13,6 +13,7 @@ interface VoteInputProps {
   onChange: (value: string) => void
   disabled?: boolean
   showComparison?: boolean
+  onNavigate?: (direction: 'next' | 'prev') => void
 }
 
 // Colores oficiales de los partidos políticos de Honduras
@@ -26,117 +27,105 @@ const PARTIDO_COLORS: Record<string, string> = {
   Blancos: 'bg-gray-400',
 }
 
-export function VoteInput({
-  partido,
-  color,
-  valorActual,
-  value,
-  onChange,
-  disabled = false,
-  showComparison = false,
-}: VoteInputProps) {
-  const numericValue = value === '' ? null : parseInt(value, 10)
-  const isMatch = valorActual !== null && numericValue === valorActual
-  const isDifferent = valorActual !== null && numericValue !== null && numericValue !== valorActual
+export const VoteInput = forwardRef<HTMLInputElement, VoteInputProps>(
+  (
+    {
+      partido,
+      color,
+      valorActual,
+      value,
+      onChange,
+      disabled = false,
+      showComparison = false,
+      onNavigate,
+    },
+    ref
+  ) => {
+    const numericValue = value === '' ? null : parseInt(value, 10)
+    const isMatch = valorActual !== null && numericValue === valorActual
+    const isDifferent =
+      valorActual !== null && numericValue !== null && numericValue !== valorActual
 
-  const increment = () => {
-    const current = parseInt(value, 10) || 0
-    onChange(String(Math.min(current + 1, 999)))
-  }
-
-  const decrement = () => {
-    const current = parseInt(value, 10) || 0
-    onChange(String(Math.max(current - 1, 0)))
-  }
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value
-    // Solo permitir números
-    if (val === '' || /^\d+$/.test(val)) {
-      const num = parseInt(val, 10)
-      if (isNaN(num) || num <= 999) {
-        onChange(val)
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const val = e.target.value
+      // Solo permitir números
+      if (val === '' || /^\d+$/.test(val)) {
+        const num = parseInt(val, 10)
+        if (isNaN(num) || num <= 999) {
+          onChange(val)
+        }
       }
     }
-  }
 
-  return (
-    <div
-      className={cn(
-        'flex items-center gap-2 p-2 rounded-lg transition-colors',
-        isDifferent && 'bg-amber-100/60 dark:bg-amber-900/30',
-        isMatch && showComparison && 'bg-green-100/60 dark:bg-green-900/30'
-      )}
-    >
-      {/* Indicador de partido */}
-      <div className="flex items-center gap-2 min-w-[70px]">
-        <div
-          className={cn('w-3 h-3 rounded-full flex-shrink-0', PARTIDO_COLORS[partido] || color)}
-        />
-        <Label className="text-sm font-medium">{partido}</Label>
-      </div>
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (!onNavigate) return
 
-      {/* Valor actual (si hay) */}
-      {showComparison && (
-        <div className="w-12 text-center text-sm text-muted-foreground tabular-nums font-medium">
-          {valorActual ?? '-'}
+      if (e.key === 'ArrowDown' || e.key === 'Enter') {
+        e.preventDefault()
+        onNavigate('next')
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault()
+        onNavigate('prev')
+      }
+    }
+
+    return (
+      <div
+        className={cn(
+          'flex items-center gap-2 p-2 rounded-lg transition-colors',
+          isDifferent && 'bg-amber-100/50 dark:bg-amber-800/40',
+          isMatch && showComparison && 'bg-green-100/40 dark:bg-green-800/20'
+        )}
+      >
+        {/* Indicador de partido */}
+        <div className="flex items-center gap-2 min-w-[70px]">
+          <div className={cn('w-3 h-3 rounded-full shrink-0', PARTIDO_COLORS[partido] || color)} />
+          <Label className="text-sm font-medium">{partido}</Label>
         </div>
-      )}
 
-      {/* Input con botones +/- */}
-      <div className="flex items-center gap-1 flex-1 justify-end">
-        <Button
-          type="button"
-          variant="outline"
-          size="icon"
-          className="h-9 w-9 flex-shrink-0"
-          onClick={decrement}
-          disabled={disabled || parseInt(value, 10) <= 0}
-        >
-          <Minus className="h-4 w-4" />
-        </Button>
-
-        <input
-          type="text"
-          inputMode="numeric"
-          pattern="[0-9]*"
-          value={value}
-          onChange={handleInputChange}
-          disabled={disabled}
-          className={cn(
-            'w-16 h-9 text-center text-lg font-bold tabular-nums rounded-md border bg-background',
-            'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
-            'disabled:cursor-not-allowed disabled:opacity-50',
-            isDifferent && 'border-amber-500 ring-amber-500',
-            isMatch && showComparison && 'border-green-500'
-          )}
-        />
-
-        <Button
-          type="button"
-          variant="outline"
-          size="icon"
-          className="h-9 w-9 flex-shrink-0"
-          onClick={increment}
-          disabled={disabled || parseInt(value, 10) >= 999}
-        >
-          <Plus className="h-4 w-4" />
-        </Button>
-
-        {/* Indicador de coincidencia */}
-        {showComparison && numericValue !== null && (
-          <div className="w-6 flex items-center justify-center">
-            {isMatch ? (
-              <Check className="h-5 w-5 text-green-600" />
-            ) : (
-              <X className="h-5 w-5 text-amber-600" />
-            )}
+        {/* Valor actual (si hay) */}
+        {showComparison && (
+          <div className="w-12 text-center text-sm dark:text-white tabular-nums font-medium">
+            {valorActual ?? '-'}
           </div>
         )}
+
+        {/* Input con botones +/- */}
+        <div className="flex items-center gap-1 flex-1 justify-end">
+          {/* Indicador de coincidencia */}
+          {showComparison && numericValue !== null && (
+            <div className="w-6 flex items-center justify-center">
+              {isMatch ? (
+                <Check className="h-5 w-5 text-green-500" />
+              ) : (
+                <X className="h-5 w-5 text-amber-600" />
+              )}
+            </div>
+          )}
+          <input
+            ref={ref}
+            type="text"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            value={value}
+            onChange={handleInputChange}
+            onKeyDown={handleKeyDown}
+            disabled={disabled}
+            className={cn(
+              'w-16 h-9 text-center text-lg font-bold tabular-nums rounded-md border bg-background',
+              'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+              'disabled:cursor-not-allowed disabled:opacity-50',
+              isDifferent && 'border-amber-600 ring-amber-600',
+              isMatch && showComparison && 'border-green-500'
+            )}
+          />
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
+)
+
+VoteInput.displayName = 'VoteInput'
 
 interface VoteInputGroupProps {
   valoresActuales: {
@@ -160,6 +149,7 @@ interface VoteInputGroupProps {
   onChange: (partido: string, value: string) => void
   disabled?: boolean
   showComparison?: boolean
+  onLastInputFilled?: () => void
 }
 
 export function VoteInputGroup({
@@ -168,7 +158,48 @@ export function VoteInputGroup({
   onChange,
   disabled = false,
   showComparison = false,
+  onLastInputFilled,
 }: VoteInputGroupProps) {
+  const inputRefs = {
+    dc: React.useRef<HTMLInputElement>(null),
+    pl: React.useRef<HTMLInputElement>(null),
+    pinu: React.useRef<HTMLInputElement>(null),
+    plh: React.useRef<HTMLInputElement>(null),
+    pn: React.useRef<HTMLInputElement>(null),
+    blancos: React.useRef<HTMLInputElement>(null),
+    nulos: React.useRef<HTMLInputElement>(null),
+  }
+
+  // Orden de navegación
+  const navigationOrder: (keyof typeof inputRefs)[] = [
+    'dc',
+    'pl',
+    'pinu',
+    'plh',
+    'pn',
+    'blancos',
+    'nulos',
+  ]
+
+  const handleNavigate = (currentKey: string, direction: 'next' | 'prev') => {
+    const currentIndex = navigationOrder.indexOf(currentKey as keyof typeof inputRefs)
+    let nextIndex = currentIndex
+
+    if (direction === 'next') {
+      // If at last input and going next, trigger confirmation dialog
+      if (currentKey === 'nulos' && onLastInputFilled) {
+        onLastInputFilled()
+        return
+      }
+      nextIndex = (currentIndex + 1) % navigationOrder.length
+    } else {
+      nextIndex = (currentIndex - 1 + navigationOrder.length) % navigationOrder.length
+    }
+
+    const nextKey = navigationOrder[nextIndex]
+    inputRefs[nextKey].current?.focus()
+    inputRefs[nextKey].current?.select()
+  }
   // Orden igual al que aparece en las actas presidenciales
   const partidos = [
     { key: 'dc', label: 'DC', color: 'bg-[#16a34a]' },
@@ -203,7 +234,7 @@ export function VoteInputGroup({
     <div className="space-y-2">
       {/* Header para validación */}
       {showComparison && (
-        <div className="flex items-center gap-2 text-xs text-muted-foreground px-2 pb-2 border-b">
+        <div className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 px-2 pb-2 border-b">
           <div className="min-w-[70px]">Partido</div>
           <div className="w-12 text-center">Actual</div>
           <div className="flex-1 text-right pr-8">Tu valor</div>
@@ -215,6 +246,7 @@ export function VoteInputGroup({
         {partidos.map((p) => (
           <VoteInput
             key={p.key}
+            ref={inputRefs[p.key as keyof typeof inputRefs]}
             partido={p.label}
             color={p.color}
             valorActual={valoresActuales[p.key as keyof typeof valoresActuales]}
@@ -222,6 +254,7 @@ export function VoteInputGroup({
             onChange={(v) => onChange(p.key, v)}
             disabled={disabled}
             showComparison={showComparison}
+            onNavigate={(direction) => handleNavigate(p.key, direction)}
           />
         ))}
       </div>
@@ -234,6 +267,7 @@ export function VoteInputGroup({
         {otros.map((p) => (
           <VoteInput
             key={p.key}
+            ref={inputRefs[p.key as keyof typeof inputRefs]}
             partido={p.label}
             color={p.color}
             valorActual={valoresActuales[p.key as keyof typeof valoresActuales]}
@@ -241,6 +275,7 @@ export function VoteInputGroup({
             onChange={(v) => onChange(p.key, v)}
             disabled={disabled}
             showComparison={showComparison}
+            onNavigate={(direction) => handleNavigate(p.key, direction)}
           />
         ))}
       </div>
@@ -251,7 +286,7 @@ export function VoteInputGroup({
           <Label className="text-sm font-semibold">Total</Label>
         </div>
         {showComparison && (
-          <div className="w-12 text-center text-sm font-bold tabular-nums">
+          <div className="w-12 text-center text-sm font-bold tabular-nums text-zinc-600 dark:text-zinc-300">
             {totalActualGeneral}
           </div>
         )}

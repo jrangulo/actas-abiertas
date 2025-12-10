@@ -3,7 +3,15 @@
  */
 
 import { db } from '@/db'
-import { acta, validacion, estadisticaUsuario, authUsers } from '@/db/schema'
+import {
+  acta,
+  validacion,
+  estadisticaUsuario,
+  authUsers,
+  municipio,
+  departamento,
+  centroVotacion,
+} from '@/db/schema'
 import {
   eq,
   and,
@@ -116,6 +124,7 @@ export async function getActaParaDigitalizar(userId: string) {
     .from(acta)
     .where(
       and(
+        eq(acta.digitalizadaEnCne, true),
         eq(acta.escrutadaEnCne, false),
         isNull(acta.digitadoPor),
         or(
@@ -175,7 +184,27 @@ export async function getActaParaValidar(userId: string) {
  * Obtener acta por UUID
  */
 export async function getActaByUuid(uuid: string) {
-  const [result] = await db.select().from(acta).where(eq(acta.uuid, uuid)).limit(1)
+  const [result] = await db
+    .select()
+    .from(acta)
+    .leftJoin(
+      municipio,
+      and(
+        eq(acta.municipioCodigo, municipio.codigo),
+        eq(acta.departamentoCodigo, municipio.departamentoCodigo)
+      )
+    )
+    .leftJoin(departamento, eq(acta.departamentoCodigo, departamento.codigo))
+    .leftJoin(
+      centroVotacion,
+      and(
+        eq(acta.centroCodigo, centroVotacion.codigo),
+        eq(acta.departamentoCodigo, centroVotacion.departamentoCodigo),
+        eq(acta.municipioCodigo, centroVotacion.municipioCodigo)
+      )
+    )
+    .where(eq(acta.uuid, uuid))
+    .limit(1)
   return result || null
 }
 
@@ -233,7 +262,7 @@ export async function liberarActa(uuid: string, userId?: string) {
     ? and(eq(acta.uuid, uuid), eq(acta.bloqueadoPor, userId))
     : eq(acta.uuid, uuid)
 
-  await db
+  return await db
     .update(acta)
     .set({
       bloqueadoPor: null,
@@ -241,6 +270,11 @@ export async function liberarActa(uuid: string, userId?: string) {
       actualizadoEn: new Date(),
     })
     .where(where)
+    .returning({
+      uuid: acta.uuid,
+      bloqueadoHasta: acta.bloqueadoHasta,
+      bloqueadoPor: acta.bloqueadoPor,
+    })
 }
 
 /**

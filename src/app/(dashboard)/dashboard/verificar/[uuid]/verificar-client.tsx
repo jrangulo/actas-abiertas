@@ -5,22 +5,37 @@ import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { ImageViewer, VoteInputGroup, ReportDialog, LockTimer } from '@/components/verificar'
 import {
-  guardarDigitalizacion,
+  ImageViewer,
+  VoteInputGroup,
+  ReportDialog,
+  LockTimer,
+  ConfirmationDialog,
+} from '@/components/verificar'
+import {
   guardarValidacion,
   reportarProblema,
   obtenerNuevaActa,
+  abandonarActa,
 } from '@/lib/actas/actions'
-import { Check, ChevronRight, Loader2, PenLine, CheckSquare } from 'lucide-react'
+import { Check, ChevronRight, Loader2, PenLine, CheckSquare, ArrowLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
+
+// Enum para las acciones pendientes
+enum PendingAction {
+  GUARDAR_SIGUIENTE = 'guardar-siguiente',
+  SOLO_GUARDAR = 'solo-guardar',
+  CONFIRMAR = 'confirmar',
+  CONFIRMAR_SOLO = 'confirmar-solo',
+  CORRECCION = 'correccion',
+  SALIR = 'salir',
+}
 
 // Clave para guardar valores en localStorage
 const DRAFT_KEY_PREFIX = 'acta-draft-'
 
 interface VerificarClientProps {
   uuid: string
-  modo: 'digitalizar' | 'validar'
   bloqueadoHasta: Date
   actaInfo: {
     cneId: string
@@ -48,7 +63,6 @@ interface VerificarClientProps {
 
 export function VerificarClient({
   uuid,
-  modo,
   bloqueadoHasta,
   actaInfo,
   valoresActuales,
@@ -57,10 +71,10 @@ export function VerificarClient({
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   // Rastrear qué acción específica está en progreso
-  const [pendingAction, setPendingAction] = useState<
-    'guardar-siguiente' | 'solo-guardar' | 'confirmar' | 'confirmar-solo' | 'correccion' | null
-  >(null)
+  const [pendingAction, setPendingAction] = useState<PendingAction | null>(null)
   const draftKey = `${DRAFT_KEY_PREFIX}${uuid}`
+  const [showConfirmationDialog, setShowConfirmationDialog] = useState(false)
+  const [dialogPendingAction, setDialogPendingAction] = useState<PendingAction | null>(null)
 
   // Función para obtener valores iniciales (de localStorage o de props)
   const getInitialValues = useCallback(() => {
@@ -89,17 +103,17 @@ export function VerificarClient({
       }
     }
 
-    // Valores por defecto según el modo
+    // Valores por defecto
     return {
-      pn: modo === 'validar' ? (valoresActuales.pn?.toString() ?? '') : '',
-      plh: modo === 'validar' ? (valoresActuales.plh?.toString() ?? '') : '',
-      pl: modo === 'validar' ? (valoresActuales.pl?.toString() ?? '') : '',
-      pinu: modo === 'validar' ? (valoresActuales.pinu?.toString() ?? '') : '',
-      dc: modo === 'validar' ? (valoresActuales.dc?.toString() ?? '') : '',
-      nulos: modo === 'validar' ? (valoresActuales.nulos?.toString() ?? '') : '',
-      blancos: modo === 'validar' ? (valoresActuales.blancos?.toString() ?? '') : '',
+      pn: valoresActuales.pn?.toString() ?? '',
+      plh: valoresActuales.plh?.toString() ?? '',
+      pl: valoresActuales.pl?.toString() ?? '',
+      pinu: valoresActuales.pinu?.toString() ?? '',
+      dc: valoresActuales.dc?.toString() ?? '',
+      nulos: valoresActuales.nulos?.toString() ?? '',
+      blancos: valoresActuales.blancos?.toString() ?? '',
     }
-  }, [draftKey, modo, valoresActuales])
+  }, [draftKey, valoresActuales])
 
   // Estado del formulario - inicializado con valores guardados o por defecto
   const [valores, setValores] = useState(getInitialValues)
@@ -129,47 +143,53 @@ export function VerificarClient({
     router.push('/dashboard/verificar?error=expirado')
   }
 
-  // Guardar digitalización y siguiente
-  const handleGuardarDigitalizacion = (goToNext: boolean = true) => {
-    setPendingAction(goToNext ? 'guardar-siguiente' : 'solo-guardar')
-    startTransition(async () => {
-      try {
-        await guardarDigitalizacion(uuid, {
-          pn: parseInt(valores.pn) || 0,
-          plh: parseInt(valores.plh) || 0,
-          pl: parseInt(valores.pl) || 0,
-          pinu: parseInt(valores.pinu) || 0,
-          dc: parseInt(valores.dc) || 0,
-          nulos: parseInt(valores.nulos) || 0,
-          blancos: parseInt(valores.blancos) || 0,
-        })
-        // Limpiar borrador después de guardar exitosamente
-        clearDraft()
-        if (goToNext) {
-          await goToNextActa('digitalizar')
-        } else {
-          // Ir al dashboard
-          router.push('/dashboard')
-        }
-      } catch (error) {
-        console.error(error)
-        // TODO: Mostrar error al usuario
-      } finally {
-        setPendingAction(null)
-      }
-    })
+  // Manejar cuando se llena el último input
+  const handleLastInputFilled = () => {
+    if (showCorrectionForm) {
+      setDialogPendingAction(PendingAction.GUARDAR_SIGUIENTE)
+      setShowConfirmationDialog(true)
+    }
   }
 
-  // Confirmar valores correctos (validación)
+  // Confirmar y guardar después del diálogo
+  const handleConfirmationConfirm = () => {
+    setShowConfirmationDialog(false)
+    // Determinar qué acción realizar basado en dialogPendingAction
+    const action = dialogPendingAction
+    setDialogPendingAction(null)
+
+    if (action === PendingAction.GUARDAR_SIGUIENTE || action === PendingAction.SOLO_GUARDAR) {
+      const goToNext = action === PendingAction.GUARDAR_SIGUIENTE
+      performGuardarCorreccion(goToNext)
+    } else if (action === PendingAction.CONFIRMAR || action === PendingAction.CONFIRMAR_SOLO) {
+      const goToNext = action === PendingAction.CONFIRMAR
+      performConfirmarCorrecto(goToNext)
+    } else if (action === PendingAction.CORRECCION) {
+      performGuardarCorreccion(true)
+    }
+  }
+
+  // Editar después de confirmar
+  const handleConfirmationEdit = () => {
+    setShowConfirmationDialog(false)
+    setDialogPendingAction(null)
+  }
+
+  // Confirmar valores correctos (validación) - sin diálogo
   const handleConfirmarCorrecto = (goToNext: boolean = true) => {
-    setPendingAction(goToNext ? 'confirmar' : 'confirmar-solo')
+    // Sin diálogo, guardar directamente
+    performConfirmarCorrecto(goToNext)
+  }
+
+  // Realizar la acción de confirmar después del diálogo
+  const performConfirmarCorrecto = (goToNext: boolean = true) => {
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, { esCorrecta: true })
         // Limpiar borrador después de guardar exitosamente
         clearDraft()
         if (goToNext) {
-          await goToNextActa('validar')
+          await goToNextActa()
         } else {
           router.push('/dashboard')
         }
@@ -183,7 +203,12 @@ export function VerificarClient({
 
   // Guardar corrección (validación con cambios)
   const handleGuardarCorreccion = (goToNext: boolean = true) => {
-    setPendingAction(goToNext ? 'guardar-siguiente' : 'solo-guardar')
+    setDialogPendingAction(goToNext ? PendingAction.GUARDAR_SIGUIENTE : PendingAction.SOLO_GUARDAR)
+    setShowConfirmationDialog(true)
+  }
+
+  // Realizar la acción de guardar corrección después del diálogo
+  const performGuardarCorreccion = (goToNext: boolean = true) => {
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, {
@@ -201,7 +226,7 @@ export function VerificarClient({
         // Limpiar borrador después de guardar exitosamente
         clearDraft()
         if (goToNext) {
-          await goToNextActa('validar')
+          await goToNextActa()
         } else {
           router.push('/dashboard')
         }
@@ -221,12 +246,39 @@ export function VerificarClient({
     await reportarProblema(uuid, { tipo, descripcion })
     // Limpiar borrador después de reportar
     clearDraft()
-    await goToNextActa(modo)
+    await goToNextActa()
+  }
+
+  // Flag to prevent lock refresh during abandon
+  const [isAbandoning, setIsAbandoning] = useState(false)
+
+  // Salir sin guardar (abandonar acta)
+  const handleSalir = () => {
+    // Set abandoning flag FIRST to prevent any lock refresh
+    setIsAbandoning(true)
+    setPendingAction(PendingAction.SALIR)
+    clearDraft()
+    startTransition(async () => {
+      try {
+        // abandonarActa now uses redirect() internally
+        // This prevents Next.js from re-rendering the current page
+        await abandonarActa(uuid)
+        // If we get here, redirect didn't work (shouldn't happen)
+      } catch (error) {
+        // redirect() throws NEXT_REDIRECT which is expected
+        // Only log actual errors
+        if (error instanceof Error && !error.message.includes('NEXT_REDIRECT')) {
+          console.error(error)
+          setIsAbandoning(false)
+          setPendingAction(null)
+        }
+      }
+    })
   }
 
   // Ir a siguiente acta
-  const goToNextActa = async (nextModo: 'digitalizar' | 'validar') => {
-    const result = await obtenerNuevaActa(nextModo)
+  const goToNextActa = async () => {
+    const result = await obtenerNuevaActa('validar')
     if (result.success && result.uuid) {
       router.push(`/dashboard/verificar/${result.uuid}`)
     } else if ('pendingUuid' in result && result.pendingUuid) {
@@ -250,57 +302,64 @@ export function VerificarClient({
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
           <div className="flex items-center gap-2">
-            {modo === 'digitalizar' ? (
-              <PenLine className="h-5 w-5 text-[#0069b4]" />
-            ) : (
-              <CheckSquare className="h-5 w-5 text-green-600" />
-            )}
-            <h1 className="text-xl font-bold">
-              {modo === 'digitalizar' ? 'Digitalizar Acta' : 'Validar Acta'}
-            </h1>
+            <CheckSquare className="h-5 w-5 text-green-600" />
+            <h1 className="text-xl font-bold">Validar Acta</h1>
           </div>
           <p className="text-sm text-muted-foreground">ID: {actaInfo.cneId}</p>
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
-          <LockTimer bloqueadoHasta={bloqueadoHasta} uuid={uuid} onExpired={handleLockExpired} />
+          <LockTimer
+            bloqueadoHasta={bloqueadoHasta}
+            uuid={uuid}
+            onExpired={handleLockExpired}
+            disableRefresh={isAbandoning}
+          />
           <Badge variant={actaInfo.escrutada ? 'default' : 'secondary'}>
-            {actaInfo.escrutada ? 'CNE' : 'Por digitalizar'}
+            {actaInfo.escrutada ? 'CNE' : 'Digitado'}
           </Badge>
-          {modo === 'validar' && <Badge variant="outline">{actaInfo.cantidadValidaciones}/3</Badge>}
+          <Badge variant="outline">{actaInfo.cantidadValidaciones}/3</Badge>
         </div>
       </div>
 
       {/* Layout principal: Imagen + Formulario */}
-      <div className="lg:grid lg:grid-cols-2 lg:gap-6">
+      <div className="lg:grid lg:grid-cols-[1fr_420px] lg:gap-6">
         {/* Imagen */}
         <div className="mb-4 lg:mb-0">
-          <Card className="lg:h-full">
-            <CardHeader className="pb-2">
+          <Card className="lg:h-full gap-2 pb-0">
+            <CardHeader>
+              <CardTitle className="text-sm">Información del Acta</CardTitle>
+              <div className="text-xs text-muted-foreground">
+                {`Departamento: ${actaInfo.departamento}`}
+                <br />
+                {`Municipio: ${actaInfo.municipio}`}
+                <br />
+                {`Centro de Votación: ${actaInfo.centro}`}
+                <br />
+                {`JRV: ${actaInfo.jrv}`}
+              </div>
               <CardTitle className="text-sm">Imagen del Acta</CardTitle>
             </CardHeader>
-            <CardContent className="p-2 lg:p-4">
+            <CardContent className="px-2 lg:px-4 pb-2 lg:pb-4 gap-2 flex flex-col">
               <ImageViewer src={imagenUrl} alt={`Acta ${actaInfo.cneId}`} />
             </CardContent>
           </Card>
         </div>
 
         {/* Formulario */}
-        <div className="space-y-4">
+        <div className="space-y-4 lg:ml-auto">
           <Card>
-            <CardHeader className="pb-2">
+            <CardHeader>
               <div className="flex items-start justify-between">
-                <div>
+                <div className="space-y-2">
                   <CardTitle className="text-sm">
-                    {modo === 'digitalizar'
-                      ? 'Ingresa los votos'
-                      : showCorrectionForm
-                        ? 'Corregir valores'
-                        : 'Verificar valores'}
+                    {showCorrectionForm ? 'Corregir valores' : 'Verificar valores'}
                   </CardTitle>
-                  {modo === 'validar' && !showCorrectionForm && (
-                    <p className="text-xs text-muted-foreground">
-                      Fuente: {valoresActuales.fuente === 'cne' ? 'CNE' : 'Digitado por usuario'}
+
+                  {!showCorrectionForm && (
+                    <p className="text-xs text-muted-foreground font-bold">
+                      Fuente de los datos:{' '}
+                      {valoresActuales.fuente === 'cne' ? 'CNE' : 'Digitado por usuario'}
                     </p>
                   )}
                 </div>
@@ -310,25 +369,8 @@ export function VerificarClient({
               </div>
             </CardHeader>
             <CardContent>
-              {modo === 'digitalizar' ? (
-                // Modo digitalización: formulario vacío
-                <VoteInputGroup
-                  valoresActuales={{
-                    pn: null,
-                    plh: null,
-                    pl: null,
-                    pinu: null,
-                    dc: null,
-                    nulos: null,
-                    blancos: null,
-                  }}
-                  valores={valores}
-                  onChange={handleChange}
-                  disabled={isPending}
-                  showComparison={false}
-                />
-              ) : showCorrectionForm ? (
-                // Modo validación con corrección
+              {showCorrectionForm ? (
+                // Modo corrección
                 <VoteInputGroup
                   valoresActuales={{
                     pn: valoresActuales.pn,
@@ -343,6 +385,7 @@ export function VerificarClient({
                   onChange={handleChange}
                   disabled={isPending}
                   showComparison={true}
+                  onLastInputFilled={handleLastInputFilled}
                 />
               ) : (
                 // Modo validación: mostrar valores actuales para confirmar
@@ -397,115 +440,130 @@ export function VerificarClient({
           </Card>
 
           {/* Acciones */}
-          <div className="space-y-3">
-            {modo === 'digitalizar' ? (
-              // Acciones para digitalización
-              <>
-                <Button
-                  className="w-full bg-[#0069b4] hover:bg-[#004a7c]"
-                  disabled={!isFormValid || isPending}
-                  onClick={() => handleGuardarDigitalizacion(true)}
-                >
-                  {pendingAction === 'guardar-siguiente' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-4 w-4 mr-2" />
-                  )}
-                  Guardar y siguiente
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-                <Button
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  disabled={!isFormValid || isPending}
-                  onClick={() => handleGuardarDigitalizacion(false)}
-                >
-                  {pendingAction === 'solo-guardar' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-4 w-4 mr-2" />
-                  )}
-                  Guardar y salir
-                </Button>
-              </>
-            ) : showCorrectionForm ? (
+          <div className="space-y-4">
+            {showCorrectionForm ? (
               // Acciones para corrección
-              <>
+              <div className="space-y-3">
+                <p className="text-xs text-muted-foreground text-center">
+                  Revisa tus correcciones y guarda los cambios
+                </p>
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
+                  className="w-full bg-green-600 hover:bg-green-700 h-12"
                   disabled={!isFormValid || isPending}
                   onClick={() => handleGuardarCorreccion(true)}
                 >
-                  {pendingAction === 'guardar-siguiente' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+                  {pendingAction === PendingAction.GUARDAR_SIGUIENTE ? (
+                    <Loader2 className="h-5 w-5 mr-2 animate-spin" />
                   ) : (
-                    <Check className="h-4 w-4 mr-2" />
+                    <Check className="h-5 w-5 mr-2" />
                   )}
-                  Guardar y siguiente
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-                <Button
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  disabled={!isFormValid || isPending}
-                  onClick={() => handleGuardarCorreccion(false)}
-                >
-                  {pendingAction === 'solo-guardar' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-4 w-4 mr-2" />
-                  )}
-                  Guardar y salir
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="w-full"
-                  onClick={() => setShowCorrectionForm(false)}
-                  disabled={isPending}
-                >
-                  Cancelar
-                </Button>
-              </>
-            ) : (
-              // Acciones para validación (confirmar o corregir)
-              <>
-                <Button
-                  className="w-full bg-green-600 hover:bg-green-700"
-                  disabled={isPending}
-                  onClick={() => handleConfirmarCorrecto(true)}
-                >
-                  {pendingAction === 'confirmar' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-4 w-4 mr-2" />
-                  )}
-                  Valores correctos
-                  <ChevronRight className="h-4 w-4 ml-2" />
-                </Button>
-                <Button
-                  className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  disabled={isPending}
-                  onClick={() => handleConfirmarCorrecto(false)}
-                >
-                  {pendingAction === 'confirmar-solo' ? (
-                    <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-4 w-4 mr-2" />
-                  )}
-                  Valores correctos (y salir)
+                  <span className="flex flex-col items-start w-full">
+                    <span className="font-semibold">Guardar corrección</span>
+                    <span className="text-xs opacity-80">Continuar con otra acta</span>
+                  </span>
+                  <ChevronRight className="h-5 w-5 ml-auto" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full"
+                  className="w-full h-12 border-green-600 text-green-600 hover:bg-green-600/10"
+                  disabled={!isFormValid || isPending}
+                  onClick={() => handleGuardarCorreccion(false)}
+                >
+                  {pendingAction === PendingAction.SOLO_GUARDAR ? (
+                    <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                  ) : (
+                    <Check className="h-5 w-5 mr-2" />
+                  )}
+                  <span className="flex flex-col items-start w-full">
+                    <span className="font-semibold">Guardar corrección</span>
+                    <span className="text-xs opacity-80">Volver al inicio</span>
+                  </span>
+                </Button>
+                <Button
+                  variant="ghost"
+                  className="w-full h-12 text-muted-foreground"
+                  onClick={() => setShowCorrectionForm(false)}
+                  disabled={isPending}
+                >
+                  <ArrowLeft className="h-5 w-5 mr-2" />
+                  <span className="flex flex-col w-full items-start">
+                    <span className="font-semibold">Cancelar corrección</span>
+                    <span className="text-xs opacity-80">No guardar cambios</span>
+                  </span>
+                </Button>
+              </div>
+            ) : (
+              // Acciones para validación (confirmar o corregir)
+              <div className="space-y-3">
+                <p className="text-xs text-muted-foreground text-center">
+                  ¿Los valores mostrados coinciden con el acta?
+                </p>
+
+                {/* Botón principal: Confirmar */}
+                <Button
+                  className="w-full bg-green-600 hover:bg-green-700 h-12"
+                  disabled={isPending}
+                  onClick={() => handleConfirmarCorrecto(true)}
+                >
+                  {pendingAction === PendingAction.CONFIRMAR ? (
+                    <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                  ) : (
+                    <Check className="h-5 w-5 mr-2" />
+                  )}
+                  <span className="flex flex-col w-full items-start">
+                    <span className="font-semibold">Confirmar</span>
+                    <span className="text-xs opacity-80">Sí, los valores son correctos</span>
+                  </span>
+                  <ChevronRight className="h-5 w-5 ml-auto" />
+                </Button>
+
+                {/* Botón de corrección */}
+                <Button
+                  variant="outline"
+                  className="w-full h-12 border-amber-500 text-amber-600 hover:bg-amber-500/10"
                   onClick={() => setShowCorrectionForm(true)}
                   disabled={isPending}
                 >
-                  <PenLine className="h-4 w-4 mr-2" />
-                  Hay diferencias
+                  <PenLine className="h-5 w-5 mr-2" />
+                  <span className="flex flex-col w-full items-start">
+                    <span className="font-semibold">Corregir</span>
+                    <span className="text-xs opacity-80">No, hay errores en los valores</span>
+                  </span>
                 </Button>
-              </>
+              </div>
             )}
+
+            {/* Separador y botón salir */}
+            <div className="pt-2 border-t">
+              <Button
+                variant="ghost"
+                className="w-full h-12 text-muted-foreground hover:text-destructive hover:bg-destructive/10"
+                onClick={handleSalir}
+                disabled={isPending}
+                aria-label="Salir sin guardar"
+              >
+                {pendingAction === PendingAction.SALIR ? (
+                  <Loader2 className="h-5 w-5 mr-2 animate-spin" />
+                ) : (
+                  <ArrowLeft className="h-5 w-5 mr-2" />
+                )}
+                <span className="flex flex-col w-full items-start">
+                  <span className="font-semibold">Abandonar Acta</span>
+                  <span className="text-xs opacity-80">No guardar cambios</span>
+                </span>
+              </Button>
+            </div>
           </div>
         </div>
       </div>
+      <ConfirmationDialog
+        open={showConfirmationDialog}
+        onConfirm={handleConfirmationConfirm}
+        onEdit={handleConfirmationEdit}
+        valores={valores}
+        valoresActuales={valoresActuales}
+        showComparison={true}
+      />
     </div>
   )
 }
