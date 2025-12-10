@@ -64,28 +64,26 @@ export async function getActasStats() {
     .from(acta)
     .where(eq(acta.estado, 'con_discrepancia'))
 
-  // Procesadas = total - porDigitalizar (actas listas para validar)
-  const procesadas = Number(total.count) - Number(porDigitalizar.count)
+  // Todas las actas están disponibles para validación
+  const totalActas = Number(total.count)
 
-  // Total validaciones necesarias = procesadas * 3
-  const validacionesNecesarias = procesadas * 3
+  // Total validaciones necesarias = todas las actas * 3 (cada acta necesita 3 validaciones)
+  const validacionesNecesarias = totalActas * 3
 
-  // Total validaciones realizadas (suma de cantidadValidaciones de actas procesadas)
+  // Total validaciones realizadas (suma de cantidadValidaciones de TODAS las actas)
   const [validacionesRealizadas] = await db
     .select({
       sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
     })
     .from(acta)
-    .where(or(eq(acta.escrutadaEnCne, true), isNotNull(acta.digitadoPor)))
 
   return {
-    total: Number(total.count),
+    total: totalActas,
     porDigitalizar: Number(porDigitalizar.count),
     porValidar: Number(porValidar.count),
     validadas: Number(validadas.count),
     conDiscrepancias: Number(conDiscrepancias.count),
     // Validation progress stats
-    procesadas,
     validacionesNecesarias,
     validacionesRealizadas: Number(validacionesRealizadas.sum),
   }

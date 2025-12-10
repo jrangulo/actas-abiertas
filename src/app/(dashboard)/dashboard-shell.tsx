@@ -40,15 +40,8 @@ export function DashboardShell({ children, user, showOnboarding = false }: Dashb
             <MobileNav user={user} onSignOut={handleSignOut} />
           </div>
 
-          {/* Desktop header */}
-          <header className="hidden lg:block border-b bg-card/50 backdrop-blur sticky top-0 z-10">
-            <div className="px-8 py-4">
-              <h1 className="text-lg font-semibold">Panel de Control</h1>
-            </div>
-          </header>
-
           {/* Page content */}
-          <main className="pt-14 pb-20 px-4 lg:pt-0 lg:pb-8 lg:px-8">
+          <main className="pt-14 pb-20 px-4 lg:pt-6 lg:pb-8 lg:px-8">
             <div className="max-w-4xl mx-auto lg:max-w-none">{children}</div>
           </main>
 
