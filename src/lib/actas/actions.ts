@@ -18,7 +18,7 @@ import {
   discrepancia,
   estadisticaUsuario,
 } from '@/db/schema'
-import { eq, sql, count } from 'drizzle-orm'
+import { eq, sql, count, and } from 'drizzle-orm'
 import {
   getActaParaDigitalizar,
   getActaParaValidar,
