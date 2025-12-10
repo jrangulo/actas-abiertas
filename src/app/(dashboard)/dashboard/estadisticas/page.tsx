@@ -39,32 +39,6 @@ async function StatsContent() {
 
   return (
     <>
-      {/* Cobertura Card */}
-      <Card>
-        <CardHeader className="pb-2">
-          <div className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5 text-green-600" />
-            <CardTitle className="text-base">Cobertura de Validación</CardTitle>
-          </div>
-        </CardHeader>
-        <CardContent>
-          <div className="flex items-baseline gap-2">
-            <span className="text-4xl font-bold">{stats.cobertura.porcentaje.toFixed(2)}%</span>
-            <span className="text-muted-foreground">
-              ({stats.cobertura.actasValidadas.toLocaleString()} de{' '}
-              {stats.cobertura.actasTotales.toLocaleString()} actas)
-            </span>
-          </div>
-          {/* Progress bar */}
-          <div className="mt-4 h-3 bg-muted rounded-full overflow-hidden">
-            <div
-              className="h-full bg-green-600 transition-all duration-500"
-              style={{ width: `${Math.min(stats.cobertura.porcentaje, 100)}%` }}
-            />
-          </div>
-        </CardContent>
-      </Card>
-
       {/* Comparison Grid */}
       <div className="grid gap-6 lg:grid-cols-2">
         {/* CNE Data */}

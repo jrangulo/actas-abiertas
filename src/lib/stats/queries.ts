@@ -55,6 +55,19 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
   // Total de actas
   const [totalActas] = await db.select({ count: sql<number>`COUNT(*)` }).from(acta)
 
+  // Actas en proceso de validación (tienen entre 1-2 validaciones, aún no completas)
+  const [enValidacionStats] = await db
+    .select({ count: sql<number>`COUNT(*)` })
+    .from(acta)
+    .where(eq(acta.estado, 'en_validacion'))
+
+  // Total validaciones realizadas (suma de todas las validaciones individuales)
+  const [validacionesStats] = await db
+    .select({
+      sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
+    })
+    .from(acta)
+
   // --- Votos principales (para gráfica de progresión, solo 3 partidos) ---
   const cneTotalPartidos =
     Number(cneStats.votosPn) + Number(cneStats.votosPlh) + Number(cneStats.votosPl)
@@ -219,6 +232,9 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
 
   const actasValidadas = Number(validadosStats.actasValidadas)
   const actasTotales = Number(totalActas.count)
+  const actasEnValidacion = Number(enValidacionStats.count)
+  const validacionesRealizadas = Number(validacionesStats.sum)
+  const validacionesNecesarias = actasTotales * 3
 
   return {
     cne: {
@@ -235,8 +251,17 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
     },
     cobertura: {
       actasTotales,
+      // Fully validated (3+ validations with consensus)
       actasValidadas,
-      porcentaje: actasTotales > 0 ? (actasValidadas / actasTotales) * 100 : 0,
+      porcentajeValidadas: actasTotales > 0 ? (actasValidadas / actasTotales) * 100 : 0,
+      // In progress (1-2 validations)
+      actasEnValidacion,
+      porcentajeEnValidacion: actasTotales > 0 ? (actasEnValidacion / actasTotales) * 100 : 0,
+      // Individual validations progress
+      validacionesRealizadas,
+      validacionesNecesarias,
+      porcentajeValidaciones:
+        validacionesNecesarias > 0 ? (validacionesRealizadas / validacionesNecesarias) * 100 : 0,
     },
   }
 }

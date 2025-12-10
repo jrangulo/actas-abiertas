@@ -70,8 +70,16 @@ export interface EstadisticasVotos {
   // Cobertura
   cobertura: {
     actasTotales: number
+    // Actas completamente validadas (3+ validaciones con consenso)
     actasValidadas: number
-    porcentaje: number
+    porcentajeValidadas: number
+    // Actas en proceso de validación (1-2 validaciones)
+    actasEnValidacion: number
+    porcentajeEnValidacion: number
+    // Progreso total de validaciones individuales
+    validacionesRealizadas: number
+    validacionesNecesarias: number
+    porcentajeValidaciones: number
   }
 }
 
