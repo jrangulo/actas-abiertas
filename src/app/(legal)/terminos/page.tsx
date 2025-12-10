@@ -73,16 +73,16 @@ export default function TerminosPage() {
           de cada usuario
         </li>
         <li>
-          <strong>Sistema de advertencias:</strong> Si tu precisión cae por debajo del 70%,
-          recibirás una advertencia
+          <strong>Sistema de advertencias:</strong> Si tu tasa de error supera el 10% (precisión
+          menor al 90%), recibirás una advertencia
         </li>
         <li>
-          <strong>Restricciones:</strong> Usuarios con muy baja precisión (por debajo del 50%)
-          pueden ser restringidos
+          <strong>Restricciones:</strong> Usuarios con tasa de error mayor al 20% (precisión menor
+          al 80%) pueden ser restringidos
         </li>
         <li>
-          <strong>Suspensión:</strong> En casos extremos (precisión menor al 30%), la cuenta puede
-          ser suspendida
+          <strong>Suspensión:</strong> Si la tasa de error supera el 30% (precisión menor al 70%),
+          la cuenta será suspendida y las contribuciones eliminadas
         </li>
       </ul>
       <p>

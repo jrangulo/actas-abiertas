@@ -72,9 +72,9 @@ export const tipoCambioEnum = pgEnum('tipo_cambio', [
 // Estado del usuario en el sistema de autoban
 export const estadoUsuarioEnum = pgEnum('estado_usuario', [
   'activo', // Usuario normal sin restricciones
-  'advertido', // Advertencia por baja precisión (<70%)
-  'restringido', // Restringido a solo validación (<50%)
-  'baneado', // Suspendido completamente (<30%)
+  'advertido', // Advertencia por tasa de error >10% (precisión <90%)
+  'restringido', // Restringido por tasa de error >20% (precisión <80%)
+  'baneado', // Suspendido por tasa de error >30% (precisión <70%)
 ])
 
 // ============================================================================

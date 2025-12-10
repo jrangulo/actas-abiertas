@@ -2,12 +2,13 @@
  * Tests de integración para el sistema de autoban
  *
  * Estos tests verifican que:
- * 1. Usuarios con baja precisión (<70%) reciben advertencias
- * 2. Usuarios con muy baja precisión (<50%) son restringidos
- * 3. Usuarios con precisión crítica (<30%) son baneados
+ * 1. Usuarios con tasa de error >10% (precisión <90%) reciben advertencias
+ * 2. Usuarios con tasa de error >20% (precisión <80%) son restringidos
+ * 3. Usuarios con tasa de error >30% (precisión <70%) son baneados
  * 4. Los cambios de estado son progresivos (no se salta etapas)
  * 5. Admin lock previene cambios automáticos
  * 6. Se respeta el periodo de gracia y mínimo de validaciones
+ * 7. Cuando un usuario es baneado, sus validaciones y reportes son eliminados
  *
  * IMPORTANTE: Estos tests usan las funciones REALES del sistema,
  * creando usuarios y actas de prueba reales en la base de datos.
@@ -41,8 +42,8 @@ import {
   cleanupUserStats,
 } from './helpers/test-data'
 import { db } from '@/db'
-import { estadisticaUsuario, historialUsuarioEstado } from '@/db/schema'
-import { eq } from 'drizzle-orm'
+import { estadisticaUsuario, historialUsuarioEstado, validacion, discrepancia } from '@/db/schema'
+import { eq, count } from 'drizzle-orm'
 
 // ============================================================================
 // Configuración de Tests
@@ -214,10 +215,11 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
     })
   })
 
-  describe('Estado: Advertido (< 70% precisión)', () => {
-    it('debe cambiar usuario a advertido cuando la precisión cae por debajo del 70%', async () => {
-      // Configurar 10 validaciones con 60% de precisión (4 incorrectas)
-      await setUserPrecision(TEST_USER_BAD, 10, 60)
+  describe('Estado: Advertido (< 90% precisión / >10% error)', () => {
+    it('debe cambiar usuario a advertido cuando la precisión cae por debajo del 90%', async () => {
+      // Configurar 20 validaciones con 80% de precisión (4 errores de 20 = 80%)
+      // Nota: usamos 20 para evitar problemas de redondeo con 10 validaciones
+      await setUserPrecision(TEST_USER_BAD, 20, 80)
 
       // Verificar estado del usuario
       await verificarEstadoUsuario(TEST_USER_BAD)
@@ -225,9 +227,8 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
       const stats = await getUserStats(TEST_USER_BAD)
       expect(stats).toBeDefined()
       expect(stats!.estado).toBe('advertido')
-      expect(stats!.actasValidadas).toBe(10)
-      expect(stats!.correccionesRecibidas).toBe(4)
-      expect(stats!.razonEstado).toContain('60%')
+      expect(stats!.actasValidadas).toBe(20)
+      expect(stats!.razonEstado).toContain('80%')
       expect(stats!.conteoAdvertencias).toBe(1)
 
       // Verificar que se registró en el historial
@@ -236,12 +237,12 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
       expect(history[0].estadoAnterior).toBe('activo')
       expect(history[0].estadoNuevo).toBe('advertido')
       expect(history[0].esAutomatico).toBe(true)
-      expect(history[0].porcentajeAcierto).toBe(60)
+      expect(history[0].porcentajeAcierto).toBe(80)
     }, 10000)
 
-    it('no debe cambiar estado si la precisión está por encima del 70%', async () => {
-      // Configurar 10 validaciones con 80% de precisión
-      await setUserPrecision(TEST_USER_BAD, 10, 80)
+    it('no debe cambiar estado si la precisión está por encima del 90%', async () => {
+      // Configurar 10 validaciones con 100% de precisión (0 errores)
+      await setUserPrecision(TEST_USER_BAD, 10, 100)
 
       await verificarEstadoUsuario(TEST_USER_BAD)
 
@@ -250,22 +251,24 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
     }, 10000)
   })
 
-  describe('Estado: Restringido (< 50% precisión)', () => {
+  describe('Estado: Restringido (< 80% precisión / >20% error)', () => {
     it('debe cambiar a restringido progresivamente desde advertido', async () => {
-      // Paso 1: Configurar usuario con 60% de precisión → advertido
-      await setUserPrecision(TEST_USER_BAD, 10, 60)
+      // Paso 1: Configurar usuario con 85% de precisión → advertido (< 90%)
+      // 20 validaciones, 3 errores = 85%
+      await setUserPrecision(TEST_USER_BAD, 20, 85)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       let stats = await getUserStats(TEST_USER_BAD)
       expect(stats!.estado).toBe('advertido')
 
-      // Paso 2: Empeorar precisión a 46% → debe avanzar a restringido
-      await setUserPrecision(TEST_USER_BAD, 15, 46)
+      // Paso 2: Empeorar precisión a 75% → debe avanzar a restringido (< 80%)
+      // 20 validaciones, 5 errores = 75%
+      await setUserPrecision(TEST_USER_BAD, 20, 75)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       stats = await getUserStats(TEST_USER_BAD)
       expect(stats!.estado).toBe('restringido')
-      expect(stats!.actasValidadas).toBe(15)
+      expect(stats!.actasValidadas).toBe(20)
 
       // Verificar historial: debe tener 2 cambios
       const history = await getUserStateHistory(TEST_USER_BAD)
@@ -275,8 +278,9 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
     }, 10000)
 
     it('no debe saltar de activo a restringido directamente', async () => {
-      // Usuario activo con 40% de precisión (debería ir a restringido pero solo avanza a advertido)
-      await setUserPrecision(TEST_USER_BAD, 10, 40)
+      // Usuario activo con 60% de precisión (debería ir a baneado pero solo avanza a advertido)
+      // 10 validaciones, 4 errores = 60%
+      await setUserPrecision(TEST_USER_BAD, 10, 60)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       const stats = await getUserStats(TEST_USER_BAD)
@@ -289,24 +293,24 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
     }, 10000)
   })
 
-  describe('Estado: Baneado (< 30% precisión)', () => {
+  describe('Estado: Baneado (< 70% precisión / >30% error)', () => {
     it('debe cambiar a baneado progresivamente desde restringido', async () => {
-      // Paso 1: Advertido (60%)
-      await setUserPrecision(TEST_USER_BAD, 10, 60)
+      // Paso 1: Advertido (85% = 17/20 correcto, < 90%)
+      await setUserPrecision(TEST_USER_BAD, 20, 85)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       let stats = await getUserStats(TEST_USER_BAD)
       expect(stats!.estado).toBe('advertido')
 
-      // Paso 2: Restringido (46%)
-      await setUserPrecision(TEST_USER_BAD, 15, 46)
+      // Paso 2: Restringido (75% = 15/20 correcto, < 80%)
+      await setUserPrecision(TEST_USER_BAD, 20, 75)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       stats = await getUserStats(TEST_USER_BAD)
       expect(stats!.estado).toBe('restringido')
 
-      // Paso 3: Baneado (28%)
-      await setUserPrecision(TEST_USER_BAD, 25, 28)
+      // Paso 3: Baneado (60% = 12/20 correcto, < 70%)
+      await setUserPrecision(TEST_USER_BAD, 20, 60)
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       stats = await getUserStats(TEST_USER_BAD)
@@ -322,13 +326,13 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
 
     it('debe incluir la precisión crítica en la razón del ban', async () => {
       // Llevar al usuario a baneado progresivamente
-      await setUserPrecision(TEST_USER_BAD, 10, 60)
+      await setUserPrecision(TEST_USER_BAD, 20, 85) // advertido
       await verificarEstadoUsuario(TEST_USER_BAD)
 
-      await setUserPrecision(TEST_USER_BAD, 15, 46)
+      await setUserPrecision(TEST_USER_BAD, 20, 75) // restringido
       await verificarEstadoUsuario(TEST_USER_BAD)
 
-      await setUserPrecision(TEST_USER_BAD, 25, 28)
+      await setUserPrecision(TEST_USER_BAD, 20, 60) // baneado
       await verificarEstadoUsuario(TEST_USER_BAD)
 
       const stats = await getUserStats(TEST_USER_BAD)
@@ -336,6 +340,63 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
       expect(stats!.razonEstado).toContain('Precisión crítica')
       expect(stats!.razonEstado).toContain('%')
     }, 10000)
+
+    it('debe eliminar validaciones y reportes cuando el usuario es baneado', async () => {
+      // Crear algunas validaciones para el usuario malo
+      const testActa1 = await createTestActa(STANDARD_VOTES)
+      const testActa2 = await createTestActa(STANDARD_VOTES)
+      testActas.push(testActa1, testActa2)
+
+      // El usuario malo valida ambas actas
+      await guardarValidacionInternal({
+        uuid: testActa1.uuid,
+        userId: TEST_USER_BAD,
+        datos: { esCorrecta: true },
+        skipLockCheck: true,
+        skipRevalidate: true,
+      })
+      await guardarValidacionInternal({
+        uuid: testActa2.uuid,
+        userId: TEST_USER_BAD,
+        datos: { esCorrecta: true },
+        skipLockCheck: true,
+        skipRevalidate: true,
+      })
+
+      // Verificar que existen validaciones
+      const [beforeValidaciones] = await db
+        .select({ count: count() })
+        .from(validacion)
+        .where(eq(validacion.usuarioId, TEST_USER_BAD))
+      expect(Number(beforeValidaciones.count)).toBe(2)
+
+      // Llevar al usuario a baneado progresivamente
+      await setUserPrecision(TEST_USER_BAD, 20, 85) // advertido (< 90%)
+      await verificarEstadoUsuario(TEST_USER_BAD)
+
+      await setUserPrecision(TEST_USER_BAD, 20, 75) // restringido (< 80%)
+      await verificarEstadoUsuario(TEST_USER_BAD)
+
+      await setUserPrecision(TEST_USER_BAD, 20, 60) // baneado (< 70%)
+      await verificarEstadoUsuario(TEST_USER_BAD)
+
+      const stats = await getUserStats(TEST_USER_BAD)
+      expect(stats!.estado).toBe('baneado')
+
+      // Verificar que las validaciones fueron eliminadas
+      const [afterValidaciones] = await db
+        .select({ count: count() })
+        .from(validacion)
+        .where(eq(validacion.usuarioId, TEST_USER_BAD))
+      expect(Number(afterValidaciones.count)).toBe(0)
+
+      // Verificar que los reportes también fueron eliminados
+      const [afterDiscrepancias] = await db
+        .select({ count: count() })
+        .from(discrepancia)
+        .where(eq(discrepancia.usuarioId, TEST_USER_BAD))
+      expect(Number(afterDiscrepancias.count)).toBe(0)
+    }, 30000)
   })
 
   describe('Admin Lock', () => {
@@ -453,7 +514,8 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
       expect(stats!.correccionesRecibidas).toBe(10)
       expect(stats!.actasValidadas).toBe(10)
 
-      // Con 0% de precisión, debe estar al menos advertido
+      // Con 0% de precisión (100% error), debe estar al menos advertido
+      // (progresivo: primero advertido, luego restringido, luego baneado)
       expect(stats!.estado).toBe('advertido')
     }, 60000) // Timeout aumentado para validaciones secuenciales
   })
