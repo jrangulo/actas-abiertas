@@ -1,0 +1,1847 @@
+{
+  "id": "141fd65c-d48e-46f7-b842-545dbef462c5",
+  "prevId": "7ae2a664-7c39-4dcc-84c4-46b49b67d4e7",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.acta": {
+      "name": "acta",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "uuid": {
+          "name": "uuid",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        },
+        "cne_id": {
+          "name": "cne_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "departamento_codigo": {
+          "name": "departamento_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "municipio_codigo": {
+          "name": "municipio_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "centro_codigo": {
+          "name": "centro_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "tipo_zona": {
+          "name": "tipo_zona",
+          "type": "tipo_zona",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "jrv_numero": {
+          "name": "jrv_numero",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_nulos_oficial": {
+          "name": "votos_nulos_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_blancos_oficial": {
+          "name": "votos_blancos_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pn_oficial": {
+          "name": "votos_pn_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_plh_oficial": {
+          "name": "votos_plh_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pl_oficial": {
+          "name": "votos_pl_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pinu_oficial": {
+          "name": "votos_pinu_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_dc_oficial": {
+          "name": "votos_dc_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_total_oficial": {
+          "name": "votos_total_oficial",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pn_digitado": {
+          "name": "votos_pn_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_plh_digitado": {
+          "name": "votos_plh_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pl_digitado": {
+          "name": "votos_pl_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pinu_digitado": {
+          "name": "votos_pinu_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_dc_digitado": {
+          "name": "votos_dc_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_nulos_digitado": {
+          "name": "votos_nulos_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_blancos_digitado": {
+          "name": "votos_blancos_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_total_digitado": {
+          "name": "votos_total_digitado",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votantes_registrados": {
+          "name": "votantes_registrados",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "papeletas_recibidas": {
+          "name": "papeletas_recibidas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "papeletas_utilizadas": {
+          "name": "papeletas_utilizadas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "papeletas_no_utilizadas": {
+          "name": "papeletas_no_utilizadas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votantes_ciudadanos": {
+          "name": "votantes_ciudadanos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votantes_jrv": {
+          "name": "votantes_jrv",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votantes_custodios": {
+          "name": "votantes_custodios",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_votantes": {
+          "name": "total_votantes",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "publicada_en_cne": {
+          "name": "publicada_en_cne",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "escrutada_en_cne": {
+          "name": "escrutada_en_cne",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "digitalizada_en_cne": {
+          "name": "digitalizada_en_cne",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "etiquetas_cne": {
+          "name": "etiquetas_cne",
+          "type": "json",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "estado": {
+          "name": "estado",
+          "type": "estado_acta",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pendiente'"
+        },
+        "digitado_por": {
+          "name": "digitado_por",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "digitado_en": {
+          "name": "digitado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bloqueado_hasta": {
+          "name": "bloqueado_hasta",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bloqueado_por": {
+          "name": "bloqueado_por",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cantidad_validaciones": {
+          "name": "cantidad_validaciones",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "cantidad_validaciones_correctas": {
+          "name": "cantidad_validaciones_correctas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "actualizado_en": {
+          "name": "actualizado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "acta_estado_idx": {
+          "name": "acta_estado_idx",
+          "columns": [
+            {
+              "expression": "estado",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_disponible_idx": {
+          "name": "acta_disponible_idx",
+          "columns": [
+            {
+              "expression": "estado",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "bloqueado_hasta",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_para_validar_idx": {
+          "name": "acta_para_validar_idx",
+          "columns": [
+            {
+              "expression": "estado",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "cantidad_validaciones",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_departamento_idx": {
+          "name": "acta_departamento_idx",
+          "columns": [
+            {
+              "expression": "departamento_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_municipio_idx": {
+          "name": "acta_municipio_idx",
+          "columns": [
+            {
+              "expression": "departamento_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "municipio_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_centro_idx": {
+          "name": "acta_centro_idx",
+          "columns": [
+            {
+              "expression": "departamento_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "municipio_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "centro_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "acta_jrv_idx": {
+          "name": "acta_jrv_idx",
+          "columns": [
+            {
+              "expression": "departamento_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "municipio_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "centro_codigo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "jrv_numero",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "acta_digitado_por_users_id_fk": {
+          "name": "acta_digitado_por_users_id_fk",
+          "tableFrom": "acta",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "digitado_por"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "acta_bloqueado_por_users_id_fk": {
+          "name": "acta_bloqueado_por_users_id_fk",
+          "tableFrom": "acta",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "bloqueado_por"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        },
+        "acta_jrv_fk": {
+          "name": "acta_jrv_fk",
+          "tableFrom": "acta",
+          "tableTo": "jrv",
+          "columnsFrom": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "centro_codigo",
+            "jrv_numero"
+          ],
+          "columnsTo": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "centro_codigo",
+            "numero"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "acta_uuid_unique": {
+          "name": "acta_uuid_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "uuid"
+          ]
+        },
+        "acta_cne_id_unique": {
+          "name": "acta_cne_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "cne_id"
+          ]
+        },
+        "acta_jrv_unique": {
+          "name": "acta_jrv_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "centro_codigo",
+            "jrv_numero"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "auth.users": {
+      "name": "users",
+      "schema": "auth",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "email": {
+          "name": "email",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "raw_user_meta_data": {
+          "name": "raw_user_meta_data",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.centro_votacion": {
+      "name": "centro_votacion",
+      "schema": "",
+      "columns": {
+        "departamento_codigo": {
+          "name": "departamento_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "municipio_codigo": {
+          "name": "municipio_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo_zona": {
+          "name": "tipo_zona",
+          "type": "tipo_zona",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "direccion": {
+          "name": "direccion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "centro_votacion_municipio_fk": {
+          "name": "centro_votacion_municipio_fk",
+          "tableFrom": "centro_votacion",
+          "tableTo": "municipio",
+          "columnsFrom": [
+            "departamento_codigo",
+            "municipio_codigo"
+          ],
+          "columnsTo": [
+            "departamento_codigo",
+            "codigo"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "centro_votacion_pkey": {
+          "name": "centro_votacion_pkey",
+          "columns": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "codigo",
+            "tipo_zona"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.comentario_discrepancia": {
+      "name": "comentario_discrepancia",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "acta_id": {
+          "name": "acta_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contenido": {
+          "name": "contenido",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "padre_id": {
+          "name": "padre_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
+        "editado_en": {
+          "name": "editado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "comentario_discrepancia_acta_idx": {
+          "name": "comentario_discrepancia_acta_idx",
+          "columns": [
+            {
+              "expression": "acta_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "comentario_discrepancia_usuario_idx": {
+          "name": "comentario_discrepancia_usuario_idx",
+          "columns": [
+            {
+              "expression": "usuario_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "comentario_discrepancia_padre_idx": {
+          "name": "comentario_discrepancia_padre_idx",
+          "columns": [
+            {
+              "expression": "padre_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "comentario_discrepancia_acta_id_acta_id_fk": {
+          "name": "comentario_discrepancia_acta_id_acta_id_fk",
+          "tableFrom": "comentario_discrepancia",
+          "tableTo": "acta",
+          "columnsFrom": [
+            "acta_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "comentario_discrepancia_usuario_id_users_id_fk": {
+          "name": "comentario_discrepancia_usuario_id_users_id_fk",
+          "tableFrom": "comentario_discrepancia",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.departamento": {
+      "name": "departamento",
+      "schema": "",
+      "columns": {
+        "codigo": {
+          "name": "codigo",
+          "type": "smallint",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.discrepancia": {
+      "name": "discrepancia",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "acta_id": {
+          "name": "acta_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo": {
+          "name": "tipo",
+          "type": "tipo_discrepancia",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "descripcion": {
+          "name": "descripcion",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resuelta": {
+          "name": "resuelta",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "resuelta_por": {
+          "name": "resuelta_por",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resolucion_comentario": {
+          "name": "resolucion_comentario",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "resuelta_en": {
+          "name": "resuelta_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "discrepancia_acta_idx": {
+          "name": "discrepancia_acta_idx",
+          "columns": [
+            {
+              "expression": "acta_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "discrepancia_tipo_idx": {
+          "name": "discrepancia_tipo_idx",
+          "columns": [
+            {
+              "expression": "tipo",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "discrepancia_resuelta_idx": {
+          "name": "discrepancia_resuelta_idx",
+          "columns": [
+            {
+              "expression": "resuelta",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "discrepancia_acta_id_acta_id_fk": {
+          "name": "discrepancia_acta_id_acta_id_fk",
+          "tableFrom": "discrepancia",
+          "tableTo": "acta",
+          "columnsFrom": [
+            "acta_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "discrepancia_usuario_id_users_id_fk": {
+          "name": "discrepancia_usuario_id_users_id_fk",
+          "tableFrom": "discrepancia",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "discrepancia_resuelta_por_users_id_fk": {
+          "name": "discrepancia_resuelta_por_users_id_fk",
+          "tableFrom": "discrepancia",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "resuelta_por"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "discrepancia_acta_usuario_unique": {
+          "name": "discrepancia_acta_usuario_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "acta_id",
+            "usuario_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.estadistica_usuario": {
+      "name": "estadistica_usuario",
+      "schema": "",
+      "columns": {
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "actas_digitadas": {
+          "name": "actas_digitadas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "actas_validadas": {
+          "name": "actas_validadas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "validaciones_correctas": {
+          "name": "validaciones_correctas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "discrepancias_reportadas": {
+          "name": "discrepancias_reportadas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "correcciones_recibidas": {
+          "name": "correcciones_recibidas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "estado": {
+          "name": "estado",
+          "type": "estado_usuario",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'activo'"
+        },
+        "estado_cambiado_en": {
+          "name": "estado_cambiado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "razon_estado": {
+          "name": "razon_estado",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ultima_advertencia_en": {
+          "name": "ultima_advertencia_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "conteo_advertencias": {
+          "name": "conteo_advertencias",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "estado_bloqueado_por_admin": {
+          "name": "estado_bloqueado_por_admin",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "estado_modificado_por": {
+          "name": "estado_modificado_por",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "primera_actividad": {
+          "name": "primera_actividad",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ultima_actividad": {
+          "name": "ultima_actividad",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "perfil_privado": {
+          "name": "perfil_privado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "onboarding_completado": {
+          "name": "onboarding_completado",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        }
+      },
+      "indexes": {
+        "estadistica_digitadas_idx": {
+          "name": "estadistica_digitadas_idx",
+          "columns": [
+            {
+              "expression": "actas_digitadas",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "estadistica_validadas_idx": {
+          "name": "estadistica_validadas_idx",
+          "columns": [
+            {
+              "expression": "actas_validadas",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "estadistica_ultima_actividad_idx": {
+          "name": "estadistica_ultima_actividad_idx",
+          "columns": [
+            {
+              "expression": "ultima_actividad",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "estadistica_estado_idx": {
+          "name": "estadistica_estado_idx",
+          "columns": [
+            {
+              "expression": "estado",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "estadistica_accuracy_idx": {
+          "name": "estadistica_accuracy_idx",
+          "columns": [
+            {
+              "expression": "actas_validadas",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "correcciones_recibidas",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "estadistica_usuario_usuario_id_users_id_fk": {
+          "name": "estadistica_usuario_usuario_id_users_id_fk",
+          "tableFrom": "estadistica_usuario",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "estadistica_usuario_estado_modificado_por_users_id_fk": {
+          "name": "estadistica_usuario_estado_modificado_por_users_id_fk",
+          "tableFrom": "estadistica_usuario",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "estado_modificado_por"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.historial_digitacion": {
+      "name": "historial_digitacion",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "acta_id": {
+          "name": "acta_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo_cambio": {
+          "name": "tipo_cambio",
+          "type": "tipo_cambio",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_pn": {
+          "name": "votos_pn",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_plh": {
+          "name": "votos_plh",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pl": {
+          "name": "votos_pl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_pinu": {
+          "name": "votos_pinu",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_dc": {
+          "name": "votos_dc",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votos_total": {
+          "name": "votos_total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comentario": {
+          "name": "comentario",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "historial_acta_idx": {
+          "name": "historial_acta_idx",
+          "columns": [
+            {
+              "expression": "acta_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "historial_usuario_idx": {
+          "name": "historial_usuario_idx",
+          "columns": [
+            {
+              "expression": "usuario_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "historial_digitacion_acta_id_acta_id_fk": {
+          "name": "historial_digitacion_acta_id_acta_id_fk",
+          "tableFrom": "historial_digitacion",
+          "tableTo": "acta",
+          "columnsFrom": [
+            "acta_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "historial_digitacion_usuario_id_users_id_fk": {
+          "name": "historial_digitacion_usuario_id_users_id_fk",
+          "tableFrom": "historial_digitacion",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.historial_usuario_estado": {
+      "name": "historial_usuario_estado",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "serial",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estado_anterior": {
+          "name": "estado_anterior",
+          "type": "estado_usuario",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estado_nuevo": {
+          "name": "estado_nuevo",
+          "type": "estado_usuario",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "razon": {
+          "name": "razon",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "validaciones_totales": {
+          "name": "validaciones_totales",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "correcciones_recibidas": {
+          "name": "correcciones_recibidas",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "porcentaje_acierto": {
+          "name": "porcentaje_acierto",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "es_automatico": {
+          "name": "es_automatico",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": true
+        },
+        "modificado_por": {
+          "name": "modificado_por",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "historial_estado_usuario_idx": {
+          "name": "historial_estado_usuario_idx",
+          "columns": [
+            {
+              "expression": "usuario_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "historial_estado_fecha_idx": {
+          "name": "historial_estado_fecha_idx",
+          "columns": [
+            {
+              "expression": "creado_en",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "historial_usuario_estado_usuario_id_users_id_fk": {
+          "name": "historial_usuario_estado_usuario_id_users_id_fk",
+          "tableFrom": "historial_usuario_estado",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "historial_usuario_estado_modificado_por_users_id_fk": {
+          "name": "historial_usuario_estado_modificado_por_users_id_fk",
+          "tableFrom": "historial_usuario_estado",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "modificado_por"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.jrv": {
+      "name": "jrv",
+      "schema": "",
+      "columns": {
+        "departamento_codigo": {
+          "name": "departamento_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "municipio_codigo": {
+          "name": "municipio_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "centro_codigo": {
+          "name": "centro_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tipo_zona": {
+          "name": "tipo_zona",
+          "type": "tipo_zona",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "numero": {
+          "name": "numero",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votantes_registrados": {
+          "name": "votantes_registrados",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "jrv_centro_votacion_fk": {
+          "name": "jrv_centro_votacion_fk",
+          "tableFrom": "jrv",
+          "tableTo": "centro_votacion",
+          "columnsFrom": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "centro_codigo",
+            "tipo_zona"
+          ],
+          "columnsTo": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "codigo",
+            "tipo_zona"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "jrv_pkey": {
+          "name": "jrv_pkey",
+          "columns": [
+            "departamento_codigo",
+            "municipio_codigo",
+            "centro_codigo",
+            "numero"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.municipio": {
+      "name": "municipio",
+      "schema": "",
+      "columns": {
+        "departamento_codigo": {
+          "name": "departamento_codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "codigo": {
+          "name": "codigo",
+          "type": "smallint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nombre": {
+          "name": "nombre",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "municipio_departamento_codigo_departamento_codigo_fk": {
+          "name": "municipio_departamento_codigo_departamento_codigo_fk",
+          "tableFrom": "municipio",
+          "tableTo": "departamento",
+          "columnsFrom": [
+            "departamento_codigo"
+          ],
+          "columnsTo": [
+            "codigo"
+          ],
+          "onDelete": "restrict",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "municipio_departamento_codigo_codigo_pk": {
+          "name": "municipio_departamento_codigo_codigo_pk",
+          "columns": [
+            "departamento_codigo",
+            "codigo"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.validacion": {
+      "name": "validacion",
+      "schema": "",
+      "columns": {
+        "acta_id": {
+          "name": "acta_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usuario_id": {
+          "name": "usuario_id",
+          "type": "uuid",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "es_correcto": {
+          "name": "es_correcto",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_pn": {
+          "name": "votos_pn",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_plh": {
+          "name": "votos_plh",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_pl": {
+          "name": "votos_pl",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_pinu": {
+          "name": "votos_pinu",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_dc": {
+          "name": "votos_dc",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_nulos": {
+          "name": "votos_nulos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_blancos": {
+          "name": "votos_blancos",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votos_total": {
+          "name": "votos_total",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "historial_correccion_id": {
+          "name": "historial_correccion_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "comentario": {
+          "name": "comentario",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "creado_en": {
+          "name": "creado_en",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        }
+      },
+      "indexes": {
+        "validacion_acta_idx": {
+          "name": "validacion_acta_idx",
+          "columns": [
+            {
+              "expression": "acta_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "validacion_acta_id_acta_id_fk": {
+          "name": "validacion_acta_id_acta_id_fk",
+          "tableFrom": "validacion",
+          "tableTo": "acta",
+          "columnsFrom": [
+            "acta_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "validacion_usuario_id_users_id_fk": {
+          "name": "validacion_usuario_id_users_id_fk",
+          "tableFrom": "validacion",
+          "tableTo": "users",
+          "schemaTo": "auth",
+          "columnsFrom": [
+            "usuario_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "validacion_historial_correccion_id_historial_digitacion_id_fk": {
+          "name": "validacion_historial_correccion_id_historial_digitacion_id_fk",
+          "tableFrom": "validacion",
+          "tableTo": "historial_digitacion",
+          "columnsFrom": [
+            "historial_correccion_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "set null",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "validacion_acta_id_usuario_id_pk": {
+          "name": "validacion_acta_id_usuario_id_pk",
+          "columns": [
+            "acta_id",
+            "usuario_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.estado_acta": {
+      "name": "estado_acta",
+      "schema": "public",
+      "values": [
+        "pendiente",
+        "en_proceso",
+        "digitada",
+        "en_validacion",
+        "validada",
+        "con_discrepancia",
+        "bajo_revision"
+      ]
+    },
+    "public.estado_usuario": {
+      "name": "estado_usuario",
+      "schema": "public",
+      "values": [
+        "activo",
+        "advertido",
+        "restringido",
+        "baneado"
+      ]
+    },
+    "public.tipo_cambio": {
+      "name": "tipo_cambio",
+      "schema": "public",
+      "values": [
+        "digitacion_inicial",
+        "correccion_validador",
+        "rectificacion"
+      ]
+    },
+    "public.tipo_discrepancia": {
+      "name": "tipo_discrepancia",
+      "schema": "public",
+      "values": [
+        "ilegible",
+        "adulterada",
+        "datos_inconsistentes",
+        "imagen_incompleta",
+        "valores_incorrectos",
+        "otro"
+      ]
+    },
+    "public.tipo_zona": {
+      "name": "tipo_zona",
+      "schema": "public",
+      "values": [
+        "urbano",
+        "rural"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

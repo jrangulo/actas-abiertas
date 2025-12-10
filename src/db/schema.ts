@@ -483,6 +483,8 @@ export const discrepancia = pgTable(
     index('discrepancia_acta_idx').on(table.actaId),
     index('discrepancia_tipo_idx').on(table.tipo),
     index('discrepancia_resuelta_idx').on(table.resuelta),
+    // Un usuario solo puede reportar una vez por acta (prevenir spam clicks)
+    unique('discrepancia_acta_usuario_unique').on(table.actaId, table.usuarioId),
   ]
 )
 

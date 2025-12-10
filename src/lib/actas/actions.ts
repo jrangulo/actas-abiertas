@@ -588,6 +588,20 @@ export async function reportarProblema(
     throw new Error('Acta no encontrada')
   }
 
+  // Verificar si el usuario ya reportó esta acta (prevenir duplicados por spam click)
+  const [existingReport] = await db
+    .select({ id: discrepancia.id })
+    .from(discrepancia)
+    .where(and(eq(discrepancia.actaId, actaData.acta.id), eq(discrepancia.usuarioId, user.id)))
+    .limit(1)
+
+  if (existingReport) {
+    // Ya existe un reporte de este usuario para esta acta, solo liberar y redirigir
+    await liberarActa(uuid, user.id)
+    revalidatePath('/dashboard/verificar')
+    redirect('/dashboard/verificar')
+  }
+
   // Registrar discrepancia
   await db.insert(discrepancia).values({
     actaId: actaData.acta.id,

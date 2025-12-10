@@ -1,0 +1,1 @@
+ALTER TABLE "discrepancia" ADD CONSTRAINT "discrepancia_acta_usuario_unique" UNIQUE("acta_id","usuario_id");
