@@ -79,6 +79,7 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
         estado: actaData.acta.estado,
         escrutada: actaData.acta.escrutadaEnCne || false,
         cantidadValidaciones: actaData.acta.cantidadValidaciones,
+        etiquetasCNE: (actaData.acta.etiquetasCNE as string[] | null) || [],
       }}
       valoresActuales={valoresActuales}
       imagenUrl={imagenUrl}
