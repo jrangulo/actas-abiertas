@@ -1,16 +1,14 @@
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import {
-  getActaByUuid,
-  getModoVerificacion,
-  getValoresActuales,
-  bloquearActa,
-  getActaImageUrl,
-} from '@/lib/actas'
+import { getActaByUuid, getValoresActuales, bloquearActa, getActaImageUrl } from '@/lib/actas'
 import { db } from '@/db'
-import { validacion, acta as actaTable } from '@/db/schema'
+import { validacion } from '@/db/schema'
 import { and, eq } from 'drizzle-orm'
 import { VerificarClient } from './verificar-client'
+
+// Force dynamic rendering - never cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 interface VerificarActaPageProps {
   params: Promise<{ uuid: string }>
@@ -39,7 +37,7 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
   const yaValidada = await db
     .select({ id: validacion.actaId })
     .from(validacion)
-    .where(and(eq(validacion.actaId, actaData.id), eq(validacion.usuarioId, user.id)))
+    .where(and(eq(validacion.actaId, actaData.acta.id), eq(validacion.usuarioId, user.id)))
     .limit(1)
 
   if (yaValidada.length > 0) {
@@ -50,7 +48,7 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
   // IMPORTANTE: Esta verificación también previene un bug donde Next.js re-ejecuta
   // este server component durante la navegación, causando que bloquearActa() se llame
   // de nuevo después de que guardarDigitalizacion() liberó el bloqueo
-  if (actaData.digitadoPor === user.id) {
+  if (actaData.acta.digitadoPor === user.id) {
     redirect('/dashboard')
   }
 
@@ -62,27 +60,25 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
     redirect('/dashboard/verificar?error=bloqueada')
   }
 
-  // Determinar modo y valores
-  const modo = getModoVerificacion(actaData)
-  const valoresActuales = getValoresActuales(actaData)
+  // Obtener valores actuales
+  const valoresActuales = getValoresActuales(actaData.acta)
 
   // Construir URL de imagen de Supabase Storage
-  const imagenUrl = getActaImageUrl(actaData.cneId) || '/placeholder-acta.png'
+  const imagenUrl = getActaImageUrl(actaData.acta.cneId) || '/placeholder-acta.png'
 
   return (
     <VerificarClient
       uuid={uuid}
-      modo={modo}
       bloqueadoHasta={bloqueoResult.bloqueadoHasta!}
       actaInfo={{
-        cneId: actaData.cneId || 'Sin ID',
-        departamento: actaData.departamentoCodigo?.toString() || '-',
-        municipio: actaData.municipioCodigo?.toString() || '-',
-        centro: actaData.centroCodigo?.toString() || '-',
-        jrv: actaData.jrvNumero?.toString() || '-',
-        estado: actaData.estado,
-        escrutada: actaData.escrutadaEnCne || false,
-        cantidadValidaciones: actaData.cantidadValidaciones,
+        cneId: actaData.acta.cneId || 'Sin ID',
+        departamento: `${actaData.departamento?.nombre || '-'} (${actaData.acta.departamentoCodigo?.toString().padStart(2, '0')})`,
+        municipio: `${actaData.municipio?.nombre || '-'} (${actaData.acta.municipioCodigo?.toString().padStart(3, '0')})`,
+        centro: `${actaData.acta.centroCodigo?.toString().padStart(3, '0')} - ${actaData.centro_votacion?.nombre || 'Desconocido'} ${actaData.centro_votacion?.direccion ? `(${actaData.centro_votacion.direccion})` : ''}`,
+        jrv: actaData.acta.jrvNumero?.toString().padStart(5, '0') || '-',
+        estado: actaData.acta.estado,
+        escrutada: actaData.acta.escrutadaEnCne || false,
+        cantidadValidaciones: actaData.acta.cantidadValidaciones,
       }}
       valoresActuales={valoresActuales}
       imagenUrl={imagenUrl}

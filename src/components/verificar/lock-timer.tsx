@@ -9,9 +9,16 @@ interface LockTimerProps {
   bloqueadoHasta: Date
   uuid: string
   onExpired?: () => void
+  /** Disable auto-refresh (e.g., when abandoning) */
+  disableRefresh?: boolean
 }
 
-export function LockTimer({ bloqueadoHasta, uuid, onExpired }: LockTimerProps) {
+export function LockTimer({
+  bloqueadoHasta,
+  uuid,
+  onExpired,
+  disableRefresh = false,
+}: LockTimerProps) {
   const [timeLeft, setTimeLeft] = useState<number>(0)
   const [isRefreshing, setIsRefreshing] = useState(false)
 
@@ -42,10 +49,13 @@ export function LockTimer({ bloqueadoHasta, uuid, onExpired }: LockTimerProps) {
   useEffect(() => {
     const refreshThreshold = 120 // 2 minutos
 
+    // Don't refresh if disabled (e.g., during abandon)
+    if (disableRefresh) return
+
     if (timeLeft === refreshThreshold && !isRefreshing) {
       handleRefresh()
     }
-  }, [timeLeft, isRefreshing])
+  }, [timeLeft, isRefreshing, disableRefresh])
 
   const handleRefresh = async () => {
     if (isRefreshing) return

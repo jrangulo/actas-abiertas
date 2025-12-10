@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogClose,
 } from '@/components/ui/dialog'
-import { Maximize2, ZoomIn, ZoomOut, RotateCw, FileImage, X } from 'lucide-react'
+import { Maximize2, ZoomIn, ZoomOut, RotateCw, X } from 'lucide-react'
 
 interface ImageViewerProps {
   src: string
@@ -17,27 +17,56 @@ interface ImageViewerProps {
 }
 
 /**
- * Visor de imagen para móvil - Solo muestra un botón que abre la imagen en pantalla completa
+ * Visor de imagen para móvil - Muestra imagen inline con opción de fullscreen
  */
 export function MobileImageViewer({ src, alt }: ImageViewerProps) {
+  const [rotation, setRotation] = useState(0)
+
+  const handleRotate = () => setRotation((r) => (r + 90) % 360)
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline" className="w-full h-24 border-dashed">
-          <div className="flex flex-col items-center gap-2">
-            <FileImage className="h-8 w-8 text-muted-foreground" />
-            <span className="text-sm font-medium">Ver imagen del acta</span>
+    <div className="relative w-full bg-muted rounded-md overflow-hidden">
+      {/* Imagen principal */}
+      <Dialog>
+        <DialogTrigger asChild>
+          <div className="relative h-[50vh] min-h-[300px] cursor-pointer">
+            <div className="absolute inset-0 flex items-center justify-center p-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={src}
+                alt={alt}
+                className="max-w-full max-h-full object-contain"
+                style={{
+                  transform: `rotate(${rotation}deg)`,
+                }}
+                draggable={false}
+              />
+            </div>
+            {/* Overlay hint */}
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 hover:bg-black/10 transition-colors">
+              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5">
+                <Maximize2 className="h-3 w-3" />
+                Toca para ampliar
+              </div>
+            </div>
           </div>
+        </DialogTrigger>
+        <DialogContent
+          className="max-w-[100vw] max-h-screen w-full h-full p-0 border-0"
+          showCloseButton={false}
+        >
+          <DialogTitle className="sr-only">Imagen del acta</DialogTitle>
+          <FullscreenImageViewer src={src} alt={alt} />
+        </DialogContent>
+      </Dialog>
+
+      {/* Controles simples */}
+      <div className="absolute top-2 right-2 flex gap-1">
+        <Button size="icon" variant="secondary" className="h-8 w-8" onClick={handleRotate}>
+          <RotateCw className="h-4 w-4" />
         </Button>
-      </DialogTrigger>
-      <DialogContent
-        className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0"
-        showCloseButton={false}
-      >
-        <DialogTitle className="sr-only">Imagen del acta</DialogTitle>
-        <FullscreenImageViewer src={src} alt={alt} />
-      </DialogContent>
-    </Dialog>
+      </div>
+    </div>
   )
 }
 
@@ -47,33 +76,86 @@ export function MobileImageViewer({ src, alt }: ImageViewerProps) {
 export function DesktopImageViewer({ src, alt }: ImageViewerProps) {
   const [zoom, setZoom] = useState(1)
   const [rotation, setRotation] = useState(0)
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [isDragging, setIsDragging] = useState(false)
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.25, 3))
   const handleZoomOut = () => setZoom((z) => Math.max(z - 0.25, 0.5))
   const handleRotate = () => setRotation((r) => (r + 90) % 360)
+  const handleReset = () => {
+    setZoom(1)
+    setRotation(0)
+    setPosition({ x: 0, y: 0 })
+  }
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (zoom > 1) {
+      setIsDragging(true)
+      setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y })
+    }
+  }
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging) {
+      setPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y,
+      })
+    }
+  }
+
+  const handleMouseUp = () => setIsDragging(false)
+
+  // Reset position when zoom returns to 1
+  const handleZoomOutWithReset = () => {
+    const newZoom = Math.max(zoom - 0.25, 0.5)
+    setZoom(newZoom)
+    if (newZoom <= 1) {
+      setPosition({ x: 0, y: 0 })
+    }
+  }
 
   return (
-    <div className="relative w-full bg-muted rounded-lg overflow-hidden">
+    <div className="relative w-full bg-muted rounded-md overflow-hidden">
       {/* Imagen principal - altura completa en desktop */}
-      <div className="relative h-[calc(100vh-280px)] min-h-[400px] overflow-auto">
+      <div
+        className={`relative h-[calc(100vh-280px)] min-h-[400px] overflow-hidden ${zoom > 1 ? 'cursor-grab' : 'cursor-default'} ${isDragging ? 'cursor-grabbing' : ''}`}
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove}
+        onMouseUp={handleMouseUp}
+        onMouseLeave={handleMouseUp}
+      >
         <div className="absolute inset-0 flex items-center justify-center p-4">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={src}
             alt={alt}
-            className="max-w-full max-h-full object-contain transition-transform duration-200"
+            className="max-w-full max-h-full object-contain transition-transform duration-100 select-none"
             style={{
-              transform: `scale(${zoom}) rotate(${rotation}deg)`,
+              transform: `translate(${position.x}px, ${position.y}px) scale(${zoom}) rotate(${rotation}deg)`,
             }}
             draggable={false}
           />
         </div>
       </div>
 
+      {/* Hint para arrastrar */}
+      {zoom > 1 && (
+        <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-black/60 text-white text-xs px-2 py-1 rounded">
+          Arrastra para mover
+        </div>
+      )}
+
       {/* Controles */}
       <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between">
         <div className="flex gap-1">
-          <Button size="icon" variant="secondary" className="h-8 w-8" onClick={handleZoomOut}>
+          <Button
+            size="icon"
+            variant="secondary"
+            className="h-8 w-8"
+            onClick={handleZoomOutWithReset}
+          >
             <ZoomOut className="h-4 w-4" />
           </Button>
           <Button size="icon" variant="secondary" className="h-8 w-8" onClick={handleZoomIn}>
@@ -82,7 +164,23 @@ export function DesktopImageViewer({ src, alt }: ImageViewerProps) {
           <Button size="icon" variant="secondary" className="h-8 w-8" onClick={handleRotate}>
             <RotateCw className="h-4 w-4" />
           </Button>
+          {(zoom !== 1 || rotation !== 0 || position.x !== 0 || position.y !== 0) && (
+            <Button
+              size="icon"
+              variant="outline"
+              className="h-8 w-8"
+              onClick={handleReset}
+              title="Restablecer"
+            >
+              <span className="text-xs font-bold">↺</span>
+            </Button>
+          )}
         </div>
+
+        {/* Zoom indicator */}
+        <span className="text-xs text-muted-foreground bg-background/80 px-2 py-1 rounded">
+          {Math.round(zoom * 100)}%
+        </span>
 
         {/* Botón de pantalla completa */}
         <Dialog>
@@ -92,7 +190,7 @@ export function DesktopImageViewer({ src, alt }: ImageViewerProps) {
             </Button>
           </DialogTrigger>
           <DialogContent
-            className="max-w-[100vw] max-h-[100vh] w-full h-full p-0 border-0"
+            className="max-w-[100vw] max-h-screen w-full h-full p-0 border-0"
             showCloseButton={false}
           >
             <DialogTitle className="sr-only">Imagen del acta en pantalla completa</DialogTitle>

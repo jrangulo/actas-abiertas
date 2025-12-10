@@ -1,10 +1,14 @@
 import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
-import { PenLine, CheckSquare, AlertTriangle, Info } from 'lucide-react'
+import { CheckSquare, AlertTriangle, Info } from 'lucide-react'
 import { getActasStats, getActaBloqueadaPorUsuario } from '@/lib/actas'
 import { createClient } from '@/lib/supabase/server'
 import { StartButton } from './start-button'
+
+// Force dynamic rendering - never cache this page
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 interface VerificarPageProps {
   searchParams: Promise<{ error?: string; message?: string }>
@@ -41,7 +45,7 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
     <div className="space-y-6 py-4 lg:py-6">
       <div>
         <h1 className="text-2xl lg:text-3xl font-bold">Verificar Actas</h1>
-        <p className="text-muted-foreground">Elige cómo quieres contribuir</p>
+        <p className="text-muted-foreground">Valida y corrige los datos de las actas electorales</p>
       </div>
 
       {/* Mensajes de error o estado */}
@@ -72,90 +76,70 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
         </Alert>
       )}
 
-      {/* Desktop: Side-by-side cards */}
-      <div className="grid lg:grid-cols-2 gap-4">
-        {/* Opción: Digitalizar */}
-        <Card className="flex flex-col">
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <PenLine className="h-5 w-5 text-[#0069b4]" />
-                Digitalizar acta
-              </CardTitle>
-              <div className="text-right">
-                <p className="text-2xl font-bold tabular-nums text-[#0069b4]">
-                  {stats.porDigitalizar.toLocaleString()}
-                </p>
-                <p className="text-xs text-muted-foreground">pendientes</p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="flex-1 flex flex-col space-y-4">
-            <p className="text-sm text-muted-foreground flex-1">
-              Transcribe los datos de un acta que aún no ha sido procesada. Serás el primero en
-              ingresar los valores.
-            </p>
-            <StartButton modo="digitalizar" />
-          </CardContent>
-        </Card>
-
-        {/* Opción: Validar */}
-        <Card className="flex flex-col">
-          <CardHeader className="pb-2">
-            <div className="flex items-center justify-between">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <CheckSquare className="h-5 w-5 text-green-600" />
-                Validar acta
-              </CardTitle>
-              <div className="text-right">
-                <p className="text-2xl font-bold tabular-nums text-green-600">
-                  {porcentajeValidaciones}%
-                </p>
-                <p className="text-xs text-muted-foreground">completado</p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="flex-1 flex flex-col space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Revisa un acta que ya tiene valores y confirma que son correctos o reporta
-              diferencias.
-            </p>
-            {/* Validation progress bar */}
-            <div className="space-y-1.5">
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
-                  style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {stats.validacionesRealizadas.toLocaleString()} /{' '}
-                {stats.validacionesNecesarias.toLocaleString()} validaciones
+      {/* Opción: Validar */}
+      <Card className="max-w-xl">
+        <CardHeader>
+          <div className="flex items-center justify-between">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <CheckSquare className="h-5 w-5 text-green-600" />
+              Validar actas
+            </CardTitle>
+            <div className="text-right">
+              <p className="text-2xl font-bold tabular-nums text-green-600">
+                {porcentajeValidaciones}%
               </p>
+              <p className="text-xs text-muted-foreground">completado</p>
             </div>
-            <StartButton modo="validar" />
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </CardHeader>
+        <CardContent className="flex flex-col space-y-4">
+          <p className="text-sm text-muted-foreground">
+            Revisa los valores de una acta y confirma que son correctos, corrige si hay diferencias
+            y reporta por adulteración o ilegibilidad.
+          </p>
+          {/* Validation progress bar */}
+          <div className="space-y-1.5">
+            <div className="h-2 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
+                style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground">
+              {stats.validacionesRealizadas.toLocaleString()} /{' '}
+              {stats.validacionesNecesarias.toLocaleString()} validaciones
+            </p>
+          </div>
+          <div className="flex justify-start w-full pt-4">
+            <StartButton />
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Info sobre el proceso */}
       <Card className="bg-muted/50 border-dashed">
-        <CardContent className="pt-6">
+        <CardHeader>
+          <CardTitle>¿Cómo funciona?</CardTitle>
+        </CardHeader>
+        <CardContent>
           <div className="lg:flex lg:items-start lg:gap-8">
-            <div className="flex-1">
-              <h3 className="font-semibold mb-2">¿Cómo funciona?</h3>
-              <p className="text-sm text-muted-foreground">
-                Cada acta necesita ser digitalizada una vez y validada por al menos 3 personas
-                diferentes para garantizar la precisión de los datos.
-              </p>
-            </div>
-            <div className="mt-4 lg:mt-0 lg:flex-1">
-              <h3 className="font-semibold mb-2">¿Por qué importa?</h3>
-              <p className="text-sm text-muted-foreground">
-                Tu participación ayuda a crear un registro transparente e independiente de los
-                resultados electorales de Honduras.
-              </p>
-            </div>
+            <p className="text-sm text-muted-foreground">
+              Cada acta necesita ser validada por al menos 3 personas diferentes para garantizar la
+              precisión de los datos. Si encuentras errores, puedes corregir los valores.
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+      <Card className="bg-muted/50 border-dashed">
+        <CardHeader>
+          <CardTitle>¿Por qué importa?</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="lg:flex lg:items-start lg:gap-8">
+            <p className="text-sm text-muted-foreground">
+              Tu participación ayuda a crear un registro transparente e independiente de los
+              resultados electorales de Honduras.
+            </p>
           </div>
         </CardContent>
       </Card>
