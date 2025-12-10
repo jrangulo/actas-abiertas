@@ -89,7 +89,7 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
 
           <div className="space-y-3 text-sm">
             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
-              <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-green-600 text-xs">✓</span>
               </div>
               <div>
@@ -100,7 +100,7 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
               </div>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
-              <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center shrink-0 mt-0.5">
                 <span className="text-red-600 text-xs">✗</span>
               </div>
               <div>
@@ -158,11 +158,11 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
   return (
     <Dialog open={open} onOpenChange={() => {}}>
       <DialogContent
-        className="sm:max-w-md"
+        className="sm:max-w-md max-h-[90vh] flex flex-col"
         onPointerDownOutside={(e) => e.preventDefault()}
         onEscapeKeyDown={(e) => e.preventDefault()}
       >
-        <DialogHeader className="text-center items-center">
+        <DialogHeader className="text-center items-center shrink-0">
           <div className="mx-auto w-20 h-20 rounded-2xl bg-[#0069b4]/10 flex items-center justify-center mb-2">
             {currentStep.icon}
           </div>
@@ -172,10 +172,10 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="py-4">{currentStep.content}</div>
+        <div className="py-4 overflow-y-auto flex-1 min-h-0">{currentStep.content}</div>
 
         {/* Indicadores de paso */}
-        <div className="flex justify-center gap-2 py-2">
+        <div className="flex justify-center gap-2 py-2 shrink-0">
           {steps.map((_, i) => (
             <div
               key={i}
@@ -188,7 +188,7 @@ export function WelcomeModal({ userName, isOpen }: WelcomeModalProps) {
         </div>
 
         {/* Botones */}
-        <div className="flex gap-3">
+        <div className="flex gap-3 shrink-0">
           {step > 0 && (
             <Button variant="outline" onClick={() => setStep(step - 1)} className="flex-1">
               Atrás
