@@ -53,7 +53,7 @@ export function ProgresionChart({ data }: ProgresionChartProps) {
       yAxisDomain={[0, 100]}
       xAxisFormatter={(value) => `${value.toFixed(0)}%`}
       yAxisFormatter={(value) => `${value.toFixed(0)}%`}
-      tooltipFormatter={(value, name) => `${value.toFixed(2)}%`}
+      tooltipFormatter={(value) => `${value.toFixed(2)}%`}
       height={350}
     />
   )

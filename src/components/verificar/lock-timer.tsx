@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Clock, AlertTriangle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { refrescarBloqueo } from '@/lib/actas/actions'
@@ -21,6 +21,26 @@ export function LockTimer({
 }: LockTimerProps) {
   const [timeLeft, setTimeLeft] = useState<number>(0)
   const [isRefreshing, setIsRefreshing] = useState(false)
+
+  const handleRefresh = useCallback(async () => {
+    if (isRefreshing) return
+
+    setIsRefreshing(true)
+    try {
+      const result = await refrescarBloqueo(uuid)
+      if (result.success && result.bloqueadoHasta) {
+        // El timer se actualizará automáticamente porque bloqueadoHasta cambió
+        // Pero necesitamos forzar recálculo
+        const now = new Date().getTime()
+        const expiry = new Date(result.bloqueadoHasta).getTime()
+        setTimeLeft(Math.max(0, Math.floor((expiry - now) / 1000)))
+      }
+    } catch (error) {
+      console.error('Error refrescando bloqueo:', error)
+    } finally {
+      setIsRefreshing(false)
+    }
+  }, [isRefreshing, uuid])
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -55,27 +75,7 @@ export function LockTimer({
     if (timeLeft === refreshThreshold && !isRefreshing) {
       handleRefresh()
     }
-  }, [timeLeft, isRefreshing, disableRefresh])
-
-  const handleRefresh = async () => {
-    if (isRefreshing) return
-
-    setIsRefreshing(true)
-    try {
-      const result = await refrescarBloqueo(uuid)
-      if (result.success && result.bloqueadoHasta) {
-        // El timer se actualizará automáticamente porque bloqueadoHasta cambió
-        // Pero necesitamos forzar recálculo
-        const now = new Date().getTime()
-        const expiry = new Date(result.bloqueadoHasta).getTime()
-        setTimeLeft(Math.max(0, Math.floor((expiry - now) / 1000)))
-      }
-    } catch (error) {
-      console.error('Error refrescando bloqueo:', error)
-    } finally {
-      setIsRefreshing(false)
-    }
-  }
+  }, [timeLeft, isRefreshing, disableRefresh, handleRefresh])
 
   const minutes = Math.floor(timeLeft / 60)
   const seconds = timeLeft % 60

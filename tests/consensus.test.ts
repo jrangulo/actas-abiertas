@@ -29,6 +29,7 @@ import {
   getUserStats,
   cleanupTestActa,
   cleanupAllTestActas,
+  cleanupStaleTestActas,
   cleanupUserStats,
   STANDARD_VOTES,
   DIFFERENT_VOTES_1,
@@ -58,9 +59,10 @@ const describeWithUsers = canRunAdminTests() ? describe : describe.skip
 describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
   // Crear usuarios de prueba antes de todos los tests
   beforeAll(async () => {
-    // Limpiar datos huérfanos de ejecuciones anteriores que fallaron
+    // Limpiar datos huérfanos de ejecuciones ANTERIORES (>1 hora)
+    // NO elimina datos de otras ejecuciones en curso
     await cleanupStaleTestUsers()
-    await cleanupAllTestActas()
+    await cleanupStaleTestActas()
 
     console.log('Creando usuarios de prueba...')
     TEST_USER_1 = await createTestUser(`test-consensus-1-${Date.now()}@test.local`)
@@ -71,9 +73,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
 
   // Limpiar usuarios de prueba después de todos los tests
   afterAll(async () => {
-    console.log('Limpiando datos de prueba...')
+    console.log('Limpiando datos de prueba (esta ejecución)...')
 
-    // Limpiar todas las actas de prueba (por si alguna no se rastreó en el array)
+    // Limpiar las actas de ESTA ejecución específica
     try {
       await cleanupAllTestActas()
     } catch (error) {

@@ -10,7 +10,7 @@
 import { db } from '@/db'
 import { acta } from '@/db/schema'
 import { eq, sql, and, isNotNull } from 'drizzle-orm'
-import type { EstadisticasVotos, VotosPartido, PuntoProgresion, PartidoPrincipal } from './types'
+import type { EstadisticasVotos, VotosPartido, PuntoProgresion } from './types'
 
 // Re-exportar tipos para uso en server components
 export * from './types'

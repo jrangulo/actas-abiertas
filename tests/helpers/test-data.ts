@@ -1,7 +1,9 @@
 /**
  * Helpers de datos de prueba
  *
- * Utilidades para crear y limpiar datos de prueba en la base de datos
+ * Utilidades para crear y limpiar datos de prueba en la base de datos.
+ * Usa un prefijo único por ejecución para evitar conflictos entre
+ * múltiples ejecuciones de tests (CI, local, etc.)
  */
 
 import { db } from '@/db'
@@ -13,9 +15,10 @@ import {
   historialUsuarioEstado,
 } from '@/db/schema'
 import { eq, like, inArray } from 'drizzle-orm'
+import { TEST_PREFIX, isStaleTestId } from './test-run-id'
 
-// Prefijo para datos de prueba para identificar y limpiar fácilmente
-export const TEST_PREFIX = 'TEST-'
+// Re-exportar el prefijo para compatibilidad
+export { TEST_PREFIX } from './test-run-id'
 
 // Valores de votos estándar para pruebas
 export const STANDARD_VOTES = {
@@ -140,12 +143,13 @@ export async function cleanupTestActa(actaId: number): Promise<void> {
 }
 
 /**
- * Limpiar todas las actas de prueba (por prefijo en cneId)
+ * Limpiar actas de prueba de ESTA ejecución específica
+ * Solo elimina actas con el prefijo de esta ejecución
  */
 export async function cleanupAllTestActas(): Promise<void> {
-  // Encontrar todas las actas de prueba
+  // Encontrar solo las actas de ESTA ejecución
   const testActas = await db
-    .select({ id: acta.id })
+    .select({ id: acta.id, cneId: acta.cneId })
     .from(acta)
     .where(like(acta.cneId, `${TEST_PREFIX}%`))
 
@@ -160,7 +164,35 @@ export async function cleanupAllTestActas(): Promise<void> {
   // Eliminar actas
   await db.delete(acta).where(inArray(acta.id, actaIds))
 
-  console.log(`Se limpiaron ${actaIds.length} actas de prueba`)
+  console.log(`Se limpiaron ${actaIds.length} actas de prueba de esta ejecución`)
+}
+
+/**
+ * Limpiar actas de prueba ANTIGUAS (huérfanas de ejecuciones anteriores)
+ * Solo elimina actas con más de 1 hora de antigüedad
+ */
+export async function cleanupStaleTestActas(): Promise<number> {
+  // Encontrar TODAS las actas de prueba (cualquier prefijo TEST-)
+  const allTestActas = await db
+    .select({ id: acta.id, cneId: acta.cneId })
+    .from(acta)
+    .where(like(acta.cneId, 'TEST-%'))
+
+  // Filtrar solo las que son antiguas
+  const staleActas = allTestActas.filter((a) => a.cneId && isStaleTestId(a.cneId))
+  const staleActaIds = staleActas.map((a) => a.id)
+
+  if (staleActaIds.length === 0) return 0
+
+  // Eliminar validaciones
+  await db.delete(validacion).where(inArray(validacion.actaId, staleActaIds))
+  // Eliminar historial
+  await db.delete(historialDigitacion).where(inArray(historialDigitacion.actaId, staleActaIds))
+  // Eliminar actas
+  await db.delete(acta).where(inArray(acta.id, staleActaIds))
+
+  console.log(`Se limpiaron ${staleActaIds.length} actas de prueba antiguas`)
+  return staleActaIds.length
 }
 
 /**

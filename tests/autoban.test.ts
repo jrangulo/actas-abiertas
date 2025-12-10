@@ -34,6 +34,7 @@ import {
   updateUserStats,
   cleanupTestActa,
   cleanupAllTestActas,
+  cleanupStaleTestActas,
   STANDARD_VOTES,
   DIFFERENT_VOTES_1,
   type TestActa,
@@ -101,9 +102,10 @@ async function getUserStateHistory(userId: string) {
 describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
   // Crear usuarios de prueba antes de todos los tests
   beforeAll(async () => {
-    // Limpiar datos huérfanos de ejecuciones anteriores
+    // Limpiar datos huérfanos de ejecuciones ANTERIORES (>1 hora)
+    // NO elimina datos de otras ejecuciones en curso
     await cleanupStaleTestUsers()
-    await cleanupAllTestActas()
+    await cleanupStaleTestActas()
 
     console.log('Creando usuarios de prueba para autoban...')
     const timestamp = Date.now()
@@ -122,11 +124,11 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
     })
   }, 60000)
 
-  // Limpiar usuarios de prueba después de todos los tests
+  // Limpiar datos de ESTA ejecución después de todos los tests
   afterAll(async () => {
-    console.log('Limpiando datos de prueba de autoban...')
+    console.log('Limpiando datos de prueba de autoban (esta ejecución)...')
 
-    // Limpiar todas las actas de prueba (por si alguna no se rastreó en el array)
+    // Limpiar las actas de ESTA ejecución específica
     try {
       await cleanupAllTestActas()
     } catch (error) {

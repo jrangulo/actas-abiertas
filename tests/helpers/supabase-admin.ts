@@ -1,10 +1,12 @@
 /**
  * Helpers de Supabase Admin para testing
  *
- * Usa la clave de servicio (service role) para crear/eliminar usuarios de prueba
+ * Usa la clave de servicio (service role) para crear/eliminar usuarios de prueba.
+ * Cada ejecución de tests usa un ID único para evitar conflictos.
  */
 
 import { createClient } from '@supabase/supabase-js'
+import { TEST_RUN_ID, STALE_TEST_DATA_MAX_AGE_MS } from './test-run-id'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
@@ -28,6 +30,7 @@ export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey || 'du
 
 /**
  * Crear un usuario de prueba en Supabase Auth
+ * Incluye el run ID en los metadatos para identificación
  * Retorna el ID del usuario
  */
 export async function createTestUser(email: string): Promise<string> {
@@ -42,6 +45,8 @@ export async function createTestUser(email: string): Promise<string> {
     user_metadata: {
       full_name: `Usuario de Prueba ${email.split('@')[0]}`,
       is_test_user: true,
+      test_run_id: TEST_RUN_ID,
+      test_created_at: Date.now(),
     },
   })
 
@@ -73,8 +78,9 @@ export function canRunAdminTests(): boolean {
 }
 
 /**
- * Limpiar usuarios de prueba antiguos (por si quedaron de ejecuciones anteriores)
- * Identifica usuarios de prueba por el metadata is_test_user: true
+ * Limpiar usuarios de prueba ANTIGUOS (huérfanos de ejecuciones anteriores)
+ * Solo elimina usuarios con más de 1 hora de antigüedad
+ * NO elimina usuarios de la ejecución actual
  */
 export async function cleanupStaleTestUsers(): Promise<number> {
   if (!supabaseServiceKey) return 0
@@ -88,10 +94,31 @@ export async function cleanupStaleTestUsers(): Promise<number> {
       return 0
     }
 
-    const testUsers = data.users.filter((user) => user.user_metadata?.is_test_user === true)
+    const now = Date.now()
+
+    // Filtrar usuarios de prueba que son ANTIGUOS (no de esta ejecución)
+    const staleTestUsers = data.users.filter((user) => {
+      const meta = user.user_metadata
+      if (!meta?.is_test_user) return false
+
+      // Si tiene test_run_id y es de esta ejecución, NO eliminarlo
+      if (meta.test_run_id === TEST_RUN_ID) return false
+
+      // Si tiene timestamp de creación, verificar que sea antiguo
+      if (meta.test_created_at) {
+        const age = now - meta.test_created_at
+        return age > STALE_TEST_DATA_MAX_AGE_MS
+      }
+
+      // Usuarios antiguos sin timestamp (legacy) - eliminar si tienen más de 1 hora
+      // Basarse en created_at del usuario
+      const userCreatedAt = new Date(user.created_at).getTime()
+      const userAge = now - userCreatedAt
+      return userAge > STALE_TEST_DATA_MAX_AGE_MS
+    })
 
     let deleted = 0
-    for (const user of testUsers) {
+    for (const user of staleTestUsers) {
       const { error: deleteError } = await supabaseAdmin.auth.admin.deleteUser(user.id)
       if (!deleteError) {
         deleted++
@@ -99,7 +126,7 @@ export async function cleanupStaleTestUsers(): Promise<number> {
     }
 
     if (deleted > 0) {
-      console.log(`Limpiados ${deleted} usuarios de prueba antiguos`)
+      console.log(`Limpiados ${deleted} usuarios de prueba antiguos (>1 hora)`)
     }
 
     return deleted

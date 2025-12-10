@@ -375,20 +375,20 @@ export async function guardarValidacionInternal(
       throw error
     }
 
-    // Actualizar contador de validaciones
-    const nuevaCantidadValidaciones = actaData.acta.cantidadValidaciones + 1
-
     let nuevoEstado = 'en_validacion'
     let consensoResult: GuardarValidacionResult['consenso'] = undefined
 
+    // Obtener TODAS las validaciones para esta acta (incluyendo la que acabamos de insertar)
+    // Esto es más confiable que usar el contador del acta, que podría estar desactualizado
+    const todasValidaciones = await db
+      .select()
+      .from(validacion)
+      .where(eq(validacion.actaId, actaData.acta.id))
+
+    const nuevaCantidadValidaciones = todasValidaciones.length
+
     // Si llegamos a 3 validaciones, determinar consenso
     if (nuevaCantidadValidaciones >= 3) {
-      // Obtener todas las validaciones para esta acta
-      const todasValidaciones = await db
-        .select()
-        .from(validacion)
-        .where(eq(validacion.actaId, actaData.acta.id))
-
       const validacionesConValores = todasValidaciones.map((v) => ({
         usuarioId: v.usuarioId,
         values: {

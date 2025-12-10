@@ -81,7 +81,6 @@ export function DesktopImageViewer({ src, alt }: ImageViewerProps) {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
 
   const handleZoomIn = () => setZoom((z) => Math.min(z + 0.25, 3))
-  const handleZoomOut = () => setZoom((z) => Math.max(z - 0.25, 0.5))
   const handleRotate = () => setRotation((r) => (r + 90) % 360)
   const handleReset = () => {
     setZoom(1)
