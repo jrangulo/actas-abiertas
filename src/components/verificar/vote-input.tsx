@@ -3,6 +3,7 @@
 import { Label } from '@/components/ui/label'
 import { cn } from '@/lib/utils'
 import { Check, X } from 'lucide-react'
+import Image from 'next/image'
 import React, { forwardRef } from 'react'
 
 interface VoteInputProps {
@@ -14,6 +15,7 @@ interface VoteInputProps {
   disabled?: boolean
   showComparison?: boolean
   onNavigate?: (direction: 'next' | 'prev') => void
+  logoPath?: string
 }
 
 // Colores oficiales de los partidos políticos de Honduras
@@ -38,6 +40,7 @@ export const VoteInput = forwardRef<HTMLInputElement, VoteInputProps>(
       disabled = false,
       showComparison = false,
       onNavigate,
+      logoPath,
     },
     ref
   ) => {
@@ -79,19 +82,28 @@ export const VoteInput = forwardRef<HTMLInputElement, VoteInputProps>(
       >
         {/* Indicador de partido */}
         <div className="flex items-center gap-2 min-w-[70px]">
+          {logoPath && (
+            <Image
+              src={logoPath}
+              alt={partido}
+              width={24}
+              height={24}
+              className="shrink-0 rounded-sm object-contain"
+            />
+          )}
           <div className={cn('w-3 h-3 rounded-full shrink-0', PARTIDO_COLORS[partido] || color)} />
           <Label className="text-sm font-medium">{partido}</Label>
         </div>
 
-        {/* Valor actual (si hay) */}
-        {showComparison && (
-          <div className="w-12 text-center text-sm dark:text-white tabular-nums font-medium">
-            {valorActual ?? '-'}
-          </div>
-        )}
-
         {/* Input con botones +/- */}
         <div className="flex items-center gap-1 flex-1 justify-end">
+          {/* Valor actual (si hay) */}
+
+          {showComparison && (
+            <div className="w-12 text-center text-sm dark:text-white tabular-nums font-medium">
+              {valorActual ?? '-'}
+            </div>
+          )}
           {/* Indicador de coincidencia */}
           {showComparison && numericValue !== null && (
             <div className="w-6 flex items-center justify-center">
@@ -202,11 +214,11 @@ export function VoteInputGroup({
   }
   // Orden igual al que aparece en las actas presidenciales
   const partidos = [
-    { key: 'dc', label: 'DC', color: 'bg-[#16a34a]' },
-    { key: 'pl', label: 'PL', color: 'bg-[#8b0000]' },
-    { key: 'pinu', label: 'PINU', color: 'bg-[#f97316]' },
-    { key: 'plh', label: 'PLH', color: 'bg-[#c1121f]' },
-    { key: 'pn', label: 'PN', color: 'bg-[#0047ab]' },
+    { key: 'dc', label: 'DC', color: 'bg-[#16a34a]', logo: '/logos-partidos/DC.png' },
+    { key: 'pl', label: 'PL', color: 'bg-[#8b0000]', logo: '/logos-partidos/PL.png' },
+    { key: 'pinu', label: 'PINU', color: 'bg-[#f97316]', logo: '/logos-partidos/PINU.png' },
+    { key: 'plh', label: 'PLH', color: 'bg-[#c1121f]', logo: '/logos-partidos/PLH.png' },
+    { key: 'pn', label: 'PN', color: 'bg-[#0047ab]', logo: '/logos-partidos/PNH.png' },
   ]
 
   // Orden igual al que aparece en las actas presidenciales
@@ -235,9 +247,9 @@ export function VoteInputGroup({
       {/* Header para validación */}
       {showComparison && (
         <div className="flex items-center gap-2 text-xs text-zinc-600 dark:text-zinc-300 px-2 pb-2 border-b">
-          <div className="min-w-[70px]">Partido</div>
-          <div className="w-12 text-center">Actual</div>
-          <div className="flex-1 text-right pr-8">Tu valor</div>
+          <div className="flex-1  min-w-[70px]">Partido</div>
+          <div className="flex-1 w-12 text-center">Actual</div>
+          <div className="text-right pr-8">Tu valor</div>
         </div>
       )}
 
@@ -255,6 +267,7 @@ export function VoteInputGroup({
             disabled={disabled}
             showComparison={showComparison}
             onNavigate={(direction) => handleNavigate(p.key, direction)}
+            logoPath={p.logo}
           />
         ))}
       </div>

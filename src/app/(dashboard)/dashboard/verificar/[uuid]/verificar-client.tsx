@@ -20,6 +20,7 @@ import {
 } from '@/lib/actas/actions'
 import { Check, ChevronRight, Loader2, PenLine, CheckSquare, ArrowLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Image from 'next/image'
 
 // Enum para las acciones pendientes
 enum PendingAction {
@@ -392,17 +393,49 @@ export function VerificarClient({
                 <div className="space-y-2">
                   {[
                     // Orden igual al que aparece en las actas presidenciales
-                    { label: 'DC', value: valoresActuales.dc, color: 'bg-[#16a34a]' },
-                    { label: 'PL', value: valoresActuales.pl, color: 'bg-[#8b0000]' },
-                    { label: 'PINU', value: valoresActuales.pinu, color: 'bg-[#f97316]' },
-                    { label: 'PLH', value: valoresActuales.plh, color: 'bg-[#c1121f]' },
-                    { label: 'PN', value: valoresActuales.pn, color: 'bg-[#0047ab]' },
+                    {
+                      label: 'DC',
+                      value: valoresActuales.dc,
+                      color: 'bg-[#16a34a]',
+                      logoPath: '/logos-partidos/DC.png',
+                    },
+                    {
+                      label: 'PL',
+                      value: valoresActuales.pl,
+                      color: 'bg-[#8b0000]',
+                      logoPath: '/logos-partidos/PL.png',
+                    },
+                    {
+                      label: 'PINU',
+                      value: valoresActuales.pinu,
+                      color: 'bg-[#f97316]',
+                      logoPath: '/logos-partidos/PINU.png',
+                    },
+                    {
+                      label: 'PLH',
+                      value: valoresActuales.plh,
+                      color: 'bg-[#c1121f]',
+                      logoPath: '/logos-partidos/PLH.png',
+                    },
+                    {
+                      label: 'PN',
+                      value: valoresActuales.pn,
+                      color: 'bg-[#0047ab]',
+                      logoPath: '/logos-partidos/PNH.png',
+                    },
                   ].map((p) => (
                     <div
                       key={p.label}
                       className="flex items-center justify-between p-2 rounded-lg bg-muted/50"
                     >
                       <div className="flex items-center gap-2">
+                        <Image
+                          src={p.logoPath}
+                          alt={p.label}
+                          width={24}
+                          height={24}
+                          className="shrink-0 rounded-sm object-contain"
+                        />
                         <div className={cn('w-3 h-3 rounded-full', p.color)} />
                         <span className="text-sm font-medium">{p.label}</span>
                       </div>
@@ -459,25 +492,11 @@ export function VerificarClient({
                   )}
                   <span className="flex flex-col items-start w-full">
                     <span className="font-semibold">Guardar corrección</span>
-                    <span className="text-xs opacity-80">Continuar con otra acta</span>
+                    <span className="text-xs opacity-80">
+                      Se guardaran los nuevos valores para su revisión
+                    </span>
                   </span>
                   <ChevronRight className="h-5 w-5 ml-auto" />
-                </Button>
-                <Button
-                  variant="outline"
-                  className="w-full h-12 border-green-600 text-green-600 hover:bg-green-600/10"
-                  disabled={!isFormValid || isPending}
-                  onClick={() => handleGuardarCorreccion(false)}
-                >
-                  {pendingAction === PendingAction.SOLO_GUARDAR ? (
-                    <Loader2 className="h-5 w-5 mr-2 animate-spin" />
-                  ) : (
-                    <Check className="h-5 w-5 mr-2" />
-                  )}
-                  <span className="flex flex-col items-start w-full">
-                    <span className="font-semibold">Guardar corrección</span>
-                    <span className="text-xs opacity-80">Volver al inicio</span>
-                  </span>
                 </Button>
                 <Button
                   variant="ghost"
