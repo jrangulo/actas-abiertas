@@ -18,7 +18,7 @@ import {
   discrepancia,
   estadisticaUsuario,
 } from '@/db/schema'
-import { eq, sql } from 'drizzle-orm'
+import { eq, sql, count } from 'drizzle-orm'
 import {
   getActaParaDigitalizar,
   getActaParaValidar,
@@ -565,6 +565,7 @@ export async function guardarValidacion(
 
 /**
  * Reportar un problema con un acta
+ * Si el acta recibe 2+ reportes, se saca del pool (estado = bajo_revision)
  */
 export async function reportarProblema(
   uuid: string,
@@ -595,13 +596,34 @@ export async function reportarProblema(
     descripcion: datos.descripcion || null,
   })
 
-  // Liberar bloqueo
-  await liberarActa(uuid, user.id)
+  // Contar reportes para esta acta
+  const [reportCount] = await db
+    .select({ count: count() })
+    .from(discrepancia)
+    .where(eq(discrepancia.actaId, actaData.acta.id))
+
+  // Si tiene 2+ reportes, sacar del pool
+  const UMBRAL_REPORTES = 2
+  if (Number(reportCount.count) >= UMBRAL_REPORTES) {
+    await db
+      .update(acta)
+      .set({
+        estado: 'bajo_revision',
+        bloqueadoPor: null,
+        bloqueadoHasta: null,
+        actualizadoEn: new Date(),
+      })
+      .where(eq(acta.id, actaData.acta.id))
+  } else {
+    // Solo liberar bloqueo si no cambiamos estado
+    await liberarActa(uuid, user.id)
+  }
 
   // Actualizar estadísticas del usuario
   await actualizarEstadisticaUsuario(user.id, { discrepanciasReportadas: 1 })
 
   revalidatePath('/dashboard/verificar')
+  revalidatePath('/dashboard/discrepancias')
   redirect('/dashboard/verificar')
 }
 

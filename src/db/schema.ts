@@ -45,7 +45,8 @@ export const estadoActaEnum = pgEnum('estado_acta', [
   'digitada', // Digitalizada, pendiente de validación
   'en_validacion', // Al menos 1 validación, pero menos de 3
   'validada', // Validada por 3+ usuarios con consenso
-  'con_discrepancia', // Marcada con discrepancias irreconciliables
+  'con_discrepancia', // Marcada con discrepancias irreconciliables (consenso fallido)
+  'bajo_revision', // Sacada del pool por 2+ reportes de usuarios
 ])
 
 // Tipos de discrepancia que puede tener un acta
@@ -485,6 +486,40 @@ export const discrepancia = pgTable(
   ]
 )
 
+/**
+ * Comentarios en actas con discrepancias
+ *
+ * Sistema de discusión tipo foro para actas reportadas.
+ * Permite a usuarios discutir y analizar actas problemáticas.
+ */
+export const comentarioDiscrepancia = pgTable(
+  'comentario_discrepancia',
+  {
+    id: serial('id').primaryKey(),
+
+    actaId: integer('acta_id')
+      .notNull()
+      .references(() => acta.id, { onDelete: 'cascade' }),
+
+    usuarioId: uuid('usuario_id')
+      .notNull()
+      .references(() => authUsers.id, { onDelete: 'cascade' }),
+
+    contenido: text('contenido').notNull(),
+
+    // Para hilos de respuestas (opcional)
+    padreId: integer('padre_id'),
+
+    creadoEn: timestamp('creado_en', { withTimezone: true }).defaultNow().notNull(),
+    editadoEn: timestamp('editado_en', { withTimezone: true }),
+  },
+  (table) => [
+    index('comentario_discrepancia_acta_idx').on(table.actaId),
+    index('comentario_discrepancia_usuario_idx').on(table.usuarioId),
+    index('comentario_discrepancia_padre_idx').on(table.padreId),
+  ]
+)
+
 // ============================================================================
 // Estadísticas de Usuario (Leaderboard)
 // ============================================================================
@@ -617,6 +652,9 @@ export type NewValidacion = typeof validacion.$inferInsert
 
 export type Discrepancia = typeof discrepancia.$inferSelect
 export type NewDiscrepancia = typeof discrepancia.$inferInsert
+
+export type ComentarioDiscrepancia = typeof comentarioDiscrepancia.$inferSelect
+export type NewComentarioDiscrepancia = typeof comentarioDiscrepancia.$inferInsert
 
 export type EstadisticaUsuario = typeof estadisticaUsuario.$inferSelect
 export type NewEstadisticaUsuario = typeof estadisticaUsuario.$inferInsert
