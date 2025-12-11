@@ -272,11 +272,12 @@ async function MiniLeaderboard() {
       } = await supabase.auth.getUser()
 
       if (userStats && authUser) {
+        const isPrivate = userStats.perfilPrivado ?? false
         currentUserEntry = {
           position: userRanking,
           userId: user?.id || '',
-          name: getUserName(authUser.user_metadata),
-          avatarUrl: getUserAvatarUrl(authUser.user_metadata),
+          name: isPrivate ? generateAnonName(user?.id || '') : getUserName(authUser.user_metadata),
+          avatarUrl: isPrivate ? null : getUserAvatarUrl(authUser.user_metadata),
           validadas: userStats.actasValidadas || 0,
         }
         showEllipsis = true
