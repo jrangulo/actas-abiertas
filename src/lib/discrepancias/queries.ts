@@ -13,7 +13,7 @@ import {
   estadisticaUsuario,
   authUsers,
 } from '@/db/schema'
-import { eq, desc, or, like, count, and } from 'drizzle-orm'
+import { eq, desc, or, like, count, and, sql } from 'drizzle-orm'
 import { getActaImageUrl } from '@/lib/actas/utils'
 
 // ============================================================================
@@ -67,6 +67,8 @@ export interface ComentarioDetalle {
 /**
  * Obtener actas que están bajo revisión o tienen discrepancias
  * Incluye conteo de reportes y comentarios
+ *
+ * Optimizado: usa una sola consulta con subqueries en lugar de N+1
  */
 export async function getActasConDiscrepancias(options?: {
   limite?: number
@@ -77,74 +79,65 @@ export async function getActasConDiscrepancias(options?: {
   const offset = options?.offset ?? 0
   const busqueda = options?.busqueda?.trim()
 
-  // Base query conditions
-  const baseCondition = or(eq(acta.estado, 'bajo_revision'), eq(acta.estado, 'con_discrepancia'))
+  // Build search clause for raw SQL
+  const searchClause = busqueda ? sql`AND a.cne_id LIKE ${'%' + busqueda + '%'}` : sql``
 
-  // Build search condition if needed
-  let searchCondition = baseCondition
-  if (busqueda) {
-    searchCondition = and(baseCondition, like(acta.cneId, `%${busqueda}%`))
-  }
+  // Single optimized query with subqueries for counts
+  const result = await db.execute<{
+    id: number
+    uuid: string
+    cne_id: string | null
+    estado: string
+    jrv_numero: number | null
+    departamento_codigo: number | null
+    municipio_codigo: number | null
+    cantidad_reportes: string
+    cantidad_comentarios: string
+    ultimo_reporte: Date | null
+  }>(sql`
+    SELECT 
+      a.id,
+      a.uuid,
+      a.cne_id,
+      a.estado,
+      a.jrv_numero,
+      a.departamento_codigo,
+      a.municipio_codigo,
+      COALESCE((SELECT COUNT(*) FROM discrepancia d WHERE d.acta_id = a.id), 0) as cantidad_reportes,
+      COALESCE((SELECT COUNT(*) FROM comentario_discrepancia c WHERE c.acta_id = a.id), 0) as cantidad_comentarios,
+      (SELECT MAX(d.creado_en) FROM discrepancia d WHERE d.acta_id = a.id) as ultimo_reporte
+    FROM acta a
+    WHERE (a.estado = 'bajo_revision' OR a.estado = 'con_discrepancia')
+    ${searchClause}
+    ORDER BY a.actualizado_en DESC
+    LIMIT ${limite}
+    OFFSET ${offset}
+  `)
 
-  // Get total count
-  const [totalResult] = await db
-    .select({ count: count() })
-    .from(acta)
-    .where(searchCondition ?? baseCondition)
+  // Get total count (simple query)
+  const [totalResult] = await db.execute<{ count: string }>(sql`
+    SELECT COUNT(*) as count FROM acta a
+    WHERE (a.estado = 'bajo_revision' OR a.estado = 'con_discrepancia')
+    ${searchClause}
+  `)
 
-  // Get actas
-  const actas = await db
-    .select({
-      id: acta.id,
-      uuid: acta.uuid,
-      cneId: acta.cneId,
-      estado: acta.estado,
-      jrvNumero: acta.jrvNumero,
-      departamentoCodigo: acta.departamentoCodigo,
-      municipioCodigo: acta.municipioCodigo,
-    })
-    .from(acta)
-    .where(searchCondition ?? baseCondition)
-    .orderBy(desc(acta.actualizadoEn))
-    .limit(limite)
-    .offset(offset)
-
-  // Get counts for each acta
-  const actasConCounts = await Promise.all(
-    actas.map(async (a) => {
-      // Count reports
-      const [reportes] = await db
-        .select({ count: count() })
-        .from(discrepancia)
-        .where(eq(discrepancia.actaId, a.id))
-
-      // Count comments
-      const [comentarios] = await db
-        .select({ count: count() })
-        .from(comentarioDiscrepancia)
-        .where(eq(comentarioDiscrepancia.actaId, a.id))
-
-      // Get latest report date
-      const [ultimoReporte] = await db
-        .select({ fecha: discrepancia.creadoEn })
-        .from(discrepancia)
-        .where(eq(discrepancia.actaId, a.id))
-        .orderBy(desc(discrepancia.creadoEn))
-        .limit(1)
-
-      return {
-        ...a,
-        imagenUrl: getActaImageUrl(a.cneId),
-        cantidadReportes: Number(reportes.count),
-        cantidadComentarios: Number(comentarios.count),
-        ultimoReporte: ultimoReporte?.fecha ?? null,
-      }
-    })
-  )
+  const actas: ActaConDiscrepancias[] = result.map((row) => ({
+    id: row.id,
+    uuid: row.uuid,
+    cneId: row.cne_id,
+    estado: row.estado,
+    jrvNumero: row.jrv_numero,
+    departamentoCodigo: row.departamento_codigo,
+    municipioCodigo: row.municipio_codigo,
+    imagenUrl: getActaImageUrl(row.cne_id),
+    cantidadReportes: parseInt(row.cantidad_reportes) || 0,
+    cantidadComentarios: parseInt(row.cantidad_comentarios) || 0,
+    ultimoReporte: row.ultimo_reporte,
+  }))
 
   return {
-    actas: actasConCounts,
-    total: Number(totalResult.count),
+    actas,
+    total: parseInt(totalResult?.count || '0'),
   }
 }
 

@@ -18,7 +18,7 @@ import {
   discrepancia,
   estadisticaUsuario,
 } from '@/db/schema'
-import { eq, sql, count } from 'drizzle-orm'
+import { eq, sql, count, and } from 'drizzle-orm'
 import {
   getActaParaDigitalizar,
   getActaParaValidar,
@@ -419,6 +419,7 @@ export async function guardarValidacionInternal(
         await db
           .update(acta)
           .set({
+            uuid: crypto.randomUUID(), // Regenerar UUID
             votosPnDigitado: winningValues.pn,
             votosPlhDigitado: winningValues.plh,
             votosPlDigitado: winningValues.pl,
@@ -467,6 +468,7 @@ export async function guardarValidacionInternal(
         await db
           .update(acta)
           .set({
+            uuid: crypto.randomUUID(), // Regenerar UUID
             cantidadValidaciones: nuevaCantidadValidaciones,
             estado: 'con_discrepancia',
             bloqueadoPor: null,
@@ -477,9 +479,11 @@ export async function guardarValidacionInternal(
       }
     } else {
       // Menos de 3 validaciones - solo actualizar contador
+      // Regenerar UUID para invalidar URLs compartidas (prevenir colusion)
       await db
         .update(acta)
         .set({
+          uuid: crypto.randomUUID(),
           cantidadValidaciones: nuevaCantidadValidaciones,
           estado: 'en_validacion',
           bloqueadoPor: null,
@@ -588,6 +592,20 @@ export async function reportarProblema(
     throw new Error('Acta no encontrada')
   }
 
+  // Verificar si el usuario ya reportó esta acta (prevenir duplicados por spam click)
+  const [existingReport] = await db
+    .select({ id: discrepancia.id })
+    .from(discrepancia)
+    .where(and(eq(discrepancia.actaId, actaData.acta.id), eq(discrepancia.usuarioId, user.id)))
+    .limit(1)
+
+  if (existingReport) {
+    // Ya existe un reporte de este usuario para esta acta, solo liberar
+    await liberarActa(uuid, user.id)
+    revalidatePath('/dashboard/verificar')
+    return { success: true, alreadyReported: true }
+  }
+
   // Registrar discrepancia
   await db.insert(discrepancia).values({
     actaId: actaData.acta.id,
@@ -608,6 +626,7 @@ export async function reportarProblema(
     await db
       .update(acta)
       .set({
+        uuid: crypto.randomUUID(), // Regenerar UUID
         estado: 'bajo_revision',
         bloqueadoPor: null,
         bloqueadoHasta: null,
@@ -622,9 +641,17 @@ export async function reportarProblema(
   // Actualizar estadísticas del usuario
   await actualizarEstadisticaUsuario(user.id, { discrepanciasReportadas: 1 })
 
+  // Get next acta in same request to avoid race condition
+  const nextActa = await getActaParaValidar(user.id)
+  let nextUuid: string | null = null
+  if (nextActa) {
+    await bloquearActa(nextActa.uuid, user.id)
+    nextUuid = nextActa.uuid
+  }
+
   revalidatePath('/dashboard/verificar')
   revalidatePath('/dashboard/discrepancias')
-  redirect('/dashboard/verificar')
+  return { success: true, nextUuid }
 }
 
 /**

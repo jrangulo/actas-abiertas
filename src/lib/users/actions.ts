@@ -1,8 +1,8 @@
 'use server'
 
 import { db } from '@/db'
-import { estadisticaUsuario } from '@/db/schema'
-import { eq } from 'drizzle-orm'
+import { estadisticaUsuario, validacion } from '@/db/schema'
+import { eq, count } from 'drizzle-orm'
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
 
@@ -160,4 +160,16 @@ export async function completarOnboardingConPrivacidad(perfilPrivado: boolean) {
     console.error('Error completando onboarding:', error)
     return { error: 'Error al guardar' }
   }
+}
+
+/**
+ * Obtener el total de actas validadas por un usuario
+ */
+export async function getUserTotalValidaciones(userId: string): Promise<number> {
+  const result = await db
+    .select({ count: count() })
+    .from(validacion)
+    .where(eq(validacion.usuarioId, userId))
+
+  return result[0]?.count || 0
 }

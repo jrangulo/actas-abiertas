@@ -70,8 +70,16 @@ export interface EstadisticasVotos {
   // Cobertura
   cobertura: {
     actasTotales: number
+    // Actas completamente validadas (3+ validaciones con consenso)
     actasValidadas: number
-    porcentaje: number
+    porcentajeValidadas: number
+    // Actas en proceso de validación (1-2 validaciones)
+    actasEnValidacion: number
+    porcentajeEnValidacion: number
+    // Progreso total de validaciones individuales
+    validacionesRealizadas: number
+    validacionesNecesarias: number
+    porcentajeValidaciones: number
   }
 }
 
@@ -79,4 +87,24 @@ export interface PuntoProgresion {
   cobertura: number // Porcentaje de cobertura (0-100)
   actasAcumuladas: number
   porcentajes: Record<PartidoPrincipal, number>
+}
+
+export interface VotosZona {
+  actas: number
+  votos: {
+    pn: number
+    plh: number
+    pl: number
+    total: number
+  }
+  porcentajes: {
+    pn: number
+    plh: number
+    pl: number
+  }
+}
+
+export interface DistribucionZona {
+  urbano: VotosZona
+  rural: VotosZona
 }

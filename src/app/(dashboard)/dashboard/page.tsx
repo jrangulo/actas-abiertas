@@ -115,11 +115,12 @@ async function GlobalStats() {
       valueColor: 'text-foreground',
     },
     {
-      label: 'Discrepancias',
-      value: stats.conDiscrepancias,
+      label: 'Reportadas',
+      value: stats.conProblemas,
       icon: AlertTriangle,
       iconColor: 'text-amber-500',
       valueColor: 'text-amber-600 dark:text-amber-400',
+      description: 'Actas bajo revisión',
     },
   ]
 
@@ -141,37 +142,67 @@ async function GlobalStats() {
             </CardContent>
           </Card>
         ))}
-        {/* Validadas card with progress bar */}
+        {/* Validadas card */}
         <Card className="overflow-hidden shadow-sm">
           <CardContent className="p-5 lg:p-6">
             <div className="flex items-center gap-2 mb-3">
               <CheckCircle2 className="h-5 w-5 text-green-500" />
               <span className="text-sm font-semibold text-muted-foreground">Validadas</span>
             </div>
-            <div className="flex items-baseline gap-2 mb-3">
+            <div className="flex items-baseline gap-2">
               <p className="text-3xl lg:text-4xl font-bold tracking-tight text-green-600 dark:text-green-400">
                 {stats.validadas.toLocaleString()}
               </p>
-              <span className="text-sm font-medium text-muted-foreground">
-                ({porcentajeValidadas}%)
+              <span className="text-sm text-muted-foreground">
+                / {stats.total.toLocaleString()}
               </span>
             </div>
-            {/* Progress bar for individual validations */}
-            <div className="space-y-1.5">
-              <div className="h-2 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
-                  style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
-                />
-              </div>
-              <p className="text-xs text-muted-foreground">
-                {stats.validacionesRealizadas.toLocaleString()} /{' '}
-                {stats.validacionesNecesarias.toLocaleString()} validaciones
-              </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              Actas con consenso completo (3+ validaciones)
+            </p>
+          </CardContent>
+        </Card>
+        {/* En proceso card */}
+        <Card className="overflow-hidden shadow-sm">
+          <CardContent className="p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Clock className="h-5 w-5 text-amber-500" />
+              <span className="text-sm font-semibold text-muted-foreground">En Proceso</span>
             </div>
+            <div className="flex items-baseline gap-2">
+              <p className="text-3xl lg:text-4xl font-bold tracking-tight text-amber-600 dark:text-amber-400">
+                {stats.enValidacion.toLocaleString()}
+              </p>
+              <span className="text-sm text-muted-foreground">
+                / {stats.total.toLocaleString()}
+              </span>
+            </div>
+            <p className="text-xs text-muted-foreground mt-2">
+              Actas con 1-2 validaciones en progreso
+            </p>
           </CardContent>
         </Card>
       </div>
+
+      {/* Overall validation progress */}
+      <Card className="overflow-hidden shadow-sm">
+        <CardContent className="p-4 lg:p-5">
+          <div className="flex items-center justify-between text-sm mb-2">
+            <span className="text-muted-foreground">Progreso total de validaciones</span>
+            <span className="font-medium">
+              {stats.validacionesRealizadas.toLocaleString()} /{' '}
+              {stats.validacionesNecesarias.toLocaleString()}
+              <span className="text-muted-foreground ml-1">({porcentajeValidaciones}%)</span>
+            </span>
+          </div>
+          <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+            <div
+              className="h-full bg-gradient-to-r from-green-500 to-emerald-400 transition-all duration-500"
+              style={{ width: `${Math.min(porcentajeValidaciones, 100)}%` }}
+            />
+          </div>
+        </CardContent>
+      </Card>
     </div>
   )
 }

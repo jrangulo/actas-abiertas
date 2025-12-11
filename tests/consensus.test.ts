@@ -26,6 +26,7 @@ import {
 import {
   createTestActa,
   getTestActa,
+  getCurrentUuid,
   getUserStats,
   cleanupTestActa,
   cleanupAllTestActas,
@@ -118,6 +119,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       testActas.push(testActa)
 
       // Actuar: 3 usuarios validan con los mismos valores (confirman como correctos)
+      // Nota: UUID cambia después de cada validación
       const result1 = await guardarValidacionInternal({
         uuid: testActa.uuid,
         userId: TEST_USER_1,
@@ -128,8 +130,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       expect(result1.success).toBe(true)
       expect(result1.nuevoEstado).toBe('en_validacion')
 
+      const uuid2 = await getCurrentUuid(testActa.id)
       const result2 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid2,
         userId: TEST_USER_2,
         datos: { esCorrecta: true },
         skipLockCheck: true,
@@ -139,8 +142,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       expect(result2.nuevoEstado).toBe('en_validacion')
 
       // La tercera validación dispara el consenso
+      const uuid3 = await getCurrentUuid(testActa.id)
       const result3 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid3,
         userId: TEST_USER_3,
         datos: { esCorrecta: true },
         skipLockCheck: true,
@@ -177,6 +181,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       testActas.push(testActa)
 
       // Actuar: Usuarios 1 y 2 confirman como correcto, Usuario 3 envía valores diferentes
+      // Nota: UUID cambia después de cada validación, hay que obtenerlo de nuevo
       await guardarValidacionInternal({
         uuid: testActa.uuid,
         userId: TEST_USER_1,
@@ -185,8 +190,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         skipRevalidate: true,
       })
 
+      const uuid2 = await getCurrentUuid(testActa.id)
       await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid2,
         userId: TEST_USER_2,
         datos: { esCorrecta: true },
         skipLockCheck: true,
@@ -194,8 +200,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       })
 
       // Usuario 3 envía valores DIFERENTES
+      const uuid3 = await getCurrentUuid(testActa.id)
       const result3 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid3,
         userId: TEST_USER_3,
         datos: {
           esCorrecta: false,
@@ -236,6 +243,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       testActas.push(testActa)
 
       // Actuar: Usuario 1 confirma, Usuario 2 difiere, Usuario 3 confirma
+      // Nota: UUID cambia después de cada validación
       await guardarValidacionInternal({
         uuid: testActa.uuid,
         userId: TEST_USER_1,
@@ -245,8 +253,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       })
 
       // Usuario 2 envía valores DIFERENTES (en el medio)
+      const uuid2 = await getCurrentUuid(testActa.id)
       await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid2,
         userId: TEST_USER_2,
         datos: {
           esCorrecta: false,
@@ -256,8 +265,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         skipRevalidate: true,
       })
 
+      const uuid3 = await getCurrentUuid(testActa.id)
       const result3 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid3,
         userId: TEST_USER_3,
         datos: { esCorrecta: true },
         skipLockCheck: true,
@@ -279,6 +289,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       testActas.push(testActa)
 
       // Actuar: Usuario 1 difiere, Usuarios 2 y 3 confirman
+      // Nota: UUID cambia después de cada validación
       await guardarValidacionInternal({
         uuid: testActa.uuid,
         userId: TEST_USER_1,
@@ -290,16 +301,18 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         skipRevalidate: true,
       })
 
+      const uuid2 = await getCurrentUuid(testActa.id)
       await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid2,
         userId: TEST_USER_2,
         datos: { esCorrecta: true },
         skipLockCheck: true,
         skipRevalidate: true,
       })
 
+      const uuid3 = await getCurrentUuid(testActa.id)
       const result3 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid3,
         userId: TEST_USER_3,
         datos: { esCorrecta: true },
         skipLockCheck: true,
@@ -327,6 +340,7 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       testActas.push(testActa)
 
       // Actuar: Los 3 usuarios envían valores DIFERENTES
+      // Nota: UUID cambia después de cada validación
       await guardarValidacionInternal({
         uuid: testActa.uuid,
         userId: TEST_USER_1,
@@ -335,8 +349,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         skipRevalidate: true,
       })
 
+      const uuid2 = await getCurrentUuid(testActa.id)
       await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid2,
         userId: TEST_USER_2,
         datos: {
           esCorrecta: false,
@@ -346,8 +361,9 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
         skipRevalidate: true,
       })
 
+      const uuid3 = await getCurrentUuid(testActa.id)
       const result3 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: uuid3,
         userId: TEST_USER_3,
         datos: {
           esCorrecta: false,
@@ -393,9 +409,10 @@ describeWithUsers('Sistema de Validación por Consenso (Integración)', () => {
       })
       expect(result1.success).toBe(true)
 
-      // Intentar validar de nuevo
+      // Intentar validar de nuevo (con el nuevo UUID ya que cambia después de cada validación)
+      const newUuid = await getCurrentUuid(testActa.id)
       const result2 = await guardarValidacionInternal({
-        uuid: testActa.uuid,
+        uuid: newUuid,
         userId: TEST_USER_1,
         datos: { esCorrecta: true },
         skipLockCheck: true,

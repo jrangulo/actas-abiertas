@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useTransition, useEffect, useCallback } from 'react'
+import { useState, useTransition, useEffect, useCallback, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -12,7 +12,18 @@ import {
   LockTimer,
   ConfirmationDialog,
   InconsistenciaDialog,
+  Celebration,
+  fireConfettiFromButton,
+  StreakDisplay,
 } from '@/components/verificar'
+import {
+  triggerHaptic,
+  incrementConsecutiveCount,
+  getConsecutiveCount,
+  incrementTotalCount,
+  initializeTotalCount,
+  checkMilestone,
+} from '@/lib/engagement'
 import {
   guardarValidacion,
   reportarProblema,
@@ -39,6 +50,7 @@ const DRAFT_KEY_PREFIX = 'acta-draft-'
 interface VerificarClientProps {
   uuid: string
   bloqueadoHasta: Date
+  userTotalValidaciones: number
   actaInfo: {
     cneId: string
     departamento: string
@@ -67,10 +79,11 @@ interface VerificarClientProps {
 export function VerificarClient({
   uuid,
   bloqueadoHasta,
+  userTotalValidaciones,
   actaInfo,
   valoresActuales,
   imagenUrl,
-}: VerificarClientProps) {
+}: Readonly<VerificarClientProps>) {
   const router = useRouter()
   const [isPending, startTransition] = useTransition()
   // Rastrear qué acción específica está en progreso
@@ -78,6 +91,13 @@ export function VerificarClient({
   const draftKey = `${DRAFT_KEY_PREFIX}${uuid}`
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false)
   const [dialogPendingAction, setDialogPendingAction] = useState<PendingAction | null>(null)
+
+  // Engagement
+  const [showCelebration, setShowCelebration] = useState(false)
+  const [consecutiveCount, setConsecutiveCount] = useState(0)
+  const [totalCount, setTotalCount] = useState(0)
+  const [isMilestone, setIsMilestone] = useState(false)
+  const confirmButtonRef = useRef<HTMLButtonElement>(null)
 
   // Función para obtener valores iniciales (de localStorage o de props)
   const getInitialValues = useCallback(() => {
@@ -122,6 +142,15 @@ export function VerificarClient({
   const [valores, setValores] = useState(getInitialValues)
 
   const [showCorrectionForm, setShowCorrectionForm] = useState(false)
+
+  useEffect(() => {
+    // Inicializar el contador total desde el servidor
+    initializeTotalCount(userTotalValidaciones)
+    setTotalCount(userTotalValidaciones)
+
+    // Obtener el contador de verificaciones consecutivas (se reiniciará si han pasado más de 12 minutos)
+    setConsecutiveCount(getConsecutiveCount())
+  }, [userTotalValidaciones])
 
   // Guardar borrador en localStorage cada vez que cambian los valores
   useEffect(() => {
@@ -186,6 +215,25 @@ export function VerificarClient({
 
   // Realizar la acción de confirmar después del diálogo
   const performConfirmarCorrecto = (goToNext: boolean = true) => {
+    triggerHaptic('good')
+
+    // Disparar confetti desde el botón
+    if (confirmButtonRef.current) {
+      fireConfettiFromButton(confirmButtonRef.current)
+    }
+
+    // Actualizar las estadísticas de engagement
+    const newConsecutive = incrementConsecutiveCount()
+    const newTotal = incrementTotalCount()
+    const milestone = checkMilestone(newTotal)
+
+    setConsecutiveCount(newConsecutive)
+    setTotalCount(newTotal)
+    setIsMilestone(milestone.isMilestone)
+    setShowCelebration(true)
+
+    setTimeout(() => setShowCelebration(false), 2500)
+
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, { esCorrecta: true })
@@ -212,6 +260,21 @@ export function VerificarClient({
 
   // Realizar la acción de guardar corrección después del diálogo
   const performGuardarCorreccion = (goToNext: boolean = true) => {
+    triggerHaptic('good')
+
+    // Actualizar las estadísticas de engagement (las correcciones también son valiosas!)
+    const newConsecutive = incrementConsecutiveCount()
+    const newTotal = incrementTotalCount()
+    const milestone = checkMilestone(newTotal)
+
+    setConsecutiveCount(newConsecutive)
+    setTotalCount(newTotal)
+    setIsMilestone(milestone.isMilestone)
+    setShowCelebration(true)
+
+    // Hide celebration after animation
+    setTimeout(() => setShowCelebration(false), 2500)
+
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, {
@@ -246,10 +309,15 @@ export function VerificarClient({
     tipo: 'ilegible' | 'adulterada' | 'datos_inconsistentes' | 'imagen_incompleta' | 'otro',
     descripcion?: string
   ) => {
-    await reportarProblema(uuid, { tipo, descripcion })
-    // Limpiar borrador después de reportar
+    const result = await reportarProblema(uuid, { tipo, descripcion })
     clearDraft()
-    await goToNextActa()
+
+    // Use nextUuid from response to avoid race condition
+    if (result.nextUuid) {
+      router.push(`/dashboard/verificar/${result.nextUuid}`)
+    } else {
+      router.push('/dashboard/verificar?message=sin-actas')
+    }
   }
 
   // Flag to prevent lock refresh during abandon
@@ -285,7 +353,6 @@ export function VerificarClient({
     if (result.success && result.uuid) {
       router.push(`/dashboard/verificar/${result.uuid}`)
     } else if ('pendingUuid' in result && result.pendingUuid) {
-      // User still has a pending acta (shouldn't happen, but handle it)
       router.push(`/dashboard/verificar/${result.pendingUuid}`)
     } else {
       router.push('/dashboard/verificar?message=sin-actas')
@@ -312,6 +379,7 @@ export function VerificarClient({
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
+          <StreakDisplay consecutiveCount={consecutiveCount} totalCount={totalCount} />
           <LockTimer
             bloqueadoHasta={bloqueadoHasta}
             uuid={uuid}
@@ -526,7 +594,8 @@ export function VerificarClient({
 
                 {/* Botón principal: Confirmar */}
                 <Button
-                  className="w-full bg-green-600 hover:bg-green-700 h-12"
+                  ref={confirmButtonRef}
+                  className="w-full bg-green-600 hover:bg-green-700 h-12 transition-transform active:scale-95"
                   disabled={isPending}
                   onClick={() => handleConfirmarCorrecto(true)}
                 >
@@ -589,6 +658,7 @@ export function VerificarClient({
         valoresActuales={valoresActuales}
         showComparison={true}
       />
+      <Celebration show={showCelebration} streak={totalCount} isMilestone={isMilestone} />
     </div>
   )
 }

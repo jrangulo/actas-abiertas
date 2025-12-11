@@ -72,9 +72,9 @@ export const tipoCambioEnum = pgEnum('tipo_cambio', [
 // Estado del usuario en el sistema de autoban
 export const estadoUsuarioEnum = pgEnum('estado_usuario', [
   'activo', // Usuario normal sin restricciones
-  'advertido', // Advertencia por baja precisión (<70%)
-  'restringido', // Restringido a solo validación (<50%)
-  'baneado', // Suspendido completamente (<30%)
+  'advertido', // Advertencia por tasa de error >10% (precisión <90%)
+  'restringido', // Restringido por tasa de error >20% (precisión <80%)
+  'baneado', // Suspendido por tasa de error >30% (precisión <70%)
 ])
 
 // Tipo de logro (achievement)
@@ -490,6 +490,8 @@ export const discrepancia = pgTable(
     index('discrepancia_acta_idx').on(table.actaId),
     index('discrepancia_tipo_idx').on(table.tipo),
     index('discrepancia_resuelta_idx').on(table.resuelta),
+    // Un usuario solo puede reportar una vez por acta (prevenir spam clicks)
+    unique('discrepancia_acta_usuario_unique').on(table.actaId, table.usuarioId),
   ]
 )
 

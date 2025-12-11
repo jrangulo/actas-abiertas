@@ -1,8 +1,9 @@
 import { notFound, redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { getActaByUuid, getValoresActuales, bloquearActa, getActaImageUrl } from '@/lib/actas'
+import { getUserTotalValidaciones } from '@/lib/users/actions'
 import { db } from '@/db'
-import { validacion } from '@/db/schema'
+import { validacion, discrepancia } from '@/db/schema'
 import { and, eq } from 'drizzle-orm'
 import { VerificarClient } from './verificar-client'
 
@@ -44,6 +45,17 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
     redirect('/dashboard')
   }
 
+  // Si el usuario ya reportó esta acta, no volver a bloquear ni mostrarla
+  const yaReportada = await db
+    .select({ id: discrepancia.id })
+    .from(discrepancia)
+    .where(and(eq(discrepancia.actaId, actaData.acta.id), eq(discrepancia.usuarioId, user.id)))
+    .limit(1)
+
+  if (yaReportada.length > 0) {
+    redirect('/dashboard')
+  }
+
   // Si el usuario digitó esta acta, no puede validarla
   // IMPORTANTE: Esta verificación también previene un bug donde Next.js re-ejecuta
   // este server component durante la navegación, causando que bloquearActa() se llame
@@ -66,10 +78,14 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
   // Construir URL de imagen de Supabase Storage
   const imagenUrl = getActaImageUrl(actaData.acta.cneId) || '/placeholder-acta.png'
 
+  // Obtener total de validaciones del usuario
+  const userTotalValidaciones = await getUserTotalValidaciones(user.id)
+
   return (
     <VerificarClient
       uuid={uuid}
       bloqueadoHasta={bloqueoResult.bloqueadoHasta!}
+      userTotalValidaciones={userTotalValidaciones}
       actaInfo={{
         cneId: actaData.acta.cneId || 'Sin ID',
         departamento: `${actaData.departamento?.nombre || '-'} (${actaData.acta.departamentoCodigo?.toString().padStart(2, '0')})`,

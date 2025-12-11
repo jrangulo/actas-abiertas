@@ -10,7 +10,13 @@
 import { db } from '@/db'
 import { acta } from '@/db/schema'
 import { eq, sql, and, isNotNull } from 'drizzle-orm'
-import type { EstadisticasVotos, VotosPartido, VotosTodoPartido, PuntoProgresion } from './types'
+import type {
+  EstadisticasVotos,
+  VotosPartido,
+  VotosTodoPartido,
+  PuntoProgresion,
+  DistribucionZona,
+} from './types'
 
 // Re-exportar tipos para uso en server components
 export * from './types'
@@ -54,6 +60,19 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
 
   // Total de actas
   const [totalActas] = await db.select({ count: sql<number>`COUNT(*)` }).from(acta)
+
+  // Actas en proceso de validación (tienen entre 1-2 validaciones, aún no completas)
+  const [enValidacionStats] = await db
+    .select({ count: sql<number>`COUNT(*)` })
+    .from(acta)
+    .where(eq(acta.estado, 'en_validacion'))
+
+  // Total validaciones realizadas (suma de todas las validaciones individuales)
+  const [validacionesStats] = await db
+    .select({
+      sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
+    })
+    .from(acta)
 
   // --- Votos principales (para gráfica de progresión, solo 3 partidos) ---
   const cneTotalPartidos =
@@ -219,6 +238,9 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
 
   const actasValidadas = Number(validadosStats.actasValidadas)
   const actasTotales = Number(totalActas.count)
+  const actasEnValidacion = Number(enValidacionStats.count)
+  const validacionesRealizadas = Number(validacionesStats.sum)
+  const validacionesNecesarias = actasTotales * 3
 
   return {
     cne: {
@@ -235,8 +257,17 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
     },
     cobertura: {
       actasTotales,
+      // Fully validated (3+ validations with consensus)
       actasValidadas,
-      porcentaje: actasTotales > 0 ? (actasValidadas / actasTotales) * 100 : 0,
+      porcentajeValidadas: actasTotales > 0 ? (actasValidadas / actasTotales) * 100 : 0,
+      // In progress (1-2 validations)
+      actasEnValidacion,
+      porcentajeEnValidacion: actasTotales > 0 ? (actasEnValidacion / actasTotales) * 100 : 0,
+      // Individual validations progress
+      validacionesRealizadas,
+      validacionesNecesarias,
+      porcentajeValidaciones:
+        validacionesNecesarias > 0 ? (validacionesRealizadas / validacionesNecesarias) * 100 : 0,
     },
   }
 }
@@ -302,4 +333,70 @@ export async function getProgresionVotos(puntosMuestreo: number = 20): Promise<P
   }
 
   return puntos
+}
+
+/**
+ * Obtener distribución de votos por zona (urbano vs rural)
+ * Solo considera actas validadas
+ */
+export async function getDistribucionZona(): Promise<DistribucionZona> {
+  // Query for urban votes
+  const [urbanoStats] = await db
+    .select({
+      actas: sql<number>`COUNT(*)`,
+      votosPn: sql<number>`COALESCE(SUM(${acta.votosPnDigitado}), 0)`,
+      votosPlh: sql<number>`COALESCE(SUM(${acta.votosPlhDigitado}), 0)`,
+      votosPl: sql<number>`COALESCE(SUM(${acta.votosPlDigitado}), 0)`,
+    })
+    .from(acta)
+    .where(and(eq(acta.estado, 'validada'), eq(acta.tipoZona, 'urbano')))
+
+  // Query for rural votes
+  const [ruralStats] = await db
+    .select({
+      actas: sql<number>`COUNT(*)`,
+      votosPn: sql<number>`COALESCE(SUM(${acta.votosPnDigitado}), 0)`,
+      votosPlh: sql<number>`COALESCE(SUM(${acta.votosPlhDigitado}), 0)`,
+      votosPl: sql<number>`COALESCE(SUM(${acta.votosPlDigitado}), 0)`,
+    })
+    .from(acta)
+    .where(and(eq(acta.estado, 'validada'), eq(acta.tipoZona, 'rural')))
+
+  // Calculate totals and percentages for urban
+  const urbanoTotal =
+    Number(urbanoStats.votosPn) + Number(urbanoStats.votosPlh) + Number(urbanoStats.votosPl)
+  const urbano = {
+    actas: Number(urbanoStats.actas),
+    votos: {
+      pn: Number(urbanoStats.votosPn),
+      plh: Number(urbanoStats.votosPlh),
+      pl: Number(urbanoStats.votosPl),
+      total: urbanoTotal,
+    },
+    porcentajes: {
+      pn: urbanoTotal > 0 ? (Number(urbanoStats.votosPn) / urbanoTotal) * 100 : 0,
+      plh: urbanoTotal > 0 ? (Number(urbanoStats.votosPlh) / urbanoTotal) * 100 : 0,
+      pl: urbanoTotal > 0 ? (Number(urbanoStats.votosPl) / urbanoTotal) * 100 : 0,
+    },
+  }
+
+  // Calculate totals and percentages for rural
+  const ruralTotal =
+    Number(ruralStats.votosPn) + Number(ruralStats.votosPlh) + Number(ruralStats.votosPl)
+  const rural = {
+    actas: Number(ruralStats.actas),
+    votos: {
+      pn: Number(ruralStats.votosPn),
+      plh: Number(ruralStats.votosPlh),
+      pl: Number(ruralStats.votosPl),
+      total: ruralTotal,
+    },
+    porcentajes: {
+      pn: ruralTotal > 0 ? (Number(ruralStats.votosPn) / ruralTotal) * 100 : 0,
+      plh: ruralTotal > 0 ? (Number(ruralStats.votosPlh) / ruralTotal) * 100 : 0,
+      pl: ruralTotal > 0 ? (Number(ruralStats.votosPl) / ruralTotal) * 100 : 0,
+    },
+  }
+
+  return { urbano, rural }
 }

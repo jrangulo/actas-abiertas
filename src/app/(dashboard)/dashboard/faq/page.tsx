@@ -49,7 +49,7 @@ const faqItems: FAQItem[] = [
   {
     question: '¿Qué pasa si cometo un error al digitalizar?',
     answer:
-      'No te preocupes. El sistema de validación por consenso está diseñado para detectar y corregir errores. Si tus valores no coinciden con los de otros validadores, el sistema registra una "corrección recibida" en tu perfil. Sin embargo, si acumulas muchas correcciones y tu precisión baja significativamente (por debajo del 70%), recibirás una advertencia. Si continúa bajando, podrías ser restringido o suspendido temporalmente. Este sistema progresivo existe para mantener la calidad de los datos y detectar posibles malos actores, pero no te preocupes si cometes errores ocasionales.',
+      'No te preocupes. El sistema de validación por consenso está diseñado para detectar y corregir errores. Si tus valores no coinciden con los de otros validadores, el sistema registra una "corrección recibida" en tu perfil. Sin embargo, si acumulas muchas correcciones y tu tasa de error supera el 10%, recibirás una advertencia. Si supera el 20%, serás restringido. Si supera el 30%, tu cuenta será suspendida y tus contribuciones eliminadas. Este sistema progresivo existe para mantener la calidad de los datos y detectar posibles malos actores, pero no te preocupes si cometes errores ocasionales.',
     icon: <AlertTriangle className="h-5 w-5" />,
   },
   {
