@@ -27,8 +27,8 @@ export function StreakDisplay({ consecutiveCount, totalCount }: Readonly<StreakD
       {totalCount > 0 && (
         <Badge variant="outline" className="gap-1 bg-green-50 border-green-300 text-green-700">
           <CheckCircle2 className="h-3.5 w-3.5" />
+          <span className="text-xs">Llevas: </span>
           <span className="font-bold">{totalCount}</span>
-          <span className="text-xs">totales</span>
         </Badge>
       )}
     </div>

@@ -98,6 +98,10 @@ export function VerificarClient({
   const [totalCount, setTotalCount] = useState(0)
   const [isMilestone, setIsMilestone] = useState(false)
   const confirmButtonRef = useRef<HTMLButtonElement>(null)
+  const [isAnimatingValidation, setIsAnimatingValidation] = useState(false)
+  const [displayedValidationCount, setDisplayedValidationCount] = useState(
+    actaInfo.cantidadValidaciones
+  )
 
   // Función para obtener valores iniciales (de localStorage o de props)
   const getInitialValues = useCallback(() => {
@@ -222,6 +226,14 @@ export function VerificarClient({
       fireConfettiFromButton(confirmButtonRef.current)
     }
 
+    // Incrementar y mostrar el nuevo número de validación
+    const newValidationCount = actaInfo.cantidadValidaciones + 1
+    setDisplayedValidationCount(newValidationCount)
+
+    // Animar el badge de validación
+    setIsAnimatingValidation(true)
+    setTimeout(() => setIsAnimatingValidation(false), 600)
+
     // Actualizar las estadísticas de engagement
     const newConsecutive = incrementConsecutiveCount()
     const newTotal = incrementTotalCount()
@@ -261,6 +273,14 @@ export function VerificarClient({
   // Realizar la acción de guardar corrección después del diálogo
   const performGuardarCorreccion = (goToNext: boolean = true) => {
     triggerHaptic('good')
+
+    // Incrementar y mostrar el nuevo número de validación
+    const newValidationCount = actaInfo.cantidadValidaciones + 1
+    setDisplayedValidationCount(newValidationCount)
+
+    // Animar el badge de validación
+    setIsAnimatingValidation(true)
+    setTimeout(() => setIsAnimatingValidation(false), 600)
 
     // Actualizar las estadísticas de engagement (las correcciones también son valiosas!)
     const newConsecutive = incrementConsecutiveCount()
@@ -325,6 +345,7 @@ export function VerificarClient({
 
   // Salir sin guardar (abandonar acta)
   const handleSalir = () => {
+    triggerHaptic('bad')
     // Set abandoning flag FIRST to prevent any lock refresh
     setIsAbandoning(true)
     setPendingAction(PendingAction.SALIR)
@@ -389,7 +410,14 @@ export function VerificarClient({
           <Badge variant={actaInfo.escrutada ? 'default' : 'secondary'}>
             {actaInfo.escrutada ? 'CNE' : 'Digitado'}
           </Badge>
-          <Badge variant="outline">{actaInfo.cantidadValidaciones}/3</Badge>
+          <Badge
+            variant="outline"
+            className={cn('transition-all duration-300', isAnimatingValidation && 'scale-125')}
+          >
+            <span className={cn(isAnimatingValidation && 'font-extrabold text-green-600')}>
+              {displayedValidationCount}/3
+            </span>
+          </Badge>
         </div>
       </div>
 
