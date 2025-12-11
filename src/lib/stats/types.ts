@@ -88,3 +88,23 @@ export interface PuntoProgresion {
   actasAcumuladas: number
   porcentajes: Record<PartidoPrincipal, number>
 }
+
+export interface VotosZona {
+  actas: number
+  votos: {
+    pn: number
+    plh: number
+    pl: number
+    total: number
+  }
+  porcentajes: {
+    pn: number
+    plh: number
+    pl: number
+  }
+}
+
+export interface DistribucionZona {
+  urbano: VotosZona
+  rural: VotosZona
+}
