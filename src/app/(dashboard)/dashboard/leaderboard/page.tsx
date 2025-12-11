@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
 import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
 import { generateAnonName } from '@/lib/users/anon-names'
+import { obtenerConteLogrosUsuario } from '@/lib/achievements/actions'
 
 const TOP_USUARIOS_LIMIT = 100
 
@@ -24,6 +25,7 @@ export default async function LeaderboardPage() {
     name: u.perfilPrivado ? generateAnonName(u.usuarioId) : getUserName(u.rawUserMetaData),
     avatarUrl: u.perfilPrivado ? null : getUserAvatarUrl(u.rawUserMetaData),
     validadas: u.actasValidadas || 0,
+    logros: u.logrosCount || 0,
   }))
 
   // Verificar si el usuario actual está en el top 100
@@ -40,12 +42,14 @@ export default async function LeaderboardPage() {
       const userStats = await getEstadisticaUsuario(user?.id || '')
 
       if (userStats && user) {
+        const logrosCount = await obtenerConteLogrosUsuario(user?.id || '')
         currentUserEntry = {
           position: userRanking,
           userId: user?.id || '',
           name: getUserName(user.user_metadata),
           avatarUrl: getUserAvatarUrl(user.user_metadata),
           validadas: userStats.actasValidadas || 0,
+          logros: logrosCount,
         }
         showEllipsis = true
       }
@@ -150,7 +154,11 @@ export default async function LeaderboardPage() {
             {leaderboardData.map((entry) => (
               <div
                 key={entry.position}
-                className="flex items-center gap-3 py-2 border-b last:border-0"
+                className={`flex items-center gap-3 py-2 border-b last:border-0 ${
+                  entry.userId === user?.id
+                    ? 'bg-primary/10 rounded-lg px-3 border-primary/20 '
+                    : ''
+                }`}
               >
                 <LeaderboardAvatar
                   position={entry.position}
@@ -162,7 +170,11 @@ export default async function LeaderboardPage() {
                 />
                 <div className="flex-1 min-w-0">
                   <p className="font-medium truncate">{entry.name}</p>
-                  <p className="text-xs text-muted-foreground">{entry.validadas} validadas</p>
+                  <p className="text-xs text-muted-foreground">
+                    {entry.validadas} validadas
+                    <span> &nbsp;•&nbsp; </span>
+                    {entry.logros} logros
+                  </p>
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-lg">{entry.validadas}</p>
@@ -194,6 +206,10 @@ export default async function LeaderboardPage() {
                   <div className="text-right">
                     <p className="font-bold">{currentUserEntry.validadas}</p>
                     <p className="text-xs text-muted-foreground">total</p>
+                  </div>
+                  <div className="text-right min-w-fit">
+                    <p className="font-bold">{currentUserEntry.logros}</p>
+                    <p className="text-xs text-muted-foreground">logros</p>
                   </div>
                 </div>
               </>

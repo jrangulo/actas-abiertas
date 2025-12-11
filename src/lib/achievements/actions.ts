@@ -1,7 +1,7 @@
 'use server'
 import { db } from '@/db'
 import { logro, usuarioLogro, estadisticaUsuario } from '@/db/schema'
-import { eq } from 'drizzle-orm'
+import { eq, count } from 'drizzle-orm'
 import { TipoLogro } from '@/db/schema'
 
 /**
@@ -32,6 +32,18 @@ export async function obtenerTodosLogrosConEstado(userId: string) {
     obtenidoEn: logrosUsuarioMap.get(l.id)?.obtenidoEn ?? null,
     valorAlcanzado: logrosUsuarioMap.get(l.id)?.valorAlcanzado ?? null,
   }))
+}
+
+/**
+ * Obtener el número total de logros obtenidos por un usuario
+ */
+export async function obtenerConteLogrosUsuario(userId: string): Promise<number> {
+  const [result] = await db
+    .select({ total: count() })
+    .from(usuarioLogro)
+    .where(eq(usuarioLogro.usuarioId, userId))
+
+  return result?.total ?? 0
 }
 
 /**

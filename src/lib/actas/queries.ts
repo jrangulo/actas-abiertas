@@ -12,6 +12,7 @@ import {
   municipio,
   departamento,
   centroVotacion,
+  usuarioLogro,
 } from '@/db/schema'
 import {
   eq,
@@ -26,6 +27,7 @@ import {
   sql,
   count,
   desc,
+  countDistinct,
 } from 'drizzle-orm'
 import { LOCK_DURATION_MINUTES } from './utils'
 
@@ -386,9 +388,18 @@ export async function getTopUsuarios(limite: number = 10) {
       actasValidadas: estadisticaUsuario.actasValidadas,
       validacionesCorrectas: estadisticaUsuario.validacionesCorrectas,
       perfilPrivado: estadisticaUsuario.perfilPrivado,
+      logrosCount: countDistinct(usuarioLogro.id),
     })
     .from(estadisticaUsuario)
     .leftJoin(authUsers, eq(estadisticaUsuario.usuarioId, authUsers.id))
+    .leftJoin(usuarioLogro, eq(estadisticaUsuario.usuarioId, usuarioLogro.usuarioId))
+    .groupBy(
+      estadisticaUsuario.usuarioId,
+      authUsers.rawUserMetaData,
+      estadisticaUsuario.actasValidadas,
+      estadisticaUsuario.validacionesCorrectas,
+      estadisticaUsuario.perfilPrivado
+    )
     .orderBy(desc(estadisticaUsuario.actasValidadas))
     .where(gt(estadisticaUsuario.actasValidadas, 0))
     .limit(limite)
