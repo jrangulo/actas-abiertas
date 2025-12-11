@@ -31,6 +31,7 @@ import {
 } from './helpers/supabase-admin'
 import {
   createTestActa,
+  getCurrentUuid,
   getUserStats,
   updateUserStats,
   cleanupTestActa,
@@ -467,6 +468,7 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
         testActas.push(testActa)
 
         // Los dos usuarios buenos validan secuencialmente
+        // Nota: UUID cambia después de cada validación
         const result1 = await guardarValidacionInternal({
           uuid: testActa.uuid,
           userId: TEST_USER_GOOD_1,
@@ -475,8 +477,9 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
           skipRevalidate: true,
         })
 
+        const uuid2 = await getCurrentUuid(testActa.id)
         const result2 = await guardarValidacionInternal({
-          uuid: testActa.uuid,
+          uuid: uuid2,
           userId: TEST_USER_GOOD_2,
           datos: { esCorrecta: true },
           skipLockCheck: true,
@@ -488,8 +491,9 @@ describeWithUsers.sequential('Sistema de Autoban (Integración)', () => {
         expect(result2.success).toBe(true)
 
         // Usuario malo valida último (recibe corrección automática)
+        const uuid3 = await getCurrentUuid(testActa.id)
         const result = await guardarValidacionInternal({
-          uuid: testActa.uuid,
+          uuid: uuid3,
           userId: TEST_USER_BAD,
           datos: {
             esCorrecta: false,

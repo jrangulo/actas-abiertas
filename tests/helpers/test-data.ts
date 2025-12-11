@@ -119,6 +119,18 @@ export async function getTestActa(actaId: number) {
 }
 
 /**
+ * Obtener el UUID actual de un acta (puede cambiar después de cada validación)
+ */
+export async function getCurrentUuid(actaId: number): Promise<string> {
+  const [result] = await db
+    .select({ uuid: acta.uuid })
+    .from(acta)
+    .where(eq(acta.id, actaId))
+    .limit(1)
+  return result?.uuid ?? ''
+}
+
+/**
  * Obtener estadísticas de usuario
  */
 export async function getUserStats(userId: string) {
