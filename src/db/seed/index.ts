@@ -29,21 +29,21 @@ async function seed() {
   const db = drizzle(client)
 
   try {
-    // // Sembrar departamentos
-    // console.log('📍 Sembrando departamentos...')
-    // await db.insert(departamento).values(departamentosHonduras).onConflictDoNothing()
-    // console.log(`   ✓ ${departamentosHonduras.length} departamentos`)
+    // Sembrar departamentos
+    console.log('📍 Sembrando departamentos...')
+    await db.insert(departamento).values(departamentosHonduras).onConflictDoNothing()
+    console.log(`   ✓ ${departamentosHonduras.length} departamentos`)
 
-    // // Sembrar municipios
-    // console.log('🏘️  Sembrando municipios...')
-    // await db.insert(municipio).values(municipiosHonduras).onConflictDoNothing()
-    // console.log(`   ✓ ${municipiosHonduras.length} municipios`)
+    // Sembrar municipios
+    console.log('🏘️  Sembrando municipios...')
+    await db.insert(municipio).values(municipiosHonduras).onConflictDoNothing()
+    console.log(`   ✓ ${municipiosHonduras.length} municipios`)
 
-    // // 3. Centros de Votación
-    // console.log('🏫 Sembrando centros de votación...')
-    // console.log(`📄 Cargando ${centrosVotacionHonduras.length} centros...`)
-    // await db.insert(centroVotacion).values(centrosVotacionHonduras)
-    // console.log(`   ✓ ${centrosVotacionHonduras.length} centros de votación insertados`)
+    // 3. Centros de Votación
+    console.log('🏫 Sembrando centros de votación...')
+    console.log(`📄 Cargando ${centrosVotacionHonduras.length} centros...`)
+    await db.insert(centroVotacion).values(centrosVotacionHonduras)
+    console.log(`   ✓ ${centrosVotacionHonduras.length} centros de votación insertados`)
 
     // 4. Logros (Achievements)
     console.log('🏆 Sembrando logros del sistema...')

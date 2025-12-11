@@ -15,6 +15,18 @@ const crearMunicipios = (departamentoCodigo: number, nombres: string[]): NewMuni
     nombre,
   }))
 
+// Función auxiliar para crear municipios de un departamento
+const crearMunicipiosConCodigos = (
+  departamentoCodigo: number,
+  nombres: string[],
+  codigos: number[]
+): NewMunicipio[] =>
+  nombres.map((nombre, index) => ({
+    departamentoCodigo,
+    codigo: codigos[index],
+    nombre,
+  }))
+
 // =============================================================================
 // Departamento 01: Atlántida (8 municipios)
 // =============================================================================
@@ -417,6 +429,29 @@ const yoro = crearMunicipios(18, [
 ])
 
 // =============================================================================
+// Departamento 20: Exterior (12 municipios)
+// =============================================================================
+
+const exterior = crearMunicipiosConCodigos(
+  20,
+  [
+    'Atlanta',
+    'Boston',
+    'Charlotte',
+    'Chicago',
+    'Dallas',
+    'Houston',
+    'Los Angeles',
+    'Miami',
+    'New Orleans',
+    'New York',
+    'San Francisco',
+    'Washington',
+  ],
+  [7, 13, 15, 8, 9, 1, 2, 3, 4, 5, 14, 6]
+)
+
+// =============================================================================
 // Exportación completa: 298 municipios
 // =============================================================================
 export const municipiosHonduras: NewMunicipio[] = [
@@ -438,4 +473,5 @@ export const municipiosHonduras: NewMunicipio[] = [
   ...santaBarbara, // 16: 28 municipios
   ...valle, // 17: 9 municipios
   ...yoro, // 18: 11 municipios
-] // Total: 298
+  ...exterior, // 20: 12 municipios
+] // Total: 298 municipios HN + 12 exterior
