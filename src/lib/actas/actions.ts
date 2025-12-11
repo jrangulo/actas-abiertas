@@ -419,6 +419,7 @@ export async function guardarValidacionInternal(
         await db
           .update(acta)
           .set({
+            uuid: crypto.randomUUID(), // Regenerar UUID
             votosPnDigitado: winningValues.pn,
             votosPlhDigitado: winningValues.plh,
             votosPlDigitado: winningValues.pl,
@@ -467,6 +468,7 @@ export async function guardarValidacionInternal(
         await db
           .update(acta)
           .set({
+            uuid: crypto.randomUUID(), // Regenerar UUID
             cantidadValidaciones: nuevaCantidadValidaciones,
             estado: 'con_discrepancia',
             bloqueadoPor: null,
@@ -477,9 +479,11 @@ export async function guardarValidacionInternal(
       }
     } else {
       // Menos de 3 validaciones - solo actualizar contador
+      // Regenerar UUID para invalidar URLs compartidas (prevenir colusion)
       await db
         .update(acta)
         .set({
+          uuid: crypto.randomUUID(),
           cantidadValidaciones: nuevaCantidadValidaciones,
           estado: 'en_validacion',
           bloqueadoPor: null,
@@ -622,6 +626,7 @@ export async function reportarProblema(
     await db
       .update(acta)
       .set({
+        uuid: crypto.randomUUID(), // Regenerar UUID
         estado: 'bajo_revision',
         bloqueadoPor: null,
         bloqueadoHasta: null,
