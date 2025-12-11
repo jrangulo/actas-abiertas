@@ -3,16 +3,39 @@
 import {
   COLORES_PARTIDOS,
   PARTIDOS_PRINCIPALES,
-  type PuntoProgresion,
+  type PuntoProgresionValores,
   type PartidoPrincipal,
 } from '@/lib/stats/types'
 import { LineChart } from '@/components/ui/chart'
 
-interface ProgresionChartProps {
-  data: PuntoProgresion[]
+interface ProgresionValoresChartProps {
+  data: PuntoProgresionValores[]
 }
 
 const PARTIDOS: PartidoPrincipal[] = [...PARTIDOS_PRINCIPALES]
+
+/**
+ * Genera ticks apropiados para el eje Y basados en el valor máximo
+ * Crea 5 ticks espaciados uniformemente con valores "bonitos"
+ */
+function generateYAxisTicks(max: number): number[] {
+  if (max <= 0) return [0]
+
+  // Encontrar el orden de magnitud apropiado
+  const magnitude = Math.pow(10, Math.floor(Math.log10(max)))
+  const normalized = max / magnitude
+
+  // Redondear a un número "bonito"
+  let niceMax: number
+  if (normalized <= 1) niceMax = magnitude
+  else if (normalized <= 2) niceMax = 2 * magnitude
+  else if (normalized <= 5) niceMax = 5 * magnitude
+  else niceMax = 10 * magnitude
+
+  // Generar 5 ticks incluyendo 0 y niceMax
+  const step = niceMax / 4
+  return [0, step, step * 2, step * 3, niceMax]
+}
 
 /**
  * Genera ticks apropiados para el eje X basados en el valor máximo
@@ -38,10 +61,10 @@ function generateXAxisTicks(max: number): number[] {
 }
 
 /**
- * Gráfico de líneas mostrando progresión de porcentajes por partido
+ * Gráfico de líneas mostrando progresión de valores acumulados por partido
  * a medida que aumenta la cobertura de validación
  */
-export function ProgresionChart({ data }: ProgresionChartProps) {
+export function ProgresionValoresChart({ data }: ProgresionValoresChartProps) {
   if (data.length === 0) {
     return (
       <div className="text-center py-8 text-muted-foreground">
@@ -54,15 +77,20 @@ export function ProgresionChart({ data }: ProgresionChartProps) {
   const chartData = data.map((punto) => ({
     cobertura: punto.cobertura,
     actasAcumuladas: punto.actasAcumuladas,
-    PN: punto.porcentajes.PN,
-    PLH: punto.porcentajes.PLH,
-    PL: punto.porcentajes.PL,
+    PN: punto.votos.PN,
+    PLH: punto.votos.PLH,
+    PL: punto.votos.PL,
   }))
 
   // Calcular dominio dinámico del eje X basado en cobertura actual
   const maxCobertura = Math.max(...data.map((d) => d.cobertura))
   const xAxisTicks = generateXAxisTicks(maxCobertura)
   const xAxisMax = xAxisTicks[xAxisTicks.length - 1]
+
+  // Calcular dominio dinámico del eje Y basado en votos máximos
+  const maxVotos = Math.max(...data.flatMap((d) => [d.votos.PN, d.votos.PLH, d.votos.PL]))
+  const yAxisTicks = generateYAxisTicks(maxVotos)
+  const yAxisMax = yAxisTicks[yAxisTicks.length - 1]
 
   // Configuración de series
   const series = PARTIDOS.map((partido) => ({
@@ -87,13 +115,13 @@ export function ProgresionChart({ data }: ProgresionChartProps) {
       series={series}
       xAxisKey="cobertura"
       xAxisLabel="Cobertura de Validación (%)"
-      yAxisLabel="Porcentaje (%)"
+      yAxisLabel="Votos Acumulados"
       xAxisDomain={[0, xAxisMax]}
       xAxisTicks={xAxisTicks}
-      yAxisDomain={[0, 100]}
+      yAxisDomain={[0, yAxisMax]}
       xAxisFormatter={xAxisFormatter}
-      yAxisFormatter={(value) => `${value.toFixed(0)}%`}
-      tooltipFormatter={(value) => `${value.toFixed(2)}%`}
+      yAxisFormatter={(value) => value.toLocaleString()}
+      tooltipFormatter={(value) => value.toLocaleString()}
       height={350}
       legendPosition="top"
     />
