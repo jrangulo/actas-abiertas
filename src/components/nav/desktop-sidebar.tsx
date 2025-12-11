@@ -119,7 +119,7 @@ export function DesktopSidebar({ user, onSignOut }: DesktopSidebarProps) {
         </Button>
 
         {/* Legal links */}
-        <div className="mt-4 pt-4 border-t text-xs text-muted-foreground space-x-2">
+        <div className="mt-4 pt-4 border-t text-xs text-muted-foreground space-x-2 flex items-center gap-2">
           <Link href="/privacidad" className="hover:text-foreground transition-colors">
             Privacidad
           </Link>
@@ -127,6 +127,15 @@ export function DesktopSidebar({ user, onSignOut }: DesktopSidebarProps) {
           <Link href="/terminos" className="hover:text-foreground transition-colors">
             Términos
           </Link>
+          <span>·</span>
+          <a
+            href="https://github.com/jrangulo/actas-abiertas"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1"
+          >
+            GitHub
+          </a>
         </div>
       </div>
     </aside>

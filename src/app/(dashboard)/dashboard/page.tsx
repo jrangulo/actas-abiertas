@@ -457,7 +457,7 @@ async function MainCTA() {
               asChild
               variant="outline"
               size="lg"
-              className="mt-2 font-semibold border-2 shadow-md"
+              className="mt-2 font-semibold border-2 shadow-md text-foreground border-foreground/20 hover:border-foreground"
             >
               <Link href="/dashboard/verificar">
                 Verificar actas

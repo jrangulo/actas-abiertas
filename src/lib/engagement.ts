@@ -1,6 +1,15 @@
+'use client'
+
 /**
  * Engagement utilities para gamificar la experiencia de verificación
  */
+
+import { showAchievementsToast } from '@/components/achievements/toast'
+import {
+  verificarLogrosRachaSesion,
+  verificarLogrosReportes,
+  verificarLogrosValidaciones,
+} from './achievements/actions'
 
 const INACTIVITY_TIMEOUT = 12 * 60 * 1000 // 12 minutos en milisegundos
 
@@ -73,6 +82,23 @@ export function incrementConsecutiveCount(): number {
 }
 
 /**
+ * Verifica logros de racha de sesión (debe llamarse después de incrementar)
+ */
+export async function checkStreakAchievements(userId: string, streakCount: number): Promise<void> {
+  if (typeof window === 'undefined') return
+
+  try {
+    const achievements = await verificarLogrosRachaSesion(userId, streakCount)
+    if (achievements && achievements.length > 0) {
+      showAchievementsToast(achievements)
+    }
+  } catch (error) {
+    // Ignorar errores silenciosamente
+    console.debug('Error verificando logros de racha:', error)
+  }
+}
+
+/**
  * Reinicia el contador de verificaciones consecutivas
  */
 export function resetConsecutiveCount(): void {
@@ -106,6 +132,42 @@ export function incrementTotalCount(): number {
   const newTotal = currentTotal + 1
   localStorage.setItem('verification-total-count', newTotal.toString())
   return newTotal
+}
+
+/**
+ * Verifica logros de validaciones totales
+ */
+export async function checkTotalValidationsAchievements(userId: string): Promise<void> {
+  if (typeof window === 'undefined') return
+
+  try {
+    const achievements = await verificarLogrosValidaciones(userId)
+
+    if (achievements && achievements.length > 0) {
+      showAchievementsToast(achievements)
+    }
+  } catch (error) {
+    // Ignorar errores silenciosamente
+    console.debug('Error verificando logros de validaciones:', error)
+  }
+}
+
+/**
+ * Verifica logros de reportes totales
+ */
+export async function checkTotalReportsAchievements(userId: string): Promise<void> {
+  if (typeof window === 'undefined') return
+
+  try {
+    const achievements = await verificarLogrosReportes(userId)
+
+    if (achievements && achievements.length > 0) {
+      showAchievementsToast(achievements)
+    }
+  } catch (error) {
+    // Ignorar errores silenciosamente
+    console.debug('Error verificando logros de reportes:', error)
+  }
 }
 
 /**
