@@ -10,10 +10,11 @@
 import 'dotenv/config'
 import { drizzle } from 'drizzle-orm/postgres-js'
 import postgres from 'postgres'
-import { centroVotacion, departamento, municipio } from '../schema'
+import { centroVotacion, departamento, municipio, logro } from '../schema'
 import { departamentosHonduras } from './departamentos'
 import { municipiosHonduras } from './municipios'
 import { centrosVotacionHonduras } from './centrosVotacion'
+import { logrosSistema } from './logros'
 
 async function seed() {
   const connectionString = process.env.DATABASE_URL
@@ -28,21 +29,26 @@ async function seed() {
   const db = drizzle(client)
 
   try {
-    // Sembrar departamentos
-    console.log('📍 Sembrando departamentos...')
-    await db.insert(departamento).values(departamentosHonduras).onConflictDoNothing()
-    console.log(`   ✓ ${departamentosHonduras.length} departamentos`)
+    // // Sembrar departamentos
+    // console.log('📍 Sembrando departamentos...')
+    // await db.insert(departamento).values(departamentosHonduras).onConflictDoNothing()
+    // console.log(`   ✓ ${departamentosHonduras.length} departamentos`)
 
-    // Sembrar municipios
-    console.log('🏘️  Sembrando municipios...')
-    await db.insert(municipio).values(municipiosHonduras).onConflictDoNothing()
-    console.log(`   ✓ ${municipiosHonduras.length} municipios`)
+    // // Sembrar municipios
+    // console.log('🏘️  Sembrando municipios...')
+    // await db.insert(municipio).values(municipiosHonduras).onConflictDoNothing()
+    // console.log(`   ✓ ${municipiosHonduras.length} municipios`)
 
-    // 3. Centros de Votación
-    console.log('🏫 [3/3] Sembrando centros de votación...')
-    console.log(`📄 Cargando ${centrosVotacionHonduras.length} centros...`)
-    await db.insert(centroVotacion).values(centrosVotacionHonduras)
-    console.log(`✅ ${centrosVotacionHonduras.length} centros de votación insertados\n`)
+    // // 3. Centros de Votación
+    // console.log('🏫 Sembrando centros de votación...')
+    // console.log(`📄 Cargando ${centrosVotacionHonduras.length} centros...`)
+    // await db.insert(centroVotacion).values(centrosVotacionHonduras)
+    // console.log(`   ✓ ${centrosVotacionHonduras.length} centros de votación insertados`)
+
+    // 4. Logros (Achievements)
+    console.log('🏆 Sembrando logros del sistema...')
+    await db.insert(logro).values(logrosSistema).onConflictDoNothing()
+    console.log(`   ✓ ${logrosSistema.length} logros disponibles`)
 
     console.log('')
     console.log('📋 Nota: Las JRVs deben')

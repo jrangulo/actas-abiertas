@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { MobileNav, BottomNav, DesktopSidebar } from '@/components/nav'
 import { WelcomeModal } from '@/components/onboarding/welcome-modal'
+import { Toaster } from '@/components/ui/sonner'
 
 interface DashboardShellProps {
   children: React.ReactNode
@@ -26,6 +27,7 @@ export function DashboardShell({ children, user, showOnboarding = false }: Dashb
 
   return (
     <div className="min-h-screen bg-background">
+      <Toaster />
       {/* Modal de bienvenida para nuevos usuarios */}
       {showOnboarding && <WelcomeModal userName={user?.name} isOpen={true} />}
 

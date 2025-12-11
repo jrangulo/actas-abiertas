@@ -23,6 +23,9 @@ import {
   incrementTotalCount,
   initializeTotalCount,
   checkMilestone,
+  checkStreakAchievements,
+  checkTotalValidationsAchievements,
+  checkTotalReportsAchievements,
 } from '@/lib/engagement'
 import {
   guardarValidacion,
@@ -49,6 +52,7 @@ const DRAFT_KEY_PREFIX = 'acta-draft-'
 
 interface VerificarClientProps {
   uuid: string
+  userId: string
   bloqueadoHasta: Date
   userTotalValidaciones: number
   actaInfo: {
@@ -78,6 +82,7 @@ interface VerificarClientProps {
 
 export function VerificarClient({
   uuid,
+  userId,
   bloqueadoHasta,
   userTotalValidaciones,
   actaInfo,
@@ -246,6 +251,10 @@ export function VerificarClient({
 
     setTimeout(() => setShowCelebration(false), 2500)
 
+    // Verificar logros en background (no bloquear)
+    checkStreakAchievements(userId, newConsecutive).catch(() => {})
+    checkTotalValidationsAchievements(userId).catch(() => {})
+
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, { esCorrecta: true })
@@ -295,6 +304,10 @@ export function VerificarClient({
     // Hide celebration after animation
     setTimeout(() => setShowCelebration(false), 2500)
 
+    // Verificar logros en background (no bloquear)
+    checkStreakAchievements(userId, newConsecutive).catch(() => {})
+    checkTotalValidationsAchievements(userId).catch(() => {})
+
     startTransition(async () => {
       try {
         await guardarValidacion(uuid, {
@@ -331,6 +344,9 @@ export function VerificarClient({
   ) => {
     const result = await reportarProblema(uuid, { tipo, descripcion })
     clearDraft()
+
+    // verificar logros de reporte en background
+    checkTotalReportsAchievements(userId).catch(() => {})
 
     // Use nextUuid from response to avoid race condition
     if (result.nextUuid) {

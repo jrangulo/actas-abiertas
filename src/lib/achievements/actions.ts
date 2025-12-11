@@ -1,57 +1,8 @@
+'use server'
 import { db } from '@/db'
 import { logro, usuarioLogro, estadisticaUsuario } from '@/db/schema'
-import { eq, and, inArray } from 'drizzle-orm'
-import { ACHIEVEMENTS_CONFIG } from './config'
-import type { TipoLogro } from '@/db/schema'
-
-/**
- * Inicializar logros en la base de datos
- * Debe ejecutarse una vez para crear todos los logros definidos
- */
-export async function inicializarLogros() {
-  const logrosExistentes = await db.select().from(logro)
-
-  const logrosExistentesMap = new Map(
-    logrosExistentes.map((l) => [`${l.tipo}-${l.valorObjetivo}`, l])
-  )
-
-  const logrosParaInsertar = ACHIEVEMENTS_CONFIG.filter(
-    (config) => !logrosExistentesMap.has(`${config.tipo}-${config.valorObjetivo}`)
-  )
-
-  if (logrosParaInsertar.length > 0) {
-    await db.insert(logro).values(logrosParaInsertar)
-  }
-
-  return { inserted: logrosParaInsertar.length }
-}
-
-/**
- * Obtener logros de un usuario
- */
-export async function obtenerLogrosUsuario(userId: string) {
-  const logrosUsuario = await db
-    .select({
-      id: usuarioLogro.id,
-      obtenidoEn: usuarioLogro.obtenidoEn,
-      valorAlcanzado: usuarioLogro.valorAlcanzado,
-      logro: {
-        id: logro.id,
-        tipo: logro.tipo,
-        valorObjetivo: logro.valorObjetivo,
-        nombre: logro.nombre,
-        descripcion: logro.descripcion,
-        icono: logro.icono,
-        orden: logro.orden,
-      },
-    })
-    .from(usuarioLogro)
-    .innerJoin(logro, eq(usuarioLogro.logroId, logro.id))
-    .where(eq(usuarioLogro.usuarioId, userId))
-    .orderBy(logro.orden)
-
-  return logrosUsuario
-}
+import { eq } from 'drizzle-orm'
+import { TipoLogro } from '@/db/schema'
 
 /**
  * Obtener todos los logros disponibles con estado de obtención del usuario
@@ -89,17 +40,15 @@ export async function obtenerTodosLogrosConEstado(userId: string) {
 export async function verificarYOtorgarLogros(
   userId: string,
   tipo: TipoLogro,
-  valorActual: number,
-  valorAlcanzado?: number
+  valorActual: number
 ): Promise<Array<{ id: number; nombre: string; descripcion: string; icono: string | null }>> {
-  // Obtener logros del tipo especificado que el usuario aún no tiene
+  console.log(`Verificando logros para usuario ${userId}, tipo ${tipo}, valor ${valorActual}`)
   const logrosDisponibles = await db
     .select()
     .from(logro)
     .where(eq(logro.tipo, tipo))
     .orderBy(logro.valorObjetivo)
 
-  // Obtener logros que el usuario ya tiene
   const logrosUsuario = await db
     .select({ logroId: usuarioLogro.logroId })
     .from(usuarioLogro)
@@ -107,7 +56,6 @@ export async function verificarYOtorgarLogros(
 
   const logrosUsuarioIds = new Set(logrosUsuario.map((lu) => lu.logroId))
 
-  // Filtrar logros que el usuario puede obtener ahora
   const logrosParaOtorgar = logrosDisponibles.filter(
     (l) => !logrosUsuarioIds.has(l.id) && valorActual >= l.valorObjetivo
   )
@@ -120,12 +68,11 @@ export async function verificarYOtorgarLogros(
   const nuevosLogros = logrosParaOtorgar.map((l) => ({
     usuarioId: userId,
     logroId: l.id,
-    valorAlcanzado: valorAlcanzado ?? valorActual,
+    valorAlcanzado: valorActual,
   }))
 
   await db.insert(usuarioLogro).values(nuevosLogros)
 
-  // Retornar información de los logros otorgados
   return logrosParaOtorgar.map((l) => ({
     id: l.id,
     nombre: l.nombre,
@@ -174,5 +121,5 @@ export async function verificarLogrosReportes(userId: string) {
  * @param rachaActual - Número de actas validadas en la sesión actual
  */
 export async function verificarLogrosRachaSesion(userId: string, rachaActual: number) {
-  return verificarYOtorgarLogros(userId, 'racha_sesion', rachaActual, rachaActual)
+  return verificarYOtorgarLogros(userId, 'racha_sesion', rachaActual)
 }

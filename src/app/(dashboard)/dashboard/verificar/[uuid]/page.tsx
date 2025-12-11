@@ -84,6 +84,7 @@ export default async function VerificarActaPage({ params }: VerificarActaPagePro
   return (
     <VerificarClient
       uuid={uuid}
+      userId={user.id}
       bloqueadoHasta={bloqueoResult.bloqueadoHasta!}
       userTotalValidaciones={userTotalValidaciones}
       actaInfo={{
