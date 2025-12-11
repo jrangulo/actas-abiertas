@@ -16,6 +16,7 @@ import type {
   VotosTodoPartido,
   PuntoProgresion,
   DistribucionZona,
+  PuntoProgresionValores,
 } from './types'
 
 // Re-exportar tipos para uso en server components
@@ -327,6 +328,69 @@ export async function getProgresionVotos(puntosMuestreo: number = 20): Promise<P
           PN: totalPartidos > 0 ? (acumuladoPn / totalPartidos) * 100 : 0,
           PLH: totalPartidos > 0 ? (acumuladoPlh / totalPartidos) * 100 : 0,
           PL: totalPartidos > 0 ? (acumuladoPl / totalPartidos) * 100 : 0,
+        },
+      })
+    }
+  }
+
+  return puntos
+}
+
+/**
+ * Datos para el gráfico de valores acumulados en validación
+ *
+ * Retorna puntos de datos mostrando cómo cambian los valores (votos acumulados)
+ * a medida que aumenta la cobertura de validación.
+ *
+ * Para eficiencia, muestreamos en intervalos (no cada acta individual)
+ */
+export async function getProgresionValoresValidacion(
+  puntosMuestreo: number = 20
+): Promise<PuntoProgresionValores[]> {
+  // Obtener total de actas en el sistema para calcular cobertura real
+  const [totalActasResult] = await db.select({ count: sql<number>`COUNT(*)` }).from(acta)
+  const totalActasSistema = Number(totalActasResult.count)
+
+  // Obtener actas validadas ordenadas por fecha de actualización
+  // Solo traemos los campos necesarios para eficiencia
+  const actasValidadas = await db
+    .select({
+      votosPn: acta.votosPnDigitado,
+      votosPlh: acta.votosPlhDigitado,
+      votosPl: acta.votosPlDigitado,
+    })
+    .from(acta)
+    .where(and(eq(acta.estado, 'validada'), isNotNull(acta.actualizadoEn)))
+    .orderBy(acta.actualizadoEn)
+
+  if (actasValidadas.length === 0) {
+    return []
+  }
+
+  const totalValidadas = actasValidadas.length
+  const intervalo = Math.max(1, Math.floor(totalValidadas / puntosMuestreo))
+
+  const puntos: PuntoProgresionValores[] = []
+  let acumuladoPn = 0
+  let acumuladoPlh = 0
+  let acumuladoPl = 0
+
+  for (let i = 0; i < actasValidadas.length; i++) {
+    const actaItem = actasValidadas[i]
+    acumuladoPn += actaItem.votosPn || 0
+    acumuladoPlh += actaItem.votosPlh || 0
+    acumuladoPl += actaItem.votosPl || 0
+
+    // Solo agregar punto en intervalos o al final
+    if ((i + 1) % intervalo === 0 || i === actasValidadas.length - 1) {
+      puntos.push({
+        // Cobertura = actas validadas hasta este punto / total de actas en sistema
+        cobertura: ((i + 1) / totalActasSistema) * 100,
+        actasAcumuladas: i + 1,
+        votos: {
+          PN: acumuladoPn,
+          PLH: acumuladoPlh,
+          PL: acumuladoPl,
         },
       })
     }

@@ -89,6 +89,12 @@ export interface PuntoProgresion {
   porcentajes: Record<PartidoPrincipal, number>
 }
 
+export interface PuntoProgresionValores {
+  cobertura: number // Porcentaje de cobertura (0-100)
+  actasAcumuladas: number
+  votos: Record<PartidoPrincipal, number>
+}
+
 export interface VotosZona {
   actas: number
   votos: {
