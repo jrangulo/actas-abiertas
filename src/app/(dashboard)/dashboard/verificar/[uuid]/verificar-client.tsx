@@ -345,6 +345,7 @@ export function VerificarClient({
 
   // Salir sin guardar (abandonar acta)
   const handleSalir = () => {
+    triggerHaptic('bad')
     // Set abandoning flag FIRST to prevent any lock refresh
     setIsAbandoning(true)
     setPendingAction(PendingAction.SALIR)
