@@ -292,6 +292,7 @@ const DISPOSABLE_DOMAINS = new Set([
   'vkcode.ru',
   'vpn.st',
   'vsimcard.com',
+  'vomoto.com',
   'vubby.com',
   'wasteland.rfc822.org',
   'webemail.me',
