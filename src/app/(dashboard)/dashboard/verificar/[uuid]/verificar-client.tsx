@@ -13,7 +13,6 @@ import {
   ConfirmationDialog,
   InconsistenciaDialog,
   Celebration,
-  fireConfettiFromButton,
   StreakDisplay,
 } from '@/components/verificar'
 import {
@@ -102,7 +101,7 @@ export function VerificarClient({
   const [consecutiveCount, setConsecutiveCount] = useState(0)
   const [totalCount, setTotalCount] = useState(0)
   const [isMilestone, setIsMilestone] = useState(false)
-  const confirmButtonRef = useRef<HTMLButtonElement>(null)
+  const [isActaComplete, setIsActaComplete] = useState(false)
   const [isAnimatingValidation, setIsAnimatingValidation] = useState(false)
   const [displayedValidationCount, setDisplayedValidationCount] = useState(
     actaInfo.cantidadValidaciones
@@ -226,11 +225,6 @@ export function VerificarClient({
   const performConfirmarCorrecto = (goToNext: boolean = true) => {
     triggerHaptic('good')
 
-    // Disparar confetti desde el botón
-    if (confirmButtonRef.current) {
-      fireConfettiFromButton(confirmButtonRef.current)
-    }
-
     // Incrementar y mostrar el nuevo número de validación
     const newValidationCount = actaInfo.cantidadValidaciones + 1
     setDisplayedValidationCount(newValidationCount)
@@ -243,13 +237,22 @@ export function VerificarClient({
     const newConsecutive = incrementConsecutiveCount()
     const newTotal = incrementTotalCount()
     const milestone = checkMilestone(newTotal)
+    const completesActa = newValidationCount === 3
 
     setConsecutiveCount(newConsecutive)
     setTotalCount(newTotal)
     setIsMilestone(milestone.isMilestone)
+    setIsActaComplete(completesActa)
     setShowCelebration(true)
 
-    setTimeout(() => setShowCelebration(false), 2500)
+    setTimeout(
+      () => {
+        setShowCelebration(false)
+        setIsActaComplete(false)
+        setIsMilestone(false)
+      },
+      completesActa ? 3000 : 2500
+    )
 
     // Verificar logros en background (no bloquear)
     checkStreakAchievements(userId, newConsecutive).catch(() => {})
@@ -295,14 +298,23 @@ export function VerificarClient({
     const newConsecutive = incrementConsecutiveCount()
     const newTotal = incrementTotalCount()
     const milestone = checkMilestone(newTotal)
+    const completesActa = newValidationCount === 3
 
     setConsecutiveCount(newConsecutive)
     setTotalCount(newTotal)
     setIsMilestone(milestone.isMilestone)
+    setIsActaComplete(completesActa)
     setShowCelebration(true)
 
     // Hide celebration after animation
-    setTimeout(() => setShowCelebration(false), 2500)
+    setTimeout(
+      () => {
+        setShowCelebration(false)
+        setIsActaComplete(false)
+        setIsMilestone(false)
+      },
+      completesActa ? 3000 : 2500
+    )
 
     // Verificar logros en background (no bloquear)
     checkStreakAchievements(userId, newConsecutive).catch(() => {})
@@ -638,7 +650,6 @@ export function VerificarClient({
 
                 {/* Botón principal: Confirmar */}
                 <Button
-                  ref={confirmButtonRef}
                   className="w-full bg-green-600 hover:bg-green-700 h-12 transition-transform active:scale-95"
                   disabled={isPending}
                   onClick={() => handleConfirmarCorrecto(true)}
@@ -702,7 +713,12 @@ export function VerificarClient({
         valoresActuales={valoresActuales}
         showComparison={true}
       />
-      <Celebration show={showCelebration} streak={totalCount} isMilestone={isMilestone} />
+      <Celebration
+        show={showCelebration}
+        streak={totalCount}
+        isMilestone={isMilestone}
+        isActaComplete={isActaComplete}
+      />
     </div>
   )
 }
