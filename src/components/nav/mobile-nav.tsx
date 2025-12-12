@@ -15,9 +15,11 @@ import {
   HelpCircle,
   BarChart3,
   AlertTriangle,
+  Newspaper,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { NavBlogIndicator } from './nav-blog-indicator'
 
 const navItems = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
@@ -25,6 +27,7 @@ const navItems = [
   { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
   { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
+  { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
   { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
 ]
@@ -35,9 +38,10 @@ interface MobileNavProps {
     name?: string
   }
   onSignOut?: () => void
+  latestPostDate?: string | null
 }
 
-export function MobileNav({ user, onSignOut }: MobileNavProps) {
+export function MobileNav({ user, onSignOut, latestPostDate }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
 
@@ -59,7 +63,11 @@ export function MobileNav({ user, onSignOut }: MobileNavProps) {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
           >
-            {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            <span className="relative">
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {/* Indicador de nuevos posts visible incluso sin abrir el menú */}
+              <NavBlogIndicator latestPostDate={latestPostDate ?? null} />
+            </span>
           </Button>
         </div>
       </header>
@@ -78,13 +86,18 @@ export function MobileNav({ user, onSignOut }: MobileNavProps) {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    'flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium transition-colors',
+                    'flex items-center gap-3 px-4 py-3 rounded-lg text-base font-medium transition-colors relative',
                     isActive
                       ? 'bg-[#0069b4] text-white'
                       : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                   )}
                 >
-                  <Icon className="h-5 w-5" />
+                  <span className="relative">
+                    <Icon className="h-5 w-5" />
+                    {item.hasBlogIndicator && (
+                      <NavBlogIndicator latestPostDate={latestPostDate ?? null} />
+                    )}
+                  </span>
                   {item.label}
                 </Link>
               )

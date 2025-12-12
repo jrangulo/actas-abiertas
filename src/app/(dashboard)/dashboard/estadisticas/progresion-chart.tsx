@@ -19,20 +19,34 @@ const PARTIDOS: PartidoPrincipal[] = [...PARTIDOS_PRINCIPALES]
  * Crea 5 ticks espaciados uniformemente con valores "bonitos"
  */
 function generateXAxisTicks(max: number): number[] {
-  if (max <= 0) return [0]
+  // Para mobile (y para evitar ticks raros tipo 0.025%), forzamos a mostrar al menos 1% de rango.
+  // Esto hace que los pasos sean más legibles (0.5%, 1%, etc.) incluso cuando la cobertura es muy baja.
+  const effectiveMax = Math.max(max, 1)
 
-  // Encontrar el orden de magnitud apropiado
-  const magnitude = Math.pow(10, Math.floor(Math.log10(max)))
-  const normalized = max / magnitude
+  if (effectiveMax <= 1) {
+    return [0, 0.5, 1]
+  }
 
-  // Redondear a un número "bonito"
+  if (effectiveMax <= 5) {
+    const niceMax = Math.ceil(effectiveMax)
+    // 0..niceMax con pasos de 1%
+    return Array.from({ length: niceMax + 1 }, (_, i) => i)
+  }
+
+  if (effectiveMax <= 10) {
+    return [0, 2, 4, 6, 8, 10]
+  }
+
+  // Para rangos más grandes, mantener 5 ticks "bonitos"
+  const magnitude = Math.pow(10, Math.floor(Math.log10(effectiveMax)))
+  const normalized = effectiveMax / magnitude
+
   let niceMax: number
   if (normalized <= 1) niceMax = magnitude
   else if (normalized <= 2) niceMax = 2 * magnitude
   else if (normalized <= 5) niceMax = 5 * magnitude
   else niceMax = 10 * magnitude
 
-  // Generar 5 ticks incluyendo 0 y niceMax
   const step = niceMax / 4
   return [0, step, step * 2, step * 3, niceMax]
 }
@@ -73,12 +87,11 @@ export function ProgresionChart({ data }: ProgresionChartProps) {
 
   // Formatear eje X dependiendo de la escala
   const xAxisFormatter = (value: number) => {
-    if (xAxisMax < 1) {
-      return `${value.toFixed(2)}%`
-    } else if (xAxisMax < 10) {
-      return `${value.toFixed(1)}%`
-    }
-    return `${value.toFixed(0)}%`
+    const asPercent = (decimals: number) => `${Number(value.toFixed(decimals))}%`
+
+    if (xAxisMax <= 1) return asPercent(1)
+    if (xAxisMax < 10) return asPercent(1)
+    return asPercent(0)
   }
 
   return (

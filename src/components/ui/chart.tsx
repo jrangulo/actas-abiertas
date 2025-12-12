@@ -105,10 +105,24 @@ function ChartTooltip({
   if (!active || !payload?.length) return null
 
   const formattedLabel = xAxisFormatter ? xAxisFormatter(Number(label)) : String(label)
+  // Algunos charts (como progresión) incluyen metadata útil en el payload (ej. actas acumuladas)
+  const actasAcumuladasRaw = payload?.[0]?.payload?.actasAcumuladas as unknown
+  const actasAcumuladas =
+    typeof actasAcumuladasRaw === 'number' && Number.isFinite(actasAcumuladasRaw)
+      ? actasAcumuladasRaw
+      : null
 
   return (
     <div className="bg-popover border rounded-lg shadow-lg p-3 text-sm">
-      <p className="font-semibold mb-2 text-foreground">{formattedLabel}</p>
+      <p className="font-semibold mb-2 text-foreground">
+        {formattedLabel}
+        {actasAcumuladas !== null ? (
+          <span className="font-normal text-muted-foreground">
+            {' '}
+            · {actasAcumuladas.toLocaleString()} actas
+          </span>
+        ) : null}
+      </p>
       <div className="space-y-1">
         {payload.map((entry, index) => {
           const value = entry.value as number
@@ -141,11 +155,11 @@ function ChartLegend({ payload }: CustomLegendProps) {
   if (!payload?.length) return null
 
   return (
-    <div className="flex justify-center gap-6">
+    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
       {payload.map((entry, index) => (
         <div key={index} className="flex items-center gap-2">
           <div className="w-4 h-1 rounded-full" style={{ backgroundColor: entry.color }} />
-          <span className="text-sm font-medium text-foreground">{entry.value}</span>
+          <span className="text-xs sm:text-sm font-medium text-foreground">{entry.value}</span>
         </div>
       ))}
     </div>
@@ -169,6 +183,15 @@ export function LineChart({
   legendPosition = 'top',
 }: LineChartProps) {
   const colors = useChartColors()
+  const [isMobile, setIsMobile] = React.useState(false)
+
+  React.useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    const onChange = () => setIsMobile(mq.matches)
+    onChange()
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   if (!data?.length) {
     return (
@@ -187,10 +210,10 @@ export function LineChart({
         <RechartsLineChart
           data={data}
           margin={{
-            top: legendPosition === 'top' ? 45 : 5,
-            right: 20,
-            left: 10,
-            bottom: xAxisLabel ? 30 : 5,
+            top: legendPosition === 'top' ? (isMobile ? 65 : 55) : 5,
+            right: isMobile ? 12 : 20,
+            left: isMobile ? 0 : 10,
+            bottom: xAxisLabel ? (isMobile ? 42 : 30) : isMobile ? 12 : 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke={colors.border} opacity={0.5} />
@@ -198,26 +221,27 @@ export function LineChart({
             dataKey={xAxisKey}
             domain={xAxisDomain}
             ticks={xAxisTicks}
-            tick={{ fontSize: 12, fill: colors.text }}
+            tick={{ fontSize: isMobile ? 10 : 12, fill: colors.text }}
             tickFormatter={xAxisFormatter}
             axisLine={{ stroke: colors.border }}
             tickLine={{ stroke: colors.border }}
             type="number"
             allowDataOverflow={true}
+            minTickGap={isMobile ? 16 : 8}
             label={
               xAxisLabel
                 ? {
                     value: xAxisLabel,
                     position: 'bottom',
                     offset: 15,
-                    style: { fontSize: 12, fill: colors.text },
+                    style: { fontSize: isMobile ? 10 : 12, fill: colors.text },
                   }
                 : undefined
             }
           />
           <YAxis
             domain={yAxisDomain}
-            tick={{ fontSize: 12, fill: colors.text }}
+            tick={{ fontSize: isMobile ? 10 : 12, fill: colors.text }}
             tickFormatter={yAxisFormatter}
             axisLine={{ stroke: colors.border }}
             tickLine={{ stroke: colors.border }}
@@ -228,7 +252,7 @@ export function LineChart({
                     angle: -90,
                     position: 'insideLeft',
                     style: {
-                      fontSize: 12,
+                      fontSize: isMobile ? 10 : 12,
                       fill: colors.text,
                       textAnchor: 'middle',
                     },

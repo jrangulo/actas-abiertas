@@ -12,10 +12,12 @@ import {
   HelpCircle,
   BarChart3,
   AlertTriangle,
+  Newspaper,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { NavBlogIndicator } from './nav-blog-indicator'
 
 const navItems = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
@@ -23,6 +25,7 @@ const navItems = [
   { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
   { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
+  { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
   { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
 ]
@@ -34,9 +37,10 @@ interface DesktopSidebarProps {
     avatarUrl?: string
   }
   onSignOut?: () => void
+  latestPostDate?: string | null
 }
 
-export function DesktopSidebar({ user, onSignOut }: DesktopSidebarProps) {
+export function DesktopSidebar({ user, onSignOut, latestPostDate }: DesktopSidebarProps) {
   const pathname = usePathname()
 
   const initials =
@@ -77,13 +81,18 @@ export function DesktopSidebar({ user, onSignOut }: DesktopSidebarProps) {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors',
+                'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors relative',
                 isActive
                   ? 'bg-[#0069b4] text-white'
                   : 'text-muted-foreground hover:bg-muted hover:text-foreground'
               )}
             >
-              <Icon className="h-5 w-5" />
+              <span className="relative">
+                <Icon className="h-5 w-5" />
+                {item.hasBlogIndicator && (
+                  <NavBlogIndicator latestPostDate={latestPostDate ?? null} />
+                )}
+              </span>
               {item.label}
             </Link>
           )

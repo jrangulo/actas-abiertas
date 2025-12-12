@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     '2025',
   ],
   authors: [{ name: 'Actas Abiertas' }],
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon-48.png', type: 'image/png', sizes: '48x48' },
+      { url: '/favicon-96.png', type: 'image/png', sizes: '96x96' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', type: 'image/png', sizes: '180x180' }],
+  },
   openGraph: {
     title: 'Actas Abiertas | Verificación Ciudadana',
     description:

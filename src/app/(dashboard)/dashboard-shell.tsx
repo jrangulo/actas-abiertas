@@ -13,9 +13,15 @@ interface DashboardShellProps {
     avatarUrl?: string
   }
   showOnboarding?: boolean
+  latestPostDate?: string | null
 }
 
-export function DashboardShell({ children, user, showOnboarding = false }: DashboardShellProps) {
+export function DashboardShell({
+  children,
+  user,
+  showOnboarding = false,
+  latestPostDate,
+}: DashboardShellProps) {
   const router = useRouter()
   const supabase = createClient()
 
@@ -31,13 +37,13 @@ export function DashboardShell({ children, user, showOnboarding = false }: Dashb
 
       {/* Desktop: Sidebar + Content */}
       <div className="flex">
-        <DesktopSidebar user={user} onSignOut={handleSignOut} />
+        <DesktopSidebar user={user} onSignOut={handleSignOut} latestPostDate={latestPostDate} />
 
         {/* Main content area */}
         <div className="flex-1 min-w-0">
           {/* Mobile header (hidden on desktop) */}
           <div className="lg:hidden">
-            <MobileNav user={user} onSignOut={handleSignOut} />
+            <MobileNav user={user} onSignOut={handleSignOut} latestPostDate={latestPostDate} />
           </div>
 
           {/* Page content */}
