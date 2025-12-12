@@ -13,6 +13,7 @@ import {
   BarChart3,
   AlertTriangle,
   Newspaper,
+  Search,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -26,6 +27,7 @@ const navItems = [
   { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
   { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
+  { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
   { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
 ]

@@ -29,7 +29,7 @@ import {
   desc,
   countDistinct,
 } from 'drizzle-orm'
-import { LOCK_DURATION_MINUTES } from './utils'
+import { LOCK_DURATION_MINUTES, getActaImageUrl } from './utils'
 
 /**
  * Obtener estadísticas de actas para el dashboard
@@ -440,4 +440,166 @@ export async function getRankingUsuario(userId: string) {
     .from(sql`(SELECT 1) as dummy`)
 
   return result?.posicion ?? null
+}
+
+/**
+ * Obtener una acta completa mediante su número de JRV
+ * Incluye: datos CNE, imagen S3, consenso (si disponible), y contexto geográfico
+ * NO incluye UUID (para uso público)
+ */
+export async function getActaByJrvNumero(jrvNumero: number) {
+  const [result] = await db
+    .select({
+      // Identificadores
+      id: acta.id,
+      cneId: acta.cneId,
+      estado: acta.estado,
+
+      // Ubicación
+      departamentoCodigo: acta.departamentoCodigo,
+      municipioCodigo: acta.municipioCodigo,
+      centroCodigo: acta.centroCodigo,
+      tipoZona: acta.tipoZona,
+      jrvNumero: acta.jrvNumero,
+
+      // Contexto geográfico
+      departamentoNombre: departamento.nombre,
+      municipioNombre: municipio.nombre,
+      centroVotacionNombre: centroVotacion.nombre,
+      centroVotacionDireccion: centroVotacion.direccion,
+
+      // Datos oficiales del CNE
+      votosPnOficial: acta.votosPnOficial,
+      votosPlhOficial: acta.votosPlhOficial,
+      votosPlOficial: acta.votosPlOficial,
+      votosPinuOficial: acta.votosPinuOficial,
+      votosDcOficial: acta.votosDcOficial,
+      votosNulosOficial: acta.votosNulosOficial,
+      votosBlancosOficial: acta.votosBlancosOficial,
+      votosTotalOficial: acta.votosTotalOficial,
+
+      // Metadatos CNE
+      publicadaEnCne: acta.publicadaEnCne,
+      escrutadaEnCne: acta.escrutadaEnCne,
+      digitalizadaEnCne: acta.digitalizadaEnCne,
+      etiquetasCNE: acta.etiquetasCNE,
+
+      // Datos digitados (valores actuales después de correcciones)
+      votosPnDigitado: acta.votosPnDigitado,
+      votosPlhDigitado: acta.votosPlhDigitado,
+      votosPlDigitado: acta.votosPlDigitado,
+      votosPinuDigitado: acta.votosPinuDigitado,
+      votosDcDigitado: acta.votosDcDigitado,
+      votosNulosDigitado: acta.votosNulosDigitado,
+      votosBlancosDigitado: acta.votosBlancosDigitado,
+      votosTotalDigitado: acta.votosTotalDigitado,
+
+      // Estadísticas de validación
+      cantidadValidaciones: acta.cantidadValidaciones,
+      cantidadValidacionesCorrectas: acta.cantidadValidacionesCorrectas,
+
+      // Timestamps
+      creadoEn: acta.creadoEn,
+      actualizadoEn: acta.actualizadoEn,
+    })
+    .from(acta)
+    .leftJoin(departamento, eq(acta.departamentoCodigo, departamento.codigo))
+    .leftJoin(
+      municipio,
+      and(
+        eq(acta.departamentoCodigo, municipio.departamentoCodigo),
+        eq(acta.municipioCodigo, municipio.codigo)
+      )
+    )
+    .leftJoin(
+      centroVotacion,
+      and(
+        eq(acta.departamentoCodigo, centroVotacion.departamentoCodigo),
+        eq(acta.municipioCodigo, centroVotacion.municipioCodigo),
+        eq(acta.centroCodigo, centroVotacion.codigo),
+        eq(acta.tipoZona, centroVotacion.tipoZona)
+      )
+    )
+    .where(eq(acta.jrvNumero, jrvNumero))
+    .limit(1)
+
+  if (!result) return null
+
+  // Construir URL de imagen desde S3
+  const imagenUrl = getActaImageUrl(result.cneId)
+
+  // Obtener consenso solo si hay 3+ validaciones
+  let consenso = null
+  if (result.cantidadValidaciones >= 3) {
+    const validaciones = await db
+      .select({
+        votosPn: validacion.votosPn,
+        votosPlh: validacion.votosPlh,
+        votosPl: validacion.votosPl,
+        votosPinu: validacion.votosPinu,
+        votosDc: validacion.votosDc,
+        votosNulos: validacion.votosNulos,
+        votosBlancos: validacion.votosBlancos,
+        votosTotal: validacion.votosTotal,
+      })
+      .from(validacion)
+      .where(eq(validacion.actaId, result.id))
+
+    // Calcular moda (valor más común) para cada campo
+    consenso = {
+      pn: calcularModa(validaciones.map((v) => v.votosPn)),
+      plh: calcularModa(validaciones.map((v) => v.votosPlh)),
+      pl: calcularModa(validaciones.map((v) => v.votosPl)),
+      pinu: calcularModa(validaciones.map((v) => v.votosPinu)),
+      dc: calcularModa(validaciones.map((v) => v.votosDc)),
+      nulos: calcularModa(validaciones.map((v) => v.votosNulos)),
+      blancos: calcularModa(validaciones.map((v) => v.votosBlancos)),
+      total: calcularModa(validaciones.map((v) => v.votosTotal)),
+      // Indicar si hay consenso completo (todos los validadores coinciden)
+      hayConsensoCompleto:
+        validaciones.length >= 3 &&
+        validaciones.every(
+          (v) =>
+            v.votosPn === validaciones[0].votosPn &&
+            v.votosPlh === validaciones[0].votosPlh &&
+            v.votosPl === validaciones[0].votosPl &&
+            v.votosPinu === validaciones[0].votosPinu &&
+            v.votosDc === validaciones[0].votosDc &&
+            v.votosNulos === validaciones[0].votosNulos &&
+            v.votosBlancos === validaciones[0].votosBlancos &&
+            v.votosTotal === validaciones[0].votosTotal
+        ),
+    }
+  }
+
+  return {
+    ...result,
+    imagenUrl,
+    consenso,
+  }
+}
+
+/**
+ * Calcula la moda (valor más frecuente) de un array de números
+ * Retorna null si el array está vacío
+ */
+function calcularModa(valores: number[]): number | null {
+  if (valores.length === 0) return null
+
+  const frecuencias = new Map<number, number>()
+  for (const valor of valores) {
+    frecuencias.set(valor, (frecuencias.get(valor) || 0) + 1)
+  }
+
+  let maxFrecuencia = 0
+  let moda = valores[0]
+
+  for (const [valor, frecuencia] of frecuencias) {
+    if (frecuencia > maxFrecuencia) {
+      maxFrecuencia = frecuencia
+      moda = valor
+    }
+  }
+
+  return moda
 }
