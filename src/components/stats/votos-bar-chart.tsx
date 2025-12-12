@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import { LOGOS_PARTIDOS, COLORES_TODOS_PARTIDOS, type TodoPartido } from '@/lib/stats/types'
 
