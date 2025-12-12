@@ -13,7 +13,7 @@ import {
   estadisticaUsuario,
   authUsers,
 } from '@/db/schema'
-import { eq, desc, or, like, count, and, sql } from 'drizzle-orm'
+import { eq, desc, count, sql } from 'drizzle-orm'
 import { getActaImageUrl } from '@/lib/actas/utils'
 
 // ============================================================================
