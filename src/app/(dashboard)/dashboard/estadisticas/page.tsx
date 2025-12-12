@@ -442,8 +442,7 @@ function ZonaDistributionChart({ data }: { data: DistribucionZona }) {
                         diff > 0 ? 'bg-blue-500/20 text-blue-400' : 'bg-green-500/20 text-green-400'
                       }`}
                     >
-                      {diff > 0 ? '+' : ''}
-                      {diff.toFixed(1)}% {diff > 0 ? 'urbano' : 'rural'}
+                      +{Math.abs(diff).toFixed(1)}% {diff > 0 ? 'urbano' : 'rural'}
                     </span>
                   )}
                 </div>
