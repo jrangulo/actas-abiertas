@@ -81,6 +81,43 @@ export interface EstadisticasVotos {
     validacionesNecesarias: number
     porcentajeValidaciones: number
   }
+
+  /**
+   * Comparación "manzana con manzana":
+   * Solo actas que están validadas por nosotros y además tienen datos oficiales del CNE.
+   * (Top 3 partidos para consistencia con el resto de la app)
+   */
+  comparacionValidadosVsCne?: {
+    actasComparadas: number
+    actasConDiferenciaTop3: number
+    // Diagnóstico: actas validadas SIN inconsistencia donde el CNE no trae desglose top-3 (o suma 0)
+    // Útil para entender por qué ciertas comparaciones pueden verse raras.
+    cneTop3CeroEnValidadasSinInconsistencia: number
+    cneTop3CeroPeroTotalOficialPositivoSinInconsistencia: number
+    cne: {
+      votosPartidos: VotosPartido[]
+      totalPartidos: number
+    }
+    validados: {
+      votosPartidos: VotosPartido[]
+      totalPartidos: number
+    }
+    diferencias: Array<{
+      partido: PartidoPrincipal
+      diferenciaVotos: number // validados - cne
+      diferenciaPorcentajePuntos: number // puntos porcentuales (validados% - cne%)
+    }>
+  }
+
+  /**
+   * Subconjunto: actas marcadas como "Inconsistencia" por el CNE pero que ya fueron validadas por nosotros.
+   * Mostramos top 3 (votos y % dentro del subconjunto).
+   */
+  inconsistenciasValidadas?: {
+    actas: number
+    votosPartidos: VotosPartido[]
+    totalPartidos: number
+  }
 }
 
 export interface PuntoProgresion {

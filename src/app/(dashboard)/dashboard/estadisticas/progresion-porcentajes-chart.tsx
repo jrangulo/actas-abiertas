@@ -78,11 +78,17 @@ export function ProgresionPorcentajesChart({ data }: ProgresionPorcentajesChartP
   const xAxisTicks = generateXAxisTicks(maxCobertura)
   const xAxisMax = xAxisTicks[xAxisTicks.length - 1]
 
+  // Zoom Y-axis: normalmente porcentajes de top-3 no pasan de 50%, pero no recortemos si sucede.
+  const maxYValue = Math.max(...data.flatMap((d) => Object.values(d.porcentajes)))
+  const yAxisMax = Math.max(50, Math.ceil((maxYValue + 0.1) / 5) * 5)
+
   // Configuración de series
   const series = PARTIDOS.map((partido) => ({
     dataKey: partido,
     label: partido,
     color: COLORES_PARTIDOS[partido],
+    // Ayuda visual cuando dos líneas se solapan mucho
+    strokeDasharray: partido === 'PLH' ? '6 4' : undefined,
   }))
 
   // Formatear eje X dependiendo de la escala
@@ -103,12 +109,15 @@ export function ProgresionPorcentajesChart({ data }: ProgresionPorcentajesChartP
       yAxisLabel="Porcentaje (%)"
       xAxisDomain={[0, xAxisMax]}
       xAxisTicks={xAxisTicks}
-      yAxisDomain={[0, 100]}
+      yAxisDomain={[0, yAxisMax]}
       xAxisFormatter={xAxisFormatter}
       yAxisFormatter={(value) => `${value.toFixed(0)}%`}
       tooltipFormatter={(value) => `${value.toFixed(2)}%`}
       height={350}
       legendPosition="top"
+      lineStrokeWidth={1.5}
+      dotRadius={2}
+      legendToggleable={true}
     />
   )
 }

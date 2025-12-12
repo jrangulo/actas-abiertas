@@ -9,7 +9,7 @@
 
 import { db } from '@/db'
 import { acta } from '@/db/schema'
-import { eq, sql, and, isNotNull } from 'drizzle-orm'
+import { eq, sql, and, isNotNull, gt, not } from 'drizzle-orm'
 import type {
   EstadisticasVotos,
   VotosPartido,
@@ -74,6 +74,81 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
       sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
     })
     .from(acta)
+
+  // Reusable: etiqueta "Inconsistencia" del CNE en etiquetas_cne (json)
+  const hasEtiquetaInconsistencia = sql<boolean>`(COALESCE(${acta.etiquetasCNE}::jsonb, '[]'::jsonb) ? 'Inconsistencia')`
+
+  // =========================================================================
+  // Comparación: actas validadas por nosotros que también tienen datos CNE
+  // (EXCLUYE actas con etiqueta "Inconsistencia")
+  // =========================================================================
+  // Nota importante: aquí NO usamos COALESCE para el filtro.
+  // Exigimos que el CNE tenga los campos top-3 presentes y que su suma sea > 0.
+  const cneTop3TotalRaw = sql<number>`(${acta.votosPnOficial} + ${acta.votosPlhOficial} + ${acta.votosPlOficial})`
+  const [comparacionStats] = await db
+    .select({
+      actas: sql<number>`COUNT(*)`,
+      actasConDiferenciaTop3: sql<number>`COUNT(CASE WHEN
+        (${acta.votosPnDigitado} IS DISTINCT FROM ${acta.votosPnOficial}) OR
+        (${acta.votosPlhDigitado} IS DISTINCT FROM ${acta.votosPlhOficial}) OR
+        (${acta.votosPlDigitado} IS DISTINCT FROM ${acta.votosPlOficial})
+      THEN 1 END)`,
+      // Validados (digitado)
+      valPn: sql<number>`COALESCE(SUM(${acta.votosPnDigitado}), 0)`,
+      valPlh: sql<number>`COALESCE(SUM(${acta.votosPlhDigitado}), 0)`,
+      valPl: sql<number>`COALESCE(SUM(${acta.votosPlDigitado}), 0)`,
+      // CNE (oficial) para las mismas actas
+      cnePn: sql<number>`COALESCE(SUM(${acta.votosPnOficial}), 0)`,
+      cnePlh: sql<number>`COALESCE(SUM(${acta.votosPlhOficial}), 0)`,
+      cnePl: sql<number>`COALESCE(SUM(${acta.votosPlOficial}), 0)`,
+    })
+    .from(acta)
+    .where(
+      and(
+        eq(acta.estado, 'validada'),
+        not(hasEtiquetaInconsistencia),
+        isNotNull(acta.votosTotalOficial),
+        gt(acta.votosTotalOficial, 0),
+        isNotNull(acta.votosPnDigitado),
+        isNotNull(acta.votosPlhDigitado),
+        isNotNull(acta.votosPlDigitado),
+        isNotNull(acta.votosPnOficial),
+        isNotNull(acta.votosPlhOficial),
+        isNotNull(acta.votosPlOficial),
+        gt(cneTop3TotalRaw, 0)
+      )
+    )
+
+  // =========================================================================
+  // Subconjunto: actas con etiqueta "Inconsistencia" (CNE) que ya están validadas
+  // =========================================================================
+  const [inconsistenciaStats] = await db
+    .select({
+      actas: sql<number>`COUNT(*)`,
+      valPn: sql<number>`COALESCE(SUM(${acta.votosPnDigitado}), 0)`,
+      valPlh: sql<number>`COALESCE(SUM(${acta.votosPlhDigitado}), 0)`,
+      valPl: sql<number>`COALESCE(SUM(${acta.votosPlDigitado}), 0)`,
+    })
+    .from(acta)
+    .where(and(eq(acta.estado, 'validada'), hasEtiquetaInconsistencia))
+
+  // =========================================================================
+  // Diagnóstico: cuántas actas validadas (SIN inconsistencia) tienen top-3 oficial = 0
+  // =========================================================================
+  const cneTop3TotalCoalesced = sql<number>`(
+    COALESCE(${acta.votosPnOficial}, 0) +
+    COALESCE(${acta.votosPlhOficial}, 0) +
+    COALESCE(${acta.votosPlOficial}, 0)
+  )`
+  const [cneTop3CeroStats] = await db
+    .select({
+      total: sql<number>`COUNT(*)`,
+      totalOficialPositivo: sql<number>`COUNT(CASE WHEN ${acta.votosTotalOficial} IS NOT NULL AND ${acta.votosTotalOficial} > 0 THEN 1 END)`,
+    })
+    .from(acta)
+    .where(
+      and(eq(acta.estado, 'validada'), not(hasEtiquetaInconsistencia), eq(cneTop3TotalCoalesced, 0))
+    )
 
   // --- Votos principales (para gráfica de progresión, solo 3 partidos) ---
   const cneTotalPartidos =
@@ -243,6 +318,88 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
   const validacionesRealizadas = Number(validacionesStats.sum)
   const validacionesNecesarias = actasTotales * 3
 
+  // ---- Comparación validados vs CNE (mismas actas) ----
+  const comparacionActas = Number(comparacionStats.actas)
+  const actasConDiferenciaTop3 = Number(comparacionStats.actasConDiferenciaTop3)
+  const compCneTotal =
+    Number(comparacionStats.cnePn) +
+    Number(comparacionStats.cnePlh) +
+    Number(comparacionStats.cnePl)
+  const compValTotal =
+    Number(comparacionStats.valPn) +
+    Number(comparacionStats.valPlh) +
+    Number(comparacionStats.valPl)
+
+  const compCnePartidos: VotosPartido[] = [
+    {
+      partido: 'PN',
+      votos: Number(comparacionStats.cnePn),
+      porcentaje: compCneTotal > 0 ? (Number(comparacionStats.cnePn) / compCneTotal) * 100 : 0,
+    },
+    {
+      partido: 'PLH',
+      votos: Number(comparacionStats.cnePlh),
+      porcentaje: compCneTotal > 0 ? (Number(comparacionStats.cnePlh) / compCneTotal) * 100 : 0,
+    },
+    {
+      partido: 'PL',
+      votos: Number(comparacionStats.cnePl),
+      porcentaje: compCneTotal > 0 ? (Number(comparacionStats.cnePl) / compCneTotal) * 100 : 0,
+    },
+  ]
+
+  const compValPartidos: VotosPartido[] = [
+    {
+      partido: 'PN',
+      votos: Number(comparacionStats.valPn),
+      porcentaje: compValTotal > 0 ? (Number(comparacionStats.valPn) / compValTotal) * 100 : 0,
+    },
+    {
+      partido: 'PLH',
+      votos: Number(comparacionStats.valPlh),
+      porcentaje: compValTotal > 0 ? (Number(comparacionStats.valPlh) / compValTotal) * 100 : 0,
+    },
+    {
+      partido: 'PL',
+      votos: Number(comparacionStats.valPl),
+      porcentaje: compValTotal > 0 ? (Number(comparacionStats.valPl) / compValTotal) * 100 : 0,
+    },
+  ]
+
+  const diferencias = (['PN', 'PLH', 'PL'] as const).map((p) => {
+    const cne = compCnePartidos.find((x) => x.partido === p)!
+    const val = compValPartidos.find((x) => x.partido === p)!
+    return {
+      partido: p,
+      diferenciaVotos: val.votos - cne.votos,
+      diferenciaPorcentajePuntos: val.porcentaje - cne.porcentaje,
+    }
+  })
+
+  // ---- Inconsistencias validadas ----
+  const incActas = Number(inconsistenciaStats.actas)
+  const incTotal =
+    Number(inconsistenciaStats.valPn) +
+    Number(inconsistenciaStats.valPlh) +
+    Number(inconsistenciaStats.valPl)
+  const incVotosPartidos: VotosPartido[] = [
+    {
+      partido: 'PN',
+      votos: Number(inconsistenciaStats.valPn),
+      porcentaje: incTotal > 0 ? (Number(inconsistenciaStats.valPn) / incTotal) * 100 : 0,
+    },
+    {
+      partido: 'PLH',
+      votos: Number(inconsistenciaStats.valPlh),
+      porcentaje: incTotal > 0 ? (Number(inconsistenciaStats.valPlh) / incTotal) * 100 : 0,
+    },
+    {
+      partido: 'PL',
+      votos: Number(inconsistenciaStats.valPl),
+      porcentaje: incTotal > 0 ? (Number(inconsistenciaStats.valPl) / incTotal) * 100 : 0,
+    },
+  ]
+
   return {
     cne: {
       votosPartidos: cneVotosPartidos,
@@ -270,6 +427,28 @@ export async function getEstadisticasVotos(): Promise<EstadisticasVotos> {
       porcentajeValidaciones:
         validacionesNecesarias > 0 ? (validacionesRealizadas / validacionesNecesarias) * 100 : 0,
     },
+    comparacionValidadosVsCne:
+      comparacionActas > 0
+        ? {
+            actasComparadas: comparacionActas,
+            actasConDiferenciaTop3,
+            cneTop3CeroEnValidadasSinInconsistencia: Number(cneTop3CeroStats.total),
+            cneTop3CeroPeroTotalOficialPositivoSinInconsistencia: Number(
+              cneTop3CeroStats.totalOficialPositivo
+            ),
+            cne: { votosPartidos: compCnePartidos, totalPartidos: compCneTotal },
+            validados: { votosPartidos: compValPartidos, totalPartidos: compValTotal },
+            diferencias,
+          }
+        : undefined,
+    inconsistenciasValidadas:
+      incActas > 0
+        ? {
+            actas: incActas,
+            votosPartidos: incVotosPartidos,
+            totalPartidos: incTotal,
+          }
+        : undefined,
   }
 }
 
