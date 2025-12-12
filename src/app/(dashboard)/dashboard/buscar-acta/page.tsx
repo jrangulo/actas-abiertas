@@ -155,7 +155,7 @@ async function ActaResults({ jrvNumero }: Readonly<{ jrvNumero: number }>) {
 
   if (!acta) {
     return (
-      <Card className="border-amber-200 dark:border-amber-900/50 bg-amber-50/50 dark:bg-amber-900/10">
+      <Card className="border-amber-200 dark:border-amber-900/50 dark:bg-amber-900/10">
         <CardContent className="py-12 text-center">
           <AlertCircle className="h-12 w-12 mx-auto mb-4 text-amber-500" />
           <h3 className="text-lg font-semibold mb-2">Acta no encontrada</h3>
