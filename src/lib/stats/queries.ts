@@ -643,3 +643,197 @@ export async function getDistribucionZona(): Promise<DistribucionZona> {
 
   return { urbano, rural }
 }
+/**
+ * Obtener estadísticas de votos por departamento y municipio (OPTIMIZADO)
+ *
+ * Solo considera actas validadas. Retorna votos de los 3 partidos principales
+ * y la suma de los demás como "Otros".
+ */
+// Tipo para las filas del resultado de la consulta SQL
+interface DepartamentoRow {
+  depto_codigo: number
+  depto_nombre: string
+  depto_actas_totales: string | number
+  depto_actas_validadas: string | number
+  depto_votos_pn: string | number
+  depto_votos_plh: string | number
+  depto_votos_pl: string | number
+  depto_votos_otros: string | number
+  muni_codigo: number | null
+  muni_nombre: string | null
+  muni_actas_totales: string | number
+  muni_actas_validadas: string | number
+  muni_votos_pn: string | number
+  muni_votos_plh: string | number
+  muni_votos_pl: string | number
+  muni_votos_otros: string | number
+  zona_tipo: 'urbano' | 'rural' | null
+  zona_actas_totales: string | number
+  zona_actas_validadas: string | number
+  zona_votos_pn: string | number
+  zona_votos_plh: string | number
+  zona_votos_pl: string | number
+  zona_votos_otros: string | number
+}
+export async function getEstadisticasPorDepartamento(): Promise<
+  import('./types').EstadisticasDepartamento[]
+> {
+  const result = await db.execute(sql`
+    WITH actas_base AS (
+      SELECT
+        departamento_codigo,
+        municipio_codigo,
+        tipo_zona,
+        estado,
+        COALESCE(votos_pn_digitado, 0) AS votos_pn,
+        COALESCE(votos_plh_digitado, 0) AS votos_plh,
+        COALESCE(votos_pl_digitado, 0) AS votos_pl,
+        COALESCE(votos_pinu_digitado, 0)
+        + COALESCE(votos_dc_digitado, 0)
+        + COALESCE(votos_nulos_digitado, 0)
+        + COALESCE(votos_blancos_digitado, 0) AS votos_otros
+      FROM acta
+      WHERE departamento_codigo IS NOT NULL
+    ),
+
+    agg_depto AS (
+      SELECT
+        departamento_codigo,
+        COUNT(*) AS actas_totales,
+        COUNT(*) FILTER (WHERE estado = 'validada') AS actas_validadas,
+        SUM(votos_pn) FILTER (WHERE estado = 'validada') AS votos_pn,
+        SUM(votos_plh) FILTER (WHERE estado = 'validada') AS votos_plh,
+        SUM(votos_pl) FILTER (WHERE estado = 'validada') AS votos_pl,
+        SUM(votos_otros) FILTER (WHERE estado = 'validada') AS votos_otros
+      FROM actas_base
+      GROUP BY departamento_codigo
+    ),
+
+    agg_muni AS (
+      SELECT
+        departamento_codigo,
+        municipio_codigo,
+        COUNT(*) AS actas_totales,
+        COUNT(*) FILTER (WHERE estado = 'validada') AS actas_validadas,
+        SUM(votos_pn) FILTER (WHERE estado = 'validada') AS votos_pn,
+        SUM(votos_plh) FILTER (WHERE estado = 'validada') AS votos_plh,
+        SUM(votos_pl) FILTER (WHERE estado = 'validada') AS votos_pl,
+        SUM(votos_otros) FILTER (WHERE estado = 'validada') AS votos_otros
+      FROM actas_base
+      WHERE municipio_codigo IS NOT NULL
+      GROUP BY departamento_codigo, municipio_codigo
+    ),
+
+    agg_zona AS (
+      SELECT
+        departamento_codigo,
+        municipio_codigo,
+        tipo_zona,
+        COUNT(*) AS actas_totales,
+        COUNT(*) FILTER (WHERE estado = 'validada') AS actas_validadas,
+        SUM(votos_pn) FILTER (WHERE estado = 'validada') AS votos_pn,
+        SUM(votos_plh) FILTER (WHERE estado = 'validada') AS votos_plh,
+        SUM(votos_pl) FILTER (WHERE estado = 'validada') AS votos_pl,
+        SUM(votos_otros) FILTER (WHERE estado = 'validada') AS votos_otros
+      FROM actas_base
+      WHERE municipio_codigo IS NOT NULL
+      GROUP BY departamento_codigo, municipio_codigo, tipo_zona
+    )
+
+    SELECT 
+      d.codigo AS depto_codigo,
+      d.nombre AS depto_nombre,
+      COALESCE(ad.actas_totales, 0) AS depto_actas_totales,
+      COALESCE(ad.actas_validadas, 0) AS depto_actas_validadas,
+      COALESCE(ad.votos_pn, 0) AS depto_votos_pn,
+      COALESCE(ad.votos_plh, 0) AS depto_votos_plh,
+      COALESCE(ad.votos_pl, 0) AS depto_votos_pl,
+      COALESCE(ad.votos_otros, 0) AS depto_votos_otros,
+
+      m.codigo AS muni_codigo,
+      m.nombre AS muni_nombre,
+      COALESCE(am.actas_totales, 0) AS muni_actas_totales,
+      COALESCE(am.actas_validadas, 0) AS muni_actas_validadas,
+      COALESCE(am.votos_pn, 0) AS muni_votos_pn,
+      COALESCE(am.votos_plh, 0) AS muni_votos_plh,
+      COALESCE(am.votos_pl, 0) AS muni_votos_pl,
+      COALESCE(am.votos_otros, 0) AS muni_votos_otros,
+
+      az.tipo_zona AS zona_tipo,
+      COALESCE(az.actas_totales, 0) AS zona_actas_totales,
+      COALESCE(az.actas_validadas, 0) AS zona_actas_validadas,
+      COALESCE(az.votos_pn, 0) AS zona_votos_pn,
+      COALESCE(az.votos_plh, 0) AS zona_votos_plh,
+      COALESCE(az.votos_pl, 0) AS zona_votos_pl,
+      COALESCE(az.votos_otros, 0) AS zona_votos_otros
+
+    FROM departamento d
+    LEFT JOIN agg_depto ad ON ad.departamento_codigo = d.codigo
+    LEFT JOIN municipio m ON m.departamento_codigo = d.codigo
+    LEFT JOIN agg_muni am ON am.departamento_codigo = m.departamento_codigo
+                          AND am.municipio_codigo = m.codigo
+    LEFT JOIN agg_zona az ON az.departamento_codigo = m.departamento_codigo
+                          AND az.municipio_codigo = m.codigo
+    ORDER BY d.codigo, m.codigo, az.tipo_zona;
+  `)
+
+  const rows = result as unknown as DepartamentoRow[]
+  const departamentosMap = new Map<number, import('./types').EstadisticasDepartamento>()
+
+  for (const row of rows) {
+    const deptoCodigo = Number(row.depto_codigo)
+
+    if (!departamentosMap.has(deptoCodigo)) {
+      departamentosMap.set(deptoCodigo, {
+        codigo: deptoCodigo,
+        nombre: row.depto_nombre,
+        actasTotales: Number(row.depto_actas_totales),
+        actasValidadas: Number(row.depto_actas_validadas),
+        votosPn: Number(row.depto_votos_pn),
+        votosPlh: Number(row.depto_votos_plh),
+        votosPl: Number(row.depto_votos_pl),
+        votosOtros: Number(row.depto_votos_otros),
+        municipios: [],
+      })
+    }
+
+    const depto = departamentosMap.get(deptoCodigo)!
+
+    if (row.muni_codigo && row.muni_nombre) {
+      const muniCodigo = Number(row.muni_codigo)
+      let municipio = depto.municipios.find((x) => x.codigo === muniCodigo)
+
+      if (!municipio) {
+        municipio = {
+          codigo: muniCodigo,
+          nombre: row.muni_nombre,
+          actasTotales: Number(row.muni_actas_totales),
+          actasValidadas: Number(row.muni_actas_validadas),
+          votosPn: Number(row.muni_votos_pn),
+          votosPlh: Number(row.muni_votos_plh),
+          votosPl: Number(row.muni_votos_pl),
+          votosOtros: Number(row.muni_votos_otros),
+          zonas: [],
+        }
+        depto.municipios.push(municipio)
+      }
+
+      if (row.zona_tipo) {
+        const exists = municipio.zonas.find((z) => z.tipoZona === row.zona_tipo)
+        if (!exists) {
+          municipio.zonas.push({
+            tipoZona: row.zona_tipo,
+            actasTotales: Number(row.zona_actas_totales),
+            actasValidadas: Number(row.zona_actas_validadas),
+            votosPn: Number(row.zona_votos_pn),
+            votosPlh: Number(row.zona_votos_plh),
+            votosPl: Number(row.zona_votos_pl),
+            votosOtros: Number(row.zona_votos_otros),
+          })
+        }
+      }
+    }
+  }
+
+  return [...departamentosMap.values()].sort((a, b) => a.codigo - b.codigo)
+}

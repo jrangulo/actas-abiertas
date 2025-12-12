@@ -23,6 +23,7 @@ import { Separator } from '@/components/ui/separator'
 import { NavBlogIndicator } from './nav-blog-indicator'
 import { NewFeatureIndicator } from './new-feature-indicator'
 import { useFeatureSeen } from '@/hooks/use-feature-seen'
+import { navItems } from '@/lib/layout/navItems'
 
 interface NavItem {
   href: string
@@ -31,18 +32,6 @@ interface NavItem {
   hasBlogIndicator?: boolean
   featureId?: string
 }
-
-const navItems: NavItem[] = [
-  { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
-  { href: '/dashboard/verificar', label: 'Verificar Actas', icon: FileCheck },
-  { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
-  { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
-  { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
-  { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search, featureId: 'buscar-acta' },
-  { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
-  { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
-  { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
-]
 
 interface MobileNavProps {
   user?: {
@@ -111,9 +100,24 @@ export function MobileNav({ user, onSignOut, latestPostDate }: Readonly<MobileNa
             aria-label="Toggle menu"
           >
             <span className="relative">
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              {/* Indicador de nuevos posts visible incluso sin abrir el menú */}
-              <NavBlogIndicator latestPostDate={latestPostDate ?? null} />
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <>
+                  <Menu className="h-5 w-5" />
+
+                  {/* Indicador de nuevos posts visible incluso sin abrir el menú */}
+                  <NavBlogIndicator latestPostDate={latestPostDate ?? null} />
+
+                  {/* Indicador de nuevos features visible incluso sin abrir el menú */}
+                  <NewFeatureIndicator
+                    featureId={
+                      navItems.filter((item) => item.featureId).map((item) => item.featureId)[0] ??
+                      ''
+                    }
+                  />
+                </>
+              )}
             </span>
           </Button>
         </div>

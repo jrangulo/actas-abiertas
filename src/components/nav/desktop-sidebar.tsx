@@ -3,44 +3,14 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import {
-  LayoutDashboard,
-  FileCheck,
-  Trophy,
-  User,
-  LogOut,
-  HelpCircle,
-  BarChart3,
-  AlertTriangle,
-  Newspaper,
-  Search,
-} from 'lucide-react'
+import { FileCheck, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { NavBlogIndicator } from './nav-blog-indicator'
 import { NewFeatureIndicator } from './new-feature-indicator'
 import { useFeatureSeen } from '@/hooks/use-feature-seen'
-
-interface NavItem {
-  href: string
-  label: string
-  icon: React.ElementType
-  hasBlogIndicator?: boolean
-  featureId?: string
-}
-
-const navItems: NavItem[] = [
-  { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
-  { href: '/dashboard/verificar', label: 'Verificar Actas', icon: FileCheck },
-  { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
-  { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
-  { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
-  { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search, featureId: 'buscar-acta' },
-  { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
-  { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
-  { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
-]
+import { NavItem, navItems } from '@/lib/layout/navItems'
 
 interface DesktopSidebarProps {
   user?: {
