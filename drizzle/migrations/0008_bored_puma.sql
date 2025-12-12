@@ -1,0 +1,1 @@
+ALTER TABLE "validacion" ADD COLUMN "tiene_imagen" boolean DEFAULT false NOT NULL;
