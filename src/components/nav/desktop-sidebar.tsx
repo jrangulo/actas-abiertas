@@ -19,15 +19,25 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { NavBlogIndicator } from './nav-blog-indicator'
+import { NewFeatureIndicator } from './new-feature-indicator'
+import { useFeatureSeen } from '@/hooks/use-feature-seen'
 
-const navItems = [
+interface NavItem {
+  href: string
+  label: string
+  icon: React.ElementType
+  hasBlogIndicator?: boolean
+  featureId?: string
+}
+
+const navItems: NavItem[] = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
   { href: '/dashboard/verificar', label: 'Verificar Actas', icon: FileCheck },
   { href: '/dashboard/discrepancias', label: 'Discrepancias', icon: AlertTriangle },
   { href: '/dashboard/estadisticas', label: 'Estadísticas', icon: BarChart3 },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
+  { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search, featureId: 'buscar-acta' },
   { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
-  { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
   { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
 ]
@@ -42,7 +52,37 @@ interface DesktopSidebarProps {
   latestPostDate?: string | null
 }
 
-export function DesktopSidebar({ user, onSignOut, latestPostDate }: DesktopSidebarProps) {
+function NavItemLink({ item, isActive }: Readonly<{ item: NavItem; isActive: boolean }>) {
+  const { markFeatureAsSeen } = useFeatureSeen(item.featureId || '')
+  const Icon = item.icon
+
+  const handleClick = () => {
+    if (item.featureId) {
+      markFeatureAsSeen()
+    }
+  }
+
+  return (
+    <Link
+      href={item.href}
+      onClick={handleClick}
+      className={cn(
+        'flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-colors relative',
+        isActive
+          ? 'bg-[#0069b4] text-white'
+          : 'text-muted-foreground hover:bg-muted hover:text-foreground'
+      )}
+    >
+      <span className="relative">
+        <Icon className="h-5 w-5" />
+        {item.featureId && <NewFeatureIndicator featureId={item.featureId} />}
+      </span>
+      {item.label}
+    </Link>
+  )
+}
+
+export function DesktopSidebar({ user, onSignOut, latestPostDate }: Readonly<DesktopSidebarProps>) {
   const pathname = usePathname()
 
   const initials =
@@ -78,6 +118,12 @@ export function DesktopSidebar({ user, onSignOut, latestPostDate }: DesktopSideb
           const isActive =
             pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))
 
+          // Items with featureId use the NavItemLink component to handle marking as seen
+          if (item.featureId) {
+            return <NavItemLink key={item.href} item={item} isActive={isActive} />
+          }
+
+          // Regular items without featureId
           return (
             <Link
               key={item.href}
