@@ -1,19 +1,25 @@
 import { Suspense } from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { AlertTriangle, BarChart3, TrendingUp, CheckCircle2, Database } from 'lucide-react'
+import {
+  AlertTriangle,
+  BarChart3,
+  TrendingUp,
+  CheckCircle2,
+  Database,
+  Building2,
+  Trees,
+} from 'lucide-react'
 import {
   getEstadisticasVotos,
   getProgresionVotos,
   getDistribucionZona,
-  COLORES_TODOS_PARTIDOS,
   COLORES_PARTIDOS,
   LOGOS_PARTIDOS,
-  type TodoPartido,
   type DistribucionZona,
 } from '@/lib/stats/queries'
-import { Building2, Trees } from 'lucide-react'
 import { ProgresionPorcentajesChart } from './progresion-porcentajes-chart'
 import Image from 'next/image'
+import { VotosBarChart } from '@/components/stats/votos-bar-chart'
 
 // Force dynamic - estos datos cambian constantemente
 export const dynamic = 'force-dynamic'
@@ -228,58 +234,6 @@ async function StatsContent() {
 }
 
 // Componente de barras horizontales para votos
-function VotosBarChart({
-  votosPartidos,
-}: {
-  votosPartidos: Array<{ partido: TodoPartido; votos: number; porcentaje: number }>
-}) {
-  // Ordenar por votos descendente
-  const sorted = [...votosPartidos].sort((a, b) => b.votos - a.votos)
-
-  return (
-    <div className="space-y-4">
-      {sorted.map((p) => {
-        const logoPath = LOGOS_PARTIDOS[p.partido]
-        return (
-          <div key={p.partido} className="space-y-1.5">
-            <div className="flex items-center justify-between text-sm">
-              <div className="flex items-center gap-2">
-                {logoPath ? (
-                  <Image
-                    src={logoPath}
-                    alt={p.partido}
-                    width={20}
-                    height={20}
-                    className="shrink-0 rounded-sm object-contain"
-                  />
-                ) : (
-                  <div
-                    className="w-5 h-5 rounded-full shrink-0"
-                    style={{ backgroundColor: COLORES_TODOS_PARTIDOS[p.partido] }}
-                  />
-                )}
-                <span className="font-medium">{p.partido}</span>
-              </div>
-              <span className="text-muted-foreground tabular-nums">
-                {p.porcentaje.toFixed(2)}% ({p.votos.toLocaleString()})
-              </span>
-            </div>
-            <div className="h-2.5 bg-muted rounded-full overflow-hidden">
-              <div
-                className="h-full rounded-full transition-all duration-500"
-                style={{
-                  width: `${Math.max(p.porcentaje, 0.5)}%`,
-                  backgroundColor: COLORES_TODOS_PARTIDOS[p.partido],
-                }}
-              />
-            </div>
-          </div>
-        )
-      })}
-    </div>
-  )
-}
-
 function VotosTop3Bars({
   votosPartidos,
 }: {
