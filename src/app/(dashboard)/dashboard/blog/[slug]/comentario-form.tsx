@@ -9,9 +9,12 @@ import { agregarComentarioBlog } from '@/lib/blog/actions'
 
 interface ComentarioFormProps {
   slug: string
+  padreId?: number | null
+  onSubmitted?: () => void
+  placeholder?: string
 }
 
-export function ComentarioForm({ slug }: ComentarioFormProps) {
+export function ComentarioForm({ slug, padreId, onSubmitted, placeholder }: ComentarioFormProps) {
   const router = useRouter()
   const [contenido, setContenido] = useState('')
   const [isPending, startTransition] = useTransition()
@@ -27,10 +30,11 @@ export function ComentarioForm({ slug }: ComentarioFormProps) {
     }
 
     startTransition(async () => {
-      const result = await agregarComentarioBlog(slug, contenido)
+      const result = await agregarComentarioBlog(slug, contenido, padreId ?? null)
       if (result.success) {
         setContenido('')
         router.refresh()
+        onSubmitted?.()
       } else {
         setError(result.error || 'Error al guardar el comentario')
       }
@@ -42,7 +46,9 @@ export function ComentarioForm({ slug }: ComentarioFormProps) {
   return (
     <form onSubmit={handleSubmit} className="space-y-2">
       <Textarea
-        placeholder="¿Tienes feedback o preguntas sobre este post? Escríbelas aquí…"
+        placeholder={
+          placeholder ?? '¿Tienes feedback o preguntas sobre este post? Escríbelas aquí…'
+        }
         value={contenido}
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setContenido(e.target.value)}
         rows={3}

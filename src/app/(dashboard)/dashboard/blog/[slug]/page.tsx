@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </CardHeader>
           <CardContent className="space-y-6">
             <ComentarioForm slug={slug} />
-            <ComentariosList comentarios={comentarios} currentUserId={user?.id} />
+            <ComentariosList slug={slug} comentarios={comentarios} currentUserId={user?.id} />
           </CardContent>
         </Card>
       </section>

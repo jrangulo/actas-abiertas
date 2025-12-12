@@ -1,0 +1,1 @@
+CREATE INDEX "comentario_blog_padre_idx" ON "comentario_blog" USING btree ("padre_id");

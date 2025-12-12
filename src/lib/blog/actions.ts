@@ -4,11 +4,13 @@ import { db } from '@/db'
 import { comentarioBlog } from '@/db/schema'
 import { createClient } from '@/lib/supabase/server'
 import { getPostBySlug } from '@/lib/blog'
+import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 
 export async function agregarComentarioBlog(
   slug: string,
-  contenido: string
+  contenido: string,
+  padreId?: number | null
 ): Promise<{ success: true } | { success: false; error: string }> {
   const supabase = await createClient()
   const {
@@ -34,10 +36,28 @@ export async function agregarComentarioBlog(
   }
 
   try {
+    // Enforce single-depth threading:
+    // padreId puede apuntar solo a un comentario top-level (padre_id IS NULL)
+    if (padreId) {
+      const [parent] = await db
+        .select({ id: comentarioBlog.id, padreId: comentarioBlog.padreId })
+        .from(comentarioBlog)
+        .where(and(eq(comentarioBlog.id, padreId), eq(comentarioBlog.slug, slug)))
+        .limit(1)
+
+      if (!parent) {
+        return { success: false, error: 'Comentario padre no encontrado' }
+      }
+      if (parent.padreId !== null) {
+        return { success: false, error: 'Solo se permite responder a comentarios principales' }
+      }
+    }
+
     await db.insert(comentarioBlog).values({
       slug,
       usuarioId: user.id,
       contenido: trimmed,
+      padreId: padreId ?? null,
     })
 
     revalidatePath(`/dashboard/blog/${slug}`)

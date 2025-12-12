@@ -558,6 +558,7 @@ export const comentarioBlog = pgTable(
   (table) => [
     index('comentario_blog_slug_idx').on(table.slug),
     index('comentario_blog_usuario_idx').on(table.usuarioId),
+    index('comentario_blog_padre_idx').on(table.padreId),
     index('comentario_blog_creado_idx').on(table.creadoEn),
   ]
 )
