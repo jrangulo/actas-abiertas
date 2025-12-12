@@ -162,7 +162,9 @@ export async function getActaParaValidar(userId: string) {
     .where(
       and(
         // Escrutada por CNE O digitada por nosotros
-        or(eq(acta.escrutadaEnCne, true), isNotNull(acta.digitadoPor)),
+        // remove logic to no escrutada to show the user the acta is not digitized yet
+        // or(eq(acta.escrutadaEnCne, true), isNotNull(acta.digitadoPor)),
+        eq(acta.tieneImagen, true),
         // Menos de 3 validaciones
         lt(acta.cantidadValidaciones, 3),
         // No digitada por este usuario (IMPORTANTE: no puede validar lo que él mismo digitó)

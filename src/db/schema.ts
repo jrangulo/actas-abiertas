@@ -277,6 +277,10 @@ export const acta = pgTable(
     // -------------------------------------------------------------------------
     // Estado y flujo de trabajo
     // -------------------------------------------------------------------------
+
+    // Ya se subio la imagen del CNE
+    tieneImagen: boolean('tiene_imagen').notNull().default(false),
+
     estado: estadoActaEnum('estado').default('pendiente').notNull(),
 
     digitadoPor: uuid('digitado_por').references(() => authUsers.id, { onDelete: 'set null' }),
