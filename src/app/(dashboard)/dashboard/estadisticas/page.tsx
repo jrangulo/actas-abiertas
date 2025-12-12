@@ -4,7 +4,6 @@ import { BarChart3, TrendingUp, CheckCircle2, Database } from 'lucide-react'
 import {
   getEstadisticasVotos,
   getProgresionVotos,
-  getProgresionValoresValidacion,
   getDistribucionZona,
   COLORES_TODOS_PARTIDOS,
   COLORES_PARTIDOS,
@@ -14,7 +13,6 @@ import {
 } from '@/lib/stats/queries'
 import { Building2, Trees } from 'lucide-react'
 import { ProgresionPorcentajesChart } from './progresion-porcentajes-chart'
-import { ProgresionValoresChart } from './progresion-valores-chart'
 import Image from 'next/image'
 
 // Force dynamic - estos datos cambian constantemente
@@ -41,11 +39,10 @@ export default async function EstadisticasPage() {
 }
 
 async function StatsContent() {
-  const [stats, progresion, distribucionZona, valoresValidacion] = await Promise.all([
+  const [stats, progresion, distribucionZona] = await Promise.all([
     getEstadisticasVotos(),
     getProgresionVotos(25),
     getDistribucionZona(),
-    getProgresionValoresValidacion(25),
   ])
 
   return (
@@ -120,26 +117,6 @@ async function StatsContent() {
           </CardHeader>
           <CardContent>
             <ProgresionPorcentajesChart data={progresion} />
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Validation Coverage Values Chart */}
-      {valoresValidacion.length > 0 && (
-        <Card>
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-[#0069b4]" />
-              <div>
-                <CardTitle className="text-base">Votos Acumulados en Validación</CardTitle>
-                <CardDescription>
-                  Votos acumulados a medida que aumenta la cobertura de validación
-                </CardDescription>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <ProgresionValoresChart data={valoresValidacion} />
           </CardContent>
         </Card>
       )}
