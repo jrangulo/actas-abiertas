@@ -29,7 +29,7 @@
  */
 'use client'
 
-import { useCallback, useMemo, useState, useEffect } from 'react'
+import { useCallback, useSyncExternalStore } from 'react'
 
 const STORAGE_KEY = 'actas-abiertas-features-seen'
 const STORAGE_EVENT = 'actas-abiertas-features-updated'
@@ -37,7 +37,7 @@ const STORAGE_EVENT = 'actas-abiertas-features-updated'
 type FeaturesSeenMap = Record<string, boolean>
 
 function getSeenFeatures(): FeaturesSeenMap {
-  if (globalThis.window === undefined) return {}
+  if (typeof window === 'undefined') return {}
 
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
@@ -49,37 +49,33 @@ function getSeenFeatures(): FeaturesSeenMap {
 }
 
 function setSeenFeatures(features: FeaturesSeenMap): void {
-  if (globalThis.window === undefined) return
+  if (typeof window === 'undefined') return
 
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(features))
-    globalThis.window.dispatchEvent(new CustomEvent(STORAGE_EVENT))
+    window.dispatchEvent(new CustomEvent(STORAGE_EVENT))
   } catch (error) {
     console.error('Error saving features seen data:', error)
   }
 }
 
+function subscribe(callback: () => void) {
+  window.addEventListener(STORAGE_EVENT, callback)
+  window.addEventListener('storage', callback)
+  return () => {
+    window.removeEventListener(STORAGE_EVENT, callback)
+    window.removeEventListener('storage', callback)
+  }
+}
+
 export function useFeatureSeen(featureId: string) {
-  const [updateTrigger, setUpdateTrigger] = useState(0)
-
-  useEffect(() => {
-    if (globalThis.window === undefined) return
-
-    const handleStorageUpdate = () => {
-      setUpdateTrigger((prev) => prev + 1)
-    }
-
-    globalThis.window.addEventListener(STORAGE_EVENT, handleStorageUpdate)
-    return () => {
-      globalThis.window.removeEventListener(STORAGE_EVENT, handleStorageUpdate)
-    }
-  }, [])
-
-  const isFeatureSeen = useMemo(() => {
-    const seenFeatures = getSeenFeatures()
-    return seenFeatures[featureId] === true
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- updateTrigger is intentionally used to force re-evaluation
-  }, [featureId, updateTrigger])
+  const isFeatureSeen = useSyncExternalStore(
+    subscribe,
+    // Client snapshot
+    () => getSeenFeatures()[featureId] === true,
+    // Server snapshot - true (seen) to avoid showing indicator during SSR
+    () => true
+  )
 
   const markFeatureAsSeen = useCallback(() => {
     const seenFeatures = getSeenFeatures()
