@@ -123,6 +123,16 @@ export async function obtenerNuevaActa(modo: 'digitalizar' | 'validar') {
     }
   }
 
+  // Mantenimiento: pausar asignación de nuevas actas (pero permitir retomar una pendiente arriba)
+  if (process.env.ACTAS_MAINTENANCE === 'true') {
+    return {
+      success: false,
+      maintenance: true,
+      message:
+        'Mantenimiento en progreso: estamos actualizando datos y pausamos temporalmente la asignación de nuevas actas.',
+    }
+  }
+
   const actaDisponible =
     modo === 'digitalizar'
       ? await getActaParaDigitalizar(user.id)
@@ -603,7 +613,11 @@ export async function reportarProblema(
     // Ya existe un reporte de este usuario para esta acta, solo liberar
     await liberarActa(uuid, user.id)
     revalidatePath('/dashboard/verificar')
-    return { success: true, alreadyReported: true }
+    return {
+      success: true,
+      alreadyReported: true,
+      maintenance: process.env.ACTAS_MAINTENANCE === 'true',
+    }
   }
 
   // Registrar discrepancia
@@ -641,6 +655,13 @@ export async function reportarProblema(
   // Actualizar estadísticas del usuario
   await actualizarEstadisticaUsuario(user.id, { discrepanciasReportadas: 1 })
 
+  // Mantenimiento: no asignar siguiente acta
+  if (process.env.ACTAS_MAINTENANCE === 'true') {
+    revalidatePath('/dashboard/verificar')
+    revalidatePath('/dashboard/discrepancias')
+    return { success: true, nextUuid: null, maintenance: true }
+  }
+
   // Get next acta in same request to avoid race condition
   const nextActa = await getActaParaValidar(user.id)
   let nextUuid: string | null = null
@@ -651,7 +672,7 @@ export async function reportarProblema(
 
   revalidatePath('/dashboard/verificar')
   revalidatePath('/dashboard/discrepancias')
-  return { success: true, nextUuid }
+  return { success: true, nextUuid, maintenance: false }
 }
 
 /**

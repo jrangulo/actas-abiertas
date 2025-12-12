@@ -360,6 +360,12 @@ export function VerificarClient({
     // verificar logros de reporte en background
     checkTotalReportsAchievements(userId).catch(() => {})
 
+    // Mantenimiento: no asignar nueva acta
+    if ('maintenance' in result && result.maintenance) {
+      router.push('/dashboard/verificar?message=mantenimiento')
+      return
+    }
+
     // Use nextUuid from response to avoid race condition
     if (result.nextUuid) {
       router.push(`/dashboard/verificar/${result.nextUuid}`)
@@ -403,6 +409,8 @@ export function VerificarClient({
       router.push(`/dashboard/verificar/${result.uuid}`)
     } else if ('pendingUuid' in result && result.pendingUuid) {
       router.push(`/dashboard/verificar/${result.pendingUuid}`)
+    } else if ('maintenance' in result && result.maintenance) {
+      router.push('/dashboard/verificar?message=mantenimiento')
     } else {
       router.push('/dashboard/verificar?message=sin-actas')
     }

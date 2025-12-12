@@ -18,6 +18,7 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
   const params = await searchParams
   const error = params.error
   const message = params.message
+  const maintenance = process.env.ACTAS_MAINTENANCE === 'true'
 
   // Verificar si el usuario tiene un acta bloqueada pendiente
   // Si la tiene, redirigir directamente a ella (no puede empezar otra)
@@ -76,6 +77,16 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
         </Alert>
       )}
 
+      {(maintenance || message === 'mantenimiento') && (
+        <Alert>
+          <Info className="h-4 w-4" />
+          <AlertDescription>
+            Estamos en mantenimiento y pausamos temporalmente la asignación de nuevas actas mientras
+            actualizamos datos. Si ya tenías un acta en proceso, puedes continuar con esa.
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Opción: Validar */}
       <Card className="max-w-xl">
         <CardHeader>
@@ -111,7 +122,7 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
             </p>
           </div>
           <div className="flex justify-start w-full pt-4">
-            <StartButton />
+            <StartButton maintenance={maintenance} />
           </div>
         </CardContent>
       </Card>
