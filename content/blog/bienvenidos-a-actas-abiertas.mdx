@@ -1,0 +1,73 @@
+---
+title: "Gracias y actualización: Actas Abiertas hasta hoy"
+date: "2025-12-11"
+excerpt: "Gracias por ayudar a verificar actas. Explicamos por qué nuestros números se ven distintos al conteo oficial, qué significa 'inconsistencia' y qué preguntas queremos estudiar con estos datos."
+author: "Equipo Actas Abiertas"
+---
+
+Primero que todo: gracias.
+
+Gracias a cada persona que se registró y dedicó tiempo a verificar actas. Estamos acercándonos a la mitad del total de verificaciones necesarias y, aunque hemos tenido algunos contribuyentes que destacan por volumen, cada verificación cuenta por igual. Todos están aportando a una iniciativa más grande: transparencia pública en un proceso electoral que, para muchos, ha estado rodeado de confusión, desinformación y poca claridad.
+
+## Proyecto open source y auditable
+
+Actas Abiertas es un proyecto open source. Todo el código y cada cambio están disponibles públicamente aquí:
+
+- [github.com/jrangulo/actas-abiertas](https://github.com/jrangulo/actas-abiertas)
+
+Además, una vez que alcancemos 100% de verificación (y revisemos las inconsistencias y reportes), tenemos planes de publicar una copia de solo lectura de la base de datos completa, sin información de usuarios, para que cualquiera pueda auditar y hacer análisis independientes.
+
+La idea central es simple: si tienes el conocimiento (o la motivación), puedes revisar lo que hacemos, detectar errores, sugerir mejoras y, si quieres, incluso ayudarnos a corregir y fortalecer el proyecto.
+
+## ¿Por qué nuestros números se ven tan “cerrados”?
+
+Una duda razonable es: ¿por qué nuestras estadísticas muestran una diferencia tan pequeña entre los dos partidos principales… y por tanto tiempo?
+
+Si ves la gráfica, son dos líneas prácticamente una encima de la otra, moviéndose de un lado a otro. A veces la diferencia es de cientos de votos. En este momento, por ejemplo, el margen puede ser de ~150 votos a favor de un partido (PLH).
+
+Una de las razones por las que esto pasa es cómo asignamos las actas: en Actas Abiertas, las actas se asignan de forma aleatoria, no por departamento ni por zona.
+
+Eso importa porque el conteo oficial suele avanzar en bloques (por ejemplo, departamento por departamento), y sabemos que hay departamentos y zonas (urbano vs rural) que históricamente tienden a favorecer más a un partido que a otro. Si el conteo avanza por bloques, se puede generar una “tendencia temporal” artificial: durante horas o días, el margen puede lucir inclinado por el orden en que van entrando los datos, no necesariamente porque el resultado final sea así.
+
+Lo que nuestra asignación aleatoria ayuda a mostrar es que el orden importa muchísimo si se quiere hacer cualquier tipo de proyección o inferencia “en tiempo real”.
+
+## El detalle más importante: “inconsistencias” del CNE
+
+Hay una diferencia aún más relevante y que mucha gente nota mientras valida actas:
+
+Algunas actas vienen marcadas con “inconsistencia”. Esa etiqueta proviene del CNE. En términos prácticos, eso significa que esa acta no está siendo sumada al total oficial todavía.
+
+Entendemos que estas actas pueden pasar por un proceso de revisión especial, pero también hemos visto algo interesante: hay actas marcadas como inconsistentes que no muestran inconsistencias obvias, o muestran inconsistencias muy menores. Por ejemplo, una diferencia de 1 unidad en algún total puede terminar dejando fuera del conteo oficial una acta de ~300 votos.
+
+Queremos ser muy claros:
+
+- No afirmamos por qué ocurre esto.
+- No vamos a especular sobre intenciones.
+- Sí tenemos los datos para estudiar el patrón cuando el conteo esté más avanzado o finalizado.
+
+Con una muestra que ya ronda miles de actas validadas, al comparar nuestra distribución de porcentajes con la distribución del CNE, se observa que podría existir una diferencia si las actas “inconsistentes” tienden a favorecer más a un partido que a otro. Esto es solo una hipótesis de trabajo, y es precisamente el tipo de análisis que queremos hacer con rigor más adelante.
+
+## Otra rareza: menos nulos y blancos en nuestros datos
+
+Otra diferencia menos obvia es que en nuestro conjunto de actas validadas aparece una proporción más baja de votos nulos y blancos.
+
+No tenemos una explicación definitiva, pero en varias actas marcadas como inconsistentes por el CNE hemos visto conteos de nulos/blancos que parecen desproporcionados. No es raro encontrar actas “inconsistentes” que reportan, por ejemplo, 600 nulos y 400 blancos, cuando el acta en papel muestra alrededor de 250 votos válidos totales.
+
+De nuevo: no afirmamos causas. Solo señalamos que es un patrón que vale la pena estudiar cuando haya más datos.
+
+## Sobre el proyecto (y una invitación a ayudar)
+
+Ninguno de nosotros en el equipo central es estadístico profesional. Somos ingenieros con trabajos de tiempo completo, y aunque hacemos nuestro mejor esfuerzo, es posible que encuentres bugs o detalles imperfectos. Esa es otra razón por la que el proyecto es open source: para que cualquiera pueda ayudar a mejorar.
+
+Si eres estadístico/a (o conoces a alguien) y te interesa colaborar con un enfoque técnico y neutral, nos encantaría conversar. Creemos que estamos construyendo uno de los conjuntos de datos más interesantes precisamente por el método de muestreo/validación aleatoria que usamos internamente.
+
+Y si tienes sugerencias, dudas o feedback: déjalas en los comentarios de este post. Vamos a estar leyendo y respondiendo.
+
+## Agradecimiento final e inspiración
+
+Finalmente, queremos agradecer y reconocer a las personas que hicieron un proyecto muy similar en 2017, durante el proceso electoral asociado a la reelección de Juan Orlando Hernández. Ellos fueron la inspiración directa para Actas Abiertas.
+
+Si alguien sabe quiénes fueron, o si esas personas están leyendo esto: nos encantaría ponernos en contacto.
+
+Gracias nuevamente por ser parte de esto.
+

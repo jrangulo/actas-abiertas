@@ -65,6 +65,7 @@ export interface ChartSeriesConfig {
   dataKey: string
   label: string
   color: string
+  strokeDasharray?: string
 }
 
 // Props del LineChart
@@ -83,6 +84,10 @@ interface LineChartProps {
   className?: string
   height?: number
   legendPosition?: 'top' | 'bottom'
+  lineStrokeWidth?: number
+  dotRadius?: number
+  legendToggleable?: boolean
+  initialHiddenSeries?: string[]
 }
 
 // Custom tooltip con tipos explícitos
@@ -105,10 +110,24 @@ function ChartTooltip({
   if (!active || !payload?.length) return null
 
   const formattedLabel = xAxisFormatter ? xAxisFormatter(Number(label)) : String(label)
+  // Algunos charts (como progresión) incluyen metadata útil en el payload (ej. actas acumuladas)
+  const actasAcumuladasRaw = payload?.[0]?.payload?.actasAcumuladas as unknown
+  const actasAcumuladas =
+    typeof actasAcumuladasRaw === 'number' && Number.isFinite(actasAcumuladasRaw)
+      ? actasAcumuladasRaw
+      : null
 
   return (
     <div className="bg-popover border rounded-lg shadow-lg p-3 text-sm">
-      <p className="font-semibold mb-2 text-foreground">{formattedLabel}</p>
+      <p className="font-semibold mb-2 text-foreground">
+        {formattedLabel}
+        {actasAcumuladas !== null ? (
+          <span className="font-normal text-muted-foreground">
+            {' '}
+            · {actasAcumuladas.toLocaleString()} actas
+          </span>
+        ) : null}
+      </p>
       <div className="space-y-1">
         {payload.map((entry, index) => {
           const value = entry.value as number
@@ -135,19 +154,48 @@ function ChartTooltip({
 interface CustomLegendProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   payload?: any[]
+  hiddenKeys?: Set<string>
+  onToggle?: (dataKey: string) => void
 }
 
-function ChartLegend({ payload }: CustomLegendProps) {
+function ChartLegend({ payload, hiddenKeys, onToggle }: CustomLegendProps) {
   if (!payload?.length) return null
 
   return (
-    <div className="flex justify-center gap-6">
-      {payload.map((entry, index) => (
-        <div key={index} className="flex items-center gap-2">
-          <div className="w-4 h-1 rounded-full" style={{ backgroundColor: entry.color }} />
-          <span className="text-sm font-medium text-foreground">{entry.value}</span>
-        </div>
-      ))}
+    <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+      {payload.map((entry, index) => {
+        const key = (entry?.dataKey as string) ?? (entry?.value as string) ?? String(index)
+        const isHidden = hiddenKeys?.has(key) ?? false
+
+        const clickable = typeof onToggle === 'function'
+        return (
+          <button
+            key={index}
+            type="button"
+            onClick={clickable ? () => onToggle(key) : undefined}
+            className={cn(
+              'flex items-center gap-2 rounded-md px-2 py-1',
+              clickable ? 'cursor-pointer hover:bg-muted/50' : 'cursor-default',
+              isHidden ? 'opacity-40' : 'opacity-100'
+            )}
+            aria-pressed={isHidden}
+            title={clickable ? (isHidden ? 'Mostrar' : 'Ocultar') : undefined}
+          >
+            <div
+              className={cn('w-4 h-1 rounded-full', isHidden && 'opacity-60')}
+              style={{ backgroundColor: entry.color }}
+            />
+            <span
+              className={cn(
+                'text-xs sm:text-sm font-medium',
+                isHidden ? 'text-muted-foreground line-through' : 'text-foreground'
+              )}
+            >
+              {entry.value}
+            </span>
+          </button>
+        )
+      })}
     </div>
   )
 }
@@ -167,8 +215,24 @@ export function LineChart({
   className,
   height = 300,
   legendPosition = 'top',
+  lineStrokeWidth = 2.5,
+  dotRadius = 3,
+  legendToggleable = false,
+  initialHiddenSeries = [],
 }: LineChartProps) {
   const colors = useChartColors()
+  const [isMobile, setIsMobile] = React.useState(false)
+  const [hiddenSeries, setHiddenSeries] = React.useState<Set<string>>(
+    () => new Set(initialHiddenSeries)
+  )
+
+  React.useEffect(() => {
+    const mq = window.matchMedia('(max-width: 640px)')
+    const onChange = () => setIsMobile(mq.matches)
+    onChange()
+    mq.addEventListener('change', onChange)
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   if (!data?.length) {
     return (
@@ -182,15 +246,20 @@ export function LineChart({
   }
 
   return (
-    <div className={cn('w-full', className)} style={{ height }}>
-      <ResponsiveContainer width="100%" height="100%">
+    <div
+      className={cn('w-full min-w-0', className)}
+      // Recharts ResponsiveContainer needs a measurable parent. Enforce minHeight so it never
+      // becomes 0/-1 inside flex/grid layouts during initial measurement.
+      style={{ height, minHeight: height }}
+    >
+      <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={height}>
         <RechartsLineChart
           data={data}
           margin={{
-            top: legendPosition === 'top' ? 45 : 5,
-            right: 20,
-            left: 10,
-            bottom: xAxisLabel ? 30 : 5,
+            top: legendPosition === 'top' ? (isMobile ? 65 : 55) : 5,
+            right: isMobile ? 12 : 20,
+            left: isMobile ? 0 : 10,
+            bottom: xAxisLabel ? (isMobile ? 42 : 30) : isMobile ? 12 : 5,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke={colors.border} opacity={0.5} />
@@ -198,26 +267,27 @@ export function LineChart({
             dataKey={xAxisKey}
             domain={xAxisDomain}
             ticks={xAxisTicks}
-            tick={{ fontSize: 12, fill: colors.text }}
+            tick={{ fontSize: isMobile ? 10 : 12, fill: colors.text }}
             tickFormatter={xAxisFormatter}
             axisLine={{ stroke: colors.border }}
             tickLine={{ stroke: colors.border }}
             type="number"
             allowDataOverflow={true}
+            minTickGap={isMobile ? 16 : 8}
             label={
               xAxisLabel
                 ? {
                     value: xAxisLabel,
                     position: 'bottom',
                     offset: 15,
-                    style: { fontSize: 12, fill: colors.text },
+                    style: { fontSize: isMobile ? 10 : 12, fill: colors.text },
                   }
                 : undefined
             }
           />
           <YAxis
             domain={yAxisDomain}
-            tick={{ fontSize: 12, fill: colors.text }}
+            tick={{ fontSize: isMobile ? 10 : 12, fill: colors.text }}
             tickFormatter={yAxisFormatter}
             axisLine={{ stroke: colors.border }}
             tickLine={{ stroke: colors.border }}
@@ -228,7 +298,7 @@ export function LineChart({
                     angle: -90,
                     position: 'insideLeft',
                     style: {
-                      fontSize: 12,
+                      fontSize: isMobile ? 10 : 12,
                       fill: colors.text,
                       textAnchor: 'middle',
                     },
@@ -241,7 +311,25 @@ export function LineChart({
               <ChartTooltip xAxisFormatter={xAxisFormatter} tooltipFormatter={tooltipFormatter} />
             }
           />
-          <Legend content={<ChartLegend />} verticalAlign={legendPosition} />
+          <Legend
+            verticalAlign={legendPosition}
+            content={
+              <ChartLegend
+                hiddenKeys={legendToggleable ? hiddenSeries : undefined}
+                onToggle={
+                  legendToggleable
+                    ? (key) =>
+                        setHiddenSeries((prev) => {
+                          const next = new Set(prev)
+                          if (next.has(key)) next.delete(key)
+                          else next.add(key)
+                          return next
+                        })
+                    : undefined
+                }
+              />
+            }
+          />
           {series.map((s) => (
             <Line
               key={s.dataKey}
@@ -249,9 +337,11 @@ export function LineChart({
               dataKey={s.dataKey}
               name={s.label}
               stroke={s.color}
-              strokeWidth={2.5}
-              dot={{ fill: s.color, strokeWidth: 2, r: 3 }}
+              strokeDasharray={s.strokeDasharray}
+              strokeWidth={lineStrokeWidth}
+              dot={dotRadius <= 0 ? false : { fill: s.color, strokeWidth: 2, r: dotRadius }}
               activeDot={{ r: 6, strokeWidth: 2 }}
+              hide={legendToggleable ? hiddenSeries.has(s.dataKey) : false}
             />
           ))}
         </RechartsLineChart>

@@ -1,10 +1,9 @@
 import { Suspense } from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { BarChart3, TrendingUp, CheckCircle2, Database } from 'lucide-react'
+import { AlertTriangle, BarChart3, TrendingUp, CheckCircle2, Database } from 'lucide-react'
 import {
   getEstadisticasVotos,
   getProgresionVotos,
-  getProgresionValoresValidacion,
   getDistribucionZona,
   COLORES_TODOS_PARTIDOS,
   COLORES_PARTIDOS,
@@ -14,7 +13,6 @@ import {
 } from '@/lib/stats/queries'
 import { Building2, Trees } from 'lucide-react'
 import { ProgresionPorcentajesChart } from './progresion-porcentajes-chart'
-import { ProgresionValoresChart } from './progresion-valores-chart'
 import Image from 'next/image'
 
 // Force dynamic - estos datos cambian constantemente
@@ -41,11 +39,10 @@ export default async function EstadisticasPage() {
 }
 
 async function StatsContent() {
-  const [stats, progresion, distribucionZona, valoresValidacion] = await Promise.all([
+  const [stats, progresion, distribucionZona] = await Promise.all([
     getEstadisticasVotos(),
     getProgresionVotos(25),
     getDistribucionZona(),
-    getProgresionValoresValidacion(25),
   ])
 
   return (
@@ -104,6 +101,76 @@ async function StatsContent() {
         </Card>
       </div>
 
+      {/* Comparisons: CNE vs Validados on same actas + Inconsistencias subset */}
+      {(stats.comparacionValidadosVsCne || stats.inconsistenciasValidadas) && (
+        <div className="grid gap-6 lg:grid-cols-2">
+          {stats.comparacionValidadosVsCne && (
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <TrendingUp className="h-5 w-5 text-purple-500" />
+                  <div>
+                    <CardTitle className="text-base">CNE vs Validados (mismas actas)</CardTitle>
+                    <CardDescription>
+                      Comparación solo entre actas validadas que también tienen datos oficiales del
+                      CNE ({stats.comparacionValidadosVsCne.actasComparadas.toLocaleString()} actas)
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="rounded-lg border bg-muted/30 p-4">
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="text-sm font-medium">
+                      Actas donde diferimos con el CNE (PN/PLH/PL)
+                    </p>
+                    <p className="text-sm text-muted-foreground tabular-nums">
+                      {stats.comparacionValidadosVsCne.actasComparadas.toLocaleString()} actas
+                    </p>
+                  </div>
+                  <p className="mt-1 text-3xl font-bold tabular-nums text-foreground">
+                    {stats.comparacionValidadosVsCne.actasConDiferenciaTop3.toLocaleString()}
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Conteo de actas (sin “Inconsistencia”) donde al menos uno de PN/PLH/PL no
+                    coincide entre Validados y CNE.
+                  </p>
+                </div>
+
+                <ComparacionTop3 tabla={stats.comparacionValidadosVsCne} />
+                <p className="text-xs text-muted-foreground">
+                  Totales PN/PLH/PL. Diferencia = (validados − CNE). La diferencia en % es en puntos
+                  porcentuales.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+
+          {stats.inconsistenciasValidadas && (
+            <Card>
+              <CardHeader>
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="h-5 w-5 text-amber-500" />
+                  <div>
+                    <CardTitle className="text-base">Inconsistencias (CNE) ya validadas</CardTitle>
+                    <CardDescription>
+                      Actas marcadas como “Inconsistencia” por el CNE, pero validadas por nosotros (
+                      {stats.inconsistenciasValidadas.actas.toLocaleString()} actas)
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <VotosTop3Bars votosPartidos={stats.inconsistenciasValidadas.votosPartidos} />
+                <p className="text-xs text-muted-foreground">
+                  Porcentajes calculados dentro del subconjunto de actas con “Inconsistencia”.
+                </p>
+              </CardContent>
+            </Card>
+          )}
+        </div>
+      )}
+
       {/* Progression Chart */}
       {progresion.length > 0 && (
         <Card>
@@ -120,26 +187,9 @@ async function StatsContent() {
           </CardHeader>
           <CardContent>
             <ProgresionPorcentajesChart data={progresion} />
-          </CardContent>
-        </Card>
-      )}
-
-      {/* Validation Coverage Values Chart */}
-      {valoresValidacion.length > 0 && (
-        <Card>
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <TrendingUp className="h-5 w-5 text-[#0069b4]" />
-              <div>
-                <CardTitle className="text-base">Votos Acumulados en Validación</CardTitle>
-                <CardDescription>
-                  Votos acumulados a medida que aumenta la cobertura de validación
-                </CardDescription>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <ProgresionValoresChart data={valoresValidacion} />
+            <p className="mt-2 text-xs text-muted-foreground">
+              Tip: toca PN/PLH/PL en la leyenda para ocultar/mostrar líneas.
+            </p>
           </CardContent>
         </Card>
       )}
@@ -222,6 +272,119 @@ function VotosBarChart({
                   backgroundColor: COLORES_TODOS_PARTIDOS[p.partido],
                 }}
               />
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function VotosTop3Bars({
+  votosPartidos,
+}: {
+  votosPartidos: Array<{ partido: 'PN' | 'PLH' | 'PL'; votos: number; porcentaje: number }>
+}) {
+  const sorted = [...votosPartidos].sort((a, b) => b.votos - a.votos)
+  return (
+    <div className="space-y-4">
+      {sorted.map((p) => {
+        const logoPath = LOGOS_PARTIDOS[p.partido]
+        return (
+          <div key={p.partido} className="space-y-1.5">
+            <div className="flex items-center justify-between text-sm">
+              <div className="flex items-center gap-2">
+                {logoPath ? (
+                  <Image
+                    src={logoPath}
+                    alt={p.partido}
+                    width={20}
+                    height={20}
+                    className="shrink-0 rounded-sm object-contain"
+                  />
+                ) : (
+                  <div
+                    className="w-5 h-5 rounded-full shrink-0"
+                    style={{ backgroundColor: COLORES_PARTIDOS[p.partido] }}
+                  />
+                )}
+                <span className="font-medium">{p.partido}</span>
+              </div>
+              <span className="text-muted-foreground tabular-nums">
+                {p.porcentaje.toFixed(2)}% ({p.votos.toLocaleString()})
+              </span>
+            </div>
+            <div className="h-2.5 bg-muted rounded-full overflow-hidden">
+              <div
+                className="h-full rounded-full transition-all duration-500"
+                style={{
+                  width: `${Math.max(p.porcentaje, 0.5)}%`,
+                  backgroundColor: COLORES_PARTIDOS[p.partido],
+                }}
+              />
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+function ComparacionTop3({
+  tabla,
+}: {
+  tabla: NonNullable<Awaited<ReturnType<typeof getEstadisticasVotos>>['comparacionValidadosVsCne']>
+}) {
+  const cneMap = new Map(tabla.cne.votosPartidos.map((v) => [v.partido, v]))
+  const valMap = new Map(tabla.validados.votosPartidos.map((v) => [v.partido, v]))
+
+  return (
+    <div className="space-y-3">
+      {(['PN', 'PLH', 'PL'] as const).map((p) => {
+        const cne = cneMap.get(p)!
+        const val = valMap.get(p)!
+        const diff = tabla.diferencias.find((d) => d.partido === p)!
+        const logoPath = LOGOS_PARTIDOS[p]
+
+        return (
+          <div key={p} className="rounded-lg border bg-card p-3">
+            <div className="flex items-center gap-2 mb-2">
+              {logoPath ? (
+                <Image
+                  src={logoPath}
+                  alt={p}
+                  width={20}
+                  height={20}
+                  className="shrink-0 rounded-sm object-contain"
+                />
+              ) : (
+                <div
+                  className="w-5 h-5 rounded-full shrink-0"
+                  style={{ backgroundColor: COLORES_PARTIDOS[p] }}
+                />
+              )}
+              <span className="font-semibold">{p}</span>
+              <span className="ml-auto text-xs text-muted-foreground tabular-nums">
+                Δ {diff.diferenciaVotos >= 0 ? '+' : ''}
+                {diff.diferenciaVotos.toLocaleString()} ·{' '}
+                {diff.diferenciaPorcentajePuntos >= 0 ? '+' : ''}
+                {diff.diferenciaPorcentajePuntos.toFixed(2)} pp
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+              <div className="flex items-center justify-between rounded-md bg-muted/40 px-2 py-1.5">
+                <span className="text-muted-foreground">Validados</span>
+                <span className="tabular-nums font-medium">
+                  {val.votos.toLocaleString()} ({val.porcentaje.toFixed(2)}%)
+                </span>
+              </div>
+              <div className="flex items-center justify-between rounded-md bg-muted/40 px-2 py-1.5">
+                <span className="text-muted-foreground">CNE</span>
+                <span className="tabular-nums font-medium">
+                  {cne.votos.toLocaleString()} ({cne.porcentaje.toFixed(2)}%)
+                </span>
+              </div>
             </div>
           </div>
         )

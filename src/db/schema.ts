@@ -529,6 +529,40 @@ export const comentarioDiscrepancia = pgTable(
   ]
 )
 
+/**
+ * Comentarios en posts del blog
+ *
+ * Permite a usuarios dejar feedback/preguntas en cada publicación.
+ * Respeta las reglas de anonimato (perfilPrivado en estadistica_usuario).
+ */
+export const comentarioBlog = pgTable(
+  'comentario_blog',
+  {
+    id: serial('id').primaryKey(),
+
+    // Identificador del post (slug del MDX)
+    slug: varchar('slug', { length: 255 }).notNull(),
+
+    usuarioId: uuid('usuario_id')
+      .notNull()
+      .references(() => authUsers.id, { onDelete: 'cascade' }),
+
+    contenido: text('contenido').notNull(),
+
+    // Para respuestas/hilos (opcional, sin FK por simplicidad)
+    padreId: integer('padre_id'),
+
+    creadoEn: timestamp('creado_en', { withTimezone: true }).defaultNow().notNull(),
+    editadoEn: timestamp('editado_en', { withTimezone: true }),
+  },
+  (table) => [
+    index('comentario_blog_slug_idx').on(table.slug),
+    index('comentario_blog_usuario_idx').on(table.usuarioId),
+    index('comentario_blog_padre_idx').on(table.padreId),
+    index('comentario_blog_creado_idx').on(table.creadoEn),
+  ]
+)
+
 // ============================================================================
 // Estadísticas de Usuario (Leaderboard)
 // ============================================================================
@@ -725,6 +759,9 @@ export type NewDiscrepancia = typeof discrepancia.$inferInsert
 
 export type ComentarioDiscrepancia = typeof comentarioDiscrepancia.$inferSelect
 export type NewComentarioDiscrepancia = typeof comentarioDiscrepancia.$inferInsert
+
+export type ComentarioBlog = typeof comentarioBlog.$inferSelect
+export type NewComentarioBlog = typeof comentarioBlog.$inferInsert
 
 export type EstadisticaUsuario = typeof estadisticaUsuario.$inferSelect
 export type NewEstadisticaUsuario = typeof estadisticaUsuario.$inferInsert

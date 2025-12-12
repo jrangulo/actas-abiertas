@@ -1,6 +1,6 @@
 {
-  "id": "b1e66f41-1835-4811-a949-c344f3a8088d",
-  "prevId": "141fd65c-d48e-46f7-b842-545dbef462c5",
+  "id": "eead6970-402f-4e7e-9265-f5b1c51f13e9",
+  "prevId": "b1e66f41-1835-4811-a949-c344f3a8088d",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -698,6 +698,21 @@
           "columns": [
             {
               "expression": "usuario_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "comentario_blog_padre_idx": {
+          "name": "comentario_blog_padre_idx",
+          "columns": [
+            {
+              "expression": "padre_id",
               "isExpression": false,
               "asc": true,
               "nulls": "last"
