@@ -80,3 +80,62 @@ export async function agregarComentarioBlog(
     return { success: false, error: 'Error interno al guardar el comentario' }
   }
 }
+
+export async function eliminarComentarioBlog(
+  comentarioId: number
+): Promise<{ success: true } | { success: false; error: string }> {
+  const supabase = await createClient()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  if (!user) {
+    return { success: false, error: 'No autenticado' }
+  }
+
+  try {
+    const [comentario] = await db
+      .select({
+        id: comentarioBlog.id,
+        slug: comentarioBlog.slug,
+        usuarioId: comentarioBlog.usuarioId,
+        padreId: comentarioBlog.padreId,
+      })
+      .from(comentarioBlog)
+      .where(eq(comentarioBlog.id, comentarioId))
+      .limit(1)
+
+    if (!comentario) {
+      return { success: false, error: 'Comentario no encontrado' }
+    }
+
+    if (comentario.usuarioId !== user.id) {
+      return { success: false, error: 'No tienes permiso para eliminar este comentario' }
+    }
+
+    await db.transaction(async (tx) => {
+      // Si es comentario top-level, eliminar también sus respuestas (single-depth)
+      if (comentario.padreId === null) {
+        await tx.delete(comentarioBlog).where(eq(comentarioBlog.padreId, comentario.id))
+      }
+      await tx.delete(comentarioBlog).where(eq(comentarioBlog.id, comentario.id))
+    })
+
+    revalidatePath(`/dashboard/blog/${comentario.slug}`)
+    return { success: true }
+  } catch (error) {
+    const maybeCode = (error as { code?: string; message?: string } | null)?.code
+    const maybeMessage = (error as { message?: string } | null)?.message || ''
+
+    if (maybeCode === '42P01' || maybeMessage.toLowerCase().includes('comentario_blog')) {
+      return {
+        success: false,
+        error:
+          'Comentarios aún no disponibles (migración pendiente). Intenta de nuevo en unos minutos.',
+      }
+    }
+
+    console.error('Error al eliminar comentario del blog:', error)
+    return { success: false, error: 'Error interno al eliminar el comentario' }
+  }
+}

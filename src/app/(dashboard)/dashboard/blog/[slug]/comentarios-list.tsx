@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { CornerDownRight, User } from 'lucide-react'
+import { CornerDownRight, Trash2, User } from 'lucide-react'
 import { generateAnonName } from '@/lib/users/anon-names'
 import type { ComentarioBlogDetalle } from '@/lib/blog/comments'
 import { ComentarioForm } from './comentario-form'
+import { eliminarComentarioBlog } from '@/lib/blog/actions'
 
 interface ComentariosListProps {
   slug: string
@@ -87,7 +88,7 @@ function Thread({
   return (
     <div className="space-y-3">
       <div
-        className={`flex gap-3 ${isCurrentUser ? 'bg-primary/5 -mx-2 px-2 py-2 rounded-lg' : ''}`}
+        className={`group flex gap-3 ${isCurrentUser ? 'bg-primary/5 -mx-2 px-2 py-2 rounded-lg' : ''}`}
       >
         <Avatar className="h-8 w-8 flex-shrink-0">
           {comentario.usuarioAvatar && !comentario.perfilPrivado ? (
@@ -99,19 +100,44 @@ function Thread({
         </Avatar>
 
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-medium text-sm">{displayName}</span>
-            {isCurrentUser && <span className="text-xs text-primary">(tú)</span>}
-            <span className="text-xs text-muted-foreground">
-              {new Date(comentario.creadoEn).toLocaleDateString('es-HN', {
-                day: 'numeric',
-                month: 'short',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
-            </span>
-            {comentario.editadoEn && (
-              <span className="text-xs text-muted-foreground">(editado)</span>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 flex-wrap min-w-0">
+              <span className="font-medium text-sm">{displayName}</span>
+              {isCurrentUser && <span className="text-xs text-primary">(tú)</span>}
+              <span className="text-xs text-muted-foreground">
+                {new Date(comentario.creadoEn).toLocaleDateString('es-HN', {
+                  day: 'numeric',
+                  month: 'short',
+                  hour: '2-digit',
+                  minute: '2-digit',
+                })}
+              </span>
+              {comentario.editadoEn && (
+                <span className="text-xs text-muted-foreground">(editado)</span>
+              )}
+            </div>
+
+            {isCurrentUser && (
+              <button
+                type="button"
+                title="Eliminar"
+                aria-label="Eliminar comentario"
+                className="ml-auto inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10 opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none cursor-pointer"
+                onClick={async () => {
+                  const ok = window.confirm(
+                    replies.length > 0
+                      ? '¿Eliminar este comentario? También se eliminarán sus respuestas.'
+                      : '¿Eliminar este comentario?'
+                  )
+                  if (!ok) return
+                  const result = await eliminarComentarioBlog(comentario.id)
+                  if (!result.success) {
+                    window.alert(result.error)
+                  }
+                }}
+              >
+                <Trash2 className="h-4 w-4" />
+              </button>
             )}
           </div>
 
@@ -165,7 +191,9 @@ function Reply({ reply, currentUserId }: { reply: ComentarioBlogDetalle; current
     .slice(0, 2)
 
   return (
-    <div className={`flex gap-3 ${isCurrentUser ? 'bg-primary/5 -mx-2 px-2 py-2 rounded-lg' : ''}`}>
+    <div
+      className={`group flex gap-3 ${isCurrentUser ? 'bg-primary/5 -mx-2 px-2 py-2 rounded-lg' : ''}`}
+    >
       <div className="pt-1 text-muted-foreground">
         <CornerDownRight className="h-4 w-4" />
       </div>
@@ -179,18 +207,39 @@ function Reply({ reply, currentUserId }: { reply: ComentarioBlogDetalle; current
       </Avatar>
 
       <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="font-medium text-sm">{displayName}</span>
-          {isCurrentUser && <span className="text-xs text-primary">(tú)</span>}
-          <span className="text-xs text-muted-foreground">
-            {new Date(reply.creadoEn).toLocaleDateString('es-HN', {
-              day: 'numeric',
-              month: 'short',
-              hour: '2-digit',
-              minute: '2-digit',
-            })}
-          </span>
-          {reply.editadoEn && <span className="text-xs text-muted-foreground">(editado)</span>}
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-wrap min-w-0">
+            <span className="font-medium text-sm">{displayName}</span>
+            {isCurrentUser && <span className="text-xs text-primary">(tú)</span>}
+            <span className="text-xs text-muted-foreground">
+              {new Date(reply.creadoEn).toLocaleDateString('es-HN', {
+                day: 'numeric',
+                month: 'short',
+                hour: '2-digit',
+                minute: '2-digit',
+              })}
+            </span>
+            {reply.editadoEn && <span className="text-xs text-muted-foreground">(editado)</span>}
+          </div>
+
+          {isCurrentUser && (
+            <button
+              type="button"
+              title="Eliminar"
+              aria-label="Eliminar comentario"
+              className="ml-auto inline-flex items-center justify-center rounded-md p-1.5 text-muted-foreground hover:text-destructive hover:bg-destructive/10 opacity-0 group-hover:opacity-100 focus:opacity-100 focus:outline-none cursor-pointer"
+              onClick={async () => {
+                const ok = window.confirm('¿Eliminar este comentario?')
+                if (!ok) return
+                const result = await eliminarComentarioBlog(reply.id)
+                if (!result.success) {
+                  window.alert(result.error)
+                }
+              }}
+            >
+              <Trash2 className="h-4 w-4" />
+            </button>
+          )}
         </div>
         <p className="text-sm mt-1 whitespace-pre-wrap break-words">{reply.contenido}</p>
       </div>
