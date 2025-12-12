@@ -151,3 +151,40 @@ export interface DistribucionZona {
   urbano: VotosZona
   rural: VotosZona
 }
+
+/**
+ * Estadísticas por departamento para la tabla de departamentos
+ */
+export interface EstadisticasDepartamento {
+  codigo: number
+  nombre: string
+  actasTotales: number
+  actasValidadas: number
+  votosPn: number
+  votosPlh: number
+  votosPl: number
+  votosOtros: number // PINU + DC + Blancos + Nulos
+  municipios: EstadisticasMunicipio[]
+}
+
+export interface EstadisticasMunicipio {
+  codigo: number
+  nombre: string
+  actasTotales: number
+  actasValidadas: number
+  votosPn: number
+  votosPlh: number
+  votosPl: number
+  votosOtros: number
+  zonas: EstadisticasZona[]
+}
+
+export interface EstadisticasZona {
+  tipoZona: 'urbano' | 'rural'
+  actasTotales: number
+  actasValidadas: number
+  votosPn: number
+  votosPlh: number
+  votosPl: number
+  votosOtros: number
+}

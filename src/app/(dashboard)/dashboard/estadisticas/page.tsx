@@ -9,15 +9,18 @@ import {
   Building2,
   Trees,
 } from 'lucide-react'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import {
   getEstadisticasVotos,
   getProgresionVotos,
   getDistribucionZona,
+  getEstadisticasPorDepartamento,
   COLORES_PARTIDOS,
   LOGOS_PARTIDOS,
   type DistribucionZona,
 } from '@/lib/stats/queries'
 import { ProgresionPorcentajesChart } from './progresion-porcentajes-chart'
+import { DepartamentosTable } from '@/components/estadisticas'
 import Image from 'next/image'
 import { VotosBarChart } from '@/components/stats/votos-bar-chart'
 
@@ -36,10 +39,26 @@ export default async function EstadisticasPage() {
         </p>
       </div>
 
-      {/* Stats Cards */}
-      <Suspense fallback={<StatsSkeletons />}>
-        <StatsContent />
-      </Suspense>
+      {/* Tabs */}
+      <Tabs defaultValue="comparacion" className="w-full">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="comparacion">Comparación de Votos</TabsTrigger>
+          <TabsTrigger value="departamentos">Departamentos</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="comparacion" className="space-y-6">
+          {/* Stats Cards */}
+          <Suspense fallback={<StatsSkeletons />}>
+            <StatsContent />
+          </Suspense>
+        </TabsContent>
+
+        <TabsContent value="departamentos" className="space-y-6">
+          <Suspense fallback={<DepartamentosTableSkeleton />}>
+            <DepartamentosContent />
+          </Suspense>
+        </TabsContent>
+      </Tabs>
     </div>
   )
 }
@@ -506,5 +525,49 @@ function StatsSkeletons() {
         ))}
       </div>
     </div>
+  )
+}
+
+async function DepartamentosContent() {
+  const departamentosData = await getEstadisticasPorDepartamento()
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle className="text-base">Estadísticas por Departamento</CardTitle>
+        <CardDescription>
+          Votos de actas validadas. Haz clic en cualquier departamento para ver sus municipios.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        <DepartamentosTable data={departamentosData} />
+      </CardContent>
+    </Card>
+  )
+}
+
+function DepartamentosTableSkeleton() {
+  return (
+    <Card>
+      <CardHeader>
+        <div className="h-5 w-48 bg-muted animate-pulse rounded" />
+        <div className="h-4 w-72 bg-muted animate-pulse rounded mt-2" />
+      </CardHeader>
+      <CardContent>
+        <div className="rounded-lg border overflow-hidden">
+          <div className="h-10 bg-muted/50" />
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div key={i} className="h-12 border-t flex items-center gap-4 px-4">
+              <div className="h-4 w-4 bg-muted animate-pulse rounded" />
+              <div className="h-4 w-32 bg-muted animate-pulse rounded" />
+              <div className="h-4 w-16 bg-muted animate-pulse rounded ml-auto" />
+              <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+              <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+              <div className="h-4 w-16 bg-muted animate-pulse rounded" />
+            </div>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   )
 }
