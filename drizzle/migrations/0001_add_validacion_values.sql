@@ -38,3 +38,6 @@ ALTER TABLE "validacion" ALTER COLUMN "votos_total" SET NOT NULL;
 
 
 
+
+
+

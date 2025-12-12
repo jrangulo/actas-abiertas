@@ -1,0 +1,34 @@
+---
+title: 'Por qué a veces aparece “No hay actas disponibles”'
+date: '2025-12-12T12:00:00.000Z'
+excerpt: 'Si te sale que no hay actas disponibles, no significa que el proyecto se detuvo: te contamos qué está pasando y qué estamos verificando.'
+author: 'Equipo Actas Abiertas'
+---
+
+Si al intentar **comenzar a validar** te aparece el mensaje de que **“No hay actas disponibles”**, esto no siempre significa que ya no existan actas en el sistema.
+
+### Qué está pasando
+
+Hoy, el flujo de **validación** está limitado por una condición para evitar mezclar estados dudosos:
+
+- Solo buscamos actas que el CNE marca como **escrutadas** (campo `escrutada_en_cne = true`), **o**
+- actas que ya fueron **digitadas por nuestra comunidad** (tienen valores digitados y pueden entrar a validación).
+
+Esto es intencional: queremos que la validación ocurra sobre actas que ya tienen resultados “oficiales”/consolidados, o sobre actas que ya fueron digitadas por nosotros.
+
+### Por qué quedan actas “afuera”
+
+Muchas de las actas restantes llegaron desde el CNE con estado **no escrutada** (`escrutada_en_cne = false`). Estamos revisando por qué el CNE las marca así y si es seguro habilitarlas para verificación sin introducir ruido o inconsistencias al sistema.
+
+En otras palabras: **sí hay actas en la base**, pero **no todas entran al flujo de validación** por ahora.
+
+### Actas sin imagen disponible
+
+También detectamos aproximadamente **40 actas sin imagen disponible** (sin archivo en el repositorio de imágenes). Esas actas **se excluirán del flujo de verificación**, porque no se pueden validar correctamente sin la imagen.
+
+### Qué puedes hacer mientras tanto
+
+- Si te sale el mensaje, intenta de nuevo más tarde.
+- Mantente pendiente del blog: cuando confirmemos que es seguro habilitar las actas “no escrutadas”, lo anunciaremos aquí.
+
+
