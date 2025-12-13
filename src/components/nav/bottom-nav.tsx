@@ -3,12 +3,12 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
-import { LayoutDashboard, FileCheck, Trophy, User, BarChart3 } from 'lucide-react'
+import { LayoutDashboard, FileCheck, Trophy, User, Map } from 'lucide-react'
 
 const navItems = [
   { href: '/dashboard', label: 'Inicio', icon: LayoutDashboard },
   { href: '/dashboard/verificar', label: 'Verificar', icon: FileCheck },
-  { href: '/dashboard/estadisticas', label: 'Stats', icon: BarChart3 },
+  { href: '/dashboard/mapa', label: 'Mapa', icon: Map },
   { href: '/dashboard/leaderboard', label: 'Ranking', icon: Trophy },
   { href: '/dashboard/perfil', label: 'Perfil', icon: User },
 ]

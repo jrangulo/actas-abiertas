@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Newspaper,
   Search,
+  Map,
 } from 'lucide-react'
 
 export interface NavItem {
@@ -28,6 +29,7 @@ export const navItems: NavItem[] = [
     icon: BarChart3,
     featureId: 'estadisticas-departamento',
   },
+  { href: '/dashboard/mapa', label: 'Mapa Electoral', icon: Map },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
   { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search, featureId: 'buscar-acta' },
   { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
