@@ -76,15 +76,26 @@ export async function getActasStats() {
   // Todas las actas están disponibles para validación
   const totalActas = Number(total.count)
 
-  // Total validaciones necesarias = todas las actas * 3 (cada acta necesita 3 validaciones)
-  const validacionesNecesarias = totalActas * 3
+  // Actas que pueden ser validadas (tienen imagen/PDF)
+  // Excluimos las que no tienen imagen porque nunca podrán ser validadas
+  const [actasConImagen] = await db
+    .select({ count: count() })
+    .from(acta)
+    .where(eq(acta.tieneImagen, true))
 
-  // Total validaciones realizadas (suma de cantidadValidaciones de TODAS las actas)
+  const totalActasValidables = Number(actasConImagen.count)
+
+  // Total validaciones necesarias = solo actas CON IMAGEN * 3
+  // (actas sin imagen no pueden ser validadas, no deben contar en el progreso)
+  const validacionesNecesarias = totalActasValidables * 3
+
+  // Total validaciones realizadas (suma de cantidadValidaciones de actas CON IMAGEN)
   const [validacionesRealizadas] = await db
     .select({
       sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
     })
     .from(acta)
+    .where(eq(acta.tieneImagen, true))
 
   return {
     total: totalActas,
