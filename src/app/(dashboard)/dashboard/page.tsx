@@ -103,43 +103,27 @@ async function GlobalStats() {
       ? Math.floor((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
       : 0
 
-  const statsData = [
-    {
-      label: 'Total Actas',
-      value: stats.total,
-      icon: FileCheck,
-      iconColor: 'text-muted-foreground',
-      valueColor: 'text-foreground',
-    },
-    {
-      label: 'Reportadas',
-      value: stats.conProblemas,
-      icon: AlertTriangle,
-      iconColor: 'text-amber-500',
-      valueColor: 'text-amber-600 dark:text-amber-400',
-      description: 'Actas bajo revisión',
-    },
-  ]
+  // Actas que pueden ser validadas (total - reportadas - sin imagen)
+  const actasValidables = stats.total - stats.conProblemas - stats.sinImagen
 
   return (
     <div className="space-y-4">
+      {/* Main stats grid */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        {statsData.map((stat) => (
-          <Card key={stat.label} className="overflow-hidden shadow-sm">
-            <CardContent className="p-5 lg:p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <stat.icon className={cn('h-5 w-5', stat.iconColor)} />
-                <span className="text-sm font-semibold text-muted-foreground">{stat.label}</span>
-              </div>
-              <div className="flex items-baseline gap-2">
-                <p className={cn('text-3xl lg:text-4xl font-bold tracking-tight', stat.valueColor)}>
-                  {stat.value.toLocaleString()}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-        {/* Validadas card */}
+        {/* Total Actas */}
+        <Card className="overflow-hidden shadow-sm">
+          <CardContent className="p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <FileCheck className="h-5 w-5 text-muted-foreground" />
+              <span className="text-sm font-semibold text-muted-foreground">Total Actas</span>
+            </div>
+            <p className="text-3xl lg:text-4xl font-bold tracking-tight">
+              {stats.total.toLocaleString()}
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Validadas */}
         <Card className="overflow-hidden shadow-sm">
           <CardContent className="p-5 lg:p-6">
             <div className="flex items-center gap-2 mb-3">
@@ -151,38 +135,60 @@ async function GlobalStats() {
                 {stats.validadas.toLocaleString()}
               </p>
               <span className="text-sm text-muted-foreground">
-                / {stats.total.toLocaleString()}
+                / {actasValidables.toLocaleString()}
               </span>
             </div>
-            <p className="text-xs text-muted-foreground mt-2">
-              Actas con consenso completo (3+ validaciones)
-            </p>
+            <p className="text-xs text-muted-foreground mt-2">Actas con consenso completo</p>
           </CardContent>
         </Card>
-        {/* En proceso card */}
+
+        {/* Reportadas */}
         <Card className="overflow-hidden shadow-sm">
           <CardContent className="p-5 lg:p-6">
             <div className="flex items-center gap-2 mb-3">
-              <Clock className="h-5 w-5 text-amber-500" />
+              <AlertTriangle className="h-5 w-5 text-amber-500" />
+              <span className="text-sm font-semibold text-muted-foreground">Reportadas</span>
+            </div>
+            <p className="text-3xl lg:text-4xl font-bold tracking-tight text-amber-600 dark:text-amber-400">
+              {stats.conProblemas.toLocaleString()}
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">Ilegibles o con problemas</p>
+          </CardContent>
+        </Card>
+
+        {/* En proceso */}
+        <Card className="overflow-hidden shadow-sm">
+          <CardContent className="p-5 lg:p-6">
+            <div className="flex items-center gap-2 mb-3">
+              <Clock className="h-5 w-5 text-blue-500" />
               <span className="text-sm font-semibold text-muted-foreground">En Proceso</span>
             </div>
-            <div className="flex items-baseline gap-2">
-              <p className="text-3xl lg:text-4xl font-bold tracking-tight text-amber-600 dark:text-amber-400">
-                {stats.enValidacion.toLocaleString()}
-              </p>
-            </div>
-            <p className="text-xs text-muted-foreground mt-2">
-              Actas que aún necesitan más validaciones
+            <p className="text-3xl lg:text-4xl font-bold tracking-tight text-blue-600 dark:text-blue-400">
+              {stats.enValidacion.toLocaleString()}
             </p>
+            <p className="text-xs text-muted-foreground mt-2">Pendientes de más validaciones</p>
           </CardContent>
         </Card>
       </div>
+
+      {/* Breakdown explanation */}
+      <Card className="overflow-hidden shadow-sm bg-muted/30">
+        <CardContent className="p-4 lg:p-5">
+          <p className="text-sm text-muted-foreground">
+            <span className="font-medium text-foreground">Desglose:</span>{' '}
+            {stats.validadas.toLocaleString()} validadas + {stats.conProblemas.toLocaleString()}{' '}
+            reportadas + {stats.sinImagen.toLocaleString()} sin imagen ={' '}
+            {stats.total.toLocaleString()} total
+            {stats.enValidacion > 0 && <span> ({stats.enValidacion} aún en proceso)</span>}
+          </p>
+        </CardContent>
+      </Card>
 
       {/* Overall validation progress */}
       <Card className="overflow-hidden shadow-sm">
         <CardContent className="p-4 lg:p-5">
           <div className="flex items-center justify-between text-sm mb-2">
-            <span className="text-muted-foreground">Progreso total de validaciones</span>
+            <span className="text-muted-foreground">Progreso de validaciones</span>
             <span className="font-medium">
               {stats.validacionesRealizadas.toLocaleString()} /{' '}
               {stats.validacionesNecesarias.toLocaleString()}

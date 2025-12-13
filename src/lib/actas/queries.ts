@@ -75,44 +75,74 @@ export async function getActasStats() {
       )
     )
 
-  // Actas con problemas (bajo_revision por 2+ reportes + con_discrepancia por consenso fallido)
-  // Todas estas están fuera del pool de validación
-  const [actasConProblemas] = await db
+  // Bajo revisión (2+ reportes, fuera del pool)
+  const [bajoRevision] = await db
     .select({ count: count() })
     .from(acta)
-    .where(or(eq(acta.estado, 'bajo_revision'), eq(acta.estado, 'con_discrepancia')))
+    .where(eq(acta.estado, 'bajo_revision'))
+
+  // Con discrepancia (consenso fallido, fuera del pool)
+  const [conDiscrepancia] = await db
+    .select({ count: count() })
+    .from(acta)
+    .where(eq(acta.estado, 'con_discrepancia'))
+
+  // Pendientes (no tienen datos/imagen, estado='pendiente')
+  // Usamos estado en lugar de tieneImagen para evitar doble conteo
+  const [pendientes] = await db
+    .select({ count: count() })
+    .from(acta)
+    .where(eq(acta.estado, 'pendiente'))
 
   // Todas las actas están disponibles para validación
   const totalActas = Number(total.count)
 
-  // Actas que pueden ser validadas (tienen imagen/PDF)
-  // Excluimos las que no tienen imagen porque nunca podrán ser validadas
-  const [actasConImagen] = await db
+  // Actas que pueden ser validadas (tienen imagen Y están en el pool)
+  // Excluimos bajo_revision (2+ reportes) y con_discrepancia (consenso fallido)
+  // porque están fuera del pool y nunca serán completadas
+  const [actasEnPool] = await db
     .select({ count: count() })
     .from(acta)
-    .where(eq(acta.tieneImagen, true))
+    .where(
+      and(
+        eq(acta.tieneImagen, true),
+        ne(acta.estado, 'bajo_revision'),
+        ne(acta.estado, 'con_discrepancia')
+      )
+    )
 
-  const totalActasValidables = Number(actasConImagen.count)
+  const totalActasValidables = Number(actasEnPool.count)
 
-  // Total validaciones necesarias = solo actas CON IMAGEN * 3
-  // (actas sin imagen no pueden ser validadas, no deben contar en el progreso)
+  // Total validaciones necesarias = solo actas EN EL POOL * 3
+  // (bajo_revision y con_discrepancia están fuera del pool y no cuentan)
   const validacionesNecesarias = totalActasValidables * 3
 
-  // Total validaciones realizadas (suma de cantidadValidaciones de actas CON IMAGEN)
+  // Total validaciones realizadas (suma de cantidadValidaciones de actas EN EL POOL)
   const [validacionesRealizadas] = await db
     .select({
       sum: sql<number>`COALESCE(SUM(${acta.cantidadValidaciones}), 0)`,
     })
     .from(acta)
-    .where(eq(acta.tieneImagen, true))
+    .where(
+      and(
+        eq(acta.tieneImagen, true),
+        ne(acta.estado, 'bajo_revision'),
+        ne(acta.estado, 'con_discrepancia')
+      )
+    )
 
   return {
     total: totalActas,
     porDigitalizar: Number(porDigitalizar.count),
     porValidar: Number(porValidar.count),
     validadas: Number(validadas.count),
-    enValidacion: Number(enValidacion.count), // Actas con <3 validaciones aún en el pool (en_validacion + digitada)
-    conProblemas: Number(actasConProblemas.count), // bajo_revision + con_discrepancia (fuera del pool)
+    enValidacion: Number(enValidacion.count), // Actas con <3 validaciones aún en el pool
+    // Breakdown of problematic actas
+    bajoRevision: Number(bajoRevision.count), // 2+ reportes, fuera del pool
+    conDiscrepancia: Number(conDiscrepancia.count), // consenso fallido, fuera del pool
+    sinImagen: Number(pendientes.count), // estado='pendiente', sin datos/imagen
+    // Combined for backwards compatibility
+    conProblemas: Number(bajoRevision.count) + Number(conDiscrepancia.count),
     // Validation progress stats
     validacionesNecesarias,
     validacionesRealizadas: Number(validacionesRealizadas.sum),
