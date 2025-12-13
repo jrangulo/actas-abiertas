@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Trophy, BarChart3, Newspaper, ArrowRight } from 'lucide-react'
+import { Trophy, BarChart3, Newspaper, ArrowRight, Clock, AlertTriangle } from 'lucide-react'
 import confetti from 'canvas-confetti'
 import { useEffect, useCallback } from 'react'
 
@@ -16,7 +16,19 @@ function randomInRange(min: number, max: number) {
   return Math.random() * (max - min) + min
 }
 
-export default function CompletedPage({ position }: Readonly<{ position: number }>) {
+interface CompletedPageProps {
+  position: number
+  isGloballyComplete?: boolean
+  remainingActas?: number
+  porcentaje?: number
+}
+
+export default function CompletedPage({
+  position,
+  isGloballyComplete = true,
+  remainingActas = 0,
+  porcentaje = 100,
+}: Readonly<CompletedPageProps>) {
   let positionText: string | undefined
   if (position === 1) {
     positionText = 'primero'
@@ -74,10 +86,92 @@ export default function CompletedPage({ position }: Readonly<{ position: number 
     })
   }
 
-  // Fire confetti on mount (only once)
+  // Fire confetti on mount (only once) - only for globally complete
   useEffect(() => {
-    fireCompletionConfetti()
-  }, [fireCompletionConfetti])
+    if (isGloballyComplete) {
+      fireCompletionConfetti()
+    }
+  }, [fireCompletionConfetti, isGloballyComplete])
+
+  // If user has done all they can but global progress isn't 100%
+  if (!isGloballyComplete) {
+    return (
+      <div className="space-y-6 py-4 lg:py-6">
+        <div>
+          <h1 className="text-2xl lg:text-3xl font-bold">¡Excelente trabajo!</h1>
+          <p className="text-muted-foreground">Has revisado todas las actas disponibles para ti</p>
+        </div>
+
+        {/* Info card about remaining actas */}
+        <Card className="border-amber-200 bg-amber-50 dark:border-amber-800 dark:bg-amber-950/30">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <Clock className="h-5 w-5 text-amber-600" />
+              <CardTitle className="text-lg">Actas restantes</CardTitle>
+            </div>
+          </CardHeader>
+          <CardContent className="flex flex-col space-y-4">
+            <p className="text-sm text-muted-foreground">
+              Aún quedan <strong>{remainingActas} actas</strong> por validar (progreso global:{' '}
+              {porcentaje}%), pero ya has interactuado con todas ellas (validando o reportando).
+              Estas actas probablemente son imágenes en blanco o ilegibles que necesitan más
+              reportes o validaciones de otros usuarios.
+            </p>
+            <p className="text-sm text-muted-foreground">
+              ¡Gracias por tu contribución! Tu trabajo ha sido invaluable.
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Stats and other links */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <Trophy className="h-5 w-5 text-yellow-600" />
+                <CardTitle className="text-lg">Tu posición</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Estás en la posición <strong>#{position}</strong> del ranking de verificadores.
+              </p>
+              <div className="flex justify-start w-full pt-4">
+                <Button asChild variant="outline">
+                  <Link href="/dashboard/leaderboard">
+                    Ver ranking
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <div className="flex items-center gap-2">
+                <BarChart3 className="h-5 w-5 text-blue-600" />
+                <CardTitle className="text-lg">Ver resultados</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Explora las estadísticas y resultados de las actas verificadas.
+              </p>
+              <div className="flex justify-start w-full pt-4">
+                <Button asChild>
+                  <Link href="/dashboard/estadisticas">
+                    Ver estadísticas
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className="space-y-6 py-4 lg:py-6">

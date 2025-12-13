@@ -61,13 +61,22 @@ export async function getActasStats() {
     .from(acta)
     .where(eq(acta.estado, 'validada'))
 
-  // En validación (1-2 validaciones, en proceso)
+  // En validación: actas que aún necesitan validaciones y están ACTIVAMENTE en el pool
+  // Solo cuenta en_validacion y digitada con <3 validaciones
+  // NO incluye bajo_revision (esas están fuera del pool por 2+ reportes)
   const [enValidacion] = await db
     .select({ count: count() })
     .from(acta)
-    .where(eq(acta.estado, 'en_validacion'))
+    .where(
+      and(
+        eq(acta.tieneImagen, true),
+        lt(acta.cantidadValidaciones, 3),
+        or(eq(acta.estado, 'en_validacion'), eq(acta.estado, 'digitada'))
+      )
+    )
 
-  // Actas con problemas (bajo_revision por reportes de usuarios + con_discrepancia por falta de consenso)
+  // Actas con problemas (bajo_revision por 2+ reportes + con_discrepancia por consenso fallido)
+  // Todas estas están fuera del pool de validación
   const [actasConProblemas] = await db
     .select({ count: count() })
     .from(acta)
@@ -102,8 +111,8 @@ export async function getActasStats() {
     porDigitalizar: Number(porDigitalizar.count),
     porValidar: Number(porValidar.count),
     validadas: Number(validadas.count),
-    enValidacion: Number(enValidacion.count), // Actas con 1-2 validaciones (en proceso)
-    conProblemas: Number(actasConProblemas.count), // bajo_revision + con_discrepancia
+    enValidacion: Number(enValidacion.count), // Actas con <3 validaciones aún en el pool (en_validacion + digitada)
+    conProblemas: Number(actasConProblemas.count), // bajo_revision + con_discrepancia (fuera del pool)
     // Validation progress stats
     validacionesNecesarias,
     validacionesRealizadas: Number(validacionesRealizadas.sum),
@@ -162,11 +171,13 @@ export async function getActaParaDigitalizar(userId: string) {
 /**
  * Obtener una acta aleatoria para validar
  * (escrutada O digitada por nosotros, no validada/reportada por este usuario, no bloqueada)
+ * Excluye actas bajo_revision (2+ reportes) y con_discrepancia (consenso fallido)
  */
 export async function getActaParaValidar(userId: string) {
   const now = new Date()
 
   // Excluimos actas que el usuario ya digitó, validó o reportó
+  // También excluimos actas bajo_revision (sacadas del pool por 2+ reportes)
   const [actaDisponible] = await db
     .select()
     .from(acta)
@@ -178,6 +189,9 @@ export async function getActaParaValidar(userId: string) {
         eq(acta.tieneImagen, true),
         // Menos de 3 validaciones
         lt(acta.cantidadValidaciones, 3),
+        // No bajo_revision ni con_discrepancia (estas están fuera del pool)
+        ne(acta.estado, 'bajo_revision'),
+        ne(acta.estado, 'con_discrepancia'),
         // No digitada por este usuario (IMPORTANTE: no puede validar lo que él mismo digitó)
         or(isNull(acta.digitadoPor), ne(acta.digitadoPor, userId)),
         // No bloqueada o bloqueo expirado o bloqueada por este usuario

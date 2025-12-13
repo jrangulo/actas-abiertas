@@ -44,15 +44,28 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
       ? Math.floor((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
       : 0
 
-  // Check if all validation is truly complete (exact comparison, not rounded percentage)
-  // or if the sin-actas message is shown (user tried to get an acta but none available)
-  const isCompleted =
-    stats.validacionesRealizadas >= stats.validacionesNecesarias || message === 'sin-actas'
+  // Check completion status
+  const isGloballyComplete = stats.validacionesRealizadas >= stats.validacionesNecesarias
+  // User has interacted with all remaining actas (validated or reported them all)
+  const isUserComplete = message === 'sin-actas' && !isGloballyComplete
 
-  // If completed, show the completed page
-  if (isCompleted && user) {
+  // If globally complete, show the full completion page
+  if (isGloballyComplete && user) {
     const userRanking = (await getRankingUsuario(user.id)) || 0
-    return <CompletedPage position={userRanking} />
+    return <CompletedPage position={userRanking} isGloballyComplete={true} />
+  }
+
+  // If user has done all they can but global progress isn't 100%
+  if (isUserComplete && user) {
+    const userRanking = (await getRankingUsuario(user.id)) || 0
+    return (
+      <CompletedPage
+        position={userRanking}
+        isGloballyComplete={false}
+        remainingActas={stats.enValidacion}
+        porcentaje={porcentajeValidaciones}
+      />
+    )
   }
 
   return (

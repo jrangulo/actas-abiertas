@@ -96,9 +96,6 @@ function StatsCardSkeleton() {
 async function GlobalStats() {
   const stats = await getActasStats()
 
-  // Actas que aún no están validadas (para usar como denominador en "En Proceso")
-  const totalPendientes = Math.max(stats.total - stats.validadas, 0)
-
   // Calcular progreso de validaciones individuales
   // Use floor to avoid showing 100% prematurely due to rounding (e.g. 99.66% -> 100%)
   const porcentajeValidaciones =
@@ -173,12 +170,9 @@ async function GlobalStats() {
               <p className="text-3xl lg:text-4xl font-bold tracking-tight text-amber-600 dark:text-amber-400">
                 {stats.enValidacion.toLocaleString()}
               </p>
-              <span className="text-sm text-muted-foreground">
-                / {totalPendientes.toLocaleString()}
-              </span>
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              Actas con 1-2 validaciones en progreso
+              Actas que aún necesitan más validaciones
             </p>
           </CardContent>
         </Card>
