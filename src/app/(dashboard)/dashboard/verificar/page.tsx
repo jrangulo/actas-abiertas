@@ -2,9 +2,10 @@ import { redirect } from 'next/navigation'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { CheckSquare, AlertTriangle, Info } from 'lucide-react'
-import { getActasStats, getActaBloqueadaPorUsuario } from '@/lib/actas'
+import { getActasStats, getActaBloqueadaPorUsuario, getRankingUsuario } from '@/lib/actas'
 import { createClient } from '@/lib/supabase/server'
 import { StartButton } from './start-button'
+import CompletedPage from './completed-page'
 
 // Force dynamic rendering - never cache this page
 export const dynamic = 'force-dynamic'
@@ -42,6 +43,15 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
       ? Math.round((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
       : 0
 
+  // Check if all validation is complete (100%) or if the sin-actas message is shown
+  const isCompleted = porcentajeValidaciones >= 100 || message === 'sin-actas'
+
+  // If completed, show the completed page
+  if (isCompleted && user) {
+    const userRanking = (await getRankingUsuario(user.id)) || 0
+    return <CompletedPage position={userRanking} />
+  }
+
   return (
     <div className="space-y-6 py-4 lg:py-6">
       <div>
@@ -64,15 +74,6 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
           <AlertTriangle className="h-4 w-4" />
           <AlertDescription>
             Tu tiempo para trabajar en el acta expiró. Intenta con una nueva.
-          </AlertDescription>
-        </Alert>
-      )}
-
-      {message === 'sin-actas' && (
-        <Alert>
-          <Info className="h-4 w-4" />
-          <AlertDescription>
-            No hay más actas disponibles en este momento. ¡Gracias por tu ayuda!
           </AlertDescription>
         </Alert>
       )}
