@@ -38,13 +38,16 @@ export default async function VerificarPage({ searchParams }: VerificarPageProps
 
   // Get stats for the cards
   const stats = await getActasStats()
+  // Use floor to avoid showing 100% prematurely due to rounding
   const porcentajeValidaciones =
     stats.validacionesNecesarias > 0
-      ? Math.round((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
+      ? Math.floor((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
       : 0
 
-  // Check if all validation is complete (100%) or if the sin-actas message is shown
-  const isCompleted = porcentajeValidaciones >= 100 || message === 'sin-actas'
+  // Check if all validation is truly complete (exact comparison, not rounded percentage)
+  // or if the sin-actas message is shown (user tried to get an acta but none available)
+  const isCompleted =
+    stats.validacionesRealizadas >= stats.validacionesNecesarias || message === 'sin-actas'
 
   // If completed, show the completed page
   if (isCompleted && user) {

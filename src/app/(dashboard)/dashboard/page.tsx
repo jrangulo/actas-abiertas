@@ -100,9 +100,10 @@ async function GlobalStats() {
   const totalPendientes = Math.max(stats.total - stats.validadas, 0)
 
   // Calcular progreso de validaciones individuales
+  // Use floor to avoid showing 100% prematurely due to rounding (e.g. 99.66% -> 100%)
   const porcentajeValidaciones =
     stats.validacionesNecesarias > 0
-      ? Math.round((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
+      ? Math.floor((stats.validacionesRealizadas / stats.validacionesNecesarias) * 100)
       : 0
 
   const statsData = [
