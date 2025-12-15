@@ -419,6 +419,29 @@ export default function WelcomePage() {
               Ver código fuente
             </a>
           </p>
+          <p>
+            <a
+              href="https://archive.org/details/actas-abiertas-datos-2025"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-emerald-600 hover:text-emerald-700 transition-colors inline-flex items-center gap-1"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Descargar datos públicos
+            </a>
+          </p>
           <p className="text-xs">
             <a href="/privacidad" className="hover:text-foreground transition-colors">
               Política de Privacidad

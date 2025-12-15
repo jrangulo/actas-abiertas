@@ -28,6 +28,7 @@ import {
   count,
   desc,
   countDistinct,
+  type SQL,
 } from 'drizzle-orm'
 import { LOCK_DURATION_MINUTES, getActaImageUrl } from './utils'
 
@@ -665,4 +666,312 @@ function calcularModa(valores: number[]): number | null {
   }
 
   return moda
+}
+
+// ============================================================================
+// Explorar Actas (Auditoría Pública)
+// ============================================================================
+
+export type ExplorarOrderBy =
+  | 'jrv_asc'
+  | 'jrv_desc'
+  | 'reportes_desc'
+  | 'reportes_asc'
+  | 'confiabilidad_desc'
+  | 'confiabilidad_asc'
+  | 'validaciones_desc'
+  | 'validaciones_asc'
+
+export type ExplorarFilter =
+  | 'todas'
+  | 'mis_validaciones'
+  | 'mis_reportes'
+  | 'validadas'
+  | 'reportadas'
+  | 'con_discrepancia'
+  | 'sin_imagen'
+  | 'inconsistencia_cne'
+
+export interface ExplorarActasParams {
+  limite?: number
+  offset?: number
+  orderBy?: ExplorarOrderBy
+  filter?: ExplorarFilter
+  userId?: string // Required for 'mis_validaciones' and 'mis_reportes' filters
+  busqueda?: string // Search by JRV number
+}
+
+export interface ActaExplorar {
+  id: number
+  uuid: string
+  cneId: string | null
+  jrvNumero: number | null
+  estado: string
+  departamentoCodigo: number | null
+  municipioCodigo: number | null
+  tipoZona: string
+  cantidadValidaciones: number
+  cantidadValidacionesCorrectas: number
+  // Calculated fields
+  cantidadReportes: number
+  confiabilidad: number // 0-100 score
+  tieneInconsistenciaCNE: boolean // CNE marked as "Inconsistencia"
+  // For display
+  departamentoNombre: string | null
+  municipioNombre: string | null
+}
+
+/**
+ * Calcular puntuación de confiabilidad de consenso (0-100)
+ *
+ * Factores:
+ * - 3/3 acuerdo = 100%
+ * - 2/3 acuerdo = ~66%
+ * - Más validaciones = más confiable
+ * - Reportes reducen la confiabilidad
+ * - 0 validaciones + reportes = 0% (problema conocido)
+ * - 0 validaciones + 0 reportes = 50% (desconocido)
+ */
+export function calcularConfiabilidad(
+  cantidadValidaciones: number,
+  cantidadValidacionesCorrectas: number,
+  cantidadReportes: number
+): number {
+  // Sin validaciones: depende de los reportes
+  if (cantidadValidaciones === 0) {
+    if (cantidadReportes > 0) {
+      // Con reportes pero sin validaciones = problema conocido
+      // Más reportes = menos confiable (0 a 20)
+      return Math.max(0, 20 - cantidadReportes * 5)
+    }
+    return 50 // Sin info = neutral/desconocido
+  }
+
+  // Base: porcentaje de validaciones que coincidieron
+  const acuerdoBase = (cantidadValidacionesCorrectas / cantidadValidaciones) * 100
+
+  // Bonus por tener más validaciones (max +10 puntos por 3+ validaciones)
+  const bonusValidaciones = Math.min(cantidadValidaciones, 3) * 3.33
+
+  // Penalización por reportes (-10 por cada reporte, max -30)
+  const penalizacionReportes = Math.min(cantidadReportes * 10, 30)
+
+  // Calcular score final
+  const score = acuerdoBase + bonusValidaciones - penalizacionReportes
+
+  // Clamp entre 0 y 100
+  return Math.max(0, Math.min(100, Math.round(score)))
+}
+
+/**
+ * Obtener actas paginadas para exploración/auditoría pública
+ */
+export async function getActasParaExplorar(params: ExplorarActasParams): Promise<{
+  actas: ActaExplorar[]
+  total: number
+}> {
+  const {
+    limite = 20,
+    offset = 0,
+    orderBy = 'jrv_asc',
+    filter = 'todas',
+    userId,
+    busqueda,
+  } = params
+
+  // Build the base query with joins for counts
+  const baseQuery = sql`
+    SELECT 
+      a.id,
+      a.uuid,
+      a.cne_id as "cneId",
+      a.jrv_numero as "jrvNumero",
+      a.estado,
+      a.departamento_codigo as "departamentoCodigo",
+      a.municipio_codigo as "municipioCodigo",
+      a.tipo_zona as "tipoZona",
+      a.cantidad_validaciones as "cantidadValidaciones",
+      a.cantidad_validaciones_correctas as "cantidadValidacionesCorrectas",
+      COALESCE(d.reporte_count, 0)::int as "cantidadReportes",
+      CASE WHEN a.etiquetas_cne::jsonb ? 'Inconsistencia' THEN true ELSE false END as "tieneInconsistenciaCNE",
+      dep.nombre as "departamentoNombre",
+      mun.nombre as "municipioNombre"
+    FROM acta a
+    LEFT JOIN (
+      SELECT acta_id, COUNT(*) as reporte_count 
+      FROM discrepancia 
+      GROUP BY acta_id
+    ) d ON d.acta_id = a.id
+    LEFT JOIN departamento dep ON dep.codigo = a.departamento_codigo
+    LEFT JOIN municipio mun ON mun.departamento_codigo = a.departamento_codigo AND mun.codigo = a.municipio_codigo
+  `
+
+  // Build WHERE conditions
+  const conditions: SQL[] = []
+
+  // Filter conditions
+  switch (filter) {
+    case 'mis_validaciones':
+      if (userId) {
+        conditions.push(sql`EXISTS (
+          SELECT 1 FROM validacion v WHERE v.acta_id = a.id AND v.usuario_id = ${userId}
+        )`)
+      }
+      break
+    case 'mis_reportes':
+      if (userId) {
+        conditions.push(sql`EXISTS (
+          SELECT 1 FROM discrepancia dr WHERE dr.acta_id = a.id AND dr.usuario_id = ${userId}
+        )`)
+      }
+      break
+    case 'validadas':
+      conditions.push(sql`a.estado = 'validada'`)
+      break
+    case 'reportadas':
+      conditions.push(sql`a.estado = 'bajo_revision'`)
+      break
+    case 'con_discrepancia':
+      conditions.push(sql`a.estado = 'con_discrepancia'`)
+      break
+    case 'sin_imagen':
+      conditions.push(sql`a.tiene_imagen = false`)
+      break
+    case 'inconsistencia_cne':
+      conditions.push(sql`a.etiquetas_cne::jsonb ? 'Inconsistencia'`)
+      break
+  }
+
+  // Search by JRV number
+  if (busqueda) {
+    const jrvNumber = parseInt(busqueda, 10)
+    if (!isNaN(jrvNumber)) {
+      conditions.push(sql`a.jrv_numero = ${jrvNumber}`)
+    }
+  }
+
+  // Combine conditions
+  let whereClause = sql``
+  if (conditions.length > 0) {
+    whereClause = sql`WHERE ${sql.join(conditions, sql` AND `)}`
+  }
+
+  // Build ORDER BY
+  let orderClause: SQL
+  switch (orderBy) {
+    case 'jrv_desc':
+      orderClause = sql`ORDER BY a.jrv_numero DESC NULLS LAST`
+      break
+    case 'reportes_desc':
+      orderClause = sql`ORDER BY "cantidadReportes" DESC, a.jrv_numero ASC`
+      break
+    case 'reportes_asc':
+      orderClause = sql`ORDER BY "cantidadReportes" ASC, a.jrv_numero ASC`
+      break
+    case 'confiabilidad_desc':
+      // Order by calculated reliability (higher is better)
+      // Formula matches calcularConfiabilidad() function
+      orderClause = sql`ORDER BY 
+        CASE 
+          WHEN a.cantidad_validaciones = 0 AND COALESCE(d.reporte_count, 0) > 0 
+            THEN GREATEST(0, 20 - COALESCE(d.reporte_count, 0) * 5)
+          WHEN a.cantidad_validaciones = 0 
+            THEN 50
+          ELSE LEAST(100, GREATEST(0, 
+            (a.cantidad_validaciones_correctas::float / NULLIF(a.cantidad_validaciones, 0) * 100) 
+            + LEAST(a.cantidad_validaciones, 3) * 3.33 
+            - LEAST(COALESCE(d.reporte_count, 0) * 10, 30)
+          ))
+        END DESC, a.jrv_numero ASC`
+      break
+    case 'confiabilidad_asc':
+      orderClause = sql`ORDER BY 
+        CASE 
+          WHEN a.cantidad_validaciones = 0 AND COALESCE(d.reporte_count, 0) > 0 
+            THEN GREATEST(0, 20 - COALESCE(d.reporte_count, 0) * 5)
+          WHEN a.cantidad_validaciones = 0 
+            THEN 50
+          ELSE LEAST(100, GREATEST(0, 
+            (a.cantidad_validaciones_correctas::float / NULLIF(a.cantidad_validaciones, 0) * 100) 
+            + LEAST(a.cantidad_validaciones, 3) * 3.33 
+            - LEAST(COALESCE(d.reporte_count, 0) * 10, 30)
+          ))
+        END ASC, a.jrv_numero ASC`
+      break
+    case 'validaciones_desc':
+      orderClause = sql`ORDER BY a.cantidad_validaciones DESC, a.jrv_numero ASC`
+      break
+    case 'validaciones_asc':
+      orderClause = sql`ORDER BY a.cantidad_validaciones ASC, a.jrv_numero ASC`
+      break
+    case 'jrv_asc':
+    default:
+      orderClause = sql`ORDER BY a.jrv_numero ASC NULLS LAST`
+      break
+  }
+
+  // Get total count
+  const countQuery = sql`
+    SELECT COUNT(*) as total
+    FROM acta a
+    LEFT JOIN (
+      SELECT acta_id, COUNT(*) as reporte_count 
+      FROM discrepancia 
+      GROUP BY acta_id
+    ) d ON d.acta_id = a.id
+    ${whereClause}
+  `
+  const countResult = await db.execute(countQuery)
+  const total = Number((countResult as unknown as { total: number }[])[0]?.total || 0)
+
+  // Get paginated results
+  const dataQuery = sql`
+    ${baseQuery}
+    ${whereClause}
+    ${orderClause}
+    LIMIT ${limite}
+    OFFSET ${offset}
+  `
+  const results = await db.execute(dataQuery)
+
+  // Transform results and calculate confiabilidad
+  type RawActaRow = {
+    id: number
+    uuid: string
+    cneId: string | null
+    jrvNumero: number | null
+    estado: string
+    departamentoCodigo: number | null
+    municipioCodigo: number | null
+    tipoZona: string
+    cantidadValidaciones: number
+    cantidadValidacionesCorrectas: number
+    cantidadReportes: number
+    tieneInconsistenciaCNE: boolean
+    departamentoNombre: string | null
+    municipioNombre: string | null
+  }
+  const actas: ActaExplorar[] = (results as unknown as RawActaRow[]).map((row) => ({
+    id: row.id,
+    uuid: row.uuid,
+    cneId: row.cneId,
+    jrvNumero: row.jrvNumero,
+    estado: row.estado,
+    departamentoCodigo: row.departamentoCodigo,
+    municipioCodigo: row.municipioCodigo,
+    tipoZona: row.tipoZona,
+    cantidadValidaciones: row.cantidadValidaciones,
+    cantidadValidacionesCorrectas: row.cantidadValidacionesCorrectas,
+    cantidadReportes: row.cantidadReportes,
+    confiabilidad: calcularConfiabilidad(
+      row.cantidadValidaciones,
+      row.cantidadValidacionesCorrectas,
+      row.cantidadReportes
+    ),
+    tieneInconsistenciaCNE: row.tieneInconsistenciaCNE === true,
+    departamentoNombre: row.departamentoNombre,
+    municipioNombre: row.municipioNombre,
+  }))
+
+  return { actas, total }
 }

@@ -15,6 +15,8 @@ import {
   Clock,
   TrendingUp,
   User,
+  Download,
+  ExternalLink,
 } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import {
@@ -25,7 +27,6 @@ import {
   getRankingUsuario,
 } from '@/lib/actas'
 import { PendingTimer } from './pending-timer'
-import { cn } from '@/lib/utils'
 import { LeaderboardAvatar } from '@/components/leaderboard/LeaderboardAvatar'
 import { getUserName, getUserAvatarUrl } from '@/lib/users/utils'
 import { generateAnonName } from '@/lib/users/anon-names'
@@ -443,29 +444,41 @@ async function MainCTA() {
     )
   }
 
-  // CTA normal
+  // Verificación completada - mostrar datos públicos
   return (
-    <Card className="bg-linear-to-br from-[#0069b4] to-[#004a7c] text-white border-0 shadow-lg shadow-blue-500/20">
+    <Card className="bg-linear-to-br from-emerald-600 to-emerald-700 dark:from-emerald-700 dark:to-emerald-800 text-white border-0 shadow-lg shadow-emerald-500/20">
       <CardContent className="pt-6 pb-6">
         <div className="flex items-start gap-4">
           <div className="flex-1 space-y-3">
-            <h2 className="font-semibold text-xl">Comienza a verificar</h2>
-            <p className="text-sm text-white/80">
-              Ayuda a validar las actas electorales de Honduras.
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="h-5 w-5" />
+              <h2 className="font-semibold text-xl">Verificación Completada</h2>
+            </div>
+            <p className="text-sm text-white/90">
+              Todos los datos están disponibles para descarga y auditoría pública.
             </p>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="mt-2 font-semibold border-2 shadow-md text-foreground border-foreground/20 hover:border-foreground"
-            >
-              <Link href="/dashboard/verificar">
-                Verificar actas
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-wrap gap-3 mt-2">
+              <a
+                href="https://archive.org/download/actas-abiertas-datos-2025/actas-datos.zip"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white text-emerald-700 rounded-lg hover:bg-emerald-50 transition-colors text-sm font-semibold shadow-md"
+              >
+                <Download className="h-4 w-4" />
+                Datos CSV
+              </a>
+              <a
+                href="https://archive.org/details/imagenes-actas-elecciones-2025"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/30 text-white rounded-lg hover:bg-emerald-500/40 transition-colors text-sm font-medium border border-white/20"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Imágenes
+              </a>
+            </div>
           </div>
-          <FileCheck className="h-14 w-14 text-white" />
+          <Download className="h-12 w-12 text-white/30" />
         </div>
       </CardContent>
     </Card>

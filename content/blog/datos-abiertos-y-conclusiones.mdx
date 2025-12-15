@@ -1,0 +1,187 @@
+---
+title: 'Datos Abiertos y Conclusiones del Proyecto'
+description: 'Hemos completado la verificación ciudadana. Ahora, publicamos todos los datos para auditoría pública.'
+date: '2025-01-15'
+author: 'Equipo Actas Abiertas'
+---
+
+## Transparencia Total: Datos Abiertos para Todos
+
+Desde el inicio de este proyecto, nuestro objetivo fue claro: **máxima transparencia**. A diferencia de otros procesos electorales que han estado rodeados de incertidumbre, decidimos que todo lo que hacemos debería ser de código abierto y públicamente auditable.
+
+Hoy damos un paso más: **estamos liberando todos los datos recopilados** para que cualquier persona, organización, o investigador pueda analizarlos de forma independiente y sacar sus propias conclusiones.
+
+---
+
+## Nueva Funcionalidad: Explorador de Actas
+
+Hemos agregado una nueva sección llamada **"Explorar Actas"** que permite navegar por todas las actas verificadas con filtros y ordenamientos:
+
+- **Filtrar por estado**: validadas, bajo revisión, con discrepancias
+- **Filtrar por tus propias acciones**: actas que validaste o reportaste
+- **Filtrar por etiquetas del CNE**: incluyendo las marcadas como "Inconsistencia"
+- **Ordenar por confiabilidad**: basado en el consenso de validadores
+- **Ordenar por cantidad de reportes**: para identificar actas problemáticas
+
+Esta herramienta está diseñada para que cualquiera pueda explorar los datos sin necesidad de descargar archivos.
+
+---
+
+## Estructura de los Datos Públicos
+
+Estamos publicando los siguientes archivos para descarga:
+
+### Datos Tabulares (CSV)
+
+| Archivo | Contenido |
+|---------|-----------|
+| `actas.csv` | 19,167 registros de actas con votos oficiales (CNE) y verificados (ciudadanos) |
+| `validaciones.csv` | 57,294 validaciones individuales realizadas por 471 usuarios |
+| `reportes.csv` | 3,146 reportes de problemas en actas |
+| `departamentos.csv` | Referencia geográfica: 19 departamentos |
+| `municipios.csv` | Referencia geográfica: 310 municipios |
+| `centros_votacion.csv` | Referencia geográfica: 5,768 centros de votación |
+
+### Imágenes
+
+Todas las 19,131 imágenes de actas disponibles, nombradas según su identificador del CNE.
+
+### Privacidad y Anonimización
+
+**Los identificadores de usuario han sido anonimizados.** En lugar de IDs reales, usamos hashes SHA-256 que no permiten identificar a nadie. Sin embargo, el mismo usuario tendrá el mismo hash en todos los archivos, lo que permite análisis como:
+
+- ¿Cuántas validaciones hizo cada usuario?
+- ¿Qué tan consistentes fueron las validaciones de un usuario?
+- ¿Hubo usuarios con patrones inusuales?
+
+Esta información está disponible para análisis público sin comprometer la privacidad de nadie.
+
+---
+
+## Estadísticas de Reportes
+
+Durante el proceso de verificación, los usuarios podían reportar problemas con actas (imagen ilegible, datos inconsistentes, etc.). Aquí están los números finales:
+
+- **1,550 actas** recibieron al menos 1 reporte
+- **633 actas** recibieron 2 o más reportes y fueron excluidas del pool de validación
+- **917 actas** tienen exactamente 1 reporte pero alcanzaron consenso de 3 validaciones
+
+Las actas con 2+ reportes están marcadas como "bajo revisión" en nuestros datos y no se consideran validadas.
+
+---
+
+## Corrección de Bug: Actas Sobre-Reportadas
+
+Durante el proceso, identificamos un bug transitorio donde **actas con múltiples reportes no estaban siendo removidas del pool de validación** correctamente. 
+
+Esto causó que algunas actas acumularan 3 validaciones (quedando como "validadas") pero también tuvieran 2 o más reportes de problemas. Corregimos esto moviendo **365 actas (1.9% del total)** del estado "validada" a "bajo revisión" para reflejar que merecen escrutinio adicional.
+
+Este bug ya está corregido: cualquier acta que reciba 2+ reportes ahora es inmediatamente removida del pool de validación.
+
+---
+
+## Sobre las Actas con "Inconsistencia" del CNE
+
+Muchas actas vinieron marcadas con la etiqueta "Inconsistencia" directamente del CNE. Estos casos típicamente involucraban discrepancias menores, como:
+
+- El número de votantes registrados no coincidía exactamente con papeletas utilizadas
+- Diferencias de ±1 en algún campo de control
+
+**Incentivamos a los usuarios a ingresar los valores de votos de todas formas**, porque queríamos explorar una pregunta: *¿Las actas marcadas como inconsistentes muestran algún patrón diferente en la distribución de votos?*
+
+### Lo Que Observamos
+
+Según nuestros datos, las actas marcadas como inconsistentes **parecen seguir una distribución porcentual similar al resultado general**. Basándonos en esto, no observamos un patrón que sugiera que estas actas favorezcan desproporcionadamente a un partido sobre otro.
+
+Es importante aclarar que esto es solo lo que nuestros datos muestran. El CNE y las autoridades competentes son quienes deben resolver cada caso oficialmente. Lo que sí podemos decir es que, según nuestra verificación ciudadana, estas actas en conjunto no parecerían alterar significativamente la tendencia general.
+
+---
+
+## Nuestra Metodología: Por Qué 3 Validaciones
+
+Una pregunta frecuente es: *¿Por qué requerimos 3 validaciones por acta?*
+
+La respuesta es simple: **reducir el error humano**.
+
+Cada acta fue validada por **3 usuarios independientes**. Un usuario no podía validar una acta que él mismo digitó. Además, para que un acta se considerara "validada", **al menos 2 de las 3 validaciones tenían que coincidir exactamente** en todos los valores. Si las 3 validaciones diferían entre sí, el acta quedaba marcada como "sin consenso" y requería revisión adicional.
+
+Este diseño significa que para que un error pase desapercibido, al menos 2 personas diferentes tendrían que cometer exactamente el mismo error—algo estadísticamente menos probable.
+
+Aun así, somos un sistema basado en entrada humana. Errores menores son inevitables, y todos los que contribuyeron fueron voluntarios no remunerados. Por eso publicamos todo: para que cualquiera pueda verificar, cuestionar, y corregir nuestros datos.
+
+---
+
+## Alcance del Proyecto
+
+Por simplicidad y limitaciones de tiempo, **nos enfocamos únicamente en las actas presidenciales**. Solo capturamos los votos por partido para presidente, más votos nulos y en blanco.
+
+No incluimos actas de diputados ni alcaldes, ni otros campos adicionales que aparecen en las actas completas.
+
+---
+
+## Aviso Importante: No Somos Fuente Oficial
+
+Queremos ser absolutamente claros: **Actas Abiertas no es una fuente oficial de resultados electorales**.
+
+Las autoridades competentes son las únicas que pueden dar resultados finales. Este proyecto fue un ejercicio de transparencia ciudadana—una forma de ofrecer una perspectiva adicional en un proceso que ha generado muchas preguntas.
+
+Cualquier conclusión que se saque de nuestros datos debe entenderse en ese contexto: son datos recopilados por ciudadanos voluntarios, sujetos a error humano, y no reemplazan los procesos oficiales.
+
+---
+
+## Sobre las Tendencias Estadísticas
+
+Aunque no podemos garantizar exactitud al 100% en cada acta individual, las tendencias estadísticas pueden ser reveladoras. Con más de 57,000 validaciones de 471 voluntarios, los patrones que emergen pueden ser significativos.
+
+Lo que observamos es que nuestros resultados son consistentes con los resultados oficiales reportados. Esto no prueba nada definitivo, pero es un dato que consideramos relevante compartir.
+
+---
+
+## Sobre la Infraestructura y el Futuro
+
+Todo esto ha sido posible gracias a voluntarios con trabajos de tiempo completo que donaron su tiempo y recursos. La infraestructura tiene costos reales, y nosotros los absorbemos.
+
+**Mantendremos el sitio activo por 1-2 meses más**, dependiendo del tráfico. Después de eso, probablemente se convertirá en un sitio estático con enlaces a los datos descargables.
+
+**No aceptamos donaciones.** Este proyecto se hizo por convicción, no por beneficio. Creemos en la auditoría pública y quisimos demostrar que es posible.
+
+---
+
+## Otros Proyectos Similares
+
+Si te interesa contribuir a iniciativas de transparencia electoral, te invitamos a conocer otros proyectos que están haciendo trabajo similar:
+
+- **[CNE Ciudadano](https://cneciudadano.com/)** - Otra iniciativa ciudadana de verificación electoral. Su plataforma incluye verificación de actas de **diputados y alcaldes**, además de las presidenciales, y captura más campos de datos. Si buscas contribuir con un alcance más amplio, te recomendamos visitarlos.
+
+Si conoces otros proyectos que deberían estar en esta lista, háznoslo saber.
+
+---
+
+## Descarga los Datos
+
+Todos los datos están disponibles para descarga pública en Internet Archive:
+
+### 📊 Datos Tabulares (CSV)
+**[Descargar actas-datos.zip](https://archive.org/download/actas-abiertas-datos-2025/actas-datos.zip)** (1.8 MB)
+
+Contiene todos los archivos CSV con votos, validaciones, reportes y referencias geográficas.
+
+### 🖼️ Imágenes de Actas
+**[Descargar actas-imagenes.zip](https://archive.org/download/imagenes-actas-elecciones-2025/actas-imagenes.zip)**
+
+Contiene las 19,131 imágenes de actas en formato JPEG.
+
+**[Ver en Internet Archive](https://archive.org/details/imagenes-actas-elecciones-2025)**
+
+### 📁 Página del Archivo
+**[Ver en Internet Archive](https://archive.org/details/actas-abiertas-datos-2025)**
+
+---
+
+## Gracias
+
+A los 471 voluntarios que validaron más de 57,000 actas: **gracias**. Esto no hubiera sido posible sin ustedes.
+
+A todos los que siguen preguntando, cuestionando, y exigiendo transparencia: sigan haciéndolo. Es la única forma de construir democracias más fuertes.
+
+*— Equipo Actas Abiertas*

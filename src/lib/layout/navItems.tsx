@@ -8,6 +8,7 @@ import {
   AlertTriangle,
   Newspaper,
   Search,
+  Database,
 } from 'lucide-react'
 
 export interface NavItem {
@@ -30,6 +31,12 @@ export const navItems: NavItem[] = [
   },
   { href: '/dashboard/leaderboard', label: 'Leaderboard', icon: Trophy },
   { href: '/dashboard/buscar-acta', label: 'Buscar Acta', icon: Search, featureId: 'buscar-acta' },
+  {
+    href: '/dashboard/explorar',
+    label: 'Explorar Actas',
+    icon: Database,
+    featureId: 'explorar-actas',
+  },
   { href: '/dashboard/blog', label: 'Blog', icon: Newspaper, hasBlogIndicator: true },
   { href: '/dashboard/perfil', label: 'Mi Perfil', icon: User },
   { href: '/dashboard/faq', label: 'Preguntas Frecuentes', icon: HelpCircle },
